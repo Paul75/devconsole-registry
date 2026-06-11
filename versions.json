@@ -27,12 +27,12 @@
     "php": {
       "versions": {
         "8.4.22": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.22/php-8.4.22-fpm-linux-x86_64.tar.gz",
+          "url": "https://github.com/Paul75/devconsole-registry/raw/refs/heads/main/releases/download/php-8.4.22/php-8.4.22-fpm-linux-x86_64.tar.gz",
           "sha256": null,
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"]
         },
         "8.3.31": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.3.31/php-8.3.31-fpm-linux-x86_64.tar.gz",
+          "url": "https://github.com/Paul75/devconsole-registry/raw/refs/heads/main/releases/download/php-8.3.31/php-8.3.31-fpm-linux-x86_64.tar.gz",
           "sha256": null,
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"]
         }
@@ -88,18 +88,13 @@
     "python": {
       "versions": {
         "3.12.8": {
-          "url": "https://github.com/indygreg/python-build-standalone/releases/download/20250112/cpython-3.12.8+20250112-x86_64-unknown-linux-gnu-install_only.tar.gz",
-          "sha256": null,
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.14.6+20260610-x86_64-unknown-linux-gnu-freethreaded-install_only.tar.gz",
+          "sha256": "cd60c024956a06318cba8d136ca6f2861e11123a5baadff76c822fa3ce4780c5",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         },
-        "3.11.11": {
-          "url": "https://github.com/indygreg/python-build-standalone/releases/download/20250112/cpython-3.11.11+20250112-x86_64-unknown-linux-gnu-install_only.tar.gz",
-          "sha256": null,
-          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
-        },
-        "3.10.16": {
-          "url": "https://github.com/indygreg/python-build-standalone/releases/download/20250112/cpython-3.10.16+20250112-x86_64-unknown-linux-gnu-install_only.tar.gz",
-          "sha256": null,
+        "3.9.25": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20251031/cpython-3.9.25+20251031-x86_64_v4-unknown-linux-musl-install_only.tar.gz",
+          "sha256": "38268eeeb307b674a73635da7efae5250930938cead21cfa73be78681bebd035",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         }
       }
