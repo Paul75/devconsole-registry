@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install build dependencies
         run: |
@@ -62,7 +62,7 @@ jobs:
             -C buildroot bin/php sbin/php-fpm bin/php-cgi
 
       - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: php-${{ steps.version.outputs.full }}
           name: PHP ${{ steps.version.outputs.full }} (static FPM)
