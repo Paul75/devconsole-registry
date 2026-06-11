@@ -101,14 +101,9 @@
     },
     "git": {
       "versions": {
-        "2.48.1": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.48.1/git-2.48.1-linux-x86_64.tar.gz",
-          "sha256": null,
-          "binaries": ["bin/git", "bin/git-lfs"]
-        },
-        "2.47.2": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.47.2/git-2.47.2-linux-x86_64.tar.gz",
-          "sha256": null,
+        "2.54.0": {
+          "url": "https://github.com/darkvertex/static-git/releases/download/2.54.0/git-binaries.linux-64bit.tar.gz",
+          "sha256": "246e9d3eaae5d2bc8f054d61e62d4a8cfbb93023bada2f0ef0ea6099f871bf63",
           "binaries": ["bin/git", "bin/git-lfs"]
         }
       }
