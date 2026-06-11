@@ -1,0 +1,84 @@
+name: Build PHP
+
+on:
+  workflow_dispatch:
+    inputs:
+      php_version:
+        description: 'PHP minor version (e.g., 8.4)'
+        required: true
+        type: string
+        default: '8.4'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y autoconf automake libtool cmake make gcc g++ \
+            pkg-config re2c bison libxml2-dev libsqlite3-dev libcurl4-openssl-dev \
+            libreadline-dev libzip-dev libonig-dev libssl-dev
+
+      - name: Download spc
+        run: |
+          curl -fsSL -o spc https://dl.static-php.dev/v3/spc-bin/nightly/spc-linux-x86_64
+          chmod +x spc
+
+      - name: Generate craft config
+        run: |
+          cat > craft.yml << 'CRAFT'
+          php-version: "${{ inputs.php_version }}"
+          extensions: "bcmath,ctype,curl,dom,exif,fileinfo,filter,gd,iconv,mbstring,mysqli,mysqlnd,opcache,openssl,pcntl,pdo,pdo_mysql,pdo_sqlite,phar,posix,readline,session,simplexml,sockets,sodium,sqlite3,tokenizer,xml,xmlwriter,xmlreader,xsl,zip,zlib"
+          sapi: [cli, fpm, cgi]
+          download-options:
+            parallel: 10
+          craft-options:
+            clean: true
+          CRAFT
+
+      - name: Build PHP
+        run: ./spc craft craft.yml
+
+      - name: Get full PHP version
+        id: version
+        run: |
+          FULL_VERSION=$(./buildroot/bin/php -r 'echo PHP_VERSION;')
+          echo "full=$FULL_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Create archive
+        run: |
+          FULL_VERSION="${{ steps.version.outputs.full }}"
+          tar czf "php-${FULL_VERSION}-fpm-linux-x86_64.tar.gz" \
+            -C buildroot bin/php sbin/php-fpm bin/php-cgi
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: php-${{ steps.version.outputs.full }}
+          name: PHP ${{ steps.version.outputs.full }} (static FPM)
+          body: |
+            Static PHP ${{ steps.version.outputs.full }} build with FPM support for DevConsole.
+
+            ## Extensions
+            bcmath, ctype, curl, dom, exif, fileinfo, filter, gd, iconv,
+            mbstring, mysqli, mysqlnd, opcache, openssl, pcntl, pdo,
+            pdo_mysql, pdo_sqlite, phar, posix, readline, session,
+            simplexml, sockets, sodium, sqlite3, tokenizer, xml,
+            xmlwriter, xmlreader, xsl, zip, zlib
+
+            ## SAPIs
+            - `bin/php` (CLI)
+            - `sbin/php-fpm` (FPM)
+            - `bin/php-cgi` (CGI)
+
+            ## Build config
+            See [`craft.yml`](https://github.com/Paul75/devconsole-registry/blob/main/craft.yml)
+          files: php-*.tar.gz
+          make_latest: false
