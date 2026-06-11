@@ -59,7 +59,7 @@ jobs:
         run: |
           FULL_VERSION="${{ steps.version.outputs.full }}"
           tar czf "php-${FULL_VERSION}-fpm-linux-x86_64.tar.gz" \
-            -C buildroot bin/php sbin/php-fpm bin/php-cgi
+            -C buildroot bin/php bin/php-fpm bin/php-cgi
 
       - name: Create Release
         uses: softprops/action-gh-release@v3
@@ -78,7 +78,7 @@ jobs:
 
             ## SAPIs
             - `bin/php` (CLI)
-            - `sbin/php-fpm` (FPM)
+            - `bin/php-fpm` (FPM)
             - `bin/php-cgi` (CGI)
 
             ## Build config
