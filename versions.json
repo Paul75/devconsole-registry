@@ -40,13 +40,18 @@
     },
     "mysql": {
       "versions": {
-        "8.4.3": {
-          "url": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.3-linux-glibc2.28-x86_64.tar.xz",
+        "9.7.0": {
+          "url": "https://dev.mysql.com/get/Downloads/MySQL-9.7/mysql-9.7.0-linux-glibc2.28-x86_64.tar.xz",
           "sha256": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"]
         },
-        "8.0.36": {
-          "url": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.36-linux-glibc2.17-x86_64.tar.xz",
+        "8.4.9": {
+          "url": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.9-linux-glibc2.28-x86_64.tar.xz",
+          "sha256": null,
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"]
+        },
+        "8.0.46": {
+          "url": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.46-linux-glibc2.28-x86_64.tar.xz",
           "sha256": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"]
         }
@@ -54,19 +59,14 @@
     },
     "mariadb": {
       "versions": {
-        "11.4.3": {
-          "url": "https://archive.mariadb.org/mariadb-11.4.3/bintar-linux-x86_64/mariadb-11.4.3-linux-x86_64.tar.gz",
-          "sha256": null,
+        "12.3.2": {
+          "url": "https://archive.mariadb.org/mariadb-12.3.2/bintar-linux-systemd-x86_64/mariadb-12.3.2-linux-systemd-x86_64.tar.gz",
+          "sha256": "4a18365541d7280bbe947762e341bab94bc49f3ed31e6b5caf4e21f26246e458",
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"]
         },
-        "10.11.9": {
-          "url": "https://archive.mariadb.org/mariadb-10.11.9/bintar-linux-x86_64/mariadb-10.11.9-linux-x86_64.tar.gz",
-          "sha256": null,
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"]
-        },
-        "10.6.19": {
-          "url": "https://archive.mariadb.org/mariadb-10.6.19/bintar-linux-x86_64/mariadb-10.6.19-linux-x86_64.tar.gz",
-          "sha256": null,
+        "11.4.12": {
+          "url": "https://archive.mariadb.org/mariadb-11.4.12/bintar-linux-systemd-x86_64/mariadb-11.4.12-linux-systemd-x86_64.tar.gz",
+          "sha256": "afb81282f977c599ecbb0390588b0005b304b4e87d64615a2649ecd2bd1dc16f",
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"]
         }
       }
