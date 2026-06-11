@@ -73,13 +73,13 @@
     },
     "caddy": {
       "versions": {
-        "2.9.1": {
-          "url": "https://github.com/caddyserver/caddy/releases/download/v2.9.1/caddy_2.9.1_linux_amd64.tar.gz",
-          "sha256": null,
+        "2.11.4": {
+          "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_linux_amd64.tar.gz",
+          "sha256": "527fbf917c39189a1e3b31d34fa955601680b2d5c8055d2a87b8b9588dec7bb9",
           "binaries": ["caddy"]
         },
-        "2.8.4": {
-          "url": "https://github.com/caddyserver/caddy/releases/download/v2.8.4/caddy_2.8.4_linux_amd64.tar.gz",
+        "2.9.1": {
+          "url": "https://github.com/caddyserver/caddy/releases/download/v2.9.1/caddy_2.9.1_linux_amd64.tar.gz",
           "sha256": null,
           "binaries": ["caddy"]
         }
