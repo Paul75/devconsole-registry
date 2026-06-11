@@ -2,19 +2,24 @@
   "tools": {
     "node": {
       "versions": {
+        "24.16.0": {
+          "url": "https://nodejs.org/dist/v24.16.0/node-v24.16.0-linux-x64.tar.xz",
+          "sha256": "d804845d34eddc21dc1092b519d643ef40b1f58ec5dec5c22b1f4bd8fabde6c9",
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"]
+        },
         "22.14.0": {
           "url": "https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-x64.tar.xz",
-          "sha256": "f7f3f6d5b3e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5",
+          "sha256": "69b09dba5c8dcb05c4e4273a4340db1005abeafe3927efda2bc5b249e80437ec",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"]
         },
         "20.19.0": {
           "url": "https://nodejs.org/dist/v20.19.0/node-v20.19.0-linux-x64.tar.xz",
-          "sha256": "f7f3f6d5b3e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5",
+          "sha256": "b4e336584d62abefad31baecff7af167268be9bb7dd11f1297112e6eed3ca0d5",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"]
         },
         "18.20.8": {
           "url": "https://nodejs.org/dist/v18.20.8/node-v18.20.8-linux-x64.tar.xz",
-          "sha256": "f7f3f6d5b3e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5f5e5",
+          "sha256": "5467ee62d6af1411d46b6a10e3fb5cacc92734dbcef465fea14e7b90993001c9",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"]
         }
       }
