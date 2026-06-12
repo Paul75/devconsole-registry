@@ -26,6 +26,11 @@
     },
     "php": {
       "versions": {
+        "8.5.7": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.7/php-8.5.7-fpm-linux-x86_64.tar.gz",
+          "sha256": "291865d2fef9841e7f7e66a459a0492ab4be12c9eabef400e41195edd0bb371a",
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"]
+        },
         "8.4.22": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.22/php-8.4.22-fpm-linux-x86_64.tar.gz",
           "sha256": "9360590a8b8d21f7f88ce1f499c029bf4cab9aa31097b18767ff1344d83f5ac0",
