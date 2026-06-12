@@ -28,7 +28,7 @@
       "versions": {
         "8.4.22": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.22/php-8.4.22-fpm-linux-x86_64.tar.gz",
-          "sha256": "33e0c3a69270c5deda21be07afc0fc9e5103c9a21309d71e3c75935834b40f28",
+          "sha256": "9360590a8b8d21f7f88ce1f499c029bf4cab9aa31097b18767ff1344d83f5ac0",
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"]
         },
         "8.3.31": {
