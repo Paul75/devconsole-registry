@@ -58,8 +58,11 @@ jobs:
       - name: Create archive
         run: |
           FULL_VERSION="${{ steps.version.outputs.full }}"
+          # static-php-cli puts php-fpm in bin/, but DevConsole expects sbin/php-fpm
+          mkdir -p buildroot/sbin
+          cp buildroot/bin/php-fpm buildroot/sbin/php-fpm
           tar czf "php-${FULL_VERSION}-fpm-linux-x86_64.tar.gz" \
-            -C buildroot bin/php bin/php-fpm bin/php-cgi
+            -C buildroot bin/php bin/php-cgi sbin/php-fpm
 
       - name: Create Release
         uses: softprops/action-gh-release@v3
@@ -78,7 +81,7 @@ jobs:
 
             ## SAPIs
             - `bin/php` (CLI)
-            - `bin/php-fpm` (FPM)
+            - `sbin/php-fpm` (FPM)
             - `bin/php-cgi` (CGI)
 
             ## Build config
