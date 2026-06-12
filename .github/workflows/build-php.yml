@@ -46,8 +46,6 @@ jobs:
           php-version: "${{ inputs.php_version }}"
           extensions: "bcmath,ctype,curl,dom,exif,fileinfo,filter,gd,iconv,mbstring,mysqli,mysqlnd,opcache,openssl,pcntl,pdo,pdo_mysql,pdo_sqlite,phar,posix,readline,session,simplexml,sockets,sodium,sqlite3,tokenizer,xml,xmlwriter,xmlreader,xsl,zip,zlib"
           sapi: [cli, fpm, cgi]
-          download-options:
-            parallel: 10
           craft-options:
             clean: true
           CRAFT
