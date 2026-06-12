@@ -11,6 +11,11 @@ on:
         required: true
         type: string
         default: '8.4'
+      spc_version:
+        description: 'static-php-cli version (e.g., 2.8.5)'
+        required: false
+        type: string
+        default: '2.8.5'
 
 permissions:
   contents: write
@@ -31,7 +36,8 @@ jobs:
 
       - name: Download spc
         run: |
-          curl -fsSL -o spc https://dl.static-php.dev/v3/spc-bin/nightly/spc-linux-x86_64
+          curl -fsSL -o spc.tar.gz "https://github.com/crazywhalecc/static-php-cli/releases/download/${{ inputs.spc_version }}/spc-linux-x86_64.tar.gz"
+          tar -xzf spc.tar.gz
           chmod +x spc
 
       - name: Generate craft config
