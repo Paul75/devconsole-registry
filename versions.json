@@ -87,14 +87,19 @@
     },
     "python": {
       "versions": {
+        "3.14.6": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.14.6+20260610-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
+          "sha256": "fb1a610d4473d8e479a77dbba08ecb9dca7d67e8aaa7d4116e8458d2ed1ac464",
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
+        },
+        "3.13.14": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.13.14+20260610-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
+          "sha256": "fb1a610d4473d8e479a77dbba08ecb9dca7d67e8aaa7d4116e8458d2ed1ac464",
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
+        },
         "3.12.13": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.12.13+20260610-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
           "sha256": "97c5c55c3d7b17f29d9dc8aa1db4f59ebffac6ce0d07184f96fc20ecc42952d9",
-          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
-        },
-        "3.12.8": {
-          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.14.6+20260610-x86_64-unknown-linux-gnu-freethreaded-install_only.tar.gz",
-          "sha256": "cd60c024956a06318cba8d136ca6f2861e11123a5baadff76c822fa3ce4780c5",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         },
         "3.9.25": {
