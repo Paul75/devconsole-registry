@@ -93,8 +93,8 @@
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         },
         "3.9.25": {
-          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20251031/cpython-3.9.25+20251031-x86_64-unknown-linux-gnu-install_only.tar.gz",
-          "sha256": "42834f61eb6df43432c3dd6ab9ca3fdf8c06d10a404ebdb53d6902e6b9570b08",
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20251031/cpython-3.9.25+20251031-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
+          "sha256": "443543696f01011295d5eb5345f12c41e6aeb31c209b698495a7de8a5fa50e58",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         }
       }
