@@ -2,11 +2,23 @@
   "tools": {
     "node": {
       "versions": {
+        "24.18.0": {
+          "url": "https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz",
+          "sha256": "55aa7153f9d88f28d765fcdad5ae6945b5c0f98a36881703817e4c450fa76742",
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
+          "lts": true
+        },
         "24.16.0": {
           "url": "https://nodejs.org/dist/v24.16.0/node-v24.16.0-linux-x64.tar.xz",
           "sha256": "d804845d34eddc21dc1092b519d643ef40b1f58ec5dec5c22b1f4bd8fabde6c9",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": false
+        },
+        "22.23.1": {
+          "url": "https://nodejs.org/dist/v22.23.1/node-v22.23.1-linux-x64.tar.xz",
+          "sha256": "9749e988f437343b7fa832c69ded82a312e41a03116d766797ac14f6f9eee578",
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
+          "lts": true
         },
         "22.14.0": {
           "url": "https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-x64.tar.xz",
@@ -18,13 +30,15 @@
           "url": "https://nodejs.org/dist/v20.19.0/node-v20.19.0-linux-x64.tar.xz",
           "sha256": "b4e336584d62abefad31baecff7af167268be9bb7dd11f1297112e6eed3ca0d5",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
-          "lts": true
+          "lts": true,
+          "eol": true
         },
         "18.20.8": {
           "url": "https://nodejs.org/dist/v18.20.8/node-v18.20.8-linux-x64.tar.xz",
           "sha256": "5467ee62d6af1411d46b6a10e3fb5cacc92734dbcef465fea14e7b90993001c9",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
-          "lts": true
+          "lts": true,
+          "eol": true
         }
       }
     },
@@ -34,7 +48,7 @@
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.7/php-8.5.7-fpm-linux-x86_64.tar.gz",
           "sha256": "291865d2fef9841e7f7e66a459a0492ab4be12c9eabef400e41195edd0bb371a",
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
-          "lts": false
+          "lts": true
         },
         "8.4.22": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.22/php-8.4.22-fpm-linux-x86_64.tar.gz",
@@ -46,20 +60,20 @@
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.3.31/php-8.3.31-fpm-linux-x86_64.tar.gz",
           "sha256": "f23b8276f65bac24cd155c6cae1f4a79dd877e7c94f4838386cc6e9ade37fd12",
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
-          "lts": true
+          "lts": false
         }
       }
     },
     "mysql": {
       "versions": {
-        "9.7.0": {
-          "url": "https://dev.mysql.com/get/Downloads/MySQL-9.7/mysql-9.7.0-linux-glibc2.28-x86_64.tar.xz",
+        "9.7.1": {
+          "url": "https://dev.mysql.com/get/Downloads/MySQL-9.7/mysql-9.7.1-linux-glibc2.28-x86_64.tar.xz",
           "sha256": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
-          "lts": false
+          "lts": true
         },
-        "8.4.9": {
-          "url": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.9-linux-glibc2.28-x86_64.tar.xz",
+        "8.4.10": {
+          "url": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.10-linux-glibc2.28-x86_64.tar.xz",
           "sha256": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": true
@@ -68,7 +82,7 @@
           "url": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.46-linux-glibc2.28-x86_64.tar.xz",
           "sha256": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
-          "lts": true
+          "lts": false
         }
       }
     },
@@ -78,11 +92,11 @@
           "url": "https://archive.mariadb.org/mariadb-12.3.2/bintar-linux-systemd-x86_64/mariadb-12.3.2-linux-systemd-x86_64.tar.gz",
           "sha256": "4a18365541d7280bbe947762e341bab94bc49f3ed31e6b5caf4e21f26246e458",
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
-          "lts": false
+          "lts": true
         },
-        "11.4.12": {
-          "url": "https://archive.mariadb.org/mariadb-11.4.12/bintar-linux-systemd-x86_64/mariadb-11.4.12-linux-systemd-x86_64.tar.gz",
-          "sha256": "afb81282f977c599ecbb0390588b0005b304b4e87d64615a2649ecd2bd1dc16f",
+        "11.8.8": {
+          "url": "https://archive.mariadb.org/mariadb-11.8.8/bintar-linux-systemd-x86_64/mariadb-11.8.8-linux-systemd-x86_64.tar.gz",
+          "sha256": "fbd4e8d05946c974b0560c94f01ce4c687291b6528074c2e001fb8f35c0d2762",
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
           "lts": true
         }
