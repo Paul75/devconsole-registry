@@ -167,7 +167,7 @@
             "bin/jlink",
             "bin/jmod"
           ],
-          "lts": false
+          "lts": true
         },
         "21.0.11": {
           "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.11%2B10/OpenJDK21U-jdk_x64_linux_hotspot_21.0.11_10.tar.gz",
