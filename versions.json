@@ -5,22 +5,26 @@
         "24.16.0": {
           "url": "https://nodejs.org/dist/v24.16.0/node-v24.16.0-linux-x64.tar.xz",
           "sha256": "d804845d34eddc21dc1092b519d643ef40b1f58ec5dec5c22b1f4bd8fabde6c9",
-          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"]
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
+          "lts": false
         },
         "22.14.0": {
           "url": "https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-x64.tar.xz",
           "sha256": "69b09dba5c8dcb05c4e4273a4340db1005abeafe3927efda2bc5b249e80437ec",
-          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"]
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
+          "lts": true
         },
         "20.19.0": {
           "url": "https://nodejs.org/dist/v20.19.0/node-v20.19.0-linux-x64.tar.xz",
           "sha256": "b4e336584d62abefad31baecff7af167268be9bb7dd11f1297112e6eed3ca0d5",
-          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"]
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
+          "lts": true
         },
         "18.20.8": {
           "url": "https://nodejs.org/dist/v18.20.8/node-v18.20.8-linux-x64.tar.xz",
           "sha256": "5467ee62d6af1411d46b6a10e3fb5cacc92734dbcef465fea14e7b90993001c9",
-          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"]
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
+          "lts": true
         }
       }
     },
@@ -29,17 +33,20 @@
         "8.5.7": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.7/php-8.5.7-fpm-linux-x86_64.tar.gz",
           "sha256": "291865d2fef9841e7f7e66a459a0492ab4be12c9eabef400e41195edd0bb371a",
-          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"]
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
+          "lts": false
         },
         "8.4.22": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.22/php-8.4.22-fpm-linux-x86_64.tar.gz",
           "sha256": "9360590a8b8d21f7f88ce1f499c029bf4cab9aa31097b18767ff1344d83f5ac0",
-          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"]
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
+          "lts": true
         },
         "8.3.31": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.3.31/php-8.3.31-fpm-linux-x86_64.tar.gz",
           "sha256": "f23b8276f65bac24cd155c6cae1f4a79dd877e7c94f4838386cc6e9ade37fd12",
-          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"]
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
+          "lts": true
         }
       }
     },
@@ -48,17 +55,20 @@
         "9.7.0": {
           "url": "https://dev.mysql.com/get/Downloads/MySQL-9.7/mysql-9.7.0-linux-glibc2.28-x86_64.tar.xz",
           "sha256": null,
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"]
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
+          "lts": false
         },
         "8.4.9": {
           "url": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.9-linux-glibc2.28-x86_64.tar.xz",
           "sha256": null,
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"]
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
+          "lts": true
         },
         "8.0.46": {
           "url": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.46-linux-glibc2.28-x86_64.tar.xz",
           "sha256": null,
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"]
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
+          "lts": true
         }
       }
     },
@@ -67,12 +77,14 @@
         "12.3.2": {
           "url": "https://archive.mariadb.org/mariadb-12.3.2/bintar-linux-systemd-x86_64/mariadb-12.3.2-linux-systemd-x86_64.tar.gz",
           "sha256": "4a18365541d7280bbe947762e341bab94bc49f3ed31e6b5caf4e21f26246e458",
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"]
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
+          "lts": false
         },
         "11.4.12": {
           "url": "https://archive.mariadb.org/mariadb-11.4.12/bintar-linux-systemd-x86_64/mariadb-11.4.12-linux-systemd-x86_64.tar.gz",
           "sha256": "afb81282f977c599ecbb0390588b0005b304b4e87d64615a2649ecd2bd1dc16f",
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"]
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
+          "lts": true
         }
       }
     },
@@ -87,19 +99,14 @@
     },
     "python": {
       "versions": {
-        "3.14.6": {
-          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.14.6+20260610-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
-          "sha256": "fb1a610d4473d8e479a77dbba08ecb9dca7d67e8aaa7d4116e8458d2ed1ac464",
-          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
-        },
-        "3.13.14": {
-          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.13.14+20260610-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
-          "sha256": "fb1a610d4473d8e479a77dbba08ecb9dca7d67e8aaa7d4116e8458d2ed1ac464",
-          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
-        },
         "3.12.13": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.12.13+20260610-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
           "sha256": "97c5c55c3d7b17f29d9dc8aa1db4f59ebffac6ce0d07184f96fc20ecc42952d9",
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
+        },
+        "3.12.8": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.14.6+20260610-x86_64-unknown-linux-gnu-freethreaded-install_only.tar.gz",
+          "sha256": "cd60c024956a06318cba8d136ca6f2861e11123a5baadff76c822fa3ce4780c5",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         },
         "3.9.25": {
@@ -131,7 +138,8 @@
             "bin/jshell",
             "bin/jlink",
             "bin/jmod"
-          ]
+          ],
+          "lts": false
         },
         "25.0.3": {
           "url": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.3%2B9/OpenJDK25U-jdk_x64_linux_hotspot_25.0.3_9.tar.gz",
@@ -144,7 +152,8 @@
             "bin/jshell",
             "bin/jlink",
             "bin/jmod"
-          ]
+          ],
+          "lts": false
         },
         "21.0.11": {
           "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.11%2B10/OpenJDK21U-jdk_x64_linux_hotspot_21.0.11_10.tar.gz",
@@ -157,7 +166,8 @@
             "bin/jshell",
             "bin/jlink",
             "bin/jmod"
-          ]
+          ],
+          "lts": true
         },
         "17.0.19": {
           "url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.19%2B10/OpenJDK17U-jdk_x64_linux_hotspot_17.0.19_10.tar.gz",
@@ -170,12 +180,14 @@
             "bin/jshell",
             "bin/jlink",
             "bin/jmod"
-          ]
+          ],
+          "lts": true
         },
         "11.0.31": {
           "url": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.31%2B11/OpenJDK11U-jdk_x64_linux_hotspot_11.0.31_11.tar.gz",
           "sha256": "1e9de64586b519c0a981319489257cabedd9457599f3823424a87c3158fbe939",
-          "binaries": ["bin/java", "bin/javac", "bin/jar", "bin/javadoc", "bin/jshell"]
+          "binaries": ["bin/java", "bin/javac", "bin/jar", "bin/javadoc", "bin/jshell"],
+          "lts": true
         }
       }
     }
