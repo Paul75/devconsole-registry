@@ -120,6 +120,32 @@
     },
     "jdk": {
       "versions": {
+        "26.0.1": {
+          "url": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.1%2B8/OpenJDK26U-jdk_x64_linux_hotspot_26.0.1_8.tar.gz",
+          "sha256": "8e512f13e575a43655fc92319436c94890c137b9035cc6bd6f9cf24239704d3a",
+          "binaries": [
+            "bin/java",
+            "bin/javac",
+            "bin/jar",
+            "bin/javadoc",
+            "bin/jshell",
+            "bin/jlink",
+            "bin/jmod"
+          ]
+        },
+        "25.0.3": {
+          "url": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.3%2B9/OpenJDK25U-jdk_x64_linux_hotspot_25.0.3_9.tar.gz",
+          "sha256": "69264a7a211bf5029830d07bc3370f879769d62ebc5b5488e90c9343a2da0e1f",
+          "binaries": [
+            "bin/java",
+            "bin/javac",
+            "bin/jar",
+            "bin/javadoc",
+            "bin/jshell",
+            "bin/jlink",
+            "bin/jmod"
+          ]
+        },
         "21.0.11": {
           "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.11%2B10/OpenJDK21U-jdk_x64_linux_hotspot_21.0.11_10.tar.gz",
           "sha256": "4b2220e232a97997b436ca6ab15cbf70171ecff52958a46159dfa5a8c44ca4de",
@@ -133,9 +159,9 @@
             "bin/jmod"
           ]
         },
-        "17.0.14": {
-          "url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.14%2B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.14_7.tar.gz",
-          "sha256": null,
+        "17.0.19": {
+          "url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.19%2B10/OpenJDK17U-jdk_x64_linux_hotspot_17.0.19_10.tar.gz",
+          "sha256": "d8afc263758141a66e0e3aafc321e783f7016696f4eaea067d340a269037d331",
           "binaries": [
             "bin/java",
             "bin/javac",
@@ -146,9 +172,9 @@
             "bin/jmod"
           ]
         },
-        "11.0.26": {
-          "url": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.26%2B8/OpenJDK11U-jdk_x64_linux_hotspot_11.0.26_8.tar.gz",
-          "sha256": null,
+        "11.0.31": {
+          "url": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.31%2B11/OpenJDK11U-jdk_x64_linux_hotspot_11.0.31_11.tar.gz",
+          "sha256": "1e9de64586b519c0a981319489257cabedd9457599f3823424a87c3158fbe939",
           "binaries": ["bin/java", "bin/javac", "bin/jar", "bin/javadoc", "bin/jshell"]
         }
       }
