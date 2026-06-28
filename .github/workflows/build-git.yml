@@ -1,0 +1,67 @@
+name: Build Git
+
+on:
+  workflow_dispatch:
+    inputs:
+      git_version:
+        description: 'Git version (semver, e.g. 2.54.0)'
+        required: true
+        type: string
+        default: '2.54.0'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build Git statically (Alpine/musl)
+        run: |
+          docker run --rm -v $PWD:/out alpine:3.21 sh -c "
+            apk add --no-cache \
+              curl autoconf gcc flex bison make bash cmake \
+              libtool musl-dev g++ \
+              zlib-dev zlib-static tcl tk tcl-dev gettext &&
+            curl -fsSL -o git.tar.gz \
+              'https://github.com/git/git/archive/v${{ inputs.git_version }}.tar.gz' &&
+            tar zxf git.tar.gz &&
+            cd git-${{ inputs.git_version }} &&
+            make configure &&
+            sed -i 's/qversion/-version/g' configure &&
+            ./configure \
+              --prefix=/dist/git-${{ inputs.git_version }} \
+              LDFLAGS='--static' \
+              CFLAGS='-static' \
+              NO_GETTEXT=1 \
+              NO_TCLTK=1 &&
+            make -j\$(nproc) &&
+            make install &&
+            cd / &&
+            tar czf /out/git-${{ inputs.git_version }}-linux-x86_64.tar.gz \
+              -C /dist/git-${{ inputs.git_version }} \
+              bin/git libexec/git-core/
+          "
+
+      - name: Check archive contents
+        run: |
+          tar tzf git-*.tar.gz
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: git-${{ inputs.git_version }}
+          name: Git ${{ inputs.git_version }} (static)
+          body: |
+            Static Git ${{ inputs.git_version }} build for DevConsole.
+
+            Full build with submodule support — unlike `darkvertex/static-git`.
+
+            ## Build config
+            - Alpine Linux 3.21 (musl libc)
+            - Static linked, NO_GETTEXT=1, NO_TCLTK=1
+            - Includes `libexec/git-core/` with `git-submodule`
+          files: git-*.tar.gz
+          make_latest: false
