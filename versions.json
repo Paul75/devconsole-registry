@@ -134,7 +134,7 @@
       "versions": {
         "2.54.0": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.54.0/git-2.54.0-linux-x86_64.tar.gz",
-          "sha256": null,
+          "sha256": "057099b25a8913af9dceb64bd7463262e89ea8c4d6cf2668499363bef4b79100",
           "binaries": ["bin/git"]
         }
       }
