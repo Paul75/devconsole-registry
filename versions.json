@@ -132,6 +132,11 @@
     },
     "git": {
       "versions": {
+        "2.55.0": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.55.0/git-2.55.0-linux-x86_64.tar.gz",
+          "sha256": "8966a24461bb4fe1956f7f30c3b009e7c11ce617fb315639f948fe39667808c0",
+          "binaries": ["bin/git"]
+        },
         "2.54.0": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.54.0/git-2.54.0-linux-x86_64.tar.gz",
           "sha256": "057099b25a8913af9dceb64bd7463262e89ea8c4d6cf2668499363bef4b79100",
