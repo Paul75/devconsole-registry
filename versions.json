@@ -144,6 +144,36 @@
         }
       }
     },
+    "vscode": {
+      "versions": {
+        "1.128.0": {
+          "url": "https://update.code.visualstudio.com/1.128.0/linux-x64/stable",
+          "sha256": "a9b4ce974ecc10c7456da9879763bf0a7a432710bd26c95a89a8a168f2aff57b",
+          "binaries": ["bin/code"],
+          "lts": true
+        }
+      }
+    },
+    "zed": {
+      "versions": {
+        "1.9.0": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.9.0/zed-linux-x86_64.tar.gz",
+          "sha256": "39e553ce3a00feeb78eab63a5cb7237cb460f3c9596b1b19052ceb7b9e8ec4dd",
+          "binaries": ["bin/zed"],
+          "lts": true
+        }
+      }
+    },
+    "android_studio": {
+      "versions": {
+        "2026.1.1.2": {
+          "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.1.2/android-studio-quail1-canary2-linux.tar.gz",
+          "sha256": "8dd6f1c8aed5e04248e6c0a4df5a28efb947eae5d33344239635205a7e419773",
+          "binaries": ["bin/studio.sh"],
+          "lts": true
+        }
+      }
+    },
     "jdk": {
       "versions": {
         "26.0.1": {
