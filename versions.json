@@ -171,12 +171,6 @@
           "sha256": "5c89843d69782499f35d4f1e271d2e21d3e0a860a69efac97045751c91353c9f",
           "binaries": ["bin/zed"],
           "lts": true
-        },
-        "1.9.0": {
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.9.0/zed-linux-x86_64.tar.gz",
-          "sha256": "39e553ce3a00feeb78eab63a5cb7237cb460f3c9596b1b19052ceb7b9e8ec4dd",
-          "binaries": ["bin/zed"],
-          "lts": true
         }
       }
     },
