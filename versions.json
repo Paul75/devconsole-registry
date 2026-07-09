@@ -4,38 +4,48 @@
       "versions": {
         "24.18.0": {
           "url": "https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz",
+          "url_windows": "https://nodejs.org/dist/v24.18.0/node-v24.18.0-win-x64.zip",
           "sha256": "55aa7153f9d88f28d765fcdad5ae6945b5c0f98a36881703817e4c450fa76742",
+          "sha256_windows": "",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true
         },
         "24.16.0": {
           "url": "https://nodejs.org/dist/v24.16.0/node-v24.16.0-linux-x64.tar.xz",
-          "sha256": "d804845d34eddc21dc1092b519d643ef40b1f58ec5dec5c22b1f4bd8fabde6c9",
+          "url_windows": "https://nodejs.org/dist/v24.16.0/node-v24.16.0-win-x64.zip",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": false
         },
         "22.23.1": {
           "url": "https://nodejs.org/dist/v22.23.1/node-v22.23.1-linux-x64.tar.xz",
+          "url_windows": "https://nodejs.org/dist/v22.23.1/node-v22.23.1-win-x64.zip",
           "sha256": "9749e988f437343b7fa832c69ded82a312e41a03116d766797ac14f6f9eee578",
+          "sha256_windows": "",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true
         },
         "22.14.0": {
           "url": "https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-x64.tar.xz",
+          "url_windows": "https://nodejs.org/dist/v22.14.0/node-v22.14.0-win-x64.zip",
           "sha256": "69b09dba5c8dcb05c4e4273a4340db1005abeafe3927efda2bc5b249e80437ec",
+          "sha256_windows": "",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true
         },
         "20.19.0": {
           "url": "https://nodejs.org/dist/v20.19.0/node-v20.19.0-linux-x64.tar.xz",
+          "url_windows": "https://nodejs.org/dist/v20.19.0/node-v20.19.0-win-x64.zip",
           "sha256": "b4e336584d62abefad31baecff7af167268be9bb7dd11f1297112e6eed3ca0d5",
+          "sha256_windows": "",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true,
           "eol": true
         },
         "18.20.8": {
           "url": "https://nodejs.org/dist/v18.20.8/node-v18.20.8-linux-x64.tar.xz",
+          "url_windows": "https://nodejs.org/dist/v18.20.8/node-v18.20.8-win-x64.zip",
           "sha256": "5467ee62d6af1411d46b6a10e3fb5cacc92734dbcef465fea14e7b90993001c9",
+          "sha256_windows": "",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true,
           "eol": true
@@ -46,19 +56,25 @@
       "versions": {
         "8.5.7": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.7/php-8.5.7-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.7/php-8.5.7-fpm-win-x86_64.tar.gz",
           "sha256": "291865d2fef9841e7f7e66a459a0492ab4be12c9eabef400e41195edd0bb371a",
+          "sha256_windows": "",
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
           "lts": true
         },
         "8.4.22": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.22/php-8.4.22-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.22/php-8.4.22-fpm-win-x86_64.tar.gz",
           "sha256": "9360590a8b8d21f7f88ce1f499c029bf4cab9aa31097b18767ff1344d83f5ac0",
+          "sha256_windows": "",
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
           "lts": true
         },
         "8.3.31": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.3.31/php-8.3.31-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.3.31/php-8.3.31-fpm-win-x86_64.tar.gz",
           "sha256": "f23b8276f65bac24cd155c6cae1f4a79dd877e7c94f4838386cc6e9ade37fd12",
+          "sha256_windows": "",
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
           "lts": false
         }
@@ -68,19 +84,25 @@
       "versions": {
         "9.7.1": {
           "url": "https://dev.mysql.com/get/Downloads/MySQL-9.7/mysql-9.7.1-linux-glibc2.28-x86_64.tar.xz",
+          "url_windows": "https://dev.mysql.com/get/Downloads/MySQL-9.7/mysql-9.7.1-win-x86_64.tar.xz",
           "sha256": null,
+          "sha256_windows": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": true
         },
         "8.4.10": {
           "url": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.10-linux-glibc2.28-x86_64.tar.xz",
+          "url_windows": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.10-win-x86_64.tar.xz",
           "sha256": null,
+          "sha256_windows": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": true
         },
         "8.0.46": {
           "url": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.46-linux-glibc2.28-x86_64.tar.xz",
+          "url_windows": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.46-win-x86_64.tar.xz",
           "sha256": null,
+          "sha256_windows": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": false
         }
@@ -90,13 +112,17 @@
       "versions": {
         "12.3.2": {
           "url": "https://archive.mariadb.org/mariadb-12.3.2/bintar-linux-systemd-x86_64/mariadb-12.3.2-linux-systemd-x86_64.tar.gz",
+          "url_windows": "https://archive.mariadb.org/mariadb-12.3.2/bintar-win-x86_64/mariadb-12.3.2-win-x86_64.tar.gz",
           "sha256": "4a18365541d7280bbe947762e341bab94bc49f3ed31e6b5caf4e21f26246e458",
+          "sha256_windows": "",
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
           "lts": true
         },
         "11.8.8": {
           "url": "https://archive.mariadb.org/mariadb-11.8.8/bintar-linux-systemd-x86_64/mariadb-11.8.8-linux-systemd-x86_64.tar.gz",
+          "url_windows": "https://archive.mariadb.org/mariadb-11.8.8/bintar-win-x86_64/mariadb-11.8.8-win-x86_64.tar.gz",
           "sha256": "fbd4e8d05946c974b0560c94f01ce4c687291b6528074c2e001fb8f35c0d2762",
+          "sha256_windows": "",
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
           "lts": true
         }
@@ -106,7 +132,9 @@
       "versions": {
         "2.11.4": {
           "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_windows_amd64.zip",
           "sha256": "527fbf917c39189a1e3b31d34fa955601680b2d5c8055d2a87b8b9588dec7bb9",
+          "sha256_windows": "",
           "binaries": ["caddy"]
         }
       }
@@ -115,17 +143,23 @@
       "versions": {
         "3.12.13": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.12.13+20260610-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
+          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.12.13+20260610-x86_64_v4-windows-msvc-install_only.tar.gz",
           "sha256": "97c5c55c3d7b17f29d9dc8aa1db4f59ebffac6ce0d07184f96fc20ecc42952d9",
+          "sha256_windows": "",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         },
         "3.12.8": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.14.6+20260610-x86_64-unknown-linux-gnu-freethreaded-install_only.tar.gz",
+          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.14.6+20260610-x86_64-windows-msvc-freethreaded-install_only.tar.gz",
           "sha256": "cd60c024956a06318cba8d136ca6f2861e11123a5baadff76c822fa3ce4780c5",
+          "sha256_windows": "",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         },
         "3.9.25": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20251031/cpython-3.9.25+20251031-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
+          "url_windows": "",
           "sha256": "443543696f01011295d5eb5345f12c41e6aeb31c209b698495a7de8a5fa50e58",
+          "sha256_windows": "",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         }
       }
@@ -134,12 +168,16 @@
       "versions": {
         "2.55.0": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.55.0/git-2.55.0-linux-x86_64.tar.gz",
+          "url_windows": "",
           "sha256": "8966a24461bb4fe1956f7f30c3b009e7c11ce617fb315639f948fe39667808c0",
+          "sha256_windows": "",
           "binaries": ["bin/git"]
         },
         "2.54.0": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.54.0/git-2.54.0-linux-x86_64.tar.gz",
+          "url_windows": "",
           "sha256": "057099b25a8913af9dceb64bd7463262e89ea8c4d6cf2668499363bef4b79100",
+          "sha256_windows": "",
           "binaries": ["bin/git"]
         }
       }
@@ -148,7 +186,9 @@
       "versions": {
         "1.128.0": {
           "url": "https://update.code.visualstudio.com/1.128.0/linux-x64/stable",
+          "url_windows": "",
           "sha256": "a9b4ce974ecc10c7456da9879763bf0a7a432710bd26c95a89a8a168f2aff57b",
+          "sha256_windows": "",
           "binaries": ["bin/code"],
           "lts": true
         }
@@ -158,7 +198,9 @@
       "versions": {
         "1.126.04524": {
           "url": "https://github.com/VSCodium/vscodium/releases/download/1.126.04524/VSCodium-linux-x64-1.126.04524.tar.gz",
+          "url_windows": "",
           "sha256": "adf3548df055d18e476cdee887488ba7486b879ad99a31a546c6b5c5ff296c24",
+          "sha256_windows": "",
           "binaries": ["bin/codium"],
           "lts": true
         }
@@ -168,7 +210,9 @@
       "versions": {
         "1.10.0": {
           "url": "https://github.com/zed-industries/zed/releases/download/v1.10.0/zed-linux-x86_64.tar.gz",
+          "url_windows": "",
           "sha256": "5c89843d69782499f35d4f1e271d2e21d3e0a860a69efac97045751c91353c9f",
+          "sha256_windows": "",
           "binaries": ["bin/zed"],
           "lts": true
         }
@@ -178,7 +222,9 @@
       "versions": {
         "2026.1.1.2": {
           "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.1.2/android-studio-quail1-canary2-linux.tar.gz",
+          "url_windows": "",
           "sha256": "8dd6f1c8aed5e04248e6c0a4df5a28efb947eae5d33344239635205a7e419773",
+          "sha256_windows": "",
           "binaries": ["bin/studio.sh"],
           "lts": true
         }
@@ -188,7 +234,9 @@
       "versions": {
         "26.0.1": {
           "url": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.1%2B8/OpenJDK26U-jdk_x64_linux_hotspot_26.0.1_8.tar.gz",
+          "url_windows": "",
           "sha256": "8e512f13e575a43655fc92319436c94890c137b9035cc6bd6f9cf24239704d3a",
+          "sha256_windows": "",
           "binaries": [
             "bin/java",
             "bin/javac",
@@ -202,7 +250,9 @@
         },
         "25.0.3": {
           "url": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.3%2B9/OpenJDK25U-jdk_x64_linux_hotspot_25.0.3_9.tar.gz",
+          "url_windows": "",
           "sha256": "69264a7a211bf5029830d07bc3370f879769d62ebc5b5488e90c9343a2da0e1f",
+          "sha256_windows": "",
           "binaries": [
             "bin/java",
             "bin/javac",
@@ -216,7 +266,9 @@
         },
         "21.0.11": {
           "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.11%2B10/OpenJDK21U-jdk_x64_linux_hotspot_21.0.11_10.tar.gz",
+          "url_windows": "",
           "sha256": "4b2220e232a97997b436ca6ab15cbf70171ecff52958a46159dfa5a8c44ca4de",
+          "sha256_windows": "",
           "binaries": [
             "bin/java",
             "bin/javac",
@@ -230,7 +282,9 @@
         },
         "17.0.19": {
           "url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.19%2B10/OpenJDK17U-jdk_x64_linux_hotspot_17.0.19_10.tar.gz",
+          "url_windows": "",
           "sha256": "d8afc263758141a66e0e3aafc321e783f7016696f4eaea067d340a269037d331",
+          "sha256_windows": "",
           "binaries": [
             "bin/java",
             "bin/javac",
@@ -244,7 +298,9 @@
         },
         "11.0.31": {
           "url": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.31%2B11/OpenJDK11U-jdk_x64_linux_hotspot_11.0.31_11.tar.gz",
+          "url_windows": "",
           "sha256": "1e9de64586b519c0a981319489257cabedd9457599f3823424a87c3158fbe939",
+          "sha256_windows": "",
           "binaries": ["bin/java", "bin/javac", "bin/jar", "bin/javadoc", "bin/jshell"],
           "lts": true
         }
