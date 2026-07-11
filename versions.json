@@ -43,7 +43,7 @@
         "8.5.8": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.8/php-8.5.8-fpm-linux-x86_64.tar.gz",
           "url_windows": "https://windows.php.net/downloads/releases/php-8.5.8-nts-Win32-vs17-x64.zip",
-          "sha256": "",
+          "sha256": "14950aca55bf1fcdb0a4dc4dee3543a02f5be5c9a90d5077a51d6c80a521215c",
           "sha256_windows": "63a3f6493f37c9ff3e288ec16621222a6cda5167dd1abffec0019e7f18c8e7e9",
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
@@ -51,7 +51,7 @@
         "8.4.23": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.23/php-8.4.23-fpm-linux-x86_64.tar.gz",
           "url_windows": "https://windows.php.net/downloads/releases/php-8.4.23-nts-Win32-vs17-x64.zip",
-          "sha256": "",
+          "sha256": "33cb44a3d288b096f4bf04396920500af606017994cab1c13176b47ca3e1b54e",
           "sha256_windows": "826efa189b21f46314ad497ff31467de9f0953292f42b235542be4feea182b48",
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
@@ -59,7 +59,7 @@
         "8.3.32": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.3.32/php-8.3.32-fpm-linux-x86_64.tar.gz",
           "url_windows": "https://windows.php.net/downloads/releases/php-8.3.32-nts-Win32-vs16-x64.zip",
-          "sha256": "",
+          "sha256": "838794bb985a8cd5cf73769734b2f8d0844eba4c2b4fe95030d3f3b4da33ce1d",
           "sha256_windows": "67c724e7b675b50d8f0476d816c3e2a3064ce3a53d572575d63c321cc0a3a6cf",
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": false
@@ -120,7 +120,7 @@
           "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_linux_amd64.tar.gz",
           "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_windows_amd64.zip",
           "sha256": "527fbf917c39189a1e3b31d34fa955601680b2d5c8055d2a87b8b9588dec7bb9",
-          "sha256_windows": "",
+          "sha256_windows": "1708333f79e274c7697285afe6d592ab39314e0b131e9ec6bea08ad27df62ebf",
           "binaries": ["caddy"]
         }
       }
@@ -129,9 +129,9 @@
       "versions": {
         "3.12.13": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.12.13+20260610-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
-          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.12.13+20260610-x86_64_v4-windows-msvc-install_only.tar.gz",
+          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260623/cpython-3.12.13+20260623-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "97c5c55c3d7b17f29d9dc8aa1db4f59ebffac6ce0d07184f96fc20ecc42952d9",
-          "sha256_windows": "",
+          "sha256_windows": "c6af85bb83d5158c9ff71f50dfad467853d1cd236f932b144e87e26e2ea2a83e",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         },
         "3.12.8": {
