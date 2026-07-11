@@ -305,6 +305,30 @@
           "lts": true
         }
       }
+    },
+    "tabby": {
+      "versions": {
+        "1.0.234": {
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-linux-x64.tar.gz",
+          "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-portable-x64.zip",
+          "sha256": "2b6cdbd20afc3ec0b5325e703a3adda8800e8546bda15e06afd9f57ac1264c2e",
+          "sha256_windows": "a66ef871253bbe0aef909f498439eedc36018f22d46082ce2b885b6affd1b61e",
+          "binaries": ["Tabby"],
+          "lts": true
+        }
+      }
+    },
+    "wezterm": {
+      "versions": {
+        "20240203-110809-5046fc22": {
+          "url": "https://github.com/wez/wezterm/releases/download/20240203-110809-5046fc22/WezTerm-20240203-110809-5046fc22-Ubuntu20.04.AppImage",
+          "url_windows": "https://github.com/wez/wezterm/releases/download/20240203-110809-5ac436b2/WezTerm-20240203-110809-5ac436b2-windows.zip",
+          "sha256": "34010a07076d2272c4d4f94b5e0dae608a679599e8d729446323f88f956c60f0",
+          "sha256_windows": "57e5d03b585303d81e8b8e96d1230362852eb39aca92b3b29c7a42cfb82f9ac4",
+          "binaries": ["WezTerm"],
+          "lts": true
+        }
+      }
     }
   }
 }
