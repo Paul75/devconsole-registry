@@ -313,7 +313,7 @@
           "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-portable-x64.zip",
           "sha256": "2b6cdbd20afc3ec0b5325e703a3adda8800e8546bda15e06afd9f57ac1264c2e",
           "sha256_windows": "a66ef871253bbe0aef909f498439eedc36018f22d46082ce2b885b6affd1b61e",
-          "binaries": ["Tabby"],
+          "binaries": ["tabby"],
           "lts": true
         }
       }
