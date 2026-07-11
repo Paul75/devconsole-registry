@@ -329,6 +329,18 @@
           "lts": true
         }
       }
+    },
+    "windterm": {
+      "versions": {
+        "2.7.0": {
+          "url": "https://github.com/kingToolbox/WindTerm/releases/download/2.7.0/WindTerm_2.7.0_Linux_Portable_x86_64.zip",
+          "url_windows": "https://github.com/kingToolbox/WindTerm/releases/download/2.7.0/WindTerm_2.7.0_Windows_Portable_x86_64.zip",
+          "sha256": null,
+          "sha256_windows": null,
+          "binaries": ["WindTerm"],
+          "lts": true
+        }
+      }
     }
   }
 }
