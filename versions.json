@@ -6,37 +6,23 @@
           "url": "https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz",
           "url_windows": "https://nodejs.org/dist/v24.18.0/node-v24.18.0-win-x64.zip",
           "sha256": "55aa7153f9d88f28d765fcdad5ae6945b5c0f98a36881703817e4c450fa76742",
-          "sha256_windows": "",
+          "sha256_windows": "0ae68406b42d7725661da979b1403ec9926da205c6770827f33aac9d8f26e821",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true
-        },
-        "24.16.0": {
-          "url": "https://nodejs.org/dist/v24.16.0/node-v24.16.0-linux-x64.tar.xz",
-          "url_windows": "https://nodejs.org/dist/v24.16.0/node-v24.16.0-win-x64.zip",
-          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
-          "lts": false
         },
         "22.23.1": {
           "url": "https://nodejs.org/dist/v22.23.1/node-v22.23.1-linux-x64.tar.xz",
           "url_windows": "https://nodejs.org/dist/v22.23.1/node-v22.23.1-win-x64.zip",
           "sha256": "9749e988f437343b7fa832c69ded82a312e41a03116d766797ac14f6f9eee578",
-          "sha256_windows": "",
+          "sha256_windows": "7df0bc9375723f4a86b3aa1b7cc73342423d9677a8df4538aca31a049e309c29",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true
         },
-        "22.14.0": {
-          "url": "https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-x64.tar.xz",
-          "url_windows": "https://nodejs.org/dist/v22.14.0/node-v22.14.0-win-x64.zip",
-          "sha256": "69b09dba5c8dcb05c4e4273a4340db1005abeafe3927efda2bc5b249e80437ec",
-          "sha256_windows": "",
-          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
-          "lts": true
-        },
-        "20.19.0": {
-          "url": "https://nodejs.org/dist/v20.19.0/node-v20.19.0-linux-x64.tar.xz",
-          "url_windows": "https://nodejs.org/dist/v20.19.0/node-v20.19.0-win-x64.zip",
-          "sha256": "b4e336584d62abefad31baecff7af167268be9bb7dd11f1297112e6eed3ca0d5",
-          "sha256_windows": "",
+        "20.20.2": {
+          "url": "https://nodejs.org/dist/v20.20.2/node-v20.20.2-linux-x64.tar.xz",
+          "url_windows": "https://nodejs.org/dist/v20.20.2/node-v20.20.2-win-x64.zip",
+          "sha256": "df770b2a6f130ed8627c9782c988fda9669fa23898329a61a871e32f965e007d",
+          "sha256_windows": "dc3700fdd57a63eedb8fd7e3c7baaa32e6a740a1b904167ff4204bc68ed8bf77",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true,
           "eol": true
@@ -45,7 +31,7 @@
           "url": "https://nodejs.org/dist/v18.20.8/node-v18.20.8-linux-x64.tar.xz",
           "url_windows": "https://nodejs.org/dist/v18.20.8/node-v18.20.8-win-x64.zip",
           "sha256": "5467ee62d6af1411d46b6a10e3fb5cacc92734dbcef465fea14e7b90993001c9",
-          "sha256_windows": "",
+          "sha256_windows": "1a1e40260a6facba83636e4cd0ba01eb5bd1386896824b36645afba44857384a",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true,
           "eol": true
@@ -54,28 +40,28 @@
     },
     "php": {
       "versions": {
-        "8.5.7": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.7/php-8.5.7-fpm-linux-x86_64.tar.gz",
-          "url_windows": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.7/php-8.5.7-fpm-win-x86_64.tar.gz",
-          "sha256": "291865d2fef9841e7f7e66a459a0492ab4be12c9eabef400e41195edd0bb371a",
-          "sha256_windows": "",
-          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
+        "8.5.8": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.8/php-8.5.8-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://windows.php.net/downloads/releases/php-8.5.8-nts-Win32-vs17-x64.zip",
+          "sha256": "",
+          "sha256_windows": "63a3f6493f37c9ff3e288ec16621222a6cda5167dd1abffec0019e7f18c8e7e9",
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
-        "8.4.22": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.22/php-8.4.22-fpm-linux-x86_64.tar.gz",
-          "url_windows": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.22/php-8.4.22-fpm-win-x86_64.tar.gz",
-          "sha256": "9360590a8b8d21f7f88ce1f499c029bf4cab9aa31097b18767ff1344d83f5ac0",
-          "sha256_windows": "",
-          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
+        "8.4.23": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.23/php-8.4.23-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://windows.php.net/downloads/releases/php-8.4.23-nts-Win32-vs17-x64.zip",
+          "sha256": "",
+          "sha256_windows": "826efa189b21f46314ad497ff31467de9f0953292f42b235542be4feea182b48",
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
-        "8.3.31": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.3.31/php-8.3.31-fpm-linux-x86_64.tar.gz",
-          "url_windows": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.3.31/php-8.3.31-fpm-win-x86_64.tar.gz",
-          "sha256": "f23b8276f65bac24cd155c6cae1f4a79dd877e7c94f4838386cc6e9ade37fd12",
-          "sha256_windows": "",
-          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi"],
+        "8.3.32": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.3.32/php-8.3.32-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://windows.php.net/downloads/releases/php-8.3.32-nts-Win32-vs16-x64.zip",
+          "sha256": "",
+          "sha256_windows": "67c724e7b675b50d8f0476d816c3e2a3064ce3a53d572575d63c321cc0a3a6cf",
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": false
         }
       }
@@ -84,7 +70,7 @@
       "versions": {
         "9.7.1": {
           "url": "https://dev.mysql.com/get/Downloads/MySQL-9.7/mysql-9.7.1-linux-glibc2.28-x86_64.tar.xz",
-          "url_windows": "https://dev.mysql.com/get/Downloads/MySQL-9.7/mysql-9.7.1-win-x86_64.tar.xz",
+          "url_windows": "https://dev.mysql.com/get/Downloads/MySQL-9.7/mysql-9.7.1-winx64.zip",
           "sha256": null,
           "sha256_windows": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
@@ -92,7 +78,7 @@
         },
         "8.4.10": {
           "url": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.10-linux-glibc2.28-x86_64.tar.xz",
-          "url_windows": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.10-win-x86_64.tar.xz",
+          "url_windows": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.10-winx64.zip",
           "sha256": null,
           "sha256_windows": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
@@ -100,7 +86,7 @@
         },
         "8.0.46": {
           "url": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.46-linux-glibc2.28-x86_64.tar.xz",
-          "url_windows": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.46-win-x86_64.tar.xz",
+          "url_windows": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.46-winx64.zip",
           "sha256": null,
           "sha256_windows": null,
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
