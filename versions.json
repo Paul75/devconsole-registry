@@ -197,8 +197,8 @@
     "zed": {
       "versions": {
         "1.11.3": {
-          "url": "https://https://github.com/zed-industries/zed/releases/download/v1.11.3/zed-linux-x86_64.tar.gz",
-          "url_windows": "hhttps://github.com/zed-industries/zed/releases/download/v1.11.3/Zed-x86_64.exe",
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.11.3/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.11.3/Zed-x86_64.exe",
           "sha256": "483ee09c885801dd7a0230e3ccf5c463c4dbe4559927f5856fd568e7b1a32e3e",
           "sha256_windows": "399ebb679477e81856c55df2c088c2dd8523b3d00e4fb21b3385ffda82398b9f",
           "binaries": ["bin/zed"],
