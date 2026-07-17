@@ -216,6 +216,14 @@
     },
     "android_studio": {
       "versions": {
+        "2026.1.2.10": {
+          "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.2.10/android-studio-quail2-linux.tar.gz",
+          "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.2.10/android-studio-quail2-windows.zip",
+          "sha256": "64445a54092e7056c6eb7f1a89ad116d0feec2ef5f965b8e594d62abdb58590f",
+          "sha256_windows": "fb0d9573d5252bf683b2255458b88fbc358166071d587a066e27cf3449d916b0",
+          "binaries": ["bin/studio.sh"],
+          "lts": true
+        },
         "2026.1.1.2": {
           "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.1.2/android-studio-quail1-canary2-linux.tar.gz",
           "url_windows": "",
