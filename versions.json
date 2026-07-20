@@ -128,10 +128,10 @@
     "python": {
       "versions": {
         "3.14.6": {
-          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.14.6+20260610-x86_64-unknown-linux-gnu-freethreaded-install_only.tar.gz",
-          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.14.6+20260610-x86_64-windows-msvc-freethreaded-install_only.tar.gz",
-          "sha256": "cd60c024956a06318cba8d136ca6f2861e11123a5baadff76c822fa3ce4780c5",
-          "sha256_windows": "",
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260718/cpython-3.14.6+20260718-x86_64-unknown-linux-gnu-install_only.tar.gz",
+          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260718/cpython-3.14.6+20260718-x86_64-pc-windows-msvc-install_only.tar.gz",
+          "sha256": "b442fb93903c6f3392b2430961d4725354ae0da7558c785a908d714264309b28",
+          "sha256_windows": "97c01acd70108234ff042699996f3f4163c791f1d6e35de898475936b86ec3b2",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"]
         },
         "3.12.13": {
