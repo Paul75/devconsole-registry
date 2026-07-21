@@ -345,6 +345,18 @@
           "lts": true
         }
       }
+    },
+    "sublime_merge": {
+      "versions": {
+        "2125": {
+          "url": "https://download.sublimetext.com/sublime_merge_build_2125_x64.tar.xz",
+          "url_windows": "https://download.sublimetext.com/sublime_merge_build_2125_x64.zip",
+          "sha256": null,
+          "sha256_windows": null,
+          "binaries": ["sublime_merge"],
+          "lts": true
+        }
+      }
     }
   }
 }
