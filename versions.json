@@ -196,11 +196,11 @@
     },
     "zed": {
       "versions": {
-        "1.11.3": {
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.11.3/zed-linux-x86_64.tar.gz",
-          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.11.3/Zed-x86_64.exe",
-          "sha256": "483ee09c885801dd7a0230e3ccf5c463c4dbe4559927f5856fd568e7b1a32e3e",
-          "sha256_windows": "399ebb679477e81856c55df2c088c2dd8523b3d00e4fb21b3385ffda82398b9f",
+        "1.12.0": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.12.0/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.12.0/Zed-x86_64.exe",
+          "sha256": "fedaec1e617fc78fe56ff82e63ee51562902d9904b1120330c1802fec2b84315",
+          "sha256_windows": "fe419c17ebfb9b1d87e0c671b9a16804dd25cf452b60933a2456dc533fbd14f0",
           "binaries": ["bin/zed"],
           "lts": true
         },
