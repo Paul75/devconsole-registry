@@ -312,6 +312,14 @@
     },
     "tabby": {
       "versions": {
+        "1.0.235": {
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.235/tabby-1.0.235-linux-x64.tar.gz",
+          "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.235/tabby-1.0.235-portable-x64.zip",
+          "sha256": "af194d1c0ead7c190127aa911a56052ba088be085b1f6d8526a97f30db14962b",
+          "sha256_windows": "192ee1f402e046f8be5a31118da1dfa38aa290387e7e57dceafcc0b3dfd1a835",
+          "binaries": ["tabby"],
+          "lts": true
+        },
         "1.0.234": {
           "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-linux-x64.tar.gz",
           "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-portable-x64.zip",
