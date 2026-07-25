@@ -365,6 +365,38 @@
           "lts": true
         }
       }
+    },
+    "android_sdk": {
+      "versions": {
+        "35": {
+          "url": "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip",
+          "url_windows": "https://dl.google.com/android/repository/commandlinetools-windows-11076708_latest.zip",
+          "sha256": null,
+          "sha256_windows": null,
+          "binaries": [
+            "cmdline-tools/latest/bin/sdkmanager",
+            "cmdline-tools/latest/bin/avdmanager",
+            "platform-tools/adb",
+            "platform-tools/fastboot",
+            "emulator/emulator"
+          ],
+          "lts": true
+        },
+        "34": {
+          "url": "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip",
+          "url_windows": "https://dl.google.com/android/repository/commandlinetools-windows-11076708_latest.zip",
+          "sha256": null,
+          "sha256_windows": null,
+          "binaries": [
+            "cmdline-tools/latest/bin/sdkmanager",
+            "cmdline-tools/latest/bin/avdmanager",
+            "platform-tools/adb",
+            "platform-tools/fastboot",
+            "emulator/emulator"
+          ],
+          "lts": true
+        }
+      }
     }
   }
 }
