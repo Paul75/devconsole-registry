@@ -403,6 +403,16 @@
           "lts": true
         }
       }
+    },
+    "redis": {
+      "versions": {
+        "7.4.2": {
+          "url": "https://github.com/becomeliminal/redis/releases/download/v0.0.3/redis-7.4.2-linux_x86_64.tar.gz",
+          "sha256": "c2a47b9cb0ac12651095dc2e6adabe043e510d21d7db675fdac20f1ba564831a",
+          "binaries": ["redis-server", "redis-cli"],
+          "lts": true
+        }
+      }
     }
   }
 }
