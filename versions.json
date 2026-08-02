@@ -229,14 +229,6 @@
           "binaries": ["bin/studio.sh"],
           "binaries_windows": ["bin/studio64"],
           "lts": true
-        },
-        "2026.1.1.2": {
-          "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.1.2/android-studio-quail1-canary2-linux.tar.gz",
-          "url_windows": "",
-          "sha256": "8dd6f1c8aed5e04248e6c0a4df5a28efb947eae5d33344239635205a7e419773",
-          "sha256_windows": "",
-          "binaries": ["bin/studio.sh"],
-          "lts": true
         }
       }
     },
