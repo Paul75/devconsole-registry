@@ -413,6 +413,19 @@
           "lts": true
         }
       }
+    },
+    "postgres": {
+      "versions": {
+        "18.4.0": {
+          "url": "https://github.com/theseus-rs/postgresql-binaries/releases/download/18.4.0/postgresql-18.4.0-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://github.com/theseus-rs/postgresql-binaries/releases/download/18.4.0/postgresql-18.4.0-x86_64-pc-windows-msvc.zip",
+          "sha256": "65c06cf318b9a57525d842d658d6d18cd461d12b3a89b57d6d8ed7cccbe2db53",
+          "sha256_windows": "01f97a2f7ca1dde0f53a7b57e5fe10e1530d700b1bc99b96fa62dae0935c6617",
+          "binaries": ["bin/postgres", "bin/initdb", "bin/pg_ctl", "bin/psql", "bin/createdb", "bin/dropdb", "bin/pg_dump", "bin/pg_restore"],
+          "binaries_windows": ["bin/postgres.exe", "bin/initdb.exe", "bin/pg_ctl.exe", "bin/psql.exe", "bin/createdb.exe", "bin/dropdb.exe", "bin/pg_dump.exe", "bin/pg_restore.exe"],
+          "lts": true
+        }
+      }
     }
   }
 }
