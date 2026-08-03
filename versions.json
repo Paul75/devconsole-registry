@@ -114,6 +114,18 @@
         }
       }
     },
+    "bun": {
+      "versions": {
+        "1.3.14": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64.zip",
+          "url_windows": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-windows-x64.zip",
+          "sha256": "951ee2aee855f08595aeec6225226a298d3fea83a3dcd6465c09cbccdf7e848f",
+          "sha256_windows": "0a0620930b6675d7ba440e81f4e0e00d3cfbe096c4b140d3fff02205e9e18922",
+          "binaries": ["bun"],
+          "lts": true
+        }
+      }
+    },
     "caddy": {
       "versions": {
         "2.11.4": {
@@ -122,6 +134,19 @@
           "sha256": "527fbf917c39189a1e3b31d34fa955601680b2d5c8055d2a87b8b9588dec7bb9",
           "sha256_windows": "1708333f79e274c7697285afe6d592ab39314e0b131e9ec6bea08ad27df62ebf",
           "binaries": ["caddy"]
+        }
+      }
+    },
+    "nginx": {
+      "versions": {
+        "1.28.0": {
+          "url": "https://raw.githubusercontent.com/common-binaries/nginx/binaries/nginx-1.28.0-x86_64-linux",
+          "url_windows": "https://raw.githubusercontent.com/common-binaries/nginx/binaries/nginx-1.28.0-x86_64-win32.exe",
+          "sha256": "abe52a9f00067ffcbde1cc6960cab85afcf06089e34637351eb8c2ff707fa013",
+          "sha256_windows": "b12ba901a6cfb9ed1398104784a9bcf41ffa0a17f0d73f44a50475ac28fc6d09",
+          "binaries": ["nginx"],
+          "binaries_windows": ["nginx.exe"],
+          "lts": true
         }
       }
     },
