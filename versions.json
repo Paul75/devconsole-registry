@@ -469,9 +469,9 @@
     "rust": {
       "versions": {
         "1.97.1": {
-          "url": "https://static.rust-lang.org/dist/rust-1.97.1-x86_64-unknown-linux-musl.tar.xz",
+          "url": "https://static.rust-lang.org/dist/rust-1.97.1-x86_64-unknown-linux-gnu.tar.xz",
           "url_windows": "https://static.rust-lang.org/dist/rust-1.97.1-x86_64-pc-windows-msvc.tar.xz",
-          "sha256": "44d9121aebdc74ca960b50907adc1c6342c4a17c2274db5a131fff599aea71ff",
+          "sha256": "88f28fa9af20594179f85d6df67078dfd6fa93e2f6da5e1e9b0ac4997988ca4f",
           "sha256_windows": "a1cdfcfd1e351ba21823d6bd454a297fa95190abca2f432a372e3c47bef8b863",
           "binaries": [
             "rustc/bin/rustc",
