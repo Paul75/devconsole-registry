@@ -484,6 +484,23 @@
             "rust-analyzer-preview/bin/rust-analyzer"
           ],
           "lts": true
+        },
+        "1.96.1": {
+          "url": "https://static.rust-lang.org/dist/rust-1.96.1-x86_64-unknown-linux-gnu.tar.xz",
+          "url_windows": "https://static.rust-lang.org/dist/rust-1.96.1-x86_64-pc-windows-msvc.tar.xz",
+          "sha256": "d29ccb1559a177c4e72291f6e5f629de7fe8885e7521ca47802627544b121e95",
+          "sha256_windows": "bc7da1601f8c77c251dc4deb98d2e2fce888c196c148afba85c7fb264af4ef18",
+          "binaries": [
+            "rustc/bin/rustc",
+            "cargo/bin/cargo",
+            "rustc/bin/rustdoc",
+            "rustfmt-preview/bin/rustfmt",
+            "rustfmt-preview/bin/cargo-fmt",
+            "clippy-preview/bin/clippy-driver",
+            "clippy-preview/bin/cargo-clippy",
+            "rust-analyzer-preview/bin/rust-analyzer"
+          ],
+          "lts": false
         }
       }
     }
