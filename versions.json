@@ -137,19 +137,6 @@
         }
       }
     },
-    "nginx": {
-      "versions": {
-        "1.28.0": {
-          "url": "https://raw.githubusercontent.com/common-binaries/nginx/binaries/nginx-1.28.0-x86_64-linux",
-          "url_windows": "https://raw.githubusercontent.com/common-binaries/nginx/binaries/nginx-1.28.0-x86_64-win32.exe",
-          "sha256": "abe52a9f00067ffcbde1cc6960cab85afcf06089e34637351eb8c2ff707fa013",
-          "sha256_windows": "b12ba901a6cfb9ed1398104784a9bcf41ffa0a17f0d73f44a50475ac28fc6d09",
-          "binaries": ["nginx"],
-          "binaries_windows": ["nginx.exe"],
-          "lts": true
-        }
-      }
-    },
     "python": {
       "versions": {
         "3.14.6": {
