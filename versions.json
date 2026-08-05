@@ -503,6 +503,19 @@
           "lts": false
         }
       }
+    },
+    "mongodb": {
+      "versions": {
+        "8.0.28": {
+          "url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.0.28.tgz",
+          "url_windows": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.28.zip",
+          "sha256": "d53e853e422257e60d41c962684d1da60ac64681bf0a5604007e0351d0437fd2",
+          "sha256_windows": "a6573419fc1d8767b7a86911c4a1b832fa408d4b8bd32d281f049b87a30073cf",
+          "binaries": ["mongod", "mongos"],
+          "binaries_windows": ["mongod.exe", "mongos.exe"],
+          "lts": true
+        }
+      }
     }
   }
 }
