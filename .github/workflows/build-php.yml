@@ -88,11 +88,14 @@ jobs:
           echo "full=$FULL_VERSION" >> "$GITHUB_OUTPUT"
 
       # Un rebuild de la même version recrée le tag (suppression préalable).
+      # Réseau instable (api.github.com parfois en timeout) → retries avec backoff.
       - name: Delete existing release (rebuild)
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete "php-${{ steps.version.outputs.full }}" --yes --cleanup-tag 2>/dev/null || true
+          for i in 1 2 3 4 5; do
+            gh release delete "php-${{ steps.version.outputs.full }}" --yes --cleanup-tag 2>/dev/null && break || sleep 15
+          done
 
       - name: Create archive
         run: |
@@ -127,3 +130,6 @@ jobs:
             See [`craft.yml`](https://github.com/Paul75/devconsole-registry/blob/main/craft.yml)
           files: php-*.tar.gz
           make_latest: false
+          # Réseau instable : api.github.com en timeout intermittent → retries.
+          retry-on-error: true
+          retry-on-error-max-attempts: 3
