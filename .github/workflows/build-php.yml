@@ -63,11 +63,17 @@ jobs:
           CRAFT
 
       - name: Build PHP
+        # GitHub token : sans lui, les résolutions d'URL via api.github.com sont
+        # limitées à 60 req/h par IP (un seul run complet par heure). Le token
+        # d'action (github.token) monte à 1000 req/h. Certaines sources (ex.
+        # libcares) n'ont pas de mirror dl.static-php.dev → l'API est obligatoire.
         # Sur le runner self-hosté, la toolchain musl-cross (/usr/local/musl) est
         # pré-installée. Sans CC forcé, certains configure (zlib…) prennent le gcc
         # système (glibc) alors que LD/AR pointent vers musl → ld musl ne charge
         # pas liblto_plugin.so → tests configure KO (ex. -DNO_STRERROR) → échec.
         # Sur GitHub-hosted, spc télécharge sa propre toolchain et gère CC lui-même.
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           if [ "$RUNNER_ENVIRONMENT" != "github-hosted" ]; then
             export CC=x86_64-linux-musl-gcc
