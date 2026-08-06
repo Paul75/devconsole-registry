@@ -104,6 +104,6 @@ make install DESTDIR="$STAGE"
 cd "$WORKDIR"
 tar czf "git-${GIT_VERSION}-linux-x86_64.tar.gz" \
     -C "$STAGE/dist/git-${GIT_VERSION}" \
-    bin/git libexec/git-core/
+    bin/git libexec/git-core/ share/git-core/templates/
 
 echo "==> OK : git-${GIT_VERSION}-linux-x86_64.tar.gz"
