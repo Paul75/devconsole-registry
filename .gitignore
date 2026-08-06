@@ -2,3 +2,4 @@
 .git-build/
 git-*-linux-x86_64.tar.gz
 php-*-linux-x86_64.tar.gz
+actions-runner
