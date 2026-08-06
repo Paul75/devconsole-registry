@@ -2,6 +2,11 @@ name: Build PHP
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # La CI tourne sur un runner self-hosté sur la même machine que les builds
+  # locaux (comme DevConsole) : la compilation PHP passe par le verrou
+  # anti double-build scripts/build-lock.sh. BUILD_LOCK_WAIT=1 → la CI attend
+  # la fin d'un build local au lieu d'échouer.
+  BUILD_LOCK_WAIT: "1"
 
 on:
   workflow_dispatch:
@@ -22,17 +27,21 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@v6
 
+      # Sur runner GitHub-hosted uniquement : les dépendances de compilation.
+      # En self-hosted, l'outillage est pré-installé sur la machine
+      # (gcc, make, cmake, autoconf, bison, re2c, libxml2-dev, … + flex/gperf).
       - name: Install build dependencies
+        if: ${{ runner.environment == 'github-hosted' }}
         run: |
           sudo apt-get update
           sudo apt-get install -y autoconf automake libtool cmake make gcc g++ \
             pkg-config re2c bison libxml2-dev libsqlite3-dev libcurl4-openssl-dev \
-            libreadline-dev libzip-dev libonig-dev libssl-dev
+            libreadline-dev libzip-dev libonig-dev libssl-dev flex gperf
 
       - name: Download spc
         run: |
@@ -44,20 +53,27 @@ jobs:
         run: |
           cat > craft.yml << 'CRAFT'
           php-version: "${{ inputs.php_version }}"
-          extensions: "bcmath,ctype,curl,dom,exif,fileinfo,filter,gd,iconv,mbstring,mysqli,mysqlnd,opcache,openssl,pcntl,pdo,pdo_mysql,pdo_sqlite,phar,posix,readline,session,simplexml,sockets,sodium,sqlite3,tokenizer,xml,xmlwriter,xmlreader,xsl,zip,zlib"
+          extensions: "bcmath,ctype,curl,dom,exif,fileinfo,filter,gd,iconv,mbstring,mongodb,mysqli,mysqlnd,opcache,openssl,pcntl,pdo,pdo_mysql,pdo_pgsql,pdo_sqlite,pgsql,phar,posix,readline,session,simplexml,sockets,sodium,sqlite3,tokenizer,xml,xmlwriter,xmlreader,xsl,zip,zlib"
           sapi: [cli, fpm, cgi]
           craft-options:
             clean: true
           CRAFT
 
       - name: Build PHP
-        run: ./spc craft craft.yml
+        run: scripts/build-lock.sh ./spc craft craft.yml
 
       - name: Get full PHP version
         id: version
         run: |
           FULL_VERSION=$(./buildroot/bin/php -r 'echo PHP_VERSION;')
           echo "full=$FULL_VERSION" >> "$GITHUB_OUTPUT"
+
+      # Un rebuild de la même version recrée le tag (suppression préalable).
+      - name: Delete existing release (rebuild)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete "php-${{ steps.version.outputs.full }}" --yes --cleanup-tag 2>/dev/null || true
 
       - name: Create archive
         run: |
@@ -78,10 +94,10 @@ jobs:
 
             ## Extensions
             bcmath, ctype, curl, dom, exif, fileinfo, filter, gd, iconv,
-            mbstring, mysqli, mysqlnd, opcache, openssl, pcntl, pdo,
-            pdo_mysql, pdo_sqlite, phar, posix, readline, session,
-            simplexml, sockets, sodium, sqlite3, tokenizer, xml,
-            xmlwriter, xmlreader, xsl, zip, zlib
+            mbstring, mongodb, mysqli, mysqlnd, opcache, openssl, pcntl,
+            pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pgsql, phar, posix,
+            readline, session, simplexml, sockets, sodium, sqlite3,
+            tokenizer, xml, xmlwriter, xmlreader, xsl, zip, zlib
 
             ## SAPIs
             - `bin/php` (CLI)

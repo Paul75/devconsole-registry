@@ -12,10 +12,10 @@
 
 php-version: "8.4"
 extensions: >
-  bcmath,ctype,curl,dom,exif,fileinfo,filter,gd,iconv,mbstring,mysqli,
-  mysqlnd,opcache,openssl,pcntl,pdo,pdo_mysql,pdo_sqlite,phar,posix,
-  readline,session,simplexml,sockets,sodium,sqlite3,tokenizer,xml,
-  xmlwriter,xmlreader,xsl,zip,zlib
+  bcmath,ctype,curl,dom,exif,fileinfo,filter,gd,iconv,mbstring,mongodb,
+  mysqli,mysqlnd,opcache,openssl,pcntl,pdo,pdo_mysql,pdo_pgsql,pdo_sqlite,
+  pgsql,phar,posix,readline,session,simplexml,sockets,sodium,sqlite3,
+  tokenizer,xml,xmlwriter,xmlreader,xsl,zip,zlib
 sapi:
   - cli
   - fpm

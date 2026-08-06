@@ -1,5 +1,12 @@
 name: Build Git
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Runner self-hosté sur la même machine que les builds locaux (comme
+  # DevConsole) : la compilation passe par le verrou anti double-build
+  # scripts/build-lock.sh. BUILD_LOCK_WAIT=1 → la CI attend au lieu d'échouer.
+  BUILD_LOCK_WAIT: "1"
+
 on:
   workflow_dispatch:
     inputs:
@@ -14,40 +21,23 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v6
 
-      - name: Build Git statically (Alpine/musl)
-        run: |
-          docker run --rm -v $PWD:/out alpine:3.21 sh -c "
-            apk add --no-cache \
-              curl autoconf gcc flex bison make bash cmake \
-              libtool musl-dev g++ \
-              zlib-dev zlib-static tcl tk tcl-dev gettext linux-headers rust cargo &&
-            curl -fsSL -o git.tar.gz \
-              'https://github.com/git/git/archive/v${{ inputs.git_version }}.tar.gz' &&
-            tar zxf git.tar.gz &&
-            cd git-${{ inputs.git_version }} &&
-            make configure &&
-            sed -i 's/qversion/-version/g' configure &&
-            ./configure \
-              --prefix=/dist/git-${{ inputs.git_version }} \
-              LDFLAGS='--static' \
-              CFLAGS='-static' \
-              NO_GETTEXT=1 \
-              NO_TCLTK=1 &&
-            make -j\$(nproc) &&
-            make install &&
-            cd / &&
-            tar czf /out/git-${{ inputs.git_version }}-linux-x86_64.tar.gz \
-              -C /dist/git-${{ inputs.git_version }} \
-              bin/git libexec/git-core/
-          "
+      - name: Build Git statically (musl)
+        run: scripts/build-lock.sh scripts/build-git.sh ${{ inputs.git_version }}
 
       - name: Check archive contents
         run: |
           tar tzf git-*.tar.gz
+
+      # Un rebuild de la même version recrée le tag (suppression préalable).
+      - name: Delete existing release (rebuild)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete "git-${{ inputs.git_version }}" --yes --cleanup-tag 2>/dev/null || true
 
       - name: Create Release
         uses: softprops/action-gh-release@v3
@@ -60,8 +50,9 @@ jobs:
             Full build with submodule support — unlike `darkvertex/static-git`.
 
             ## Build config
-            - Alpine Linux 3.21 (musl libc)
-            - Static linked, NO_GETTEXT=1, NO_TCLTK=1
+            - Cross-compilation musl (musl.cc), sans Docker
+            - zlib, openssl, curl compilés en statique depuis leurs sources
+            - NO_GETTEXT=1, NO_TCLTK=1, NO_PERL=1, NO_PYTHON=1
             - Includes `libexec/git-core/` with `git-submodule`
           files: git-*.tar.gz
           make_latest: false
