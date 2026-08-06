@@ -30,6 +30,17 @@ if ! command -v gh >/dev/null || ! gh auth status >/dev/null 2>&1; then
     exit 1
 fi
 
+if [ -z "${GITHUB_TOKEN:-}" ]; then
+    if GITHUB_TOKEN="$(gh auth token 2>/dev/null)"; then
+        export GITHUB_TOKEN
+        echo "→ GITHUB_TOKEN non défini : récupéré via \`gh auth token\` (API authentifiée, 5000 req/h)."
+    else
+        echo "⚠️  GITHUB_TOKEN indisponible : spc résoudra certaines dépendances (libcares, …)"
+        echo "    via api.github.com sans authentification → limité à 60 req/h (un seul build/heure)."
+        echo "    Exportez un PAT (public repos read) :  export GITHUB_TOKEN=ghp_xxx"
+    fi
+fi
+
 echo "→ Téléchargement de spc (static-php-cli ${SPC_VERSION})…"
 curl -fsSL -o spc.tar.gz "https://github.com/crazywhalecc/static-php-cli/releases/download/${SPC_VERSION}/spc-linux-x86_64.tar.gz"
 tar -xzf spc.tar.gz
