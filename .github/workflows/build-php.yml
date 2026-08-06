@@ -63,7 +63,17 @@ jobs:
           CRAFT
 
       - name: Build PHP
-        run: scripts/build-lock.sh ./spc craft craft.yml
+        # Sur le runner self-hosté, la toolchain musl-cross (/usr/local/musl) est
+        # pré-installée. Sans CC forcé, certains configure (zlib…) prennent le gcc
+        # système (glibc) alors que LD/AR pointent vers musl → ld musl ne charge
+        # pas liblto_plugin.so → tests configure KO (ex. -DNO_STRERROR) → échec.
+        # Sur GitHub-hosted, spc télécharge sa propre toolchain et gère CC lui-même.
+        run: |
+          if [ "$RUNNER_ENVIRONMENT" != "github-hosted" ]; then
+            export CC=x86_64-linux-musl-gcc
+            export CXX=x86_64-linux-musl-g++
+          fi
+          scripts/build-lock.sh ./spc craft craft.yml
 
       - name: Get full PHP version
         id: version
