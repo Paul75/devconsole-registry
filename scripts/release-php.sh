@@ -26,7 +26,10 @@ cd "$ROOT"
 
 PHP_VERSION="${1:?Usage: $0 <php_version> [spc_version]}"
 SPC_VERSION="${2:-2.8.5}"
-REPO="$(git remote get-url origin | sed -E 's#.*github.com[:/]([^/]+/[^/]+)(\.git)?$#\1#')"
+REPO="$(git remote get-url origin)"
+REPO="${REPO##*github.com:}"
+REPO="${REPO##*github.com/}"
+REPO="${REPO%.git}"
 BUILD_DIR="$ROOT/.build-php"
 
 if ! command -v gh >/dev/null || ! gh auth status >/dev/null 2>&1; then

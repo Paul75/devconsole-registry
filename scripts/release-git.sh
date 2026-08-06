@@ -16,7 +16,10 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
 VERSION="${1:?Usage: $0 <git_version>}"
-REPO="$(git remote get-url origin | sed -E 's#.*github.com[:/]([^/]+/[^/]+)(\.git)?$#\1#')"
+REPO="$(git remote get-url origin)"
+REPO="${REPO##*github.com:}"
+REPO="${REPO##*github.com/}"
+REPO="${REPO%.git}"
 ARCHIVE="git-${VERSION}-linux-x86_64.tar.gz"
 
 if ! command -v gh >/dev/null || ! gh auth status >/dev/null 2>&1; then
