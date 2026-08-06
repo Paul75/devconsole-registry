@@ -1,5 +1,10 @@
 # Artifacts de build (scripts/build-git.sh)
 .git-build/
 git-*-linux-x86_64.tar.gz
+
+# Artifacts de build PHP (scripts/release-php.sh)
+.build-php/
 php-*-linux-x86_64.tar.gz
+
+# Runner self-hosté
 actions-runner
