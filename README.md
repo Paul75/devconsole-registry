@@ -28,9 +28,51 @@ DevConsole fetch ce fichier depuis `https://raw.githubusercontent.com/Paul75/dev
 
 ## Ajouter une version
 
-1. Ajouter l'entrée dans `versions.json`
-2. Publier le binaire dans une Release GitHub
+1. Ajouter l'entrée dans `versions.json` (manuellement, ou via le script ci-dessous)
+2. Publier le binaire dans une Release GitHub si besoin (PHP, Git Linux…)
 3. Committer et pusher sur `main`
+
+## Détecter / mettre à jour les versions
+
+Le script [`scripts/check-versions.py`](scripts/check-versions.py) interroge les sources upstream et propose les bumps pour `versions.json`.
+
+### Outils supportés
+
+`node`, `bun`, `caddy`, `mailpit`, `composer`, `zed`, `vscodium`, `tabby`, `go`
+
+| Outil | Source | Comportement |
+|-------|--------|--------------|
+| **node** | `nodejs.org/dist/index.json` + SHASUMS | remplace la version de chaque ligne majeure déjà présente |
+| **go** | `go.dev/dl/?mode=json` | ajoute la nouvelle version (sha depuis l’API) |
+| **autres** | GitHub Releases `latest` | ajoute la nouvelle version (URL dérivée du template existant) |
+
+Les outils qui nécessitent un build local/CI (**php**, **git** Linux) ne sont pas gérés par ce script.
+
+### Commandes
+
+```bash
+# Rapport seul (aucune écriture)
+scripts/check-versions.py
+
+# Sous-ensemble d'outils
+scripts/check-versions.py --tool node,bun
+
+# Sortie machine
+scripts/check-versions.py --json
+
+# Appliquer les mises à jour dans versions.json
+scripts/check-versions.py --write
+
+# Idem + calcul des sha256 par téléchargement (lent)
+# Utile hors node/go, qui récupèrent déjà les checksums officiels
+scripts/check-versions.py --write --sha
+```
+
+Sans `--sha`, les outils GitHub mettent `sha256` / `sha256_windows` à `null` : à renseigner ensuite, ou relancer avec `--sha`.
+
+Astuce rate-limit GitHub : exporter `GITHUB_TOKEN` (ou être authentifié via `gh auth login`).
+
+Après `--write`, vérifier le diff, puis committer et pusher sur `main`.
 
 ## Build PHP
 
