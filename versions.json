@@ -2,20 +2,30 @@
   "tools": {
     "node": {
       "versions": {
-        "24.18.0": {
-          "url": "https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz",
-          "url_windows": "https://nodejs.org/dist/v24.18.0/node-v24.18.0-win-x64.zip",
-          "sha256": "55aa7153f9d88f28d765fcdad5ae6945b5c0f98a36881703817e4c450fa76742",
-          "sha256_windows": "0ae68406b42d7725661da979b1403ec9926da205c6770827f33aac9d8f26e821",
-          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
+        "24.19.0": {
+          "url": "https://nodejs.org/dist/v24.19.0/node-v24.19.0-linux-x64.tar.xz",
+          "url_windows": "https://nodejs.org/dist/v24.19.0/node-v24.19.0-win-x64.zip",
+          "sha256": "14b342e71204f811bde6153be8e04b62aef63c236fef92b55f9c83154b409647",
+          "sha256_windows": "57f71ab3652e797d84acddc79c81cc9ff1c6ddb2a1974cdb83f00fee9bff4c73",
+          "binaries": [
+            "bin/node",
+            "bin/npm",
+            "bin/npx",
+            "bin/corepack"
+          ],
           "lts": true
         },
-        "22.23.1": {
-          "url": "https://nodejs.org/dist/v22.23.1/node-v22.23.1-linux-x64.tar.xz",
-          "url_windows": "https://nodejs.org/dist/v22.23.1/node-v22.23.1-win-x64.zip",
-          "sha256": "9749e988f437343b7fa832c69ded82a312e41a03116d766797ac14f6f9eee578",
-          "sha256_windows": "7df0bc9375723f4a86b3aa1b7cc73342423d9677a8df4538aca31a049e309c29",
-          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
+        "22.23.2": {
+          "url": "https://nodejs.org/dist/v22.23.2/node-v22.23.2-linux-x64.tar.xz",
+          "url_windows": "https://nodejs.org/dist/v22.23.2/node-v22.23.2-win-x64.zip",
+          "sha256": "d60acfe00a2932254bb0ad20e01b0d74397a0875595de719654b214f4b03f307",
+          "sha256_windows": "1177b4137ba5adaa56354ae40f1080c7450e8ae09cecb47da459d1c52ac99f97",
+          "binaries": [
+            "bin/node",
+            "bin/npm",
+            "bin/npx",
+            "bin/corepack"
+          ],
           "lts": true
         },
         "20.20.2": {
@@ -23,7 +33,12 @@
           "url_windows": "https://nodejs.org/dist/v20.20.2/node-v20.20.2-win-x64.zip",
           "sha256": "df770b2a6f130ed8627c9782c988fda9669fa23898329a61a871e32f965e007d",
           "sha256_windows": "dc3700fdd57a63eedb8fd7e3c7baaa32e6a740a1b904167ff4204bc68ed8bf77",
-          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
+          "binaries": [
+            "bin/node",
+            "bin/npm",
+            "bin/npx",
+            "bin/corepack"
+          ],
           "lts": true,
           "eol": true
         },
@@ -32,7 +47,12 @@
           "url_windows": "https://nodejs.org/dist/v18.20.8/node-v18.20.8-win-x64.zip",
           "sha256": "5467ee62d6af1411d46b6a10e3fb5cacc92734dbcef465fea14e7b90993001c9",
           "sha256_windows": "1a1e40260a6facba83636e4cd0ba01eb5bd1386896824b36645afba44857384a",
-          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
+          "binaries": [
+            "bin/node",
+            "bin/npm",
+            "bin/npx",
+            "bin/corepack"
+          ],
           "lts": true,
           "eol": true
         }
@@ -45,7 +65,14 @@
           "url_windows": "https://downloads.php.net/~windows/releases/php-8.5.9-nts-Win32-vs17-x64.zip",
           "sha256": "de07c4087018a477da73a394813ece077a8909a88d8b68d158595e9cf8d86df1",
           "sha256_windows": "516c2d72231bd035c8a910120834add0ad208098b790b4909b2cbeb93ce135fc",
-          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
+          "binaries": [
+            "bin/php",
+            "sbin/php-fpm",
+            "bin/php-cgi",
+            "php",
+            "php-cgi",
+            "php-fpm"
+          ],
           "lts": true
         },
         "8.5.8": {
@@ -53,7 +80,14 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.5.8-nts-Win32-vs17-x64.zip",
           "sha256": "14950aca55bf1fcdb0a4dc4dee3543a02f5be5c9a90d5077a51d6c80a521215c",
           "sha256_windows": "63a3f6493f37c9ff3e288ec16621222a6cda5167dd1abffec0019e7f18c8e7e9",
-          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
+          "binaries": [
+            "bin/php",
+            "sbin/php-fpm",
+            "bin/php-cgi",
+            "php",
+            "php-cgi",
+            "php-fpm"
+          ],
           "lts": true
         },
         "8.4.23": {
@@ -61,7 +95,14 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.4.23-nts-Win32-vs17-x64.zip",
           "sha256": "33cb44a3d288b096f4bf04396920500af606017994cab1c13176b47ca3e1b54e",
           "sha256_windows": "826efa189b21f46314ad497ff31467de9f0953292f42b235542be4feea182b48",
-          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
+          "binaries": [
+            "bin/php",
+            "sbin/php-fpm",
+            "bin/php-cgi",
+            "php",
+            "php-cgi",
+            "php-fpm"
+          ],
           "lts": true
         },
         "8.3.32": {
@@ -69,7 +110,14 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.3.32-nts-Win32-vs16-x64.zip",
           "sha256": "838794bb985a8cd5cf73769734b2f8d0844eba4c2b4fe95030d3f3b4da33ce1d",
           "sha256_windows": "67c724e7b675b50d8f0476d816c3e2a3064ce3a53d572575d63c321cc0a3a6cf",
-          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
+          "binaries": [
+            "bin/php",
+            "sbin/php-fpm",
+            "bin/php-cgi",
+            "php",
+            "php-cgi",
+            "php-fpm"
+          ],
           "lts": false
         }
       }
@@ -81,7 +129,12 @@
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.1-winx64.zip",
           "sha256": null,
           "sha256_windows": null,
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
+          "binaries": [
+            "bin/mysqld",
+            "bin/mysql",
+            "bin/mysqld_safe",
+            "bin/mysqladmin"
+          ],
           "lts": true
         },
         "8.4.10": {
@@ -89,7 +142,12 @@
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.10-winx64.zip",
           "sha256": null,
           "sha256_windows": null,
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
+          "binaries": [
+            "bin/mysqld",
+            "bin/mysql",
+            "bin/mysqld_safe",
+            "bin/mysqladmin"
+          ],
           "lts": true
         },
         "8.0.46": {
@@ -97,7 +155,12 @@
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-8.0.46-winx64.zip",
           "sha256": null,
           "sha256_windows": null,
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
+          "binaries": [
+            "bin/mysqld",
+            "bin/mysql",
+            "bin/mysqld_safe",
+            "bin/mysqladmin"
+          ],
           "lts": false
         }
       }
@@ -109,7 +172,12 @@
           "url_windows": "https://archive.mariadb.org/mariadb-12.3.2/bintar-win-x86_64/mariadb-12.3.2-win-x86_64.tar.gz",
           "sha256": "4a18365541d7280bbe947762e341bab94bc49f3ed31e6b5caf4e21f26246e458",
           "sha256_windows": "",
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
+          "binaries": [
+            "bin/mysqld",
+            "bin/mysql",
+            "bin/mariadbd",
+            "bin/mariadb"
+          ],
           "lts": true
         },
         "11.8.8": {
@@ -117,7 +185,12 @@
           "url_windows": "https://archive.mariadb.org/mariadb-11.8.8/bintar-win-x86_64/mariadb-11.8.8-win-x86_64.tar.gz",
           "sha256": "fbd4e8d05946c974b0560c94f01ce4c687291b6528074c2e001fb8f35c0d2762",
           "sha256_windows": "",
-          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
+          "binaries": [
+            "bin/mysqld",
+            "bin/mysql",
+            "bin/mariadbd",
+            "bin/mariadb"
+          ],
           "lts": true
         }
       }
@@ -129,7 +202,9 @@
           "url_windows": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-windows-x64.zip",
           "sha256": "951ee2aee855f08595aeec6225226a298d3fea83a3dcd6465c09cbccdf7e848f",
           "sha256_windows": "0a0620930b6675d7ba440e81f4e0e00d3cfbe096c4b140d3fff02205e9e18922",
-          "binaries": ["bun"],
+          "binaries": [
+            "bun"
+          ],
           "lts": true
         }
       }
@@ -141,7 +216,9 @@
           "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_windows_amd64.zip",
           "sha256": "527fbf917c39189a1e3b31d34fa955601680b2d5c8055d2a87b8b9588dec7bb9",
           "sha256_windows": "1708333f79e274c7697285afe6d592ab39314e0b131e9ec6bea08ad27df62ebf",
-          "binaries": ["caddy"]
+          "binaries": [
+            "caddy"
+          ]
         }
       }
     },
@@ -152,16 +229,36 @@
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260718/cpython-3.14.6+20260718-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "b442fb93903c6f3392b2430961d4725354ae0da7558c785a908d714264309b28",
           "sha256_windows": "97c01acd70108234ff042699996f3f4163c791f1d6e35de898475936b86ec3b2",
-          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
-          "binaries_windows": ["python", "python3", "pip", "pip3"]
+          "binaries": [
+            "bin/python3",
+            "bin/python",
+            "bin/pip3",
+            "bin/pip"
+          ],
+          "binaries_windows": [
+            "python",
+            "python3",
+            "pip",
+            "pip3"
+          ]
         },
         "3.12.13": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.12.13+20260610-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260623/cpython-3.12.13+20260623-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "97c5c55c3d7b17f29d9dc8aa1db4f59ebffac6ce0d07184f96fc20ecc42952d9",
           "sha256_windows": "c6af85bb83d5158c9ff71f50dfad467853d1cd236f932b144e87e26e2ea2a83e",
-          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
-          "binaries_windows": ["python", "python3", "pip", "pip3"]
+          "binaries": [
+            "bin/python3",
+            "bin/python",
+            "bin/pip3",
+            "bin/pip"
+          ],
+          "binaries_windows": [
+            "python",
+            "python3",
+            "pip",
+            "pip3"
+          ]
         }
       }
     },
@@ -172,16 +269,24 @@
           "url_windows": "https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.2/MinGit-2.55.0.2-64-bit.zip",
           "sha256": "11de2419239528702983bad321d596ddcb2eed47718e23b96432653ad2341948",
           "sha256_windows": "e3ea2944cea4b3fabcd69c7c1669ef69b1b66c05ac7806d81224d0abad2dec31",
-          "binaries": ["bin/git"],
-          "binaries_windows": ["cmd/git"]
+          "binaries": [
+            "bin/git"
+          ],
+          "binaries_windows": [
+            "cmd/git"
+          ]
         },
         "2.54.0": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.54.0/git-2.54.0-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/MinGit-2.54.0-64-bit.zip",
           "sha256": "057099b25a8913af9dceb64bd7463262e89ea8c4d6cf2668499363bef4b79100",
           "sha256_windows": "04f937e1f0918b17b9be6f2294cb2bb66e96e1d9832d1c298e2de088a1d0e668",
-          "binaries": ["bin/git"],
-          "binaries_windows": ["cmd/git"]
+          "binaries": [
+            "bin/git"
+          ],
+          "binaries_windows": [
+            "cmd/git"
+          ]
         }
       }
     },
@@ -192,8 +297,12 @@
           "url_windows": "https://update.code.visualstudio.com/1.128.0/win32-x64-archive/stable",
           "sha256": "a9b4ce974ecc10c7456da9879763bf0a7a432710bd26c95a89a8a168f2aff57b",
           "sha256_windows": null,
-          "binaries": ["bin/code"],
-          "binaries_windows": ["bin/code.cmd"],
+          "binaries": [
+            "bin/code"
+          ],
+          "binaries_windows": [
+            "bin/code.cmd"
+          ],
           "lts": true
         }
       }
@@ -205,8 +314,12 @@
           "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.126.04524/VSCodium-win32-x64-1.126.04524.zip",
           "sha256": "adf3548df055d18e476cdee887488ba7486b879ad99a31a546c6b5c5ff296c24",
           "sha256_windows": "5b5bc348861ce861aed968b086233b45050694013c0607ea66b401f31b987c57",
-          "binaries": ["bin/codium"],
-          "binaries_windows": ["bin/codium.cmd"],
+          "binaries": [
+            "bin/codium"
+          ],
+          "binaries_windows": [
+            "bin/codium.cmd"
+          ],
           "lts": true
         }
       }
@@ -218,7 +331,9 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.14.2/Zed-x86_64.exe",
           "sha256": "6c476103b49a87dc62c46b8cc4dca84c0458ed53537de664ebdbc99b47daee2d",
           "sha256_windows": "2ce4154072131dfa466fda5d2b8f61fa14a745010c23e10273f01cb05abfd46a",
-          "binaries": ["bin/zed"],
+          "binaries": [
+            "bin/zed"
+          ],
           "lts": true
         },
         "1.13.1": {
@@ -226,7 +341,9 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.13.1/Zed-x86_64.exe",
           "sha256": "9f5638bdf28dd15dd8d82d092577e82de6cd3d0e0c96d2658e24a63df025b9f5",
           "sha256_windows": "5699c1651fff0e3bfe7dac1480e45bc8e405f40ea288b19071f0186209809f53",
-          "binaries": ["bin/zed"],
+          "binaries": [
+            "bin/zed"
+          ],
           "lts": true
         },
         "1.12.0": {
@@ -234,7 +351,9 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.12.0/Zed-x86_64.exe",
           "sha256": "fedaec1e617fc78fe56ff82e63ee51562902d9904b1120330c1802fec2b84315",
           "sha256_windows": "fe419c17ebfb9b1d87e0c671b9a16804dd25cf452b60933a2456dc533fbd14f0",
-          "binaries": ["bin/zed"],
+          "binaries": [
+            "bin/zed"
+          ],
           "lts": true
         },
         "1.10.3": {
@@ -242,7 +361,9 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.10.3/Zed-x86_64.exe",
           "sha256": "55eb5ef8b211c950a9009da30b7f603d2c9d2c80b207f9de94ffab6d31d58f8c",
           "sha256_windows": "441e0703a2e9dea992f29dd37395e9f8f326b5a4ea596e4a4bb2029acdfb9be5",
-          "binaries": ["bin/zed"],
+          "binaries": [
+            "bin/zed"
+          ],
           "lts": true
         }
       }
@@ -254,8 +375,12 @@
           "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.3.7/android-studio-quail3-windows.zip",
           "sha256": "36832122557ab73ca68dfd9bd989ddac40103ac003ca10e04c949a1f61578a67",
           "sha256_windows": "02e1232a3924037769bafd450660a410af423331ba74f6e9a20f2b2f5daea2de",
-          "binaries": ["bin/studio.sh"],
-          "binaries_windows": ["bin/studio64"],
+          "binaries": [
+            "bin/studio.sh"
+          ],
+          "binaries_windows": [
+            "bin/studio64"
+          ],
           "lts": true
         },
         "2026.1.2.10": {
@@ -263,8 +388,12 @@
           "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.2.10/android-studio-quail2-windows.zip",
           "sha256": "64445a54092e7056c6eb7f1a89ad116d0feec2ef5f965b8e594d62abdb58590f",
           "sha256_windows": "fb0d9573d5252bf683b2255458b88fbc358166071d587a066e27cf3449d916b0",
-          "binaries": ["bin/studio.sh"],
-          "binaries_windows": ["bin/studio64"],
+          "binaries": [
+            "bin/studio.sh"
+          ],
+          "binaries_windows": [
+            "bin/studio64"
+          ],
           "lts": true
         }
       }
@@ -340,7 +469,13 @@
           "url_windows": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.31%2B11/OpenJDK11U-jdk_x64_windows_hotspot_11.0.31_11.zip",
           "sha256": "1e9de64586b519c0a981319489257cabedd9457599f3823424a87c3158fbe939",
           "sha256_windows": "5695bd8fed700acb74e0c13945fc6d7564441a31d345c100b82ee1aac553a6b7",
-          "binaries": ["bin/java", "bin/javac", "bin/jar", "bin/javadoc", "bin/jshell"],
+          "binaries": [
+            "bin/java",
+            "bin/javac",
+            "bin/jar",
+            "bin/javadoc",
+            "bin/jshell"
+          ],
           "lts": true
         }
       }
@@ -352,7 +487,9 @@
           "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.235/tabby-1.0.235-portable-x64.zip",
           "sha256": "af194d1c0ead7c190127aa911a56052ba088be085b1f6d8526a97f30db14962b",
           "sha256_windows": "192ee1f402e046f8be5a31118da1dfa38aa290387e7e57dceafcc0b3dfd1a835",
-          "binaries": ["tabby"],
+          "binaries": [
+            "tabby"
+          ],
           "lts": true
         },
         "1.0.234": {
@@ -360,7 +497,9 @@
           "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-portable-x64.zip",
           "sha256": "2b6cdbd20afc3ec0b5325e703a3adda8800e8546bda15e06afd9f57ac1264c2e",
           "sha256_windows": "a66ef871253bbe0aef909f498439eedc36018f22d46082ce2b885b6affd1b61e",
-          "binaries": ["tabby"],
+          "binaries": [
+            "tabby"
+          ],
           "lts": true
         }
       }
@@ -372,7 +511,9 @@
           "url_windows": "https://github.com/wez/wezterm/releases/download/20240203-110809-5ac436b2/WezTerm-20240203-110809-5ac436b2-windows.zip",
           "sha256": "34010a07076d2272c4d4f94b5e0dae608a679599e8d729446323f88f956c60f0",
           "sha256_windows": "57e5d03b585303d81e8b8e96d1230362852eb39aca92b3b29c7a42cfb82f9ac4",
-          "binaries": ["WezTerm"],
+          "binaries": [
+            "WezTerm"
+          ],
           "lts": true
         }
       }
@@ -384,7 +525,9 @@
           "url_windows": "https://github.com/kingToolbox/WindTerm/releases/download/2.7.0/WindTerm_2.7.0_Windows_Portable_x86_64.zip",
           "sha256": null,
           "sha256_windows": null,
-          "binaries": ["WindTerm"],
+          "binaries": [
+            "WindTerm"
+          ],
           "lts": true
         }
       }
@@ -396,7 +539,9 @@
           "url_windows": "https://download.sublimetext.com/sublime_merge_build_2125_x64.zip",
           "sha256": null,
           "sha256_windows": null,
-          "binaries": ["sublime_merge"],
+          "binaries": [
+            "sublime_merge"
+          ],
           "lts": true
         }
       }
@@ -438,7 +583,10 @@
         "7.4.2": {
           "url": "https://github.com/becomeliminal/redis/releases/download/v0.0.3/redis-7.4.2-linux_x86_64-musl.tar.gz",
           "sha256": "7b5f3ca3a80647b159e02d0dc94ea10f7b86f2560e528f3d61341004b2d8d71a",
-          "binaries": ["redis-server", "redis-cli"],
+          "binaries": [
+            "redis-server",
+            "redis-cli"
+          ],
           "lts": true
         }
       }
@@ -450,8 +598,26 @@
           "url_windows": "https://github.com/theseus-rs/postgresql-binaries/releases/download/18.4.0/postgresql-18.4.0-x86_64-pc-windows-msvc.zip",
           "sha256": "65c06cf318b9a57525d842d658d6d18cd461d12b3a89b57d6d8ed7cccbe2db53",
           "sha256_windows": "01f97a2f7ca1dde0f53a7b57e5fe10e1530d700b1bc99b96fa62dae0935c6617",
-          "binaries": ["bin/postgres", "bin/initdb", "bin/pg_ctl", "bin/psql", "bin/createdb", "bin/dropdb", "bin/pg_dump", "bin/pg_restore"],
-          "binaries_windows": ["bin/postgres.exe", "bin/initdb.exe", "bin/pg_ctl.exe", "bin/psql.exe", "bin/createdb.exe", "bin/dropdb.exe", "bin/pg_dump.exe", "bin/pg_restore.exe"],
+          "binaries": [
+            "bin/postgres",
+            "bin/initdb",
+            "bin/pg_ctl",
+            "bin/psql",
+            "bin/createdb",
+            "bin/dropdb",
+            "bin/pg_dump",
+            "bin/pg_restore"
+          ],
+          "binaries_windows": [
+            "bin/postgres.exe",
+            "bin/initdb.exe",
+            "bin/pg_ctl.exe",
+            "bin/psql.exe",
+            "bin/createdb.exe",
+            "bin/dropdb.exe",
+            "bin/pg_dump.exe",
+            "bin/pg_restore.exe"
+          ],
           "lts": true
         }
       }
@@ -463,8 +629,12 @@
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.30.6/mailpit-windows-amd64.zip",
           "sha256": "00f7570bf47c9683944f6189379ce4b7d4974b1c9cd911f93c55d4ad945bf3d2",
           "sha256_windows": "23a249f8f73409be67ecb48d43e3269810a9f35388db4eba0c0115c5eb1ff31a",
-          "binaries": ["mailpit"],
-          "binaries_windows": ["mailpit.exe"],
+          "binaries": [
+            "mailpit"
+          ],
+          "binaries_windows": [
+            "mailpit.exe"
+          ],
           "lts": true
         }
       }
@@ -474,7 +644,9 @@
         "2.10.2": {
           "url": "https://github.com/composer/composer/releases/download/2.10.2/composer.phar",
           "sha256": "5ee7125f8a30a34d246cefdc0bc85b8a783b28f2aec968994118512350d28027",
-          "binaries": ["composer"],
+          "binaries": [
+            "composer"
+          ],
           "lts": true
         }
       }
@@ -486,7 +658,10 @@
           "url_windows": "https://go.dev/dl/go1.26.5.windows-amd64.zip",
           "sha256": "5c2c3b16caefa1d968a94c1daca04a7ca301a496d9b086e17ad77bb81393f053",
           "sha256_windows": "97e6b2a833b6d89f9ff17d25419ac0a7e3b482a044e9ab18cdef834bd834fd38",
-          "binaries": ["bin/go", "bin/gofmt"],
+          "binaries": [
+            "bin/go",
+            "bin/gofmt"
+          ],
           "lts": true
         }
       }
@@ -536,8 +711,14 @@
           "url_windows": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.28.zip",
           "sha256": "d53e853e422257e60d41c962684d1da60ac64681bf0a5604007e0351d0437fd2",
           "sha256_windows": "a6573419fc1d8767b7a86911c4a1b832fa408d4b8bd32d281f049b87a30073cf",
-          "binaries": ["mongod", "mongos"],
-          "binaries_windows": ["mongod.exe", "mongos.exe"],
+          "binaries": [
+            "mongod",
+            "mongos"
+          ],
+          "binaries_windows": [
+            "mongod.exe",
+            "mongos.exe"
+          ],
           "lts": true
         }
       }
