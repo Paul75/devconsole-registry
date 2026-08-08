@@ -54,7 +54,22 @@ def github_token() -> str | None:
         )
         return out.strip() or None
     except (OSError, subprocess.CalledProcessError):
-        return None
+        pass
+
+    # Fallback: gh < 2.31 n'a pas "auth token" → lire hosts.yml
+    try:
+        hosts = Path(
+            os.environ.get("GH_CONFIG_DIR", Path.home() / ".config" / "gh")
+        ) / "hosts.yml"
+        if hosts.is_file():
+            if m := re.search(
+                r"(?m)^\s*oauth_token:\s*([^\s]+)\s*$",
+                hosts.read_text(encoding="utf-8"),
+            ):
+                return m.group(1)
+    except OSError:
+        pass
+    return None
 
 
 def http_get(url: str, *, binary: bool = False) -> Any:
