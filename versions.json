@@ -658,8 +658,8 @@
         "1.30.7": {
           "url": "https://github.com/axllent/mailpit/releases/download/v1.30.7/mailpit-linux-amd64.tar.gz",
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.30.7/mailpit-windows-amd64.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "a35c053509441b95fb96da6479b3a26b3eb309e223232aced28255c011d29efc",
+          "sha256_windows": "e4815d2c961a4ad024f4d942d0d286fd7b7da49c49fc7f01c565ff296bd3fdce",
           "binaries": [
             "mailpit"
           ],
