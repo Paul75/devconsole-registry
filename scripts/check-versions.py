@@ -12,13 +12,14 @@ Outils GitHub releases: node, bun, caddy, mailpit, composer, zed, vscodium,
 tabby, go, postgres, windterm.
 Outils APIs dediees: python (python-build-standalone + SHA256SUMS), vscode
 (update.code.visualstudio.com), jdk (Adoptium API), rust (channel-rust-stable.toml),
-mariadb (downloads.mariadb.org REST).
+mariadb (downloads.mariadb.org REST), android_studio (page stable
+developer.android.com/studio), android_sdk (repository2-3.xml de Google).
 Outils detect-only (build local/CI requis): php, git — reportent la nouvelle
 version sans deriver les URLs; lancer scripts/update-builds.sh pour construire
 et publier, puis integrer la release dans versions.json.
 
-Non couverts (pas d'API publique stable): mysql, android_studio, wezterm,
-sublime_merge, android_sdk, redis, mongodb.
+Non couverts (pas d'API publique stable): mysql, wezterm, sublime_merge,
+redis, mongodb.
 """
 
 from __future__ import annotations
@@ -655,6 +656,116 @@ def check_mariadb(current: dict[str, Any], args: argparse.Namespace) -> list[Upd
     return updates
 
 
+def check_android_studio(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    """Detecte la version stable d'Android Studio.
+
+    La page https://developer.android.com/studio est rendue cote serveur avec
+    les liens ide-zips du build stable courant:
+      https://edgedl.me.gvt1.com/android/studio/ide-zips/{version}/android-studio-{codename}-linux.tar.gz
+    """
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    html = http_get("https://developer.android.com/studio")
+    links = re.findall(
+        r"(https://[a-z0-9.-]*gvt1\.com/android/studio/ide-zips/"
+        r"(\d+(?:\.\d+)+)/android-studio-[a-z0-9]+-linux\.tar\.gz)",
+        html,
+    )
+    if not links:
+        return []
+
+    url = max(links, key=lambda m: parse_version(m[1]))[0]
+    new_ver = re.search(r"ide-zips/(\d+(?:\.\d+)+)/", url).group(1)
+
+    old_ver = max_version(list(versions))
+    if not version_gt(new_ver, old_ver):
+        return []
+
+    entry = deepcopy(versions[old_ver])
+    entry["url"] = url
+    if isinstance(entry.get("url_windows"), str):
+        entry["url_windows"] = url.replace("-linux.tar.gz", "-windows.zip")
+
+    for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+        if entry.get(src):
+            if args.sha:
+                print(f"  … android_studio: sha256 {src} …", file=sys.stderr)
+                try:
+                    entry[dst] = sha256_url(entry[src])
+                except urllib.error.HTTPError as e:
+                    print(f"  ! android_studio: echec sha {src}: {e}", file=sys.stderr)
+                    entry[dst] = None
+            else:
+                entry[dst] = None
+
+    return [Update("android_studio", old_ver, new_ver, entry, "add")]
+
+
+def check_android_sdk(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    """Detecte le dernier API level Android et les cmdline-tools.
+
+    Le registre versionne android_sdk par API level (35, 36, ...). La source est
+    le repository XML de Google (repository2-3.xml): platforms;android-NN pour
+    l'API level, et le paquet cmdline-tools;latest pour l'archive sdkmanager.
+    """
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    xml = http_get("https://dl.google.com/android/repository/repository2-3.xml")
+    apis = [int(a) for a in re.findall(r'path="platforms;android-(\d+)"', xml)]
+    if not apis:
+        return []
+
+    new_ver = str(max(apis))
+    old_ver = max_version(list(versions))
+    if not version_gt(new_ver, old_ver):
+        return []
+
+    seg = re.search(
+        r'<remotePackage path="cmdline-tools;latest">.*?</remotePackage>', xml, re.S
+    )
+    linux_tools = win_tools = None
+    if seg:
+        ml = re.search(
+            r"<url>commandlinetools-linux-(\d+)_latest\.zip</url>", seg.group(0)
+        )
+        mw = re.search(
+            r"<url>commandlinetools-win-(\d+)_latest\.zip</url>", seg.group(0)
+        )
+        linux_tools = ml.group(1) if ml else None
+        win_tools = mw.group(1) if mw else None
+    if not linux_tools:
+        return []
+
+    entry = deepcopy(versions[old_ver])
+    entry["url"] = (
+        f"https://dl.google.com/android/repository/"
+        f"commandlinetools-linux-{linux_tools}_latest.zip"
+    )
+    if isinstance(entry.get("url_windows"), str) and win_tools:
+        entry["url_windows"] = (
+            f"https://dl.google.com/android/repository/"
+            f"commandlinetools-win-{win_tools}_latest.zip"
+        )
+
+    for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+        if entry.get(src):
+            if args.sha:
+                print(f"  … android_sdk: sha256 {src} …", file=sys.stderr)
+                try:
+                    entry[dst] = sha256_url(entry[src])
+                except urllib.error.HTTPError as e:
+                    print(f"  ! android_sdk: echec sha {src}: {e}", file=sys.stderr)
+                    entry[dst] = None
+            else:
+                entry[dst] = None
+
+    return [Update("android_sdk", old_ver, new_ver, entry, "add")]
+
+
 CHECKERS: dict[str, Checker] = {
     "node": check_node,
     "bun": check_bun,
@@ -674,6 +785,8 @@ CHECKERS: dict[str, Checker] = {
     "postgres": check_postgres,
     "mariadb": check_mariadb,
     "windterm": check_windterm,
+    "android_studio": check_android_studio,
+    "android_sdk": check_android_sdk,
 }
 
 
