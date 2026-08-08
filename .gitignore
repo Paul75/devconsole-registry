@@ -8,3 +8,5 @@ php-*-linux-x86_64.tar.gz
 
 # Runner self-hosté
 actions-runner
+
+__pycache__
