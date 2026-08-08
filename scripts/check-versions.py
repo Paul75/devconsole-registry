@@ -1,0 +1,541 @@
+#!/usr/bin/env python3
+"""Detecte les nouvelles versions upstream et met a jour versions.json.
+
+Usage:
+  scripts/check-versions.py                  # rapport seul
+  scripts/check-versions.py --write          # ecrit versions.json
+  scripts/check-versions.py --tool node,bun  # sous-ensemble
+  scripts/check-versions.py --write --sha    # + telecharge pour calculer sha256
+  scripts/check-versions.py --add php@8.5.10 # ajoute une version (entry JSON stdin)
+
+Outils GitHub releases: node, bun, caddy, mailpit, composer, zed, vscodium, tabby, go.
+Outils detect-only (build local/CI requis): php, git — reportent la nouvelle
+version sans deriver les URLs; lancer scripts/update-builds.sh pour construire
+et publier, puis integrer la release dans versions.json.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import re
+import subprocess
+import sys
+import urllib.error
+import urllib.request
+from copy import deepcopy
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Callable
+
+ROOT = Path(__file__).resolve().parent.parent
+VERSIONS_PATH = ROOT / "versions.json"
+USER_AGENT = "devconsole-registry-check-versions/1.0"
+
+
+# ─── helpers ─────────────────────────────────────────────────────────────────
+
+
+def github_token() -> str | None:
+    if token := os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN"):
+        return token
+    try:
+        out = subprocess.check_output(
+            ["gh", "auth", "token"], text=True, stderr=subprocess.DEVNULL
+        )
+        return out.strip() or None
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+
+def http_get(url: str, *, binary: bool = False) -> Any:
+    headers = {"User-Agent": USER_AGENT, "Accept": "application/vnd.github+json"}
+    if "api.github.com" in url and (token := github_token()):
+        headers["Authorization"] = f"Bearer {token}"
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        data = resp.read()
+    return data if binary else data.decode("utf-8")
+
+
+def http_get_json(url: str) -> Any:
+    return json.loads(http_get(url))
+
+
+def parse_version(v: str) -> tuple[int, ...]:
+    """Parse un numero de version en tuple comparable (ignore suffixe non numerique)."""
+    parts: list[int] = []
+    for chunk in re.split(r"[.+_\-]", v.lstrip("v")):
+        if chunk.isdigit():
+            parts.append(int(chunk))
+        elif m := re.match(r"^(\d+)", chunk):
+            parts.append(int(m.group(1)))
+        else:
+            break
+    return tuple(parts) if parts else (0,)
+
+
+def version_gt(a: str, b: str) -> bool:
+    return parse_version(a) > parse_version(b)
+
+
+def max_version(versions: list[str]) -> str:
+    return max(versions, key=parse_version)
+
+
+def substitute_version(template: str, old: str, new: str) -> str:
+    """Remplace toutes les occurrences de old par new dans une URL/chemin."""
+    if old not in template:
+        raise ValueError(f"version {old!r} introuvable dans le template: {template}")
+    return template.replace(old, new)
+
+
+def sha256_url(url: str) -> str:
+    digest = hashlib.sha256()
+    headers = {"User-Agent": USER_AGENT}
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req, timeout=300) as resp:
+        while chunk := resp.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def sha256_from_shasums(text: str, filename: str) -> str | None:
+    for line in text.splitlines():
+        parts = line.split()
+        if len(parts) >= 2 and parts[1].lstrip("*") == filename:
+            return parts[0]
+    return None
+
+
+@dataclass
+class Update:
+    tool: str
+    old_version: str | None
+    new_version: str
+    entry: dict[str, Any]
+    mode: str  # "add" | "replace"
+
+
+Checker = Callable[[dict[str, Any], argparse.Namespace], list[Update]]
+
+
+# ─── checkers ────────────────────────────────────────────────────────────────
+
+
+def check_github_latest(
+    tool: str,
+    repo: str,
+    current: dict[str, Any],
+    args: argparse.Namespace,
+    *,
+    tag_to_version: Callable[[str], str | None] | None = None,
+) -> list[Update]:
+    """Compare la release GitHub latest a la version max locale."""
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    latest = http_get_json(f"https://api.github.com/repos/{repo}/releases/latest")
+    tag = latest.get("tag_name") or ""
+    if tag_to_version:
+        new_ver = tag_to_version(tag)
+    else:
+        new_ver = tag.lstrip("v") if tag else None
+    if not new_ver:
+        print(f"  ! {tool}: tag ignore {tag!r}", file=sys.stderr)
+        return []
+
+    old_ver = max_version(list(versions))
+    if not version_gt(new_ver, old_ver):
+        return []
+
+    template = versions[old_ver]
+    entry = deepcopy(template)
+    for key in ("url", "url_windows"):
+        if key in entry and isinstance(entry[key], str):
+            entry[key] = substitute_version(entry[key], old_ver, new_ver)
+
+    if args.sha:
+        for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+            if entry.get(src):
+                print(f"  … {tool}: sha256 {src} …", file=sys.stderr)
+                try:
+                    entry[dst] = sha256_url(entry[src])
+                except urllib.error.HTTPError as e:
+                    print(f"  ! {tool}: echec sha {src}: {e}", file=sys.stderr)
+                    entry[dst] = None
+    else:
+        for key in ("sha256", "sha256_windows"):
+            if key in entry:
+                entry[key] = None
+
+    return [Update(tool, old_ver, new_ver, entry, "add")]
+
+
+def check_bun(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    def tag_to_version(tag: str) -> str | None:
+        # bun-v1.3.14
+        m = re.match(r"^bun-v(.+)$", tag)
+        return m.group(1) if m else tag.lstrip("v") or None
+
+    return check_github_latest("bun", "oven-sh/bun", current, args, tag_to_version=tag_to_version)
+
+
+def check_caddy(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("caddy", "caddyserver/caddy", current, args)
+
+
+def check_mailpit(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("mailpit", "axllent/mailpit", current, args)
+
+
+def check_composer(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("composer", "composer/composer", current, args)
+
+
+def check_zed(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("zed", "zed-industries/zed", current, args)
+
+
+def check_vscodium(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("vscodium", "VSCodium/vscodium", current, args)
+
+
+def check_tabby(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("tabby", "Eugeny/tabby", current, args)
+
+
+def check_go(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    data = http_get_json("https://go.dev/dl/?mode=json")
+    stable = next((r for r in data if r.get("stable")), None)
+    if not stable:
+        return []
+
+    # version: "go1.26.5"
+    new_ver = stable["version"].removeprefix("go")
+    old_ver = max_version(list(versions))
+    if not version_gt(new_ver, old_ver):
+        return []
+
+    template = versions[old_ver]
+    entry = deepcopy(template)
+    files = {f["filename"]: f for f in stable.get("files", [])}
+
+    linux = files.get(f"go{new_ver}.linux-amd64.tar.gz")
+    windows = files.get(f"go{new_ver}.windows-amd64.zip")
+    if linux:
+        entry["url"] = f"https://go.dev/dl/{linux['filename']}"
+        entry["sha256"] = linux.get("sha256")
+    else:
+        entry["url"] = substitute_version(template["url"], old_ver, new_ver)
+        entry["sha256"] = None
+
+    if "url_windows" in template:
+        if windows:
+            entry["url_windows"] = f"https://go.dev/dl/{windows['filename']}"
+            entry["sha256_windows"] = windows.get("sha256")
+        else:
+            entry["url_windows"] = substitute_version(template["url_windows"], old_ver, new_ver)
+            entry["sha256_windows"] = None
+
+    if args.sha:
+        for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+            if entry.get(src) and not entry.get(dst):
+                print(f"  … go: sha256 {src} …", file=sys.stderr)
+                entry[dst] = sha256_url(entry[src])
+
+    return [Update("go", old_ver, new_ver, entry, "add")]
+
+
+def check_needs_build(
+    tool: str,
+    repo: str,
+    current: dict[str, Any],
+    args: argparse.Namespace,
+    *,
+    tag_regex: str,
+    prefix: str,
+) -> list[Update]:
+    """Detect-only pour les outils dont le binaire est produit par un build
+    local/CI (php, git Linux) : signale la nouvelle version upstream sans
+    deriver les URLs. Le build est declenche par scripts/update-builds.sh.
+    """
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    tags = http_get_json(f"https://api.github.com/repos/{repo}/tags?per_page=100")
+    stable = [t["name"] for t in tags if re.match(tag_regex, t["name"])]
+    if not stable:
+        return []
+
+    # max_version attend des numeros "propres" → on retire le prefixe (php-, v)
+    latest = max(stable, key=lambda t: parse_version(t.removeprefix(prefix)))
+    new_ver = re.match(tag_regex, latest).group(1)
+    old_ver = max_version(list(versions))
+    if not version_gt(new_ver, old_ver):
+        return []
+
+    template = versions[old_ver]
+    entry = deepcopy(template)
+    return [Update(tool, old_ver, new_ver, entry, "build")]
+
+
+def check_php(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    # Tags php-src : php-8.5.9, php-8.6.0alpha3 (exclu par le regex strict),
+    # php-8.5.9RC1 (exclu).
+    return check_needs_build(
+        "php", "php/php-src", current, args,
+        tag_regex=r"^php-(\d+\.\d+\.\d+)$",
+        prefix="php-",
+    )
+
+
+def check_git(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    # Tags git/git : v2.55.0, v2.55.0-rc2 (exclu par le regex strict).
+    return check_needs_build(
+        "git", "git/git", current, args,
+        tag_regex=r"^v(\d+\.\d+\.\d+)$",
+        prefix="v",
+    )
+
+
+def check_node(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    """Met a jour chaque ligne majeure deja presente (24, 22, 20, …)."""
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    index = http_get_json("https://nodejs.org/dist/index.json")
+    majors_present = {parse_version(v)[0] for v in versions}
+
+    best_by_major: dict[int, str] = {}
+    for major in majors_present:
+        candidates = [
+            rel["version"].lstrip("v")
+            for rel in index
+            if parse_version(rel["version"].lstrip("v"))[0] == major
+            and rel.get("lts") not in (False, None)
+        ]
+        if not candidates:
+            candidates = [
+                rel["version"].lstrip("v")
+                for rel in index
+                if parse_version(rel["version"].lstrip("v"))[0] == major
+            ]
+        if candidates:
+            best_by_major[major] = max_version(candidates)
+
+    current_by_major: dict[int, str] = {}
+    for ver in versions:
+        major = parse_version(ver)[0]
+        if major not in current_by_major or version_gt(ver, current_by_major[major]):
+            current_by_major[major] = ver
+
+    updates: list[Update] = []
+    for major, new_ver in sorted(best_by_major.items(), reverse=True):
+        old_ver = current_by_major[major]
+        if not version_gt(new_ver, old_ver):
+            continue
+
+        template = versions[old_ver]
+        entry = deepcopy(template)
+        entry["url"] = substitute_version(template["url"], old_ver, new_ver)
+        if "url_windows" in template:
+            entry["url_windows"] = substitute_version(template["url_windows"], old_ver, new_ver)
+
+        try:
+            shasums = http_get(f"https://nodejs.org/dist/v{new_ver}/SHASUMS256.txt")
+            linux_name = f"node-v{new_ver}-linux-x64.tar.xz"
+            win_name = f"node-v{new_ver}-win-x64.zip"
+            entry["sha256"] = sha256_from_shasums(shasums, linux_name)
+            if "sha256_windows" in entry:
+                entry["sha256_windows"] = sha256_from_shasums(shasums, win_name)
+        except urllib.error.HTTPError:
+            entry["sha256"] = None
+            if "sha256_windows" in entry:
+                entry["sha256_windows"] = None
+            if args.sha:
+                for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+                    if entry.get(src):
+                        print(f"  … node: sha256 {src} …", file=sys.stderr)
+                        entry[dst] = sha256_url(entry[src])
+
+        updates.append(Update("node", old_ver, new_ver, entry, "replace"))
+
+    return updates
+
+
+CHECKERS: dict[str, Checker] = {
+    "node": check_node,
+    "bun": check_bun,
+    "caddy": check_caddy,
+    "mailpit": check_mailpit,
+    "composer": check_composer,
+    "zed": check_zed,
+    "vscodium": check_vscodium,
+    "tabby": check_tabby,
+    "go": check_go,
+    "php": check_php,
+    "git": check_git,
+}
+
+
+# ─── apply / main ────────────────────────────────────────────────────────────
+
+
+def apply_updates(data: dict[str, Any], updates: list[Update]) -> dict[str, Any]:
+    out = deepcopy(data)
+    tools = out.setdefault("tools", {})
+
+    for upd in updates:
+        tool = tools.setdefault(upd.tool, {"versions": {}})
+        versions: dict[str, Any] = tool.setdefault("versions", {})
+
+        if upd.mode == "replace" and upd.old_version and upd.old_version in versions:
+            # Remplace la cle (nouvelle version) en conservant l'ordre relatif
+            new_versions: dict[str, Any] = {}
+            for ver, meta in versions.items():
+                if ver == upd.old_version:
+                    new_versions[upd.new_version] = upd.entry
+                else:
+                    new_versions[ver] = meta
+            tool["versions"] = new_versions
+        else:
+            # Inserer en tete
+            tool["versions"] = {upd.new_version: upd.entry, **versions}
+
+    return out
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--write",
+        action="store_true",
+        help="Ecrit les mises a jour dans versions.json",
+    )
+    parser.add_argument(
+        "--sha",
+        action="store_true",
+        help="Telecharge les archives pour calculer sha256 (lent)",
+    )
+    parser.add_argument(
+        "--tool",
+        default=",".join(CHECKERS),
+        help=f"Outils a verifier (csv). Defaut: {','.join(CHECKERS)}",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Sortie machine (liste d'updates)",
+    )
+    parser.add_argument(
+        "--add",
+        metavar="tool@version",
+        help="Ajoute une version dans versions.json (entry JSON sur stdin). "
+        "Usage par scripts/update-builds.sh apres publication de la release.",
+    )
+    args = parser.parse_args()
+
+    if args.add:
+        tool, _, version = args.add.partition("@")
+        if not tool or not version:
+            print("Usage: --add tool@version  (entry JSON sur stdin)", file=sys.stderr)
+            return 2
+        entry = json.load(sys.stdin)
+        data = json.loads(VERSIONS_PATH.read_text(encoding="utf-8"))
+        data = apply_updates(data, [Update(tool, None, version, entry, "add")])
+        VERSIONS_PATH.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+        print(f"Ajoute {tool} {version} dans {VERSIONS_PATH}", file=sys.stderr)
+        return 0
+
+    tools = [t.strip() for t in args.tool.split(",") if t.strip()]
+    unknown = [t for t in tools if t not in CHECKERS]
+    if unknown:
+        print(f"Outils inconnus: {', '.join(unknown)}", file=sys.stderr)
+        print(f"Disponibles: {', '.join(CHECKERS)}", file=sys.stderr)
+        return 2
+
+    data = json.loads(VERSIONS_PATH.read_text(encoding="utf-8"))
+    all_updates: list[Update] = []
+
+    for name in tools:
+        current = (data.get("tools") or {}).get(name) or {}
+        print(f"→ {name}", file=sys.stderr)
+        try:
+            found = CHECKERS[name](current, args)
+        except Exception as e:
+            print(f"  ! erreur: {e}", file=sys.stderr)
+            continue
+        if not found:
+            cur = list((current.get("versions") or {}))
+            label = max_version(cur) if cur else "?"
+            print(f"  = a jour ({label})", file=sys.stderr)
+        for upd in found:
+            print(f"  ↑ {upd.old_version} → {upd.new_version} [{upd.mode}]", file=sys.stderr)
+        all_updates.extend(found)
+
+    if args.json:
+        print(
+            json.dumps(
+                [
+                    {
+                        "tool": u.tool,
+                        "old": u.old_version,
+                        "new": u.new_version,
+                        "mode": u.mode,
+                    }
+                    for u in all_updates
+                ],
+                indent=2,
+            )
+        )
+
+    if not all_updates:
+        print("Aucune mise a jour.", file=sys.stderr)
+        return 0
+
+    build_updates = [u for u in all_updates if u.mode == "build"]
+    write_updates = [u for u in all_updates if u.mode != "build"]
+    if build_updates:
+        tools_build = ", ".join(sorted({u.tool for u in build_updates}))
+        print(
+            f"{len(build_updates)} outil(s) a construire ({tools_build}) : "
+            "lancer scripts/update-builds.sh",
+            file=sys.stderr,
+        )
+
+    if args.write:
+        if write_updates:
+            new_data = apply_updates(data, write_updates)
+            VERSIONS_PATH.write_text(
+                json.dumps(new_data, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+            print(
+                f"Ecrit {VERSIONS_PATH} ({len(write_updates)} update(s))",
+                file=sys.stderr,
+            )
+    else:
+        print(
+            f"{len(write_updates)} update(s) ecrivable(s). Relancer avec --write "
+            "pour appliquer.",
+            file=sys.stderr,
+        )
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

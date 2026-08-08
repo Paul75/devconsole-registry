@@ -38,15 +38,18 @@ Le script [`scripts/check-versions.py`](scripts/check-versions.py) interroge les
 
 ### Outils supportés
 
-`node`, `bun`, `caddy`, `mailpit`, `composer`, `zed`, `vscodium`, `tabby`, `go`
+`node`, `bun`, `caddy`, `mailpit`, `composer`, `zed`, `vscodium`, `tabby`, `go`, `php`, `git`
 
 | Outil | Source | Comportement |
 |-------|--------|--------------|
 | **node** | `nodejs.org/dist/index.json` + SHASUMS | remplace la version de chaque ligne majeure déjà présente |
 | **go** | `go.dev/dl/?mode=json` | ajoute la nouvelle version (sha depuis l’API) |
+| **php**, **git** | tags GitHub (`php/php-src`, `git/git`) | **detect-only** : signale la nouvelle version, le binaire étant produit par un build local/CI |
 | **autres** | GitHub Releases `latest` | ajoute la nouvelle version (URL dérivée du template existant) |
 
-Les outils qui nécessitent un build local/CI (**php**, **git** Linux) ne sont pas gérés par ce script.
+`php` et `git` ne dérivent pas d’URL : leur binaire Linux est buildé localement
+(ou en CI). Une fois la release publiée, [`scripts/update-builds.sh`](scripts/update-builds.sh)
+intègre l’entrée dans `versions.json` (url + sha256 calculés sur l’artefact).
 
 ### Commandes
 
@@ -66,6 +69,9 @@ scripts/check-versions.py --write
 # Idem + calcul des sha256 par téléchargement (lent)
 # Utile hors node/go, qui récupèrent déjà les checksums officiels
 scripts/check-versions.py --write --sha
+
+# Ajouter manuellement une version (entry JSON sur stdin) — usage interne
+echo '{"url": "…", "sha256": "…"}' | scripts/check-versions.py --add php@8.5.10
 ```
 
 Sans `--sha`, les outils GitHub mettent `sha256` / `sha256_windows` à `null` : à renseigner ensuite, ou relancer avec `--sha`.
@@ -73,6 +79,38 @@ Sans `--sha`, les outils GitHub mettent `sha256` / `sha256_windows` à `null` : 
 Astuce rate-limit GitHub : exporter `GITHUB_TOKEN` (ou être authentifié via `gh auth login`).
 
 Après `--write`, vérifier le diff, puis committer et pusher sur `main`.
+
+### Mettre à jour PHP / Git (build local)
+
+`scripts/update-builds.sh` automatise le cycle complet : détection → build →
+release GitHub → mise à jour de `versions.json` avec les sha256 calculés sur
+les artefacts publiés.
+
+```bash
+# php + git (build local via release-*.sh)
+scripts/update-builds.sh
+
+# Build via GitHub Actions (runner self-hosté actions-runner/ de ce dépôt)
+scripts/update-builds.sh --ci
+
+# Seulement php
+scripts/update-builds.sh --tool php
+
+# Release déjà publiée (rebuild manuel) : ne met à jour que versions.json
+scripts/update-builds.sh --no-build
+```
+
+- **php** : construit le dernier patch de la branche mineure détectée
+  (`release-php.sh <minor>` ou `build-php.yml`), l’URL Windows est cherchée sur
+  `windows.php.net`.
+- **git** : construit la version détectée (`release-git.sh <version>` ou
+  `build-git.yml`), l’URL Windows pointe sur la dernière build MinGit de
+  git-for-windows.
+- Les `binaries` / `lts` de l’entrée précédente sont conservés.
+
+> Avec `--ci`, le runner self-hosté de ce dépôt (`actions-runner/`) doit être
+> en ligne (`./run.sh`) : il est enregistré sur `Paul75/devconsole-registry`
+> mais n'est pas installé comme service systemd, il faut le lancer à la main.
 
 ## Build PHP
 
