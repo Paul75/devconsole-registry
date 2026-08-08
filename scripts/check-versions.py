@@ -8,10 +8,17 @@ Usage:
   scripts/check-versions.py --write --sha    # + telecharge pour calculer sha256
   scripts/check-versions.py --add php@8.5.10 # ajoute une version (entry JSON stdin)
 
-Outils GitHub releases: node, bun, caddy, mailpit, composer, zed, vscodium, tabby, go.
+Outils GitHub releases: node, bun, caddy, mailpit, composer, zed, vscodium,
+tabby, go, postgres, windterm.
+Outils APIs dediees: python (python-build-standalone + SHA256SUMS), vscode
+(update.code.visualstudio.com), jdk (Adoptium API), rust (channel-rust-stable.toml),
+mariadb (downloads.mariadb.org REST).
 Outils detect-only (build local/CI requis): php, git — reportent la nouvelle
 version sans deriver les URLs; lancer scripts/update-builds.sh pour construire
 et publier, puis integrer la release dans versions.json.
+
+Non couverts (pas d'API publique stable): mysql, android_studio, wezterm,
+sublime_merge, android_sdk, redis, mongodb.
 """
 
 from __future__ import annotations
@@ -51,9 +58,11 @@ def github_token() -> str | None:
 
 
 def http_get(url: str, *, binary: bool = False) -> Any:
-    headers = {"User-Agent": USER_AGENT, "Accept": "application/vnd.github+json"}
-    if "api.github.com" in url and (token := github_token()):
-        headers["Authorization"] = f"Bearer {token}"
+    headers = {"User-Agent": USER_AGENT}
+    if "api.github.com" in url:
+        headers["Accept"] = "application/vnd.github+json"
+        if token := github_token():
+            headers["Authorization"] = f"Bearer {token}"
     req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=60) as resp:
         data = resp.read()
@@ -125,6 +134,35 @@ Checker = Callable[[dict[str, Any], argparse.Namespace], list[Update]]
 # ─── checkers ────────────────────────────────────────────────────────────────
 
 
+def make_entry(
+    template: dict[str, Any],
+    old_ver: str,
+    new_ver: str,
+    args: argparse.Namespace,
+    tool: str = "",
+) -> dict[str, Any]:
+    """Derive une entry a partir du template (substitution de version) et gere
+    sha256 (calcul si --sha, sinon None)."""
+    entry = deepcopy(template)
+    for key in ("url", "url_windows"):
+        if key in entry and isinstance(entry[key], str):
+            entry[key] = substitute_version(entry[key], old_ver, new_ver)
+    if args.sha:
+        for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+            if entry.get(src):
+                print(f"  … {tool}: sha256 {src} …", file=sys.stderr)
+                try:
+                    entry[dst] = sha256_url(entry[src])
+                except urllib.error.HTTPError as e:
+                    print(f"  ! {tool}: echec sha {src}: {e}", file=sys.stderr)
+                    entry[dst] = None
+    else:
+        for key in ("sha256", "sha256_windows"):
+            if key in entry:
+                entry[key] = None
+    return entry
+
+
 def check_github_latest(
     tool: str,
     repo: str,
@@ -153,24 +191,7 @@ def check_github_latest(
         return []
 
     template = versions[old_ver]
-    entry = deepcopy(template)
-    for key in ("url", "url_windows"):
-        if key in entry and isinstance(entry[key], str):
-            entry[key] = substitute_version(entry[key], old_ver, new_ver)
-
-    if args.sha:
-        for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
-            if entry.get(src):
-                print(f"  … {tool}: sha256 {src} …", file=sys.stderr)
-                try:
-                    entry[dst] = sha256_url(entry[src])
-                except urllib.error.HTTPError as e:
-                    print(f"  ! {tool}: echec sha {src}: {e}", file=sys.stderr)
-                    entry[dst] = None
-    else:
-        for key in ("sha256", "sha256_windows"):
-            if key in entry:
-                entry[key] = None
+    entry = make_entry(template, old_ver, new_ver, args, tool)
 
     return [Update(tool, old_ver, new_ver, entry, "add")]
 
@@ -373,6 +394,251 @@ def check_node(current: dict[str, Any], args: argparse.Namespace) -> list[Update
     return updates
 
 
+def check_vscode(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+    releases = http_get_json("https://update.code.visualstudio.com/api/releases/stable")
+    if not releases:
+        return []
+    new_ver = releases[0]
+    old_ver = max_version(list(versions))
+    if not version_gt(new_ver, old_ver):
+        return []
+    entry = make_entry(versions[old_ver], old_ver, new_ver, args, "vscode")
+    return [Update("vscode", old_ver, new_ver, entry, "add")]
+
+
+def check_postgres(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("postgres", "theseus-rs/postgresql-binaries", current, args)
+
+
+def check_windterm(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("windterm", "kingToolbox/WindTerm", current, args)
+
+
+def check_rust(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    text = http_get("https://static.rust-lang.org/dist/channel-rust-stable.toml")
+    m = re.search(r'\[pkg\.rust\]\s*version = "([^"]+)"', text)
+    if not m:
+        return []
+    # "1.97.1 (8bab26f4f 2026-07-14)" → "1.97.1"
+    new_ver = m.group(1).split()[0]
+    old_ver = max_version(list(versions))
+    if not version_gt(new_ver, old_ver):
+        return []
+
+    entry = deepcopy(versions[old_ver])
+    for key, triple, dst in (
+        ("url", "x86_64-unknown-linux-gnu", "sha256"),
+        ("url_windows", "x86_64-pc-windows-msvc", "sha256_windows"),
+    ):
+        if key not in entry or not isinstance(entry[key], str):
+            continue
+        entry[key] = substitute_version(entry[key], old_ver, new_ver)
+        hm = re.search(
+            r"\[pkg\.rust\.target\." + re.escape(triple) + r"\]\s*(?:[^\[]*?)xz_hash = \"([0-9a-f]+)\"",
+            text,
+        )
+        if hm:
+            entry[dst] = hm.group(1)
+        elif args.sha:
+            entry[dst] = sha256_url(entry[key])
+        else:
+            entry[dst] = None
+
+    return [Update("rust", old_ver, new_ver, entry, "add")]
+
+
+def check_jdk(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    current_by_feature: dict[int, str] = {}
+    for ver in versions:
+        feature = parse_version(ver)[0]
+        if feature not in current_by_feature or version_gt(ver, current_by_feature[feature]):
+            current_by_feature[feature] = ver
+
+    updates: list[Update] = []
+    for feature in sorted(current_by_feature):
+        try:
+            linux = http_get_json(
+                f"https://api.adoptium.net/v3/assets/latest/{feature}/hotspot"
+                "?architecture=x64&image_type=jdk&os=linux&project=jdk"
+            )
+            windows = http_get_json(
+                f"https://api.adoptium.net/v3/assets/latest/{feature}/hotspot"
+                "?architecture=x64&image_type=jdk&os=windows&project=jdk"
+            )
+        except urllib.error.HTTPError:
+            continue
+        if not linux or not windows:
+            continue
+
+        m = re.match(r"^jdk-(\d+\.\d+\.\d+)\+(\d+)$", linux[0]["release_name"])
+        if not m:
+            continue
+        new_ver = m.group(1)
+        old_ver = current_by_feature[feature]
+        if not version_gt(new_ver, old_ver):
+            continue
+
+        entry = deepcopy(versions[old_ver])
+        linux_pkg = linux[0]["binary"]["package"]
+        entry["url"] = linux_pkg["link"]
+        entry["sha256"] = linux_pkg.get("checksum")
+        if "url_windows" in entry:
+            windows_pkg = windows[0]["binary"]["package"]
+            entry["url_windows"] = windows_pkg["link"]
+            entry["sha256_windows"] = windows_pkg.get("checksum")
+        updates.append(Update("jdk", old_ver, new_ver, entry, "replace"))
+
+    return updates
+
+
+def check_python(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    release = http_get_json(
+        "https://api.github.com/repos/astral-sh/python-build-standalone/releases/latest"
+    )
+    tag = release.get("tag_name") or ""
+    assets = {a["name"] for a in release.get("assets", [])}
+    if not tag or not assets:
+        return []
+
+    asset_re = re.compile(
+        r"^cpython-(\d+\.\d+\.\d+)\+\d{8}-([a-zA-Z0-9_.-]+)-install_only\.tar\.gz$"
+    )
+    platform_re = re.compile(r"cpython-[\d.]+\+\d{8}-(.+)-install_only\.tar\.gz")
+
+    majors = {parse_version(v)[0:2] for v in versions}
+    current_by_major: dict[tuple[int, int], str] = {}
+    for ver in versions:
+        major = parse_version(ver)[0:2]
+        if major not in current_by_major or version_gt(ver, current_by_major[major]):
+            current_by_major[major] = ver
+
+    best_by_major: dict[tuple[int, int], str] = {}
+    for name in assets:
+        m = asset_re.match(name)
+        if not m:
+            continue
+        major = parse_version(m.group(1))[0:2]
+        if major not in majors:
+            continue
+        if major not in best_by_major or version_gt(m.group(1), best_by_major[major]):
+            best_by_major[major] = m.group(1)
+
+    if not best_by_major:
+        return []
+
+    try:
+        shasums = http_get(
+            f"https://github.com/astral-sh/python-build-standalone/releases/download/{tag}/SHA256SUMS"
+        )
+    except urllib.error.HTTPError:
+        shasums = None
+
+    updates: list[Update] = []
+    for major, new_ver in sorted(best_by_major.items()):
+        old_ver = current_by_major[major]
+        if not version_gt(new_ver, old_ver):
+            continue
+
+        entry = deepcopy(versions[old_ver])
+        for key in ("url", "url_windows"):
+            if key not in entry or not isinstance(entry[key], str):
+                continue
+            pm = platform_re.search(entry[key])
+            platform = pm.group(1) if pm else None
+            asset_name = (
+                f"cpython-{new_ver}+{tag}-{platform}-install_only.tar.gz" if platform else None
+            )
+            if asset_name and asset_name not in assets:
+                fallback = (
+                    "x86_64-unknown-linux-gnu"
+                    if platform and platform.endswith("unknown-linux-gnu")
+                    else "x86_64-pc-windows-msvc"
+                )
+                asset_name = f"cpython-{new_ver}+{tag}-{fallback}-install_only.tar.gz"
+            if not asset_name or asset_name not in assets:
+                continue
+            entry[key] = (
+                f"https://github.com/astral-sh/python-build-standalone/releases/download/{tag}/{asset_name}"
+            )
+            dst = "sha256" if key == "url" else "sha256_windows"
+            if shasums:
+                entry[dst] = sha256_from_shasums(shasums, asset_name)
+            elif args.sha:
+                entry[dst] = sha256_url(entry[key])
+            else:
+                entry[dst] = None
+
+        updates.append(Update("python", old_ver, new_ver, entry, "add"))
+
+    return updates
+
+
+def check_mariadb(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    current_by_major: dict[str, str] = {}
+    for ver in versions:
+        parts = parse_version(ver)
+        major = f"{parts[0]}.{parts[1]}" if len(parts) >= 2 else ver
+        if major not in current_by_major or version_gt(ver, current_by_major[major]):
+            current_by_major[major] = ver
+
+    updates: list[Update] = []
+    for major, old_ver in current_by_major.items():
+        try:
+            data = http_get_json(f"https://downloads.mariadb.org/rest-api/mariadb/{major}/")
+        except urllib.error.HTTPError:
+            continue
+        releases = data.get("releases") or {}
+        candidates = [v for v in releases if re.match(r"^\d+\.\d+\.\d+$", v)]
+        if not candidates:
+            continue
+        new_ver = max_version(candidates)
+        if not version_gt(new_ver, old_ver):
+            continue
+
+        entry = deepcopy(versions[old_ver])
+        entry["url"] = substitute_version(entry["url"], old_ver, new_ver)
+        if "url_windows" in entry:
+            entry["url_windows"] = substitute_version(entry["url_windows"], old_ver, new_ver)
+
+        linux_sha = next(
+            (
+                f.get("checksum", {}).get("sha256sum")
+                for f in releases[new_ver].get("files", [])
+                if f.get("file_name") == f"mariadb-{new_ver}-linux-systemd-x86_64.tar.gz"
+            ),
+            None,
+        )
+        entry["sha256"] = linux_sha
+        if not linux_sha and args.sha:
+            entry["sha256"] = sha256_url(entry["url"])
+
+        if "sha256_windows" in entry:
+            entry["sha256_windows"] = sha256_url(entry["url_windows"]) if args.sha else None
+
+        updates.append(Update("mariadb", old_ver, new_ver, entry, "add"))
+
+    return updates
+
+
 CHECKERS: dict[str, Checker] = {
     "node": check_node,
     "bun": check_bun,
@@ -385,6 +651,13 @@ CHECKERS: dict[str, Checker] = {
     "go": check_go,
     "php": check_php,
     "git": check_git,
+    "python": check_python,
+    "vscode": check_vscode,
+    "jdk": check_jdk,
+    "rust": check_rust,
+    "postgres": check_postgres,
+    "mariadb": check_mariadb,
+    "windterm": check_windterm,
 }
 
 
