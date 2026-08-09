@@ -867,8 +867,8 @@ def main() -> int:
     )
     parser.add_argument(
         "--tool",
-        default=",".join(CHECKERS),
-        help=f"Outils a verifier (csv). Defaut: {','.join(CHECKERS)}",
+        help="Outils a traiter (csv). Defaut: tous les checkers, ou tous les "
+        "outils du registre avec --fill-sha",
     )
     parser.add_argument(
         "--json",
@@ -898,18 +898,19 @@ def main() -> int:
         print(f"Ajoute {tool} {version} dans {VERSIONS_PATH}", file=sys.stderr)
         return 0
 
-    tools = [t.strip() for t in args.tool.split(",") if t.strip()]
+    tools = [t.strip() for t in args.tool.split(",") if t.strip()] if args.tool else []
     data = json.loads(VERSIONS_PATH.read_text(encoding="utf-8"))
 
     if args.fill_sha:
-        # Valide --tool contre les outils presents dans versions.json (pas
-        # contre CHECKERS : le fill couvre aussi mysql, wezterm, ...).
-        unknown = [t for t in tools if t not in (data.get("tools") or {})]
+        # Sans --tool, couvre tous les outils du registre (pas seulement les
+        # checkers : le fill s'applique aussi a mysql, wezterm, ...).
+        fill_tools = tools or list(data.get("tools") or {})
+        unknown = [t for t in fill_tools if t not in (data.get("tools") or {})]
         if unknown:
             print(f"Outils inconnus: {', '.join(unknown)}", file=sys.stderr)
             print(f"Disponibles: {', '.join(data.get('tools') or {})}", file=sys.stderr)
             return 2
-        filled = fill_missing_shas(data, tools)
+        filled = fill_missing_shas(data, fill_tools)
         if args.write:
             if filled:
                 VERSIONS_PATH.write_text(
@@ -929,6 +930,8 @@ def main() -> int:
             )
         return 0
 
+    if not tools:
+        tools = list(CHECKERS)
     unknown = [t for t in tools if t not in CHECKERS]
     if unknown:
         print(f"Outils inconnus: {', '.join(unknown)}", file=sys.stderr)
