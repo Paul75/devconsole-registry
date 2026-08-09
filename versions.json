@@ -127,8 +127,8 @@
         "9.7.1": {
           "url": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.1-linux-glibc2.28-x86_64.tar.xz",
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.1-winx64.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "31d543f8df82372fb3b31d50d7980e4b85c0c2adbaeb62bafd903492ffb9b65f",
+          "sha256_windows": "d839045f3cc86a7c5791afc2d8e2a24c0ff6ae4f91a97b2b212c9e032d04d6ea",
           "binaries": [
             "bin/mysqld",
             "bin/mysql",
@@ -140,8 +140,8 @@
         "8.4.10": {
           "url": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.10-linux-glibc2.28-x86_64.tar.xz",
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.10-winx64.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "37078510456e4338659e44b79483d2d1f1a63bb3b0ed62d0193d5319d483021f",
+          "sha256_windows": "3b950db31c33fb59252568c012bd9ee5fac50811e778ca7c8f1a0dc91686cd6f",
           "binaries": [
             "bin/mysqld",
             "bin/mysql",
@@ -153,8 +153,8 @@
         "8.0.46": {
           "url": "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-8.0.46-linux-glibc2.28-x86_64.tar.xz",
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-8.0.46-winx64.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "0fcdb2e88b5bb151118420745070a34621463dd85a50e1eacd7c3aa1b9d1f4a2",
+          "sha256_windows": "28e9eda019d88eff4478d811ea2110b83f02a3966be157fe91cc55def3ab0d4d",
           "binaries": [
             "bin/mysqld",
             "bin/mysql",
@@ -568,8 +568,8 @@
         "2125": {
           "url": "https://download.sublimetext.com/sublime_merge_build_2125_x64.tar.xz",
           "url_windows": "https://download.sublimetext.com/sublime_merge_build_2125_x64.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "d1996fe2764c6f6143506e4a2e41d35c98dd4734dadd3b8d2f9e3269c15547f7",
+          "sha256_windows": "aa73f08c624f7df604181156d090d912748a814eaa0f2f871bf49048e7cfb27b",
           "binaries": [
             "sublime_merge"
           ],
