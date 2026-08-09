@@ -70,11 +70,20 @@ scripts/check-versions.py --write
 # Utile hors node/go, qui récupèrent déjà les checksums officiels
 scripts/check-versions.py --write --sha
 
+# Remplir les sha256 manquants (null/vides) des versions déjà présentes
+# Indépendant des checkers : pas besoin de vérifier les nouveautés
+scripts/check-versions.py --fill-sha
+scripts/check-versions.py --fill-sha --write  # applique l'écriture
+
 # Ajouter manuellement une version (entry JSON sur stdin) — usage interne
 echo '{"url": "…", "sha256": "…"}' | scripts/check-versions.py --add php@8.5.10
 ```
 
-Sans `--sha`, les outils GitHub mettent `sha256` / `sha256_windows` à `null` : à renseigner ensuite, ou relancer avec `--sha`.
+Sans `--sha`, les outils GitHub mettent `sha256` / `sha256_windows` à `null`.
+Pour combler les hashes manquants d’entrées déjà présentes (y compris celles
+ajoutées sans `--sha`), relancer avec `--fill-sha` : il télécharge chaque URL
+sans hash et remplit `sha256` / `sha256_windows`. Il respecte `--tool` et couvre
+aussi les outils sans checker (`mysql`, `wezterm`, …).
 
 Astuce rate-limit GitHub : exporter `GITHUB_TOKEN` (ou être authentifié via `gh auth login`).
 
