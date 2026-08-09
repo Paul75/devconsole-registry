@@ -6,6 +6,7 @@ Usage:
   scripts/check-versions.py --write          # ecrit versions.json
   scripts/check-versions.py --tool node,bun  # sous-ensemble
   scripts/check-versions.py --write --sha    # + telecharge pour calculer sha256
+  scripts/check-versions.py --write --fill-sha  # calcule les sha256 manquants des entrees existantes
   scripts/check-versions.py --add php@8.5.10 # ajoute une version (entry JSON stdin)
 
 Outils GitHub releases: node, bun, caddy, mailpit, composer, zed, vscodium,
@@ -793,6 +794,35 @@ CHECKERS: dict[str, Checker] = {
 # ─── apply / main ────────────────────────────────────────────────────────────
 
 
+def fill_missing_shas(data: dict[str, Any], tools: list[str]) -> int:
+    """Calcule les sha256 manquants (None/"") des entrees existantes.
+
+    Passe independante des checkers : telecharge chaque URL pour calculer le
+    hash des entrees deja presentes dans versions.json dont le sha256 (ou
+    sha256_windows) est vide. Retourne le nombre de hashes remplis.
+    """
+    filled = 0
+    for name, tool in (data.get("tools") or {}).items():
+        if tools and name not in tools:
+            continue
+        for ver, entry in (tool.get("versions") or {}).items():
+            if not isinstance(entry, dict):
+                continue
+            for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+                url = entry.get(src)
+                if not isinstance(url, str) or not url:
+                    continue
+                if entry.get(dst):
+                    continue
+                print(f"  … {name} {ver}: sha256 {src} …", file=sys.stderr)
+                try:
+                    entry[dst] = sha256_url(url)
+                    filled += 1
+                except urllib.error.HTTPError as e:
+                    print(f"  ! {name} {ver}: echec sha {src}: {e}", file=sys.stderr)
+    return filled
+
+
 def apply_updates(data: dict[str, Any], updates: list[Update]) -> dict[str, Any]:
     out = deepcopy(data)
     tools = out.setdefault("tools", {})
@@ -830,6 +860,12 @@ def main() -> int:
         help="Telecharge les archives pour calculer sha256 (lent)",
     )
     parser.add_argument(
+        "--fill-sha",
+        action="store_true",
+        help="Calcule les sha256 manquants (null/vides) des entrees existantes, "
+        "sans verifier les nouveautes. Combiner avec --write pour appliquer.",
+    )
+    parser.add_argument(
         "--tool",
         default=",".join(CHECKERS),
         help=f"Outils a verifier (csv). Defaut: {','.join(CHECKERS)}",
@@ -863,13 +899,42 @@ def main() -> int:
         return 0
 
     tools = [t.strip() for t in args.tool.split(",") if t.strip()]
+    data = json.loads(VERSIONS_PATH.read_text(encoding="utf-8"))
+
+    if args.fill_sha:
+        # Valide --tool contre les outils presents dans versions.json (pas
+        # contre CHECKERS : le fill couvre aussi mysql, wezterm, ...).
+        unknown = [t for t in tools if t not in (data.get("tools") or {})]
+        if unknown:
+            print(f"Outils inconnus: {', '.join(unknown)}", file=sys.stderr)
+            print(f"Disponibles: {', '.join(data.get('tools') or {})}", file=sys.stderr)
+            return 2
+        filled = fill_missing_shas(data, tools)
+        if args.write:
+            if filled:
+                VERSIONS_PATH.write_text(
+                    json.dumps(data, indent=2, ensure_ascii=False) + "\n",
+                    encoding="utf-8",
+                )
+                print(
+                    f"Ecrit {VERSIONS_PATH} ({filled} sha256 rempli(s))",
+                    file=sys.stderr,
+                )
+            else:
+                print("Aucun sha256 manquant.", file=sys.stderr)
+        else:
+            print(
+                f"{filled} sha256 a remplir. Relancer avec --write pour appliquer.",
+                file=sys.stderr,
+            )
+        return 0
+
     unknown = [t for t in tools if t not in CHECKERS]
     if unknown:
         print(f"Outils inconnus: {', '.join(unknown)}", file=sys.stderr)
         print(f"Disponibles: {', '.join(CHECKERS)}", file=sys.stderr)
         return 2
 
-    data = json.loads(VERSIONS_PATH.read_text(encoding="utf-8"))
     all_updates: list[Update] = []
 
     for name in tools:
