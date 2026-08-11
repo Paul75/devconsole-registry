@@ -170,9 +170,9 @@
       "versions": {
         "12.3.2": {
           "url": "https://archive.mariadb.org/mariadb-12.3.2/bintar-linux-systemd-x86_64/mariadb-12.3.2-linux-systemd-x86_64.tar.gz",
-          "url_windows": "https://archive.mariadb.org/mariadb-12.3.2/bintar-win-x86_64/mariadb-12.3.2-win-x86_64.tar.gz",
+          "url_windows": "https://archive.mariadb.org/mariadb-12.3.2/winx64-packages/mariadb-12.3.2-winx64.zip",
           "sha256": "4a18365541d7280bbe947762e341bab94bc49f3ed31e6b5caf4e21f26246e458",
-          "sha256_windows": "",
+          "sha256_windows": "67347c129eb9c5923d002ea34fbfa27c60eb95d36dd73b85af2651cdeceecac5",
           "binaries": [
             "bin/mysqld",
             "bin/mysql",
@@ -183,9 +183,9 @@
         },
         "11.8.8": {
           "url": "https://archive.mariadb.org/mariadb-11.8.8/bintar-linux-systemd-x86_64/mariadb-11.8.8-linux-systemd-x86_64.tar.gz",
-          "url_windows": "https://archive.mariadb.org/mariadb-11.8.8/bintar-win-x86_64/mariadb-11.8.8-win-x86_64.tar.gz",
+          "url_windows": "https://archive.mariadb.org/mariadb-11.8.8/winx64-packages/mariadb-11.8.8-winx64.zip",
           "sha256": "fbd4e8d05946c974b0560c94f01ce4c687291b6528074c2e001fb8f35c0d2762",
-          "sha256_windows": "",
+          "sha256_windows": "20871a79964e1819ddaad9247b676b9d08c958c345e5e3d4748242b2b2965ff1",
           "binaries": [
             "bin/mysqld",
             "bin/mysql",
@@ -582,6 +582,20 @@
     },
     "android_sdk": {
       "versions": {
+        "36": {
+          "url": "https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip",
+          "url_windows": "https://dl.google.com/android/repository/commandlinetools-win-15859902_latest.zip",
+          "sha256": "4e4c464f145a7512b57d088ac6c278c03c9eea610886b35a5e0804e74eedf583",
+          "sha256_windows": "90ae805d20434428bffcb699c290860f19bb5f66a67e6b330067e3de801fb04a",
+          "binaries": [
+            "cmdline-tools/latest/bin/sdkmanager",
+            "cmdline-tools/latest/bin/avdmanager",
+            "platform-tools/adb",
+            "platform-tools/fastboot",
+            "emulator/emulator"
+          ],
+          "lts": true
+        },
         "35": {
           "url": "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip",
           "url_windows": "https://dl.google.com/android/repository/commandlinetools-windows-11076708_latest.zip",
