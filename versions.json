@@ -128,8 +128,8 @@
         "9.7.1": {
           "url": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.1-linux-glibc2.28-x86_64.tar.xz",
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.1-winx64.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "31d543f8df82372fb3b31d50d7980e4b85c0c2adbaeb62bafd903492ffb9b65f",
+          "sha256_windows": "d839045f3cc86a7c5791afc2d8e2a24c0ff6ae4f91a97b2b212c9e032d04d6ea",
           "binaries": [
             "bin/mysqld",
             "bin/mysql",
@@ -141,8 +141,8 @@
         "8.4.10": {
           "url": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.10-linux-glibc2.28-x86_64.tar.xz",
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.10-winx64.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "37078510456e4338659e44b79483d2d1f1a63bb3b0ed62d0193d5319d483021f",
+          "sha256_windows": "3b950db31c33fb59252568c012bd9ee5fac50811e778ca7c8f1a0dc91686cd6f",
           "binaries": [
             "bin/mysqld",
             "bin/mysql",
@@ -154,8 +154,8 @@
         "8.0.46": {
           "url": "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-8.0.46-linux-glibc2.28-x86_64.tar.xz",
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-8.0.46-winx64.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "0fcdb2e88b5bb151118420745070a34621463dd85a50e1eacd7c3aa1b9d1f4a2",
+          "sha256_windows": "28e9eda019d88eff4478d811ea2110b83f02a3966be157fe91cc55def3ab0d4d",
           "binaries": [
             "bin/mysqld",
             "bin/mysql",
@@ -328,8 +328,8 @@
         "1.132.0": {
           "url": "https://update.code.visualstudio.com/1.132.0/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.132.0/win32-x64-archive/stable",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "acdaf0fa557bda1720956ff65ca0de0965e92d68f97e2db22341984400937aed",
+          "sha256_windows": "98bd4a4721a5bd8534dbad8eaf9801f001ee36703a278c5d52d6036df8c7e503",
           "binaries": [
             "bin/code"
           ],
@@ -342,7 +342,7 @@
           "url": "https://update.code.visualstudio.com/1.128.0/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.128.0/win32-x64-archive/stable",
           "sha256": "a9b4ce974ecc10c7456da9879763bf0a7a432710bd26c95a89a8a168f2aff57b",
-          "sha256_windows": null,
+          "sha256_windows": "1b3a27d323b64cdcbcb6260e6f35a84979e0333f01a85c21386a6140b9e0fdf0",
           "binaries": [
             "bin/code"
           ],
@@ -580,8 +580,8 @@
         "2.7.0": {
           "url": "https://github.com/kingToolbox/WindTerm/releases/download/2.7.0/WindTerm_2.7.0_Linux_Portable_x86_64.zip",
           "url_windows": "https://github.com/kingToolbox/WindTerm/releases/download/2.7.0/WindTerm_2.7.0_Windows_Portable_x86_64.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "7797697eeb60239020512e2b549695a60c39b3fd01fe7ebb047fd50a2889103c",
+          "sha256_windows": "b05c3c7371340ff1302967247ffcd3a3ba27b237f72010e9157086143c453e50",
           "binaries": [
             "WindTerm"
           ],
@@ -594,8 +594,8 @@
         "2125": {
           "url": "https://download.sublimetext.com/sublime_merge_build_2125_x64.tar.xz",
           "url_windows": "https://download.sublimetext.com/sublime_merge_build_2125_x64.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "sha256": "d1996fe2764c6f6143506e4a2e41d35c98dd4734dadd3b8d2f9e3269c15547f7",
+          "sha256_windows": "aa73f08c624f7df604181156d090d912748a814eaa0f2f871bf49048e7cfb27b",
           "binaries": [
             "sublime_merge"
           ],
@@ -621,9 +621,9 @@
         },
         "35": {
           "url": "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip",
-          "url_windows": "https://dl.google.com/android/repository/commandlinetools-windows-11076708_latest.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "url_windows": "https://dl.google.com/android/repository/commandlinetools-win-11076708_latest.zip",
+          "sha256": "2d2d50857e4eb553af5a6dc3ad507a17adf43d115264b1afc116f95c92e5e258",
+          "sha256_windows": "4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862",
           "binaries": [
             "cmdline-tools/latest/bin/sdkmanager",
             "cmdline-tools/latest/bin/avdmanager",
@@ -635,9 +635,9 @@
         },
         "34": {
           "url": "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip",
-          "url_windows": "https://dl.google.com/android/repository/commandlinetools-windows-11076708_latest.zip",
-          "sha256": null,
-          "sha256_windows": null,
+          "url_windows": "https://dl.google.com/android/repository/commandlinetools-win-11076708_latest.zip",
+          "sha256": "2d2d50857e4eb553af5a6dc3ad507a17adf43d115264b1afc116f95c92e5e258",
+          "sha256_windows": "4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862",
           "binaries": [
             "cmdline-tools/latest/bin/sdkmanager",
             "cmdline-tools/latest/bin/avdmanager",
