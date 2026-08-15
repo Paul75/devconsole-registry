@@ -225,6 +225,24 @@
     },
     "python": {
       "versions": {
+        "3.12.14": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260814/cpython-3.12.14+20260814-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
+          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260814/cpython-3.12.14+20260814-x86_64-pc-windows-msvc-install_only.tar.gz",
+          "sha256": "a3c4118a4299d7d129926bf2f00f5e9d2462282b85b341348ea99617654a080e",
+          "sha256_windows": "7330282b47cd43a66b702d39078d2e5a88e580cee351d82f95045f21f5ee042a",
+          "binaries": [
+            "bin/python3",
+            "bin/python",
+            "bin/pip3",
+            "bin/pip"
+          ],
+          "binaries_windows": [
+            "python",
+            "python3",
+            "pip",
+            "pip3"
+          ]
+        },
         "3.14.7": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260807/cpython-3.14.7+20260807-x86_64-unknown-linux-gnu-install_only.tar.gz",
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260807/cpython-3.14.7+20260807-x86_64-pc-windows-msvc-install_only.tar.gz",
