@@ -64,12 +64,13 @@ def github_token() -> str | None:
         hosts = Path(
             os.environ.get("GH_CONFIG_DIR", Path.home() / ".config" / "gh")
         ) / "hosts.yml"
-        if hosts.is_file():
-            if m := re.search(
+        if hosts.is_file() and (
+            m := re.search(
                 r"(?m)^\s*oauth_token:\s*([^\s]+)\s*$",
                 hosts.read_text(encoding="utf-8"),
-            ):
-                return m.group(1)
+            )
+        ):
+            return m.group(1)
     except OSError:
         pass
     return None
@@ -110,6 +111,12 @@ def version_gt(a: str, b: str) -> bool:
 
 def max_version(versions: list[str]) -> str:
     return max(versions, key=parse_version)
+
+
+def version_group(v: str) -> tuple[int, int]:
+    """Extrait le tuple (major, minor) d'une version pour le groupement par ligne."""
+    parts = parse_version(v)
+    return (parts[0], parts[1]) if len(parts) >= 2 else (parts[0], 0)
 
 
 def substitute_version(template: str, old: str, new: str) -> str:
@@ -305,6 +312,9 @@ def check_needs_build(
     """Detect-only pour les outils dont le binaire est produit par un build
     local/CI (php, git Linux) : signale la nouvelle version upstream sans
     deriver les URLs. Le build est declenche par scripts/update-builds.sh.
+
+    Gere le suivi par ligne majeure (ex: PHP 8.3, 8.4, 8.5) : chaque ligne
+    suivie est comparee independamment a l'upstream.
     """
     versions = current.get("versions") or {}
     if not versions:
@@ -315,16 +325,34 @@ def check_needs_build(
     if not stable:
         return []
 
-    # max_version attend des numeros "propres" → on retire le prefixe (php-, v)
-    latest = max(stable, key=lambda t: parse_version(t.removeprefix(prefix)))
-    new_ver = re.match(tag_regex, latest).group(1)
-    old_ver = max_version(list(versions))
-    if not version_gt(new_ver, old_ver):
-        return []
+    # Index upstream par groupe (major, minor) → meilleure version du groupe
+    upstream_by_group: dict[tuple[int, int], str] = {}
+    for tag in stable:
+        m = re.match(tag_regex, tag)
+        if not m:
+            continue
+        ver = m.group(1)
+        grp = version_group(ver)
+        if grp not in upstream_by_group or version_gt(ver, upstream_by_group[grp]):
+            upstream_by_group[grp] = ver
 
-    template = versions[old_ver]
-    entry = deepcopy(template)
-    return [Update(tool, old_ver, new_ver, entry, "build")]
+    # Index local par groupe → meilleure version du groupe
+    current_by_group: dict[tuple[int, int], str] = {}
+    for ver in versions:
+        grp = version_group(ver)
+        if grp not in current_by_group or version_gt(ver, current_by_group[grp]):
+            current_by_group[grp] = ver
+
+    updates: list[Update] = []
+    for grp, old_ver in sorted(current_by_group.items()):
+        new_ver = upstream_by_group.get(grp)
+        if not new_ver or not version_gt(new_ver, old_ver):
+            continue
+        template = versions[old_ver]
+        entry = deepcopy(template)
+        updates.append(Update(tool, old_ver, new_ver, entry, "build"))
+
+    return updates
 
 
 def check_php(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
