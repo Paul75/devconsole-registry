@@ -116,7 +116,9 @@ def max_version(versions: list[str]) -> str:
 def version_group(v: str) -> tuple[int, int]:
     """Extrait le tuple (major, minor) d'une version pour le groupement par ligne."""
     parts = parse_version(v)
-    return (parts[0], parts[1]) if len(parts) >= 2 else (parts[0], 0)
+    major = parts[0] if len(parts) > 0 else 0
+    minor = parts[1] if len(parts) > 1 else 0
+    return (major, minor)
 
 
 def substitute_version(template: str, old: str, new: str) -> str:
@@ -566,10 +568,10 @@ def check_python(current: dict[str, Any], args: argparse.Namespace) -> list[Upda
     )
     platform_re = re.compile(r"cpython-[\d.]+\+\d{8}-(.+)-install_only\.tar\.gz")
 
-    majors = {parse_version(v)[0:2] for v in versions}
+    majors = {version_group(v) for v in versions}
     current_by_major: dict[tuple[int, int], str] = {}
     for ver in versions:
-        major = parse_version(ver)[0:2]
+        major = version_group(ver)
         if major not in current_by_major or version_gt(ver, current_by_major[major]):
             current_by_major[major] = ver
 
@@ -578,7 +580,7 @@ def check_python(current: dict[str, Any], args: argparse.Namespace) -> list[Upda
         m = asset_re.match(name)
         if not m:
             continue
-        major = parse_version(m.group(1))[0:2]
+        major = version_group(m.group(1))
         if major not in majors:
             continue
         if major not in best_by_major or version_gt(m.group(1), best_by_major[major]):
@@ -706,7 +708,10 @@ def check_android_studio(current: dict[str, Any], args: argparse.Namespace) -> l
         return []
 
     url = max(links, key=lambda m: parse_version(m[1]))[0]
-    new_ver = re.search(r"ide-zips/(\d+(?:\.\d+)+)/", url).group(1)
+    m_ver = re.search(r"ide-zips/(\d+(?:\.\d+)+)/", url)
+    if not m_ver:
+        return []
+    new_ver = m_ver.group(1)
 
     old_ver = max_version(list(versions))
     if not version_gt(new_ver, old_ver):
