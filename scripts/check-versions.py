@@ -10,17 +10,19 @@ Usage:
   scripts/check-versions.py --add php@8.5.10 # ajoute une version (entry JSON stdin)
 
 Outils GitHub releases: node, bun, caddy, mailpit, composer, zed, vscodium,
-tabby, go, postgres, windterm.
+tabby, go, postgres, windterm, bruno, cloudflared, gh, jq, lazygit, mkcert,
+uv.
 Outils APIs dediees: python (python-build-standalone + SHA256SUMS), vscode
 (update.code.visualstudio.com), jdk (Adoptium API), rust (channel-rust-stable.toml),
-mariadb (downloads.mariadb.org REST), android_studio (page stable
-developer.android.com/studio), android_sdk (repository2-3.xml de Google).
+mariadb (downloads.mariadb.org REST), maven (apache/maven tags),
+android_studio (page stable developer.android.com/studio),
+android_sdk (repository2-3.xml de Google),
+redis (redis/redis GitHub releases), mongodb (mongodb/mongo tags).
 Outils detect-only (build local/CI requis): php, git — reportent la nouvelle
 version sans deriver les URLs; lancer scripts/update-builds.sh pour construire
 et publier, puis integrer la release dans versions.json.
 
-Non couverts (pas d'API publique stable): mysql, wezterm, sublime_merge,
-redis, mongodb.
+Non couverts (pas d'API publique stable): mysql, wezterm, sublime_merge.
 """
 
 from __future__ import annotations
@@ -465,6 +467,168 @@ def check_windterm(current: dict[str, Any], args: argparse.Namespace) -> list[Up
     return check_github_latest("windterm", "kingToolbox/WindTerm", current, args)
 
 
+def check_bruno(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("bruno", "usebruno/bruno", current, args)
+
+
+def check_cloudflared(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("cloudflared", "cloudflare/cloudflared", current, args)
+
+
+def check_gh(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("gh", "cli/cli", current, args)
+
+
+def check_jq(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    def tag_to_version(tag: str) -> str | None:
+        m = re.match(r"^jq-(.+)$", tag)
+        return m.group(1) if m else tag.lstrip("v") or None
+
+    return check_github_latest("jq", "jqlang/jq", current, args, tag_to_version=tag_to_version)
+
+
+def check_lazygit(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("lazygit", "jesseduffield/lazygit", current, args)
+
+
+def check_mkcert(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("mkcert", "FiloSottile/mkcert", current, args)
+
+
+def check_maven(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    def tag_to_version(tag: str) -> str | None:
+        m = re.match(r"^maven-(\d+\.\d+\.\d+)$", tag)
+        return m.group(1) if m else None
+
+    return check_github_latest("maven", "apache/maven", current, args, tag_to_version=tag_to_version)
+
+
+def check_uv(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("uv", "astral-sh/uv", current, args)
+
+
+def check_redis(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    """Detecte les nouvelles versions via l'API GitHub de redis/redis.
+
+    Le registre utilise une URL CDN (fastdl.mongodb.org) pour les binaires
+    officiels. Le fork becomeliminal/redis (musl) n'a pas d'API fiable pour
+    la detection automatique — il faut le rebuild manuellement apres detection.
+    """
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    data = http_get_json("https://api.github.com/repos/redis/redis/releases?per_page=30")
+    stable = [r for r in data if re.match(r"^\d+\.\d+\.\d+$", r.get("tag_name", ""))]
+    if not stable:
+        return []
+
+    current_by_major: dict[int, str] = {}
+    for ver in versions:
+        major = parse_version(ver)[0]
+        if major not in current_by_major or version_gt(ver, current_by_major[major]):
+            current_by_major[major] = ver
+
+    best_by_major: dict[int, str] = {}
+    for rel in stable:
+        ver = rel["tag_name"]
+        major = parse_version(ver)[0]
+        if major not in best_by_major or version_gt(ver, best_by_major[major]):
+            best_by_major[major] = ver
+
+    updates: list[Update] = []
+    for major, new_ver in sorted(best_by_major.items()):
+        old_ver = current_by_major.get(major)
+        if not old_ver or not version_gt(new_ver, old_ver):
+            continue
+
+        entry = deepcopy(versions[old_ver])
+        entry["url"] = (
+            f"https://github.com/redis/redis/archive/refs/tags/{new_ver}.tar.gz"
+        )
+        for src, dst in (("url", "sha256"),):
+            if args.sha and entry.get(src) and not entry.get(dst):
+                print(f"  … redis: sha256 {src} …", file=sys.stderr)
+                try:
+                    entry[dst] = sha256_url(entry[src])
+                except urllib.error.HTTPError as e:
+                    print(f"  ! redis: echec sha {src}: {e}", file=sys.stderr)
+                    entry[dst] = None
+            elif not args.sha:
+                entry[dst] = None
+
+        updates.append(Update("redis", old_ver, new_ver, entry, "add"))
+
+    return updates
+
+
+def check_mongodb(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    """Detecte les nouvelles versions via les tags de mongodb/mongo.
+
+    Les tags suivent le format ``r<version>`` (ex: ``r8.3.8``). Les pre-releases
+    (alpha, rc) sont exclues. Les URLs sont derivees du pattern CDN
+    ``fastdl.mongodb.org``. Les sha256 ne sont pas fournis par MongoDB :
+    utiliser ``--sha`` pour les calculer.
+    """
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    tags = http_get_json("https://api.github.com/repos/mongodb/mongo/tags?per_page=100")
+    stable = []
+    for t in tags:
+        m = re.match(r"^r(\d+\.\d+\.\d+)$", t["name"])
+        if m:
+            stable.append(m.group(1))
+    if not stable:
+        return []
+
+    current_by_major: dict[int, str] = {}
+    for ver in versions:
+        major = parse_version(ver)[0]
+        if major not in current_by_major or version_gt(ver, current_by_major[major]):
+            current_by_major[major] = ver
+
+    best_by_major: dict[int, str] = {}
+    for ver in stable:
+        major = parse_version(ver)[0]
+        if major not in best_by_major or version_gt(ver, best_by_major[major]):
+            best_by_major[major] = ver
+
+    updates: list[Update] = []
+    for major, new_ver in sorted(best_by_major.items()):
+        old_ver = current_by_major.get(major)
+        if not old_ver or not version_gt(new_ver, old_ver):
+            continue
+
+        entry = deepcopy(versions[old_ver])
+        entry["url"] = (
+            f"https://fastdl.mongodb.org/linux/"
+            f"mongodb-linux-x86_64-ubuntu2204-{new_ver}.tgz"
+        )
+        if "url_windows" in entry:
+            entry["url_windows"] = (
+                f"https://fastdl.mongodb.org/windows/"
+                f"mongodb-windows-x86_64-{new_ver}.zip"
+            )
+
+        for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+            if entry.get(src):
+                if args.sha:
+                    print(f"  … mongodb: sha256 {src} …", file=sys.stderr)
+                    try:
+                        entry[dst] = sha256_url(entry[src])
+                    except urllib.error.HTTPError as e:
+                        print(f"  ! mongodb: echec sha {src}: {e}", file=sys.stderr)
+                        entry[dst] = None
+                else:
+                    entry[dst] = None
+
+        updates.append(Update("mongodb", old_ver, new_ver, entry, "add"))
+
+    return updates
+
+
 def check_rust(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
     versions = current.get("versions") or {}
     if not versions:
@@ -819,6 +983,16 @@ CHECKERS: dict[str, Checker] = {
     "postgres": check_postgres,
     "mariadb": check_mariadb,
     "windterm": check_windterm,
+    "bruno": check_bruno,
+    "cloudflared": check_cloudflared,
+    "gh": check_gh,
+    "jq": check_jq,
+    "lazygit": check_lazygit,
+    "mkcert": check_mkcert,
+    "maven": check_maven,
+    "uv": check_uv,
+    "redis": check_redis,
+    "mongodb": check_mongodb,
     "android_studio": check_android_studio,
     "android_sdk": check_android_sdk,
 }
