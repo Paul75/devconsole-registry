@@ -878,6 +878,45 @@
           "lts": true
         }
       }
+    },
+    "lazygit": {
+      "versions": {
+        "0.64.1": {
+          "url": "https://github.com/jesseduffield/lazygit/releases/download/v0.64.1/lazygit_0.64.1_linux_x86_64.tar.gz",
+          "url_windows": "https://github.com/jesseduffield/lazygit/releases/download/v0.64.1/lazygit_0.64.1_windows_x86_64.zip",
+          "sha256": "f8ea237c41f194cd799b48505518bfdaae4edf5a2ad6bd3d898e939785ee4532",
+          "sha256_windows": "de8eca2cf2e75857882d313bf9dfc706a7aae893951ab29df706c99b525661ae",
+          "binaries": ["lazygit"],
+          "binaries_windows": ["lazygit.exe"],
+          "lts": true
+        }
+      }
+    },
+    "gh": {
+      "versions": {
+        "2.97.0": {
+          "url": "https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_windows_amd64.zip",
+          "sha256": "a2c9b8497e1f85b1ad0dfcb78b5a622e098801b8e461e459e88e1ee12f018112",
+          "sha256_windows": "35d7fe05c4dd1411ffda1e73dfc7c6f44b75c936ca51fa6595c657fdc0350cec",
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
+          "lts": true
+        }
+      }
+    },
+    "uv": {
+      "versions": {
+        "0.11.21": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.11.21/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.11.21/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "8c88519b0ef0af9801fcdee419bbb12116bd9e6b18e162ae093c932d8b264050",
+          "sha256_windows": "ace861f360c6de2babedc1607d0f454b6b09a820dbc8182dc15af927e4df9589",
+          "binaries": ["bin/uv"],
+          "binaries_windows": ["bin/uv.exe"],
+          "lts": true
+        }
+      }
     }
   }
 }
