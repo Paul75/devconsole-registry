@@ -917,6 +917,42 @@
           "lts": true
         }
       }
+    },
+    "bruno": {
+      "versions": {
+        "4.0.0": {
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.0.0/bruno_4.0.0_x86_64_linux.AppImage",
+          "url_windows": "https://github.com/usebruno/bruno/releases/download/v4.0.0/bruno_4.0.0_x64_win.zip",
+          "sha256": "e07e655b83450e7b9f8789972eb37d0d49e8c33d9431f1983140fc0ebeb1ee26",
+          "sha256_windows": "fe5acbc0e9743553138fe33f1e4aebdf847b8d5f86cc4e01a6c4b926f11a4089",
+          "binaries": ["bruno"],
+          "binaries_windows": ["bruno.exe"],
+          "lts": true
+        }
+      }
+    },
+    "mkcert": {
+      "versions": {
+        "1.4.4": {
+          "url": "https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64",
+          "url_windows": "https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-windows-amd64.exe",
+          "sha256": "6d31c65b03972c6dc4a14ab429f2928300518b26503f58723e532d1b0a3bbb52",
+          "binaries": ["mkcert"],
+          "binaries_windows": ["mkcert.exe"],
+          "lts": true
+        }
+      }
+    },
+    "maven": {
+      "versions": {
+        "3.9.16": {
+          "url": "https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz",
+          "url_windows": "https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.zip",
+          "binaries": ["bin/mvn"],
+          "binaries_windows": ["bin/mvn.cmd"],
+          "lts": true
+        }
+      }
     }
   }
 }
