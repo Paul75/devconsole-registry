@@ -717,6 +717,15 @@
     },
     "redis": {
       "versions": {
+        "7.4.11": {
+          "url": "https://github.com/redis/redis/archive/refs/tags/7.4.11.tar.gz",
+          "sha256": "7b5f3ca3a80647b159e02d0dc94ea10f7b86f2560e528f3d61341004b2d8d71a",
+          "binaries": [
+            "redis-server",
+            "redis-cli"
+          ],
+          "lts": true
+        },
         "7.4.2": {
           "url": "https://github.com/becomeliminal/redis/releases/download/v0.0.3/redis-7.4.2-linux_x86_64-musl.tar.gz",
           "sha256": "7b5f3ca3a80647b159e02d0dc94ea10f7b86f2560e528f3d61341004b2d8d71a",
@@ -923,6 +932,21 @@
     },
     "mongodb": {
       "versions": {
+        "8.3.8": {
+          "url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.3.8.tgz",
+          "url_windows": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.3.8.zip",
+          "sha256": "af813f78b39b42c8a9faead78fc254fee4a51fbab02481d7400c8ee2c3189414",
+          "sha256_windows": "ee5ce6bfd690a2ff957e5db75363731ed8349e8c5502f997c705948fa0a50dbe",
+          "binaries": [
+            "mongod",
+            "mongos"
+          ],
+          "binaries_windows": [
+            "mongod.exe",
+            "mongos.exe"
+          ],
+          "lts": true
+        },
         "8.0.28": {
           "url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.0.28.tgz",
           "url_windows": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.28.zip",
@@ -976,6 +1000,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.5": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.5/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.5/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "68a509da24b06b4223a1c0175fb5eb5bc79342b76cbeff0cfe51ac3f5b17b6b2",
+          "sha256_windows": "4c4d49d8738847d9b71ba319e49a5688c93eac0fe6204b1df24e98528dddf39a",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.11.21": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.11.21/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.11.21/uv-x86_64-pc-windows-msvc.zip",
@@ -993,6 +1030,19 @@
     },
     "bruno": {
       "versions": {
+        "4.1.0": {
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.1.0/bruno_4.1.0_x86_64_linux.AppImage",
+          "url_windows": "https://github.com/usebruno/bruno/releases/download/v4.1.0/bruno_4.1.0_x64_win.zip",
+          "sha256": "50deeed474542745b69ddb5bde3667dead0c93ff0d76e0d39526ae36cd234c92",
+          "sha256_windows": "707e5b67c5ce14ea053396469ed7fb6771fbfc88b584073ca040165055ddecf5",
+          "binaries": [
+            "bruno"
+          ],
+          "binaries_windows": [
+            "bruno.exe"
+          ],
+          "lts": true
+        },
         "4.0.0": {
           "url": "https://github.com/usebruno/bruno/releases/download/v4.0.0/bruno_4.0.0_x86_64_linux.AppImage",
           "url_windows": "https://github.com/usebruno/bruno/releases/download/v4.0.0/bruno_4.0.0_x64_win.zip",
