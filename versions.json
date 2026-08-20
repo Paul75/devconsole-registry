@@ -966,6 +966,19 @@
           "lts": true
         }
       }
+    },
+    "cloudflared": {
+      "versions": {
+        "2026.8.2": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.2/cloudflared-linux-amd64",
+          "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.2/cloudflared-windows-amd64.exe",
+          "sha256": "fcfb02b575a52ca1af2e3267af4e1517bcdeb30ac48c834c69abaed3c0576ad2",
+          "sha256_windows": "c29eee2b121f5436a642eed69fd9767da7e7b8c510fa50aaa130337f931357b5",
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
+          "lts": true
+        }
+      }
     }
   }
 }
