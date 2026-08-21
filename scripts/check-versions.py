@@ -508,58 +508,17 @@ def check_uv(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
 
 
 def check_redis(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
-    """Detecte les nouvelles versions via l'API GitHub de redis/redis.
+    """Detect-only : le binaire provient du fork becomeliminal/redis (musl).
 
-    Le registre utilise une URL CDN (fastdl.mongodb.org) pour les binaires
-    officiels. Le fork becomeliminal/redis (musl) n'a pas d'API fiable pour
-    la detection automatique — il faut le rebuild manuellement apres detection.
+    Le fork n'a pas d'API fiable pour la detection automatique. Cette
+    fonction signale les nouvelles versions upstream (redis/redis) sans
+    deriver les URLs — le rebuild du fork est manuel.
     """
-    versions = current.get("versions") or {}
-    if not versions:
-        return []
-
-    data = http_get_json("https://api.github.com/repos/redis/redis/releases?per_page=30")
-    stable = [r for r in data if re.match(r"^\d+\.\d+\.\d+$", r.get("tag_name", ""))]
-    if not stable:
-        return []
-
-    current_by_major: dict[int, str] = {}
-    for ver in versions:
-        major = parse_version(ver)[0]
-        if major not in current_by_major or version_gt(ver, current_by_major[major]):
-            current_by_major[major] = ver
-
-    best_by_major: dict[int, str] = {}
-    for rel in stable:
-        ver = rel["tag_name"]
-        major = parse_version(ver)[0]
-        if major not in best_by_major or version_gt(ver, best_by_major[major]):
-            best_by_major[major] = ver
-
-    updates: list[Update] = []
-    for major, new_ver in sorted(best_by_major.items()):
-        old_ver = current_by_major.get(major)
-        if not old_ver or not version_gt(new_ver, old_ver):
-            continue
-
-        entry = deepcopy(versions[old_ver])
-        entry["url"] = (
-            f"https://github.com/redis/redis/archive/refs/tags/{new_ver}.tar.gz"
-        )
-        for src, dst in (("url", "sha256"),):
-            if args.sha and entry.get(src) and not entry.get(dst):
-                print(f"  … redis: sha256 {src} …", file=sys.stderr)
-                try:
-                    entry[dst] = sha256_url(entry[src])
-                except urllib.error.HTTPError as e:
-                    print(f"  ! redis: echec sha {src}: {e}", file=sys.stderr)
-                    entry[dst] = None
-            elif not args.sha:
-                entry[dst] = None
-
-        updates.append(Update("redis", old_ver, new_ver, entry, "add"))
-
-    return updates
+    return check_needs_build(
+        "redis", "redis/redis", current, args,
+        tag_regex=r"^(\d+\.\d+\.\d+)$",
+        prefix="",
+    )
 
 
 def check_mongodb(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:

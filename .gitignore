@@ -6,6 +6,10 @@ git-*-linux-x86_64.tar.gz
 .build-php/
 php-*-linux-x86_64.tar.gz
 
+# Artifacts de build Redis (scripts/build-redis.sh)
+.redis-build/
+redis-*-linux_x86_64-musl.tar.gz
+
 # Runner self-hosté
 actions-runner
 

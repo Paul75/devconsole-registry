@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Détecte les nouvelles versions de PHP et Git, lance le build (local via
-# release-*.sh, ou GitHub Actions avec --ci), publie la release, puis met à
-# jour versions.json (url + sha256 calculés sur l'artefact publié).
+# Détecte les nouvelles versions de PHP, Git et Redis, lance le build (local
+# via release-*.sh / build-*.sh, ou GitHub Actions avec --ci), publie la
+# release, puis met à jour versions.json (url + sha256 calculés sur
+# l'artefact publié).
 #
 # Prérequis :
 #   - gh authentifié avec accès au repo (gh auth login)
@@ -9,9 +10,10 @@
 #   - --ci : runner self-hosté en ligne (actions-runner/), sinon le job reste en queue
 #
 # Usage :
-#   scripts/update-builds.sh                # php + git (build local)
+#   scripts/update-builds.sh                # php + git + redis (build local)
 #   scripts/update-builds.sh --ci           # build via GitHub Actions
 #   scripts/update-builds.sh --tool php     # seulement php
+#   scripts/update-builds.sh --tool php,git # php et git uniquement
 #   scripts/update-builds.sh --no-build     # release déjà publiée (rebuild
 #                                           # manuel) : met juste à jour
 #                                           # versions.json
@@ -29,7 +31,7 @@ REPO="${REPO%.git}"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-TOOLS="php,git"
+TOOLS="php,git,redis"
 DO_BUILD=1
 CI=0
 while [ $# -gt 0 ]; do
@@ -176,6 +178,23 @@ while IFS=$'\t' read -r tool old new; do
             rel_tag="git-$ver"
             artifact="$ROOT/git-$ver-linux-x86_64.tar.gz"
             linux_url="https://github.com/$REPO/releases/download/$rel_tag/git-$ver-linux-x86_64.tar.gz"
+            ;;
+        redis)
+            ver="$new"
+            if [ "$CI" = "1" ]; then
+                echo "→ Dispatch GitHub Actions build-redis.yml (redis $ver)…"
+                gh workflow run build-redis.yml -f redis_version="$ver" --repo "$REPO"
+                run_id="$(wait_for_run build-redis.yml)"
+                echo "→ Run $run_id en cours (attente fin)…"
+                timeout "${BUILD_TIMEOUT:-10800}" gh run watch "$run_id" --repo "$REPO" \
+                    --exit-status --interval 30
+            elif [ "$DO_BUILD" = "1" ]; then
+                echo "→ Build Redis $ver (release-redis.sh)…"
+                "$ROOT/scripts/release-redis.sh" "$ver" 2>&1 | tee "$TMP/redis-build.log"
+            fi
+            rel_tag="redis-$ver"
+            artifact="$ROOT/redis-$ver-linux_x86_64-musl.tar.gz"
+            linux_url="https://github.com/$REPO/releases/download/$rel_tag/redis-$ver-linux_x86_64-musl.tar.gz"
             ;;
         *)
             echo "Outil non géré: $tool" >&2
