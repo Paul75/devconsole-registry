@@ -718,8 +718,8 @@
     "redis": {
       "versions": {
         "7.4.11": {
-          "url": "https://github.com/redis/redis/archive/refs/tags/7.4.11.tar.gz",
-          "sha256": "7b5f3ca3a80647b159e02d0dc94ea10f7b86f2560e528f3d61341004b2d8d71a",
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/redis-7.4.11/redis-7.4.11-linux_x86_64-musl.tar.gz",
+          "sha256": "6c16fbd58cb38588fd7ffdf9ebb399ec421e7f1773f70fd19c880649d0100905",
           "binaries": [
             "redis-server",
             "redis-cli"
@@ -983,6 +983,19 @@
     },
     "gh": {
       "versions": {
+        "2.98.0": {
+          "url": "https://github.com/cli/cli/releases/download/v2.98.0/gh_2.98.0_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/cli/cli/releases/download/v2.98.0/gh_2.98.0_windows_amd64.zip",
+          "sha256": "3b8ac6b30336802fc1a858d7c084e11cdf24ac1a761ca90b68022d7d729208de",
+          "sha256_windows": "c28c7b3b584967a05b74d9eaf7481bff24ddc34930bf2d6e442c148236561eb1",
+          "binaries": [
+            "bin/gh"
+          ],
+          "binaries_windows": [
+            "bin/gh.exe"
+          ],
+          "lts": true
+        },
         "2.97.0": {
           "url": "https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_linux_amd64.tar.gz",
           "url_windows": "https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_windows_amd64.zip",
