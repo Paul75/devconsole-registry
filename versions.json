@@ -183,6 +183,32 @@
     },
     "mariadb": {
       "versions": {
+        "11.8.9": {
+          "url": "https://archive.mariadb.org/mariadb-11.8.9/bintar-linux-systemd-x86_64/mariadb-11.8.9-linux-systemd-x86_64.tar.gz",
+          "url_windows": "https://archive.mariadb.org/mariadb-11.8.9/winx64-packages/mariadb-11.8.9-winx64.zip",
+          "sha256": "32f8871a2aa38b36aa418b7f4abc6fc0c6ef1ba5a45798cacb2afa52c8a6113b",
+          "sha256_windows": "830c46727d9278eae212ae3eca44eeb9e71b2a68704e95f344a64fba7b1963f5",
+          "binaries": [
+            "bin/mysqld",
+            "bin/mysql",
+            "bin/mariadbd",
+            "bin/mariadb"
+          ],
+          "lts": true
+        },
+        "12.3.3": {
+          "url": "https://archive.mariadb.org/mariadb-12.3.3/bintar-linux-systemd-x86_64/mariadb-12.3.3-linux-systemd-x86_64.tar.gz",
+          "url_windows": "https://archive.mariadb.org/mariadb-12.3.3/winx64-packages/mariadb-12.3.3-winx64.zip",
+          "sha256": "a12bf7bce08a896cdd01f174f04b4ce1d5da43ec250a5e7fceb9972119514329",
+          "sha256_windows": "4b5706b47148b47c8f36963c8352d1ddee37a1287b4690428f631a74b09b85a0",
+          "binaries": [
+            "bin/mysqld",
+            "bin/mysql",
+            "bin/mariadbd",
+            "bin/mariadb"
+          ],
+          "lts": true
+        },
         "12.3.2": {
           "url": "https://archive.mariadb.org/mariadb-12.3.2/bintar-linux-systemd-x86_64/mariadb-12.3.2-linux-systemd-x86_64.tar.gz",
           "url_windows": "https://archive.mariadb.org/mariadb-12.3.2/winx64-packages/mariadb-12.3.2-winx64.zip",
@@ -797,6 +823,19 @@
     },
     "mailpit": {
       "versions": {
+        "1.31.0": {
+          "url": "https://github.com/axllent/mailpit/releases/download/v1.31.0/mailpit-linux-amd64.tar.gz",
+          "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.0/mailpit-windows-amd64.zip",
+          "sha256": "076b5ded9a2182842b93e761b9586a1a251445bffe2666f9f22a6dc14470237d",
+          "sha256_windows": "39b5f1b9a671a5f1738e3792e8495bef2fec8176b02ee1e22635626c5888c6e3",
+          "binaries": [
+            "mailpit"
+          ],
+          "binaries_windows": [
+            "mailpit.exe"
+          ],
+          "lts": true
+        },
         "1.30.7": {
           "url": "https://github.com/axllent/mailpit/releases/download/v1.30.7/mailpit-linux-amd64.tar.gz",
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.30.7/mailpit-windows-amd64.zip",
