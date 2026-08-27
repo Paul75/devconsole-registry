@@ -61,11 +61,11 @@
     },
     "php": {
       "versions": {
-        "8.4.24": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.24/php-8.4.24-fpm-linux-x86_64.tar.gz",
-          "url_windows": "https://windows.php.net/downloads/releases/php-8.4.24-nts-Win32-vs17-x64.zip",
-          "sha256": "e525c7cd8b2f43f7fc6d15d98b479e14f583c4c1344afc690af4d71a9108813e",
-          "sha256_windows": "86470a30cbbaeafb259e727dfa5cd336f2f3f0a462cd6f8e3eac00fdbded13cb",
+        "8.5.9": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.9/php-8.5.9-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://downloads.php.net/~windows/releases/php-8.5.9-nts-Win32-vs17-x64.zip",
+          "sha256": "de07c4087018a477da73a394813ece077a8909a88d8b68d158595e9cf8d86df1",
+          "sha256_windows": "516c2d72231bd035c8a910120834add0ad208098b790b4909b2cbeb93ce135fc",
           "binaries": [
             "bin/php",
             "sbin/php-fpm",
@@ -76,11 +76,11 @@
           ],
           "lts": true
         },
-        "8.5.9": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.9/php-8.5.9-fpm-linux-x86_64.tar.gz",
-          "url_windows": "https://downloads.php.net/~windows/releases/php-8.5.9-nts-Win32-vs17-x64.zip",
-          "sha256": "de07c4087018a477da73a394813ece077a8909a88d8b68d158595e9cf8d86df1",
-          "sha256_windows": "516c2d72231bd035c8a910120834add0ad208098b790b4909b2cbeb93ce135fc",
+        "8.4.24": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.24/php-8.4.24-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://windows.php.net/downloads/releases/php-8.4.24-nts-Win32-vs17-x64.zip",
+          "sha256": "e525c7cd8b2f43f7fc6d15d98b479e14f583c4c1344afc690af4d71a9108813e",
+          "sha256_windows": "86470a30cbbaeafb259e727dfa5cd336f2f3f0a462cd6f8e3eac00fdbded13cb",
           "binaries": [
             "bin/php",
             "sbin/php-fpm",
