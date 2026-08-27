@@ -1013,6 +1013,134 @@ def apply_updates(data: dict[str, Any], updates: list[Update]) -> dict[str, Any]
     return out
 
 
+# ─── detection du tools_dir DevConsole ───────────────────────────────────────
+
+def find_portable_root() -> Path | None:
+    """Replique la logique Rust (utils/paths.rs) : un repertoire contenant un
+    fichier `.portable` marque la racine d'une cle USB pour DevConsole."""
+    start = Path(__file__).resolve()
+    for d in (start, *start.parents):
+        if (d / ".portable").is_file():
+            return d
+    return None
+
+
+def read_settings_tools_dir() -> Path | None:
+    """Lit un toolsDir personnalise dans les settings DevConsole (si present)."""
+    candidates = [
+        Path.home() / ".config" / "devconsole" / "config" / "devconsole.settings.json",
+        Path.home() / ".local" / "share" / "devconsole" / "config" / "devconsole.settings.json",
+        Path.home() / ".config" / "devconsole" / "devconsole.settings.json",
+    ]
+    for p in candidates:
+        try:
+            if p.is_file():
+                cfg = json.loads(p.read_text(encoding="utf-8"))
+                v = (cfg.get("toolsDir") or "").strip()
+                if v:
+                    return Path(v)
+        except (OSError, json.JSONDecodeError):
+            continue
+    return None
+
+
+def default_tools_dir() -> Path | None:
+    """Resout le tools_dir DevConsole utilise par le script (autorise l'override
+    DEVCONSOLE_TOOLS_DIR puis l'auto-detection, a defaut None)."""
+    if env := os.environ.get("DEVCONSOLE_TOOLS_DIR"):
+        return Path(env)
+    root = find_portable_root()
+    if root is not None:
+        return root / "data" / "tools"
+    if custom := read_settings_tools_dir():
+        return custom
+    std = Path.home() / ".local" / "share" / "devconsole" / "tools"
+    if std.exists():
+        return std
+    return None
+
+
+def list_installed_versions(tools_dir: Path, tool: str) -> list[str]:
+    """Verifie sur disque les versions installees de l'outil (sous-dossiers de
+    `<tools>/<tool>`, hors dossiers speciaux `active`/`tmp` et caches `.*`)."""
+    d = tools_dir / tool
+    if not d.is_dir():
+        return []
+    versions: list[str] = []
+    for e in d.iterdir():
+        if not e.is_dir():
+            continue
+        name = e.name
+        if name.startswith(".") or name in ("active", "tmp"):
+            continue
+        if parse_version(name) == (0,):
+            # Dossier non-versionne (ex: gopath, npm-global, ...) : ignore,
+            # on ne classifie que ce qui ressemble a une version.
+            continue
+        versions.append(name)
+    versions.sort(key=parse_version, reverse=True)
+    return versions
+
+
+def active_version_on_disk(tools_dir: Path, tool: str) -> str | None:
+    """Version active sur le disque : symlink `active` sinon la plus recente
+    installee (replique VersionManager::get_active_version)."""
+    d = tools_dir / tool
+    link = d / "active"
+    if link.is_symlink():
+        try:
+            target = link.resolve()
+            return target.name
+        except OSError:
+            pass
+    versions = list_installed_versions(tools_dir, tool)
+    return versions[0] if versions else None
+
+
+def warn_orphaned_replace(updates: list[Update], tools_dir: Path | None) -> None:
+    """Pour chaque `replace` d'une version encore installee/active sur disque,
+    avertit que cette version sort du registre : elle devient invisible/
+    non-reinstallable alors que DevConsole la pointe encore. La version de
+    remplacement n'existe pas forcement sur le disque."""
+    if tools_dir is None:
+        return
+    for u in updates:
+        if u.mode != "replace" or not u.old_version:
+            continue
+        installed = list_installed_versions(tools_dir, u.tool)
+        if not installed:
+            continue
+        exact = [v for v in installed if v == u.old_version]
+        if not exact:
+            continue
+        active = active_version_on_disk(tools_dir, u.tool)
+        role = "ACTIVE" if active == u.old_version else "installee"
+        new_installed = u.new_version in installed
+        print(
+            f"\n  ⚠️  {u.tool} {u.old_version} {role} sur le disque "
+            f"({', '.join(installed)})",
+            file=sys.stderr,
+        )
+        print(
+            f"     → elle est RETIREE du registre (remplacee par {u.new_version}) et "
+            f"devient invisible/inconnue dans DevConsole.",
+            file=sys.stderr,
+        )
+        if not new_installed:
+            print(
+                f"     → reellement la version {u.new_version} n'est PAS encore "
+                f"installee sur le disque.",
+                file=sys.stderr,
+            )
+        print(
+            f"     → action recommandee : dans DevConsole (Paramètres > versions), "
+            f"installe puis active la version {u.new_version} pour ne pas rester "
+            f"sur une version orpheline.",
+            file=sys.stderr,
+        )
+        print(file=sys.stderr)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -1046,6 +1174,13 @@ def main() -> int:
         metavar="tool@version",
         help="Ajoute une version dans versions.json (entry JSON sur stdin). "
         "Usage par scripts/update-builds.sh apres publication de la release.",
+    )
+    parser.add_argument(
+        "--tools-dir",
+        metavar="PATH",
+        help="Chemin du tools_dir DevConsole (la ou les versions sont "
+        "installees). Detecte automatiquement (portable/XDG/settings) si omis. "
+        "Sert a alerter quand un 'replace' retire une version encore installee.",
     )
     args = parser.parse_args()
 
@@ -1141,6 +1276,18 @@ def main() -> int:
     if not all_updates:
         print("Aucune mise a jour.", file=sys.stderr)
         return 0
+
+    if args.tools_dir:
+        tools_dir = Path(args.tools_dir)
+    else:
+        tools_dir = default_tools_dir()
+    if tools_dir is None:
+        print(
+            "\n  (tools_dir DevConsole non detecte : ignore le controle de "
+            "versions orphelines, passe --tools-dir pour l'activer)",
+            file=sys.stderr,
+        )
+    warn_orphaned_replace(all_updates, tools_dir)
 
     build_updates = [u for u in all_updates if u.mode == "build"]
     write_updates = [u for u in all_updates if u.mode != "build"]
