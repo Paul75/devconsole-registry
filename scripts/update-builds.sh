@@ -149,7 +149,6 @@ for line in "${BUILD_LINES[@]}"; do
     rel_tag=""
     case "$tool" in
         php)
-            minor="$(echo "$new" | cut -d. -f1,2)"
             built=""
             # Version déjà publiée (release existante) → skip le build, on se
             # contente de mettre à jour versions.json (sha256 + --add).
@@ -157,8 +156,8 @@ for line in "${BUILD_LINES[@]}"; do
                 echo "→ Release php-$new déjà publiée, build sauté."
                 ver="$new"
             elif [ "$CI" = "1" ]; then
-                echo "→ Dispatch GitHub Actions build-php.yml (php $minor)…"
-                gh workflow run build-php.yml -f php_version="$minor" --repo "$REPO"
+                echo "→ Dispatch GitHub Actions build-php.yml (php $new)…"
+                gh workflow run build-php.yml -f php_version="$new" --repo "$REPO"
                 run_id="$(wait_for_run build-php.yml)"
                 echo "→ Run $run_id en cours (attente fin)…"
                 timeout "${BUILD_TIMEOUT:-10800}" gh run watch "$run_id" --repo "$REPO" \
@@ -166,8 +165,8 @@ for line in "${BUILD_LINES[@]}"; do
                 built="$(newest_release php)"
                 ver="${built:-$new}"
             elif [ "$DO_BUILD" = "1" ]; then
-                echo "→ Build PHP $minor (release-php.sh)…"
-                "$ROOT/scripts/release-php.sh" "$minor" 2>&1 | tee "$TMP/php-build.log"
+                echo "→ Build PHP $new (release-php.sh)…"
+                "$ROOT/scripts/release-php.sh" "$new" 2>&1 | tee "$TMP/php-build.log"
                 built="$(sed -n 's/.*Version complète : //p' "$TMP/php-build.log" | tail -1)"
                 ver="${built:-$new}"
             else
