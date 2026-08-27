@@ -312,6 +312,7 @@ def check_needs_build(
     *,
     tag_regex: str,
     prefix: str,
+    buildable: Callable[[str], bool] | None = None,
 ) -> list[Update]:
     """Detect-only pour les outils dont le binaire est produit par un build
     local/CI (php, git Linux) : signale la nouvelle version upstream sans
@@ -352,6 +353,13 @@ def check_needs_build(
         new_ver = upstream_by_group.get(grp)
         if not new_ver or not version_gt(new_ver, old_ver):
             continue
+        # Certaines builds ne sont resolubles que si l'upstream a deja indexe
+        # la version (spc interroge l'endpoint JSON de php.net pour resoudre
+        # la source php-src). Si une version est trop fraiche (tag git present
+        # mais non indexee par l'API), on la reporte au prochain run plutot que
+        # de la signaler puis echouer le build.
+        if buildable is not None and not buildable(new_ver):
+            continue
         template = versions[old_ver]
         entry = deepcopy(template)
         updates.append(Update(tool, old_ver, new_ver, entry, "build"))
@@ -366,7 +374,24 @@ def check_php(current: dict[str, Any], args: argparse.Namespace) -> list[Update]
         "php", "php/php-src", current, args,
         tag_regex=r"^php-(\d+\.\d+\.\d+)$",
         prefix="php-",
+        buildable=php_buildable,
     )
+
+
+def php_buildable(ver: str) -> bool:
+    """Une version PHP n'est buildable par spc que si php.net l'a deja indexee
+    sur son endpoint JSON (source de resolution de spc pour php-src). Une
+    version trop fraiche (tag git present mais API pas encore propagee → reponse
+    {"error":"Unknown version"}) est reportee au run suivant.
+    Echec reseau → False (pas de build sur une version non confirmee)."""
+    try:
+        data = http_get_json(
+            f"https://www.php.net/releases/index.php?json&version={ver}"
+        )
+    except (OSError, urllib.error.HTTPError, urllib.error.URLError,
+            json.JSONDecodeError):
+        return False
+    return data.get("version") == ver
 
 
 def check_git(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
