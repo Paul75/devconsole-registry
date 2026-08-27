@@ -137,14 +137,26 @@ PY
 }
 
 # ─── 2. Build + release ───────────────────────────────────────────────────────
-while IFS=$'\t' read -r tool old new; do
+# On charge d'abord le .tsv dans un tableau : la boucle qui suit lit stdin des
+# builds (release-*.sh, spc, gh, curl…) → un `while read` direct sur le fichier
+# serait avalé par la 1ère commande interne et les lignes suivantes seraient
+# perdues (mise à jour d'une seule version au lieu de toutes).
+mapfile -t BUILD_LINES <"$TMP/updates.tsv"
+for line in "${BUILD_LINES[@]}"; do
+    IFS=$'\t' read -r tool old new <<<"$line"
     echo ""
     echo "=== $tool : $old → $new ==="
+    rel_tag=""
     case "$tool" in
         php)
             minor="$(echo "$new" | cut -d. -f1,2)"
             built=""
-            if [ "$CI" = "1" ]; then
+            # Version déjà publiée (release existante) → skip le build, on se
+            # contente de mettre à jour versions.json (sha256 + --add).
+            if gh release view "php-$new" --repo "$REPO" >/dev/null 2>&1; then
+                echo "→ Release php-$new déjà publiée, build sauté."
+                ver="$new"
+            elif [ "$CI" = "1" ]; then
                 echo "→ Dispatch GitHub Actions build-php.yml (php $minor)…"
                 gh workflow run build-php.yml -f php_version="$minor" --repo "$REPO"
                 run_id="$(wait_for_run build-php.yml)"
@@ -152,19 +164,24 @@ while IFS=$'\t' read -r tool old new; do
                 timeout "${BUILD_TIMEOUT:-10800}" gh run watch "$run_id" --repo "$REPO" \
                     --exit-status --interval 30
                 built="$(newest_release php)"
+                ver="${built:-$new}"
             elif [ "$DO_BUILD" = "1" ]; then
                 echo "→ Build PHP $minor (release-php.sh)…"
                 "$ROOT/scripts/release-php.sh" "$minor" 2>&1 | tee "$TMP/php-build.log"
                 built="$(sed -n 's/.*Version complète : //p' "$TMP/php-build.log" | tail -1)"
+                ver="${built:-$new}"
+            else
+                ver="$new"
             fi
-            ver="${built:-$new}"
             rel_tag="php-$ver"
             artifact="$ROOT/.build-php/php-$ver-fpm-linux-x86_64.tar.gz"
             linux_url="https://github.com/$REPO/releases/download/$rel_tag/php-$ver-fpm-linux-x86_64.tar.gz"
             ;;
         git)
             ver="$new"
-            if [ "$CI" = "1" ]; then
+            if gh release view "git-$new" --repo "$REPO" >/dev/null 2>&1; then
+                echo "→ Release git-$new déjà publiée, build sauté."
+            elif [ "$CI" = "1" ]; then
                 echo "→ Dispatch GitHub Actions build-git.yml (git $ver)…"
                 gh workflow run build-git.yml -f git_version="$ver" --repo "$REPO"
                 run_id="$(wait_for_run build-git.yml)"
@@ -181,7 +198,9 @@ while IFS=$'\t' read -r tool old new; do
             ;;
         redis)
             ver="$new"
-            if [ "$CI" = "1" ]; then
+            if gh release view "redis-$new" --repo "$REPO" >/dev/null 2>&1; then
+                echo "→ Release redis-$new déjà publiée, build sauté."
+            elif [ "$CI" = "1" ]; then
                 echo "→ Dispatch GitHub Actions build-redis.yml (redis $ver)…"
                 gh workflow run build-redis.yml -f redis_version="$ver" --repo "$REPO"
                 run_id="$(wait_for_run build-redis.yml)"
@@ -201,6 +220,7 @@ while IFS=$'\t' read -r tool old new; do
             continue
             ;;
     esac
+    : "${rel_tag:?rel_tag non déterminé}"
 
     if ! gh release view "$rel_tag" --repo "$REPO" >/dev/null 2>&1; then
         echo "❌ Release $rel_tag introuvable sur $REPO" >&2
@@ -284,4 +304,4 @@ json.dump(entry, open(sys.argv[1], "w"), ensure_ascii=False)
 PY
     "$PY" scripts/check-versions.py --add "$tool@$ver" <"$TMP/entry.json"
     echo "✓ $tool $ver ajouté. Vérifier le diff, puis committer et pousser versions.json sur main."
-done <"$TMP/updates.tsv"
+done
