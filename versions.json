@@ -91,6 +91,21 @@
           ],
           "lts": true
         },
+        "8.4.25": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.25/php-8.4.25-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://windows.php.net/downloads/releases/php-8.4.25-nts-Win32-vs17-x64.zip",
+          "sha256": "84f4d0f9aea0a8a1092bc4ca28bc6da3be1f1a4bae2a19ef40efe9977d7eefd3",
+          "sha256_windows": "43a8f67ed2e5223fafb21293c85976361808855405278cef2cf3037c3ae2529c",
+          "binaries": [
+            "bin/php",
+            "sbin/php-fpm",
+            "bin/php-cgi",
+            "php",
+            "php-cgi",
+            "php-fpm"
+          ],
+          "lts": true
+        },
         "8.4.24": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.24/php-8.4.24-fpm-linux-x86_64.tar.gz",
           "url_windows": "https://windows.php.net/downloads/releases/php-8.4.24-nts-Win32-vs17-x64.zip",
