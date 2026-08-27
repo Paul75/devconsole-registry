@@ -2,11 +2,11 @@
   "tools": {
     "node": {
       "versions": {
-        "24.19.0": {
-          "url": "https://nodejs.org/dist/v24.19.0/node-v24.19.0-linux-x64.tar.xz",
-          "url_windows": "https://nodejs.org/dist/v24.19.0/node-v24.19.0-win-x64.zip",
-          "sha256": "14b342e71204f811bde6153be8e04b62aef63c236fef92b55f9c83154b409647",
-          "sha256_windows": "57f71ab3652e797d84acddc79c81cc9ff1c6ddb2a1974cdb83f00fee9bff4c73",
+        "24.20.0": {
+          "url": "https://nodejs.org/dist/v24.20.0/node-v24.20.0-linux-x64.tar.xz",
+          "url_windows": "https://nodejs.org/dist/v24.20.0/node-v24.20.0-win-x64.zip",
+          "sha256": "2f2c0da162318f0de47665410c7c8c2ed3d36c8f3105de4bbc61176c70a7cbf2",
+          "sha256_windows": "6cac9ffbca8f6a47091e4b5c772e0606049c3871cb67d900c0cedde630e545ba",
           "binaries": [
             "bin/node",
             "bin/npm",
@@ -381,6 +381,19 @@
     },
     "vscode": {
       "versions": {
+        "1.135.0": {
+          "url": "https://update.code.visualstudio.com/1.135.0/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.135.0/win32-x64-archive/stable",
+          "sha256": "470f281e9d75f03b1b957f38e193580140de3b1d9c9ba6db13e7bf30aead4e00",
+          "sha256_windows": "0ee1557bab25c2b86d1dffc012fd367abef5e77ea62c2c3d7e32ec90281b2c6c",
+          "binaries": [
+            "bin/code"
+          ],
+          "binaries_windows": [
+            "bin/code.cmd"
+          ],
+          "lts": true
+        },
         "1.134.0": {
           "url": "https://update.code.visualstudio.com/1.134.0/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.134.0/win32-x64-archive/stable",
@@ -454,6 +467,16 @@
     },
     "zed": {
       "versions": {
+        "1.17.2": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.17.2/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.17.2/Zed-x86_64.exe",
+          "sha256": "3682dd058a305d2b246a14d64419fcf42e86a06e27755d23b5a28622ed9aef85",
+          "sha256_windows": "4ece660b71e6b7904970027cda0c574b547555c9fb745972ed154f69c1ba3692",
+          "binaries": [
+            "bin/zed"
+          ],
+          "lts": true
+        },
         "1.16.1": {
           "url": "https://github.com/zed-industries/zed/releases/download/v1.16.1/zed-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.16.1/Zed-x86_64.exe",
@@ -866,6 +889,14 @@
     },
     "composer": {
       "versions": {
+        "2.10.3": {
+          "url": "https://github.com/composer/composer/releases/download/2.10.3/composer.phar",
+          "sha256": "7a2d379d5b8ffdaa028580ef26494c36d2feef4b178d3dd1473a4dbc5e17c8d6",
+          "binaries": [
+            "composer"
+          ],
+          "lts": true
+        },
         "2.10.2": {
           "url": "https://github.com/composer/composer/releases/download/2.10.2/composer.phar",
           "sha256": "5ee7125f8a30a34d246cefdc0bc85b8a783b28f2aec968994118512350d28027",
@@ -1052,6 +1083,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.6": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.6/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.6/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "8681d8921e7d520fb368991dcf5f9c1905b80f5bf2a265a0ed085c8d8e342477",
+          "sha256_windows": "df7cb9f243eae1621400d4fcf5b1b3d90f20e264ece91b64deb3b0078abca6ef",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.12.5": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.5/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.5/uv-x86_64-pc-windows-msvc.zip",
