@@ -76,11 +76,11 @@
           ],
           "lts": true
         },
-        "8.4.24": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.24/php-8.4.24-fpm-linux-x86_64.tar.gz",
-          "url_windows": "https://windows.php.net/downloads/releases/php-8.4.24-nts-Win32-vs17-x64.zip",
-          "sha256": "e525c7cd8b2f43f7fc6d15d98b479e14f583c4c1344afc690af4d71a9108813e",
-          "sha256_windows": "86470a30cbbaeafb259e727dfa5cd336f2f3f0a462cd6f8e3eac00fdbded13cb",
+        "8.5.8": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.8/php-8.5.8-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://windows.php.net/downloads/releases/php-8.5.8-nts-Win32-vs17-x64.zip",
+          "sha256": "14950aca55bf1fcdb0a4dc4dee3543a02f5be5c9a90d5077a51d6c80a521215c",
+          "sha256_windows": "63a3f6493f37c9ff3e288ec16621222a6cda5167dd1abffec0019e7f18c8e7e9",
           "binaries": [
             "bin/php",
             "sbin/php-fpm",
@@ -91,11 +91,11 @@
           ],
           "lts": true
         },
-        "8.5.8": {
-          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.8/php-8.5.8-fpm-linux-x86_64.tar.gz",
-          "url_windows": "https://windows.php.net/downloads/releases/php-8.5.8-nts-Win32-vs17-x64.zip",
-          "sha256": "14950aca55bf1fcdb0a4dc4dee3543a02f5be5c9a90d5077a51d6c80a521215c",
-          "sha256_windows": "63a3f6493f37c9ff3e288ec16621222a6cda5167dd1abffec0019e7f18c8e7e9",
+        "8.4.24": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.24/php-8.4.24-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://windows.php.net/downloads/releases/php-8.4.24-nts-Win32-vs17-x64.zip",
+          "sha256": "e525c7cd8b2f43f7fc6d15d98b479e14f583c4c1344afc690af4d71a9108813e",
+          "sha256_windows": "86470a30cbbaeafb259e727dfa5cd336f2f3f0a462cd6f8e3eac00fdbded13cb",
           "binaries": [
             "bin/php",
             "sbin/php-fpm",
@@ -183,19 +183,6 @@
     },
     "mariadb": {
       "versions": {
-        "11.8.9": {
-          "url": "https://archive.mariadb.org/mariadb-11.8.9/bintar-linux-systemd-x86_64/mariadb-11.8.9-linux-systemd-x86_64.tar.gz",
-          "url_windows": "https://archive.mariadb.org/mariadb-11.8.9/winx64-packages/mariadb-11.8.9-winx64.zip",
-          "sha256": "32f8871a2aa38b36aa418b7f4abc6fc0c6ef1ba5a45798cacb2afa52c8a6113b",
-          "sha256_windows": "830c46727d9278eae212ae3eca44eeb9e71b2a68704e95f344a64fba7b1963f5",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mariadbd",
-            "bin/mariadb"
-          ],
-          "lts": true
-        },
         "12.3.3": {
           "url": "https://archive.mariadb.org/mariadb-12.3.3/bintar-linux-systemd-x86_64/mariadb-12.3.3-linux-systemd-x86_64.tar.gz",
           "url_windows": "https://archive.mariadb.org/mariadb-12.3.3/winx64-packages/mariadb-12.3.3-winx64.zip",
@@ -214,6 +201,19 @@
           "url_windows": "https://archive.mariadb.org/mariadb-12.3.2/winx64-packages/mariadb-12.3.2-winx64.zip",
           "sha256": "4a18365541d7280bbe947762e341bab94bc49f3ed31e6b5caf4e21f26246e458",
           "sha256_windows": "67347c129eb9c5923d002ea34fbfa27c60eb95d36dd73b85af2651cdeceecac5",
+          "binaries": [
+            "bin/mysqld",
+            "bin/mysql",
+            "bin/mariadbd",
+            "bin/mariadb"
+          ],
+          "lts": true
+        },
+        "11.8.9": {
+          "url": "https://archive.mariadb.org/mariadb-11.8.9/bintar-linux-systemd-x86_64/mariadb-11.8.9-linux-systemd-x86_64.tar.gz",
+          "url_windows": "https://archive.mariadb.org/mariadb-11.8.9/winx64-packages/mariadb-11.8.9-winx64.zip",
+          "sha256": "32f8871a2aa38b36aa418b7f4abc6fc0c6ef1ba5a45798cacb2afa52c8a6113b",
+          "sha256_windows": "830c46727d9278eae212ae3eca44eeb9e71b2a68704e95f344a64fba7b1963f5",
           "binaries": [
             "bin/mysqld",
             "bin/mysql",
@@ -276,24 +276,6 @@
     },
     "python": {
       "versions": {
-        "3.12.14": {
-          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260814/cpython-3.12.14+20260814-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
-          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260814/cpython-3.12.14+20260814-x86_64-pc-windows-msvc-install_only.tar.gz",
-          "sha256": "a3c4118a4299d7d129926bf2f00f5e9d2462282b85b341348ea99617654a080e",
-          "sha256_windows": "7330282b47cd43a66b702d39078d2e5a88e580cee351d82f95045f21f5ee042a",
-          "binaries": [
-            "bin/python3",
-            "bin/python",
-            "bin/pip3",
-            "bin/pip"
-          ],
-          "binaries_windows": [
-            "python",
-            "python3",
-            "pip",
-            "pip3"
-          ]
-        },
         "3.14.7": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260807/cpython-3.14.7+20260807-x86_64-unknown-linux-gnu-install_only.tar.gz",
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260807/cpython-3.14.7+20260807-x86_64-pc-windows-msvc-install_only.tar.gz",
@@ -317,6 +299,24 @@
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260718/cpython-3.14.6+20260718-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "b442fb93903c6f3392b2430961d4725354ae0da7558c785a908d714264309b28",
           "sha256_windows": "97c01acd70108234ff042699996f3f4163c791f1d6e35de898475936b86ec3b2",
+          "binaries": [
+            "bin/python3",
+            "bin/python",
+            "bin/pip3",
+            "bin/pip"
+          ],
+          "binaries_windows": [
+            "python",
+            "python3",
+            "pip",
+            "pip3"
+          ]
+        },
+        "3.12.14": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260814/cpython-3.12.14+20260814-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
+          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260814/cpython-3.12.14+20260814-x86_64-pc-windows-msvc-install_only.tar.gz",
+          "sha256": "a3c4118a4299d7d129926bf2f00f5e9d2462282b85b341348ea99617654a080e",
+          "sha256_windows": "7330282b47cd43a66b702d39078d2e5a88e580cee351d82f95045f21f5ee042a",
           "binaries": [
             "bin/python3",
             "bin/python",

@@ -1010,6 +1010,22 @@ def apply_updates(data: dict[str, Any], updates: list[Update]) -> dict[str, Any]
             # Inserer en tete
             tool["versions"] = {upd.new_version: upd.entry, **versions}
 
+    return sort_versions_data(out)
+
+
+def sort_versions_data(data: dict[str, Any]) -> dict[str, Any]:
+    """Trie les versions de chaque outil par ordre semantique decroissant
+    (newest first), coherent avec list_versions() cote Rust, pour que
+    versions.json reste lisible et stable a chaque ecriture."""
+    out = deepcopy(data)
+    for tool in (out.get("tools") or {}).values():
+        versions = tool.get("versions")
+        if not isinstance(versions, dict) or not versions:
+            continue
+        tool["versions"] = {
+            v: versions[v]
+            for v in sorted(versions, key=parse_version, reverse=True)
+        }
     return out
 
 
@@ -1214,6 +1230,7 @@ def main() -> int:
         filled = fill_missing_shas(data, fill_tools)
         if args.write:
             if filled:
+                data = sort_versions_data(data)
                 VERSIONS_PATH.write_text(
                     json.dumps(data, indent=2, ensure_ascii=False) + "\n",
                     encoding="utf-8",
