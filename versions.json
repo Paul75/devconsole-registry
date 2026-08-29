@@ -61,6 +61,21 @@
     },
     "php": {
       "versions": {
+        "8.5.10": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.10/php-8.5.10-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://windows.php.net/downloads/releases/php-8.5.10-nts-Win32-vs17-x64.zip",
+          "sha256": "8a501eefdb26aac488edc5cc20b3c7476434ca0740df2b0ab7fbf1fac42e0e69",
+          "sha256_windows": "22ec430195984d233eb9e62c637a945bbcda06efca2f392d9d96d62c6acd34f8",
+          "binaries": [
+            "bin/php",
+            "sbin/php-fpm",
+            "bin/php-cgi",
+            "php",
+            "php-cgi",
+            "php-fpm"
+          ],
+          "lts": true
+        },
         "8.5.9": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.9/php-8.5.9-fpm-linux-x86_64.tar.gz",
           "url_windows": "https://downloads.php.net/~windows/releases/php-8.5.9-nts-Win32-vs17-x64.zip",
