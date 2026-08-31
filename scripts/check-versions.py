@@ -17,7 +17,10 @@ Outils APIs dediees: python (python-build-standalone + SHA256SUMS), vscode
 mariadb (downloads.mariadb.org REST), maven (apache/maven tags),
 android_studio (page stable developer.android.com/studio),
 android_sdk (repository2-3.xml de Google),
-redis (redis/redis GitHub releases), mongodb (mongodb/mongo tags).
+redis (redis/redis GitHub releases), mongodb (mongodb/mongo tags),
+sqlite (page download.html de sqlite.org — commentaire CSV embarqué ;
+sha256 calculés par téléchargement avec --sha, sqlite.org ne publiant que
+des SHA3-256).
 Outils detect-only (build local/CI requis): php, git — reportent la nouvelle
 version sans deriver les URLs; lancer scripts/update-builds.sh pour construire
 et publier, puis integrer la release dans versions.json.
@@ -546,6 +549,77 @@ def check_redis(current: dict[str, Any], args: argparse.Namespace) -> list[Updat
     )
 
 
+def check_sqlite(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    """Detecte les nouvelles versions via la page de téléchargement sqlite.org.
+
+    sqlite.org n'expose pas d'API stable : on parse le commentaire CSV embarqué
+    dans download.html (PRODUCT,VERSION,RELATIVE-URL,SIZE,SHA3-HASH). Les URLs
+    changent d'année (`/2026/`) et le nom de fichier encode la version
+    (3.X.Y → 3XXYY00) : on dérive donc les URLs complètes directement du
+    RELATIVE-URL plutôt que par substitution.
+
+    sqlite.org ne publie que des SHA3-256 (incompatibles avec le sha256 du
+    registre) : les sha256 sont calculés par téléchargement uniquement avec
+    --sha, sinon laissés vides (l'entrée fonctionne sans, comme mongodb).
+    """
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    html = http_get("https://www.sqlite.org/download.html")
+    # Ligne CSV : PRODUCT,VERSION,RELATIVE-URL,SIZE-IN-BYTES,SHA3-HASH
+    rel = {}
+    for line in html.splitlines():
+        parts = [p.strip() for p in line.split(",")]
+        if len(parts) >= 3 and parts[2].startswith("20") and "/sqlite-tools-" in parts[2]:
+            name = parts[2].split("/")[-1]
+            if name.startswith("sqlite-tools-linux-x64-"):
+                rel["linux"] = parts[2]
+            elif name.startswith("sqlite-tools-win-x64-"):
+                rel["win"] = parts[2]
+
+    if "linux" not in rel:
+        print("  ! sqlite: liens sqlite-tools-linux-x64 introuvables dans download.html", file=sys.stderr)
+        return []
+
+    m = re.search(r"sqlite-tools-linux-x64-(\d{6,8})\.zip", rel["linux"])
+    if not m:
+        print("  ! sqlite: version in parseable dans l'URL", file=sys.stderr)
+        return []
+    # Encodage 3XXYYZZ → X.Y.Z
+    code = m.group(1)
+    new_ver = f"{code[0]}.{int(code[1:3])}.{int(code[3:5])}"
+
+    old_ver = max_version(list(versions))
+    if not version_gt(new_ver, old_ver):
+        return []
+
+    template = versions[old_ver]
+    entry = deepcopy(template)
+    entry["url"] = f"https://www.sqlite.org/{rel['linux']}"
+
+    if "url_windows" in entry:
+        if "win" in rel:
+            entry["url_windows"] = f"https://www.sqlite.org/{rel['win']}"
+        else:
+            print("  ! sqlite: pas de lien win-x64 ; sha256_windows non calculable", file=sys.stderr)
+            entry["url_windows"] = None
+
+    for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+        if entry.get(src):
+            if args.sha:
+                print(f"  … sqlite: sha256 {src} …", file=sys.stderr)
+                try:
+                    entry[dst] = sha256_url(entry[src])
+                except urllib.error.HTTPError as e:
+                    print(f"  ! sqlite: echec sha {src}: {e}", file=sys.stderr)
+                    entry[dst] = None
+            else:
+                entry[dst] = None
+
+    return [Update("sqlite", old_ver, new_ver, entry, "add")]
+
+
 def check_mongodb(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
     """Detecte les nouvelles versions via les tags de mongodb/mongo.
 
@@ -977,10 +1051,10 @@ CHECKERS: dict[str, Checker] = {
     "uv": check_uv,
     "redis": check_redis,
     "mongodb": check_mongodb,
+    "sqlite": check_sqlite,
     "android_studio": check_android_studio,
     "android_sdk": check_android_sdk,
 }
-
 
 # ─── apply / main ────────────────────────────────────────────────────────────
 

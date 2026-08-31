@@ -1267,9 +1267,19 @@
         "3.53.4": {
           "url": "https://www.sqlite.org/2026/sqlite-tools-linux-x64-3530400.zip",
           "url_windows": "https://www.sqlite.org/2026/sqlite-tools-win-x64-3530400.zip",
-          "binaries": ["sqlite3", "sqldiff", "sqlite3_analyzer"],
-          "binaries_windows": ["sqlite3.exe", "sqldiff.exe", "sqlite3_analyzer.exe"],
-          "lts": true
+          "binaries": [
+            "sqlite3",
+            "sqldiff",
+            "sqlite3_analyzer"
+          ],
+          "binaries_windows": [
+            "sqlite3.exe",
+            "sqldiff.exe",
+            "sqlite3_analyzer.exe"
+          ],
+          "lts": true,
+          "sha256": "7a6f4d1720e4bc13faa3d934bfce37b816a496c0a2480deacd64cfd8be6cf224",
+          "sha256_windows": "f46ee2475de4cbe287e6e5f7d43c838796b14e7379cd216bdbb28d391429f9fc"
         }
       }
     }
