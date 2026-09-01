@@ -571,6 +571,19 @@
     },
     "android_studio": {
       "versions": {
+        "2026.1.4.7": {
+          "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.4.7/android-studio-quail4-linux.tar.gz",
+          "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.4.7/android-studio-quail4-windows.zip",
+          "sha256": "4be240083df5ada290975d87d60fc212a3d38d4f258a1250989885a9dbc79980",
+          "sha256_windows": "fabc885015bd67182f4f49da8e3efbb3b60038b2dfda632cf2d29363ffb1e04e",
+          "binaries": [
+            "bin/studio.sh"
+          ],
+          "binaries_windows": [
+            "bin/studio64"
+          ],
+          "lts": true
+        },
         "2026.1.3.7": {
           "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.3.7/android-studio-quail3-linux.tar.gz",
           "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.3.7/android-studio-quail3-windows.zip",
@@ -1113,6 +1126,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.8": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.8/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.8/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "2e2b37e9811e17675a9e70bed5e1a58fc8c0388be63d751d72cc735188c149ff",
+          "sha256_windows": "e07acf3f8a29fe41f9e04b799c3325cb0e0893836bb222bf102829b45c679ad6",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.12.7": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.7/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.7/uv-x86_64-pc-windows-msvc.zip",
@@ -1247,6 +1273,19 @@
     },
     "cloudflared": {
       "versions": {
+        "2026.8.3": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.3/cloudflared-linux-amd64",
+          "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.3/cloudflared-windows-amd64.exe",
+          "sha256": "f29324fe934d1e100617484c78deef803c4dc2cd351d645bbde42e96b4fccc5e",
+          "sha256_windows": "83e726ed18ea78c5ad5213c4c3a3a27051393950d2bc8ed4de69bec12d14eaae",
+          "binaries": [
+            "cloudflared"
+          ],
+          "binaries_windows": [
+            "cloudflared.exe"
+          ],
+          "lts": true
+        },
         "2026.8.2": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.2/cloudflared-linux-amd64",
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.2/cloudflared-windows-amd64.exe",
@@ -1265,7 +1304,7 @@
     "sqlite": {
       "versions": {
         "3.53.4": {
-          "url": "https://www.sqlite.org/2026/sqlite-tools-linux-x64-3530400.zip",
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/sqlite-3.53.4/sqlite-3.53.4-linux_x86_64-musl.tar.gz",
           "url_windows": "https://www.sqlite.org/2026/sqlite-tools-win-x64-3530400.zip",
           "binaries": [
             "sqlite3",
@@ -1278,7 +1317,7 @@
             "sqlite3_analyzer.exe"
           ],
           "lts": true,
-          "sha256": "7a6f4d1720e4bc13faa3d934bfce37b816a496c0a2480deacd64cfd8be6cf224",
+          "sha256": "3404c5795cf7224e758941f50ed1086e9a6adae07e2d231438b243b29395185f",
           "sha256_windows": "f46ee2475de4cbe287e6e5f7d43c838796b14e7379cd216bdbb28d391429f9fc"
         }
       }
