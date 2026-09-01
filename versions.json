@@ -1317,7 +1317,7 @@
             "sqlite3_analyzer.exe"
           ],
           "lts": true,
-          "sha256": "3404c5795cf7224e758941f50ed1086e9a6adae07e2d231438b243b29395185f",
+          "sha256": "6a177161693a584fcf2e789e8c32a34e6e833eab52c30937335ebdec881c575c",
           "sha256_windows": "f46ee2475de4cbe287e6e5f7d43c838796b14e7379cd216bdbb28d391429f9fc"
         }
       }
