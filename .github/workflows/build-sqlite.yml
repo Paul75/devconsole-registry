@@ -1,0 +1,64 @@
+name: Build SQLite
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Runner self-hosté sur la même machine que les builds locaux (comme
+  # DevConsole) : la compilation passe par le verrou anti double-build
+  # scripts/build-lock.sh. BUILD_LOCK_WAIT=1 → la CI attend au lieu d'échouer.
+  BUILD_LOCK_WAIT: "1"
+
+on:
+  workflow_dispatch:
+    inputs:
+      sqlite_version:
+        description: 'SQLite version (semver, e.g. 3.53.4)'
+        required: true
+        type: string
+        default: '3.53.4'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: self-hosted
+    # Runner self-hosté sur un dépôt public : ne jamais exécuter hors du repo
+    # d'origine (un fork ne peut pas dispatcher, mais garde-fou par défaut).
+    if: github.repository == 'Paul75/devconsole-registry'
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build SQLite statically (musl)
+        run: scripts/build-lock.sh scripts/build-sqlite.sh ${{ inputs.sqlite_version }}
+
+      - name: Check archive contents
+        run: |
+          tar tzf sqlite-*.tar.gz
+
+      # Un rebuild de la même version recrée le tag (suppression préalable).
+      - name: Delete existing release (rebuild)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete "sqlite-${{ inputs.sqlite_version }}" --yes --cleanup-tag 2>/dev/null || true
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: sqlite-${{ inputs.sqlite_version }}
+          name: SQLite ${{ inputs.sqlite_version }} (static)
+          body: |
+            Static SQLite ${{ inputs.sqlite_version }} build for DevConsole.
+
+            Cross-compilation musl (musl.cc), sans Docker.
+            Portable sur tous les systèmes (pas de dépendance glibc récente).
+
+            ## Build config
+            - Cross-compilation musl (musl.cc), sans Docker
+            - zlib compilé en statique (support .gz)
+            - FTS3/FTS4/FTS5, JSON1, RTREE, DBSTAT, COLUMN_METADATA activés
+
+            ## Binaries
+            - `sqlite3`
+          files: sqlite-*.tar.gz
+          make_latest: false

@@ -10,6 +10,10 @@ php-*-linux-x86_64.tar.gz
 .redis-build/
 redis-*-linux_x86_64-musl.tar.gz
 
+# Artifacts de build SQLite (scripts/build-sqlite.sh)
+.sqlite-build/
+sqlite-*-linux_x86_64-musl.tar.gz
+
 # Runner self-hosté
 actions-runner
 

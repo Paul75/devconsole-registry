@@ -558,6 +558,14 @@ def check_sqlite(current: dict[str, Any], args: argparse.Namespace) -> list[Upda
     (3.X.Y → 3XXYY00) : on dérive donc les URLs complètes directement du
     RELATIVE-URL plutôt que par substitution.
 
+    Binaire Linux en mode "build" : les outils officiels sqlite.org
+    (sqlite-tools-linux-x64) sont liés dynamiquement contre une glibc récente
+    (≥ 2.38) et ne démarrent pas sur les systèmes plus anciens (ex. Ubuntu
+    22.04 / glibc 2.35). On produit donc un binaire musl **statique**
+    (scripts/build-sqlite.sh) publié en release `sqlite-<ver>`, à l'instar de
+    git/redis. Le binaire Windows sqlite.org reste utilisé tel quel
+    (auto-suffisant, pas de glibc).
+
     sqlite.org ne publie que des SHA3-256 (incompatibles avec le sha256 du
     registre) : les sha256 sont calculés par téléchargement uniquement avec
     --sha, sinon laissés vides (l'entrée fonctionne sans, comme mongodb).
@@ -596,6 +604,8 @@ def check_sqlite(current: dict[str, Any], args: argparse.Namespace) -> list[Upda
 
     template = versions[old_ver]
     entry = deepcopy(template)
+    # URL linux laissée en placeholder : le mode "build" la remplace par
+    # l'artefact statique publié (release sqlite-<ver>) via update-builds.sh.
     entry["url"] = f"https://www.sqlite.org/{rel['linux']}"
 
     if "url_windows" in entry:
@@ -605,19 +615,7 @@ def check_sqlite(current: dict[str, Any], args: argparse.Namespace) -> list[Upda
             print("  ! sqlite: pas de lien win-x64 ; sha256_windows non calculable", file=sys.stderr)
             entry["url_windows"] = None
 
-    for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
-        if entry.get(src):
-            if args.sha:
-                print(f"  … sqlite: sha256 {src} …", file=sys.stderr)
-                try:
-                    entry[dst] = sha256_url(entry[src])
-                except urllib.error.HTTPError as e:
-                    print(f"  ! sqlite: echec sha {src}: {e}", file=sys.stderr)
-                    entry[dst] = None
-            else:
-                entry[dst] = None
-
-    return [Update("sqlite", old_ver, new_ver, entry, "add")]
+    return [Update("sqlite", old_ver, new_ver, entry, "build")]
 
 
 def check_mongodb(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:

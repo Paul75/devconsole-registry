@@ -31,7 +31,7 @@ REPO="${REPO%.git}"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-TOOLS="php,git,redis"
+TOOLS="php,git,redis,sqlite"
 DO_BUILD=1
 CI=0
 while [ $# -gt 0 ]; do
@@ -214,6 +214,25 @@ for line in "${BUILD_LINES[@]}"; do
             artifact="$ROOT/redis-$ver-linux_x86_64-musl.tar.gz"
             linux_url="https://github.com/$REPO/releases/download/$rel_tag/redis-$ver-linux_x86_64-musl.tar.gz"
             ;;
+        sqlite)
+            ver="$new"
+            if gh release view "sqlite-$new" --repo "$REPO" >/dev/null 2>&1; then
+                echo "→ Release sqlite-$new déjà publiée, build sauté."
+            elif [ "$CI" = "1" ]; then
+                echo "→ Dispatch GitHub Actions build-sqlite.yml (sqlite $ver)…"
+                gh workflow run build-sqlite.yml -f sqlite_version="$ver" --repo "$REPO"
+                run_id="$(wait_for_run build-sqlite.yml)"
+                echo "→ Run $run_id en cours (attente fin)…"
+                timeout "${BUILD_TIMEOUT:-10800}" gh run watch "$run_id" --repo "$REPO" \
+                    --exit-status --interval 30
+            elif [ "$DO_BUILD" = "1" ]; then
+                echo "→ Build SQLite $ver (release-sqlite.sh)…"
+                "$ROOT/scripts/release-sqlite.sh" "$ver" 2>&1 | tee "$TMP/sqlite-build.log"
+            fi
+            rel_tag="sqlite-$ver"
+            artifact="$ROOT/sqlite-$ver-linux_x86_64-musl.tar.gz"
+            linux_url="https://github.com/$REPO/releases/download/$rel_tag/sqlite-$ver-linux_x86_64-musl.tar.gz"
+            ;;
         *)
             echo "Outil non géré: $tool" >&2
             continue
@@ -278,6 +297,12 @@ PY
             if [ -n "${gitfw_tag:-}" ]; then
                 win_url="https://github.com/git-for-windows/git/releases/download/$gitfw_tag/MinGit-${ver}.${gitfw_n}-64-bit.zip"
             fi
+            ;;
+        sqlite)
+            # Binaire Windows sqlite.org auto-suffisant (pas de glibc) → on le
+            # garde tel quel, sur la release officielle.
+            prg="$("$PY" -c "import sys; a=sys.argv[1].split('.'); print(f'{a[0]}{int(a[1]):02d}{int(a[2]):02d}00')" "$ver")"
+            win_url="https://www.sqlite.org/2026/sqlite-tools-win-x64-${prg}.zip"
             ;;
     esac
     if [ -n "$win_url" ]; then
