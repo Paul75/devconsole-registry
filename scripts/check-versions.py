@@ -261,6 +261,10 @@ def check_tabby(current: dict[str, Any], args: argparse.Namespace) -> list[Updat
     return check_github_latest("tabby", "Eugeny/tabby", current, args)
 
 
+def check_electerm(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("electerm", "electerm/electerm", current, args)
+
+
 def check_go(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
     versions = current.get("versions") or {}
     if not versions:
@@ -1029,6 +1033,7 @@ CHECKERS: dict[str, Checker] = {
     "zed": check_zed,
     "vscodium": check_vscodium,
     "tabby": check_tabby,
+    "electerm": check_electerm,
     "go": check_go,
     "php": check_php,
     "git": check_git,
