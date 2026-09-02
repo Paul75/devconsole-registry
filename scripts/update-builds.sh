@@ -329,3 +329,13 @@ PY
     "$PY" scripts/check-versions.py --add "$tool@$ver" <"$TMP/entry.json"
     echo "✓ $tool $ver ajouté. Vérifier le diff, puis committer et pousser versions.json sur main."
 done
+
+# ─── Sync embarquée DevConsole ──────────────────────────────────────────────
+# Après une MAJ du registry, synchronise l'embarquée (src-tauri/resources/
+# versions.json du repo DevConsole) pour le mode portable hors ligne. Copie
+# seule, sans commit : le diff est laissé à la revue de l'utilisateur.
+echo "→ Sync du registry embarqué DevConsole…"
+scripts/sync-embedded-registry.sh && echo "✓ Embarquée synchronisée" || {
+    echo "ℹ️  Sync embarquée ignorée ($(basename "$0") : repo DevConsole introuvable ? DEVCONSOLE_REPO=…)"
+    exit 0
+}
