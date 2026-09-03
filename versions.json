@@ -411,6 +411,19 @@
     },
     "vscode": {
       "versions": {
+        "1.136.1": {
+          "url": "https://update.code.visualstudio.com/1.136.1/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.136.1/win32-x64-archive/stable",
+          "sha256": "9b4a54f0d49beaa413eda137d00c6541a639300d479efcac566ad13419409218",
+          "sha256_windows": "deca16ea5c4d71ece23e50af57632bba3abd0e3577c3c8bfbcdd90b03f11e402",
+          "binaries": [
+            "bin/code"
+          ],
+          "binaries_windows": [
+            "bin/code.cmd"
+          ],
+          "lts": true
+        },
         "1.136.0": {
           "url": "https://update.code.visualstudio.com/1.136.0/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.136.0/win32-x64-archive/stable",
@@ -510,6 +523,16 @@
     },
     "zed": {
       "versions": {
+        "1.18.0": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.18.0/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.18.0/Zed-x86_64.exe",
+          "sha256": "60ee2da27b378c5d00cbfc4e9e0c9842e37795803c4565754f41be5423898799",
+          "sha256_windows": "375f5ab35d7d1ea974fac48de83967f5fad1c10be0b0bbe86dc70d52e2e81146",
+          "binaries": [
+            "bin/zed"
+          ],
+          "lts": true
+        },
         "1.17.2": {
           "url": "https://github.com/zed-industries/zed/releases/download/v1.17.2/zed-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.17.2/Zed-x86_64.exe",
@@ -1014,6 +1037,23 @@
     },
     "rust": {
       "versions": {
+        "1.98.1": {
+          "url": "https://static.rust-lang.org/dist/rust-1.98.1-x86_64-unknown-linux-gnu.tar.xz",
+          "url_windows": "https://static.rust-lang.org/dist/rust-1.98.1-x86_64-pc-windows-msvc.tar.xz",
+          "sha256": "5326b36c53de11d148c8f8dab6553a3d1006c2cfd32123683073fad3c302605b",
+          "sha256_windows": "c34c3f01633efe5edac0e1ed1ee66d5ec13a7f27e57c149059ed6bdbe0534407",
+          "binaries": [
+            "rustc/bin/rustc",
+            "cargo/bin/cargo",
+            "rustc/bin/rustdoc",
+            "rustfmt-preview/bin/rustfmt",
+            "rustfmt-preview/bin/cargo-fmt",
+            "clippy-preview/bin/clippy-driver",
+            "clippy-preview/bin/cargo-clippy",
+            "rust-analyzer-preview/bin/rust-analyzer"
+          ],
+          "lts": true
+        },
         "1.98.0": {
           "url": "https://static.rust-lang.org/dist/rust-1.98.0-x86_64-unknown-linux-gnu.tar.xz",
           "url_windows": "https://static.rust-lang.org/dist/rust-1.98.0-x86_64-pc-windows-msvc.tar.xz",
@@ -1120,6 +1160,19 @@
     },
     "electerm": {
       "versions": {
+        "5.3.26": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.3.26/electerm-5.3.26-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.3.26/electerm-5.3.26-win-x64-portable.tar.gz",
+          "sha256": "4b24c0a3516353b407c5001db1760a832797e9349e0aa725c0e53dfbe2a6b074",
+          "sha256_windows": "413fff0e99e2e4b3ccfda6ca19cab9cd0e5b1810591a602294f2a94c55848e3a",
+          "binaries": [
+            "electerm"
+          ],
+          "binaries_windows": [
+            "electerm.exe"
+          ],
+          "lts": true
+        },
         "5.3.15": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.3.15/electerm-5.3.15-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.3.15/electerm-5.3.15-win-x64-portable.tar.gz",
@@ -1137,6 +1190,19 @@
     },
     "gh": {
       "versions": {
+        "2.100.0": {
+          "url": "https://github.com/cli/cli/releases/download/v2.100.0/gh_2.100.0_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/cli/cli/releases/download/v2.100.0/gh_2.100.0_windows_amd64.zip",
+          "sha256": "e4d4bb4498e8d007abe545b6568926793ace1b6447da598294a610018cb164be",
+          "sha256_windows": "227e35230b25db3fa1b997bab7cf4d67df0470a3b75b99e4ee66bce1a7cd4e72",
+          "binaries": [
+            "bin/gh"
+          ],
+          "binaries_windows": [
+            "bin/gh.exe"
+          ],
+          "lts": true
+        },
         "2.99.0": {
           "url": "https://github.com/cli/cli/releases/download/v2.99.0/gh_2.99.0_linux_amd64.tar.gz",
           "url_windows": "https://github.com/cli/cli/releases/download/v2.99.0/gh_2.99.0_windows_amd64.zip",
