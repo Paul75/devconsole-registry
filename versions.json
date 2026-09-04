@@ -269,6 +269,16 @@
     },
     "bun": {
       "versions": {
+        "1.4.1": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.1/bun-linux-x64.zip",
+          "url_windows": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.1/bun-windows-x64.zip",
+          "sha256": "74c1c3bee7cd998500c8f969cd8972355ac6a07207e94a39eece1999b56ffabf",
+          "sha256_windows": "52b1f3028b01f43d37fefdf669d034a1ee2e0d96c56bb13c393bdaf169b1af84",
+          "binaries": [
+            "bun"
+          ],
+          "lts": true
+        },
         "1.4.0": {
           "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.0/bun-linux-x64.zip",
           "url_windows": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.0/bun-windows-x64.zip",
