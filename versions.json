@@ -696,6 +696,22 @@
           ],
           "lts": false
         },
+        "25.0.4.1": {
+          "url": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.4.1%2B1/OpenJDK25U-jdk_x64_linux_hotspot_25.0.4.1_1.tar.gz",
+          "url_windows": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.4.1%2B1/OpenJDK25U-jdk_x64_windows_hotspot_25.0.4.1_1.zip",
+          "sha256": "dbb698396d478e7fa2b1e50f4103324b2a99b90569ee27c33f2261f9215cf41e",
+          "sha256_windows": "00c847d804f4a78e9f04f2683faf14fed898535b177b7fc704486cb0284e9283",
+          "binaries": [
+            "bin/java",
+            "bin/javac",
+            "bin/jar",
+            "bin/javadoc",
+            "bin/jshell",
+            "bin/jlink",
+            "bin/jmod"
+          ],
+          "lts": true
+        },
         "25.0.4": {
           "url": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.4%2B7/OpenJDK25U-jdk_x64_linux_hotspot_25.0.4_7.tar.gz",
           "url_windows": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.4%2B7/OpenJDK25U-jdk_x64_windows_hotspot_25.0.4_7.zip",
