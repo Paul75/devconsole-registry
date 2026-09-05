@@ -1477,6 +1477,19 @@
         }
       }
     },
+    "spekter": {
+      "versions": {
+        "1.3.1": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/spekter-1.3.1/spekter-1.3.1-linux_x86_64.tar.gz",
+          "sha256": "f63bf0860c6d93d9ad4c8acf3c2ac6969ae2da91fdabf76dd90fb1810217da0d",
+          "binaries": [
+            "spekter",
+            "spekter-nw"
+          ],
+          "lts": true
+        }
+      }
+    },
     "sqlite": {
       "versions": {
         "3.53.4": {

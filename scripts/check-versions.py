@@ -265,6 +265,36 @@ def check_electerm(current: dict[str, Any], args: argparse.Namespace) -> list[Up
     return check_github_latest("electerm", "electerm/electerm", current, args)
 
 
+def check_spekter(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    # Source de vérité : les tags du repo GitLab hallyhaa/spekter
+    # (pas de release officielle publiée, builds hostés sur ce registry).
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    tags = http_get_json(
+        "https://gitlab.com/api/v4/projects/hallyhaa%2Fspekter/repository/tags?per_page=30"
+    )
+    if not isinstance(tags, list):
+        return []
+    candidates = []
+    for t in tags:
+        name = t.get("name", "")
+        ver = name[1:] if name.startswith("v") else name
+        if ver and all(p.isdigit() for p in ver.split(".")):
+            candidates.append(ver)
+    if not candidates:
+        return []
+    new_ver = max(candidates, key=parse_version)
+    old_ver = max_version(list(versions))
+    if not version_gt(new_ver, old_ver):
+        return []
+
+    template = versions[old_ver]
+    entry = make_entry(template, old_ver, new_ver, args, "spekter")
+    return [Update("spekter", old_ver, new_ver, entry, "add")]
+
+
 def check_go(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
     versions = current.get("versions") or {}
     if not versions:
@@ -1034,6 +1064,7 @@ CHECKERS: dict[str, Checker] = {
     "vscodium": check_vscodium,
     "tabby": check_tabby,
     "electerm": check_electerm,
+    "spekter": check_spekter,
     "go": check_go,
     "php": check_php,
     "git": check_git,
