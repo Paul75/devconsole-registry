@@ -1,0 +1,60 @@
+name: Build Spekter
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Runner self-hosté sur la même machine que les builds locaux (comme
+  # DevConsole) : la compilation passe par le verrou anti double-build
+  # scripts/build-lock.sh. BUILD_LOCK_WAIT=1 → la CI attend au lieu d'échouer.
+  BUILD_LOCK_WAIT: "1"
+
+on:
+  workflow_dispatch:
+    inputs:
+      spekter_version:
+        description: 'Spekter version (semver, e.g. 1.3.1) — tag vX.Y.Z sur gitlab.com/hallyhaa/spekter'
+        required: true
+        type: string
+        default: '1.3.1'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: self-hosted
+    # Runner self-hosté sur un dépôt public : ne jamais exécuter hors du repo
+    # d'origine (un fork ne peut pas dispatcher, mais garde-fou par défaut).
+    if: github.repository == 'Paul75/devconsole-registry'
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build Spekter (egui, toolchain DevConsole)
+        run: scripts/build-lock.sh scripts/build-spekter.sh ${{ inputs.spekter_version }}
+
+      - name: Check archive contents & sha256
+        run: |
+          tar tzf spekter-*.tar.gz
+          sha256sum spekter-*.tar.gz
+
+      # Un rebuild de la même version recrée le tag (suppression préalable).
+      - name: Delete existing release (rebuild)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="spekter-${{ inputs.spekter_version }}"
+          gh release delete "$tag" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag 2>/dev/null || true
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "spekter-${{ inputs.spekter_version }}" spekter-*.tar.gz \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "Spekter ${{ inputs.spekter_version }} (Linux x86_64)" \
+            --notes "Spekter ${{ inputs.spekter_version }} — diff visuel fichiers/dossiers (Meld-like), binaire egui/eframe autonome, build depuis le tag GitLab hallyhaa/spekter (MIT).
+
+## Binaries
+- \`spekter\` — GUI (comparaison side-by-side/unified, syntax highlighting)
+- \`spekter-nw\` — mode terminal
+
+Dépendances systèmes : fontconfig/freetype/zlib uniquement (pas de GTK/Qt)."

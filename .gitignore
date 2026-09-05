@@ -14,6 +14,10 @@ redis-*-linux_x86_64-musl.tar.gz
 .sqlite-build/
 sqlite-*-linux_x86_64-musl.tar.gz
 
+# Artifacts de build Spekter (scripts/build-spekter.sh)
+.spekter-build/
+spekter-*-linux_x86_64.tar.gz
+
 # Runner self-hosté
 actions-runner
 
