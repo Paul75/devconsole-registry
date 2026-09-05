@@ -170,11 +170,37 @@
     },
     "mysql": {
       "versions": {
+        "9.7.2": {
+          "url": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.2-linux-glibc2.28-x86_64.tar.xz",
+          "url_windows": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.2-winx64.zip",
+          "sha256": "18ebfc721b14980d2d46bd670f85b69319aa136dbb956821c037890a02017adc",
+          "sha256_windows": "5592ea38e53edd67f5baa68303e7fcf2f0a40fc08978fdb4a7b0c38d12baea17",
+          "binaries": [
+            "bin/mysqld",
+            "bin/mysql",
+            "bin/mysqld_safe",
+            "bin/mysqladmin"
+          ],
+          "lts": true
+        },
         "9.7.1": {
           "url": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.1-linux-glibc2.28-x86_64.tar.xz",
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.1-winx64.zip",
           "sha256": "31d543f8df82372fb3b31d50d7980e4b85c0c2adbaeb62bafd903492ffb9b65f",
           "sha256_windows": "d839045f3cc86a7c5791afc2d8e2a24c0ff6ae4f91a97b2b212c9e032d04d6ea",
+          "binaries": [
+            "bin/mysqld",
+            "bin/mysql",
+            "bin/mysqld_safe",
+            "bin/mysqladmin"
+          ],
+          "lts": true
+        },
+        "8.4.11": {
+          "url": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.11-linux-glibc2.28-x86_64.tar.xz",
+          "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.11-winx64.zip",
+          "sha256": "94e204cc94dede3746d2773fa5818f28f555cd8368c75ca0612eac124e6f3e58",
+          "sha256_windows": "a492371d687d2bab088b0062581144a0044b8964baefdf4faa579292b423d25c",
           "binaries": [
             "bin/mysqld",
             "bin/mysql",
@@ -194,7 +220,7 @@
             "bin/mysqld_safe",
             "bin/mysqladmin"
           ],
-          "lts": true
+          "lts": false
         },
         "8.0.46": {
           "url": "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-8.0.46-linux-glibc2.28-x86_64.tar.xz",
@@ -1485,7 +1511,8 @@
           "binaries_windows": [
             "mkcert.exe"
           ],
-          "lts": true
+          "lts": true,
+          "sha256_windows": "d2660b50a9ed59eada480750561c96abc2ed4c9a38c6a24d93e30e0977631398"
         }
       }
     },
@@ -1500,7 +1527,9 @@
           "binaries_windows": [
             "bin/mvn.cmd"
           ],
-          "lts": true
+          "lts": true,
+          "sha256": "80ffca22aed9e8b9713a232f3394fd81d7f20322df75efdb2b047dbd3e3a23bb",
+          "sha256_windows": "5af3b743dd8b876b5c45da33b676251e5f1687712644abb4ee519ca56e1d89ce"
         }
       }
     },
