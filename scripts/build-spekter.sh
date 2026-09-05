@@ -104,6 +104,39 @@ STAGE="$BUILD_DIR/pkg/spekter-${SPEKTER_VERSION}-linux_x86_64"
 rm -rf "$STAGE"
 mkdir -p "$STAGE"
 cp "$GUI" "$NW" "$STAGE/"
+
+# ─── 6. Icônes officielles (issues des sources du tag) ───────────────────────
+# Le .desktop/lancement cherche l'icône : (1) thème système, (2) en absolu à
+# travers find_icon_abs (share/pixmaps, share/icons/hicolor/…, à côté du
+# binaire). Embarquées dans l'archive → install + .desktop immédiats.
+ICON_PNG="$SRC_DIR/spekter-gui/assets/icon.png"
+ICON_SVG="$SRC_DIR/assets/icon.svg"
+for icon in "$ICON_PNG" "$ICON_SVG"; do
+    [ -f "$icon" ] || echo "ℹ️  icône absente des sources : $icon" >&2
+done
+
+ICON_ASSETS="$STAGE/share/icons/hicolor"
+PIXMAPS="$STAGE/share/pixmaps"
+mkdir -p "$PIXMAPS"
+if [ -f "$ICON_PNG" ]; then
+    cp "$ICON_PNG" "$PIXMAPS/spekter.png"
+    cp "$ICON_PNG" "$STAGE/spekter.png"
+    # Sous-icônes hicolor (512/48) : downscale si ImageMagick dispo, sinon
+    # copie brute (le thème accepte un PNG de toute taille).
+    mkdir -p "$ICON_ASSETS/512x512/apps" "$ICON_ASSETS/48x48/apps"
+    if command -v convert >/dev/null 2>&1; then
+        convert "$ICON_PNG" -resize 512x512 "$ICON_ASSETS/512x512/apps/spekter.png"
+        convert "$ICON_PNG" -resize 48x48 "$ICON_ASSETS/48x48/apps/spekter.png"
+    else
+        cp "$ICON_PNG" "$ICON_ASSETS/512x512/apps/spekter.png"
+        cp "$ICON_PNG" "$ICON_ASSETS/48x48/apps/spekter.png"
+    fi
+fi
+if [ -f "$ICON_SVG" ]; then
+    mkdir -p "$ICON_ASSETS/scalable/apps"
+    cp "$ICON_SVG" "$ICON_ASSETS/scalable/apps/spekter.svg"
+fi
+
 tar -C "$BUILD_DIR/pkg" \
     --sort=name --mtime=@"$SOURCE_DATE_EPOCH" \
     --owner=0 --group=0 --numeric-owner \
