@@ -292,7 +292,9 @@ def check_spekter(current: dict[str, Any], args: argparse.Namespace) -> list[Upd
 
     template = versions[old_ver]
     entry = make_entry(template, old_ver, new_ver, args, "spekter")
-    return [Update("spekter", old_ver, new_ver, entry, "add")]
+    # mode "build" : le binaire est hébergé sur ce registry (build + release à
+    # faire, cf. scripts/update-builds.sh). Pas de X à pourvoir ici.
+    return [Update("spekter", old_ver, new_ver, entry, "build")]
 
 
 def check_go(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:

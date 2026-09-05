@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Détecte les nouvelles versions de PHP, Git et Redis, lance le build (local
-# via release-*.sh / build-*.sh, ou GitHub Actions avec --ci), publie la
-# release, puis met à jour versions.json (url + sha256 calculés sur
+# Détecte les nouvelles versions de PHP, Git, Redis, SQLite et Spekter, lance
+# le build (local via release-*.sh / build-*.sh, ou GitHub Actions avec --ci),
+# publie la release, puis met à jour versions.json (url + sha256 calculés sur
 # l'artefact publié).
 #
 # Prérequis :
@@ -10,7 +10,7 @@
 #   - --ci : runner self-hosté en ligne (actions-runner/), sinon le job reste en queue
 #
 # Usage :
-#   scripts/update-builds.sh                # php + git + redis (build local)
+#   scripts/update-builds.sh                # php + git + redis + sqlite + spekter (build local)
 #   scripts/update-builds.sh --ci           # build via GitHub Actions
 #   scripts/update-builds.sh --tool php     # seulement php
 #   scripts/update-builds.sh --tool php,git # php et git uniquement
@@ -31,7 +31,7 @@ REPO="${REPO%.git}"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-TOOLS="php,git,redis,sqlite"
+TOOLS="php,git,redis,sqlite,spekter"
 DO_BUILD=1
 CI=0
 while [ $# -gt 0 ]; do
@@ -79,7 +79,7 @@ with open(sys.argv[2], "w") as f:
 PY
 
 if [ ! -s "$TMP/updates.tsv" ]; then
-    echo "✓ Aucun build nécessaire (php, git à jour)."
+    echo "✓ Aucun build nécessaire (${TOOLS} à jour)."
     exit 0
 fi
 
@@ -232,6 +232,25 @@ for line in "${BUILD_LINES[@]}"; do
             rel_tag="sqlite-$ver"
             artifact="$ROOT/sqlite-$ver-linux_x86_64-musl.tar.gz"
             linux_url="https://github.com/$REPO/releases/download/$rel_tag/sqlite-$ver-linux_x86_64-musl.tar.gz"
+            ;;
+        spekter)
+            ver="$new"
+            if gh release view "spekter-$new" --repo "$REPO" >/dev/null 2>&1; then
+                echo "→ Release spekter-$new déjà publiée, build sauté."
+            elif [ "$CI" = "1" ]; then
+                echo "→ Dispatch GitHub Actions build-spekter.yml (spekter $ver)…"
+                gh workflow run build-spekter.yml -f spekter_version="$ver" --repo "$REPO"
+                run_id="$(wait_for_run build-spekter.yml)"
+                echo "→ Run $run_id en cours (attente fin)…"
+                timeout "${BUILD_TIMEOUT:-10800}" gh run watch "$run_id" --repo "$REPO" \
+                    --exit-status --interval 30
+            elif [ "$DO_BUILD" = "1" ]; then
+                echo "→ Build Spekter $ver (release-spekter.sh, ~6 min)…"
+                "$ROOT/scripts/release-spekter.sh" "$ver" 2>&1 | tee "$TMP/spekter-build.log"
+            fi
+            rel_tag="spekter-$ver"
+            artifact="$ROOT/spekter-$ver-linux_x86_64.tar.gz"
+            linux_url="https://github.com/$REPO/releases/download/$rel_tag/spekter-$ver-linux_x86_64.tar.gz"
             ;;
         *)
             echo "Outil non géré: $tool" >&2
