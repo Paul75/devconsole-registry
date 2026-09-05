@@ -53,8 +53,8 @@ jobs:
             --title "Spekter ${{ inputs.spekter_version }} (Linux x86_64)" \
             --notes "Spekter ${{ inputs.spekter_version }} — diff visuel fichiers/dossiers (Meld-like), binaire egui/eframe autonome, build depuis le tag GitLab hallyhaa/spekter (MIT).
 
-## Binaries
-- \`spekter\` — GUI (comparaison side-by-side/unified, syntax highlighting)
-- \`spekter-nw\` — mode terminal
+            ## Binaries
+            - \`spekter\` — GUI (comparaison side-by-side/unified, syntax highlighting)
+            - \`spekter-nw\` — mode terminal
 
-Dépendances systèmes : fontconfig/freetype/zlib uniquement (pas de GTK/Qt)."
+            Dépendances systèmes : fontconfig/freetype/zlib uniquement (pas de GTK/Qt)."
