@@ -999,6 +999,61 @@ def check_mysql(current: dict[str, Any], args: argparse.Namespace) -> list[Updat
         entry = make_entry(versions[old_ver], old_ver, new_ver, args, tool="mysql")
         updates.append(Update("mysql", old_ver, new_ver, entry, "add"))
 
+    # Nouvelle serie : propose la serie X.Y la plus recente absente du registry,
+    # uniquement si elle depasse la version max globale (evite de reproposer des
+    # series EOL/anciennes manquantes comme 5.x ou 9.6 apres adoption de 26.7).
+    overall_max = max_version(list(versions))
+    new_series = {
+        m: v
+        for m, v in latest_by_major.items()
+        if m not in current_by_major and version_gt(v, overall_max)
+    }
+    if new_series:
+        new_major, new_ver = max(new_series.items(), key=lambda kv: parse_version(kv[1]))
+
+        def _new_series_url(tmpl: str, major: str, ver: str) -> str:
+            url = re.sub(r"MySQL-\d+\.\d+", f"MySQL-{major}", tmpl)
+            return re.sub(r"mysql-\d+\.\d+\.\d+", f"mysql-{ver}", url)
+
+        template_ver = max_version(list(versions))
+        entry = deepcopy(versions[template_ver])
+        entry["url"] = _new_series_url(entry.get("url", ""), new_major, new_ver)
+        if entry.get("url_windows"):
+            entry["url_windows"] = _new_series_url(entry["url_windows"], new_major, new_ver)
+        if args.sha:
+            for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+                url = entry.get(src)
+                if not url:
+                    continue
+                print(f"  … mysql: sha256 {src} …", file=sys.stderr)
+                try:
+                    entry[dst] = sha256_url(url)
+                except urllib.error.HTTPError as e:
+                    print(f"  ! mysql: echec sha {src}: {e}", file=sys.stderr)
+                    entry[dst] = None
+        else:
+            for key in ("sha256", "sha256_windows"):
+                if key in entry:
+                    entry[key] = None
+
+        def _url_ok(url: str) -> bool:
+            req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": USER_AGENT})
+            try:
+                with urllib.request.urlopen(req, timeout=20) as resp:
+                    return resp.status == 200
+            except Exception:
+                return False
+
+        if not _url_ok(entry["url"]):
+            print(f"  ! mysql: serie {new_major} ignoree, {entry['url']} introuvable", file=sys.stderr)
+        elif entry.get("url_windows") and not _url_ok(entry["url_windows"]):
+            print(
+                f"  ! mysql: serie {new_major} ignoree, {entry['url_windows']} introuvable",
+                file=sys.stderr,
+            )
+        else:
+            updates.insert(0, Update("mysql", None, new_ver, entry, "add"))
+
     return updates
 
 
