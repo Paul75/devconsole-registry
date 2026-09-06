@@ -14,7 +14,8 @@ tabby, go, postgres, windterm, bruno, cloudflared, gh, jq, lazygit, mkcert,
 uv.
 Outils APIs dediees: python (python-build-standalone + SHA256SUMS), vscode
 (update.code.visualstudio.com), jdk (Adoptium API), rust (channel-rust-stable.toml),
-mariadb (downloads.mariadb.org REST), maven (apache/maven tags),
+mariadb (downloads.mariadb.org REST), mysql (tags GitHub mysql/mysql-server),
+maven (apache/maven tags),
 android_studio (page stable developer.android.com/studio),
 android_sdk (repository2-3.xml de Google),
 redis (redis/redis GitHub releases), mongodb (mongodb/mongo tags),
@@ -25,7 +26,7 @@ Outils detect-only (build local/CI requis): php, git — reportent la nouvelle
 version sans deriver les URLs; lancer scripts/update-builds.sh pour construire
 et publier, puis integrer la release dans versions.json.
 
-Non couverts (pas d'API publique stable): mysql, wezterm, sublime_merge.
+Non couverts (pas d'API publique stable): wezterm, sublime_merge.
 """
 
 from __future__ import annotations
@@ -943,6 +944,64 @@ def check_mariadb(current: dict[str, Any], args: argparse.Namespace) -> list[Upd
     return updates
 
 
+def check_mysql(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    """Detecte les nouveaux patchs MySQL via les tags GitHub mysql/mysql-server.
+
+    Oracle n'expose pas d'API publique stable pour lister les versions MySQL
+    (le CDN cdn.mysql.com et dev.mysql.com tombent regulierement). Les tags du
+    depot officiel mysql/mysql-server suivent la nomenclature `mysql-X.Y.Z`
+    pour chaque release (p.ex. mysql-8.4.11), doublonnes par `mysql-cluster-*`
+    qui sont ignores ici. Les tags ne portent pas de checksum : le sha256 est
+    calcule par telechargement avec --sha, sinon laisse a null.
+    """
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    current_by_major: dict[str, str] = {}
+    for ver in versions:
+        parts = parse_version(ver)
+        major = f"{parts[0]}.{parts[1]}" if len(parts) >= 2 else ver
+        if major not in current_by_major or version_gt(ver, current_by_major[major]):
+            current_by_major[major] = ver
+
+    # Paginer les tags GitHub jusqu'a couvrir toutes les series presentes.
+    latest_by_major: dict[str, str] = {}
+    page = 1
+    while page <= 10:
+        try:
+            tags = http_get_json(
+                f"https://api.github.com/repos/mysql/mysql-server/tags?per_page=100&page={page}"
+            )
+        except urllib.error.HTTPError:
+            break
+        if not tags:
+            break
+        for tag in tags:
+            name = tag.get("name") or ""
+            m = re.fullmatch(r"mysql-(\d+)\.(\d+)\.(\d+)", name)
+            if not m:
+                continue  # mysql-cluster-*, prereleases, etc.
+            major = f"{int(m.group(1))}.{int(m.group(2))}"
+            ver = f"{int(m.group(1))}.{int(m.group(2))}.{int(m.group(3))}"
+            cur = latest_by_major.get(major)
+            if cur is None or version_gt(ver, cur):
+                latest_by_major[major] = ver
+        if len(tags) < 100:
+            break
+        page += 1
+
+    updates: list[Update] = []
+    for major, old_ver in current_by_major.items():
+        new_ver = latest_by_major.get(major)
+        if not new_ver or not version_gt(new_ver, old_ver):
+            continue
+        entry = make_entry(versions[old_ver], old_ver, new_ver, args, tool="mysql")
+        updates.append(Update("mysql", old_ver, new_ver, entry, "add"))
+
+    return updates
+
+
 def check_android_studio(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
     """Detecte la version stable d'Android Studio.
 
@@ -1076,6 +1135,7 @@ CHECKERS: dict[str, Checker] = {
     "rust": check_rust,
     "postgres": check_postgres,
     "mariadb": check_mariadb,
+    "mysql": check_mysql,
     "windterm": check_windterm,
     "bruno": check_bruno,
     "cloudflared": check_cloudflared,
