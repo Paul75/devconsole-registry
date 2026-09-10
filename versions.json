@@ -470,6 +470,19 @@
     },
     "vscode": {
       "versions": {
+        "1.137.0": {
+          "url": "https://update.code.visualstudio.com/1.137.0/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.137.0/win32-x64-archive/stable",
+          "sha256": "8871d637292568e34c2d27daa5320a3b3c805f41f94014dfceafbe6134187fce",
+          "sha256_windows": "df00aa0e771855a51b660f9d350163f0c471fa21434c56f4b7f02a021f840e7c",
+          "binaries": [
+            "bin/code"
+          ],
+          "binaries_windows": [
+            "bin/code.cmd"
+          ],
+          "lts": true
+        },
         "1.136.2": {
           "url": "https://update.code.visualstudio.com/1.136.2/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.136.2/win32-x64-archive/stable",
@@ -578,6 +591,19 @@
     },
     "vscodium": {
       "versions": {
+        "1.135.06055": {
+          "url": "https://github.com/VSCodium/vscodium/releases/download/1.135.06055/VSCodium-linux-x64-1.135.06055.tar.gz",
+          "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.135.06055/VSCodium-win32-x64-1.135.06055.zip",
+          "sha256": "c09d8ac8dd7f52b09ee159ee24b440541dfd8f937a0f6f88cc428c78e48ee1f2",
+          "sha256_windows": "0bec978f201238624bc9ad43966f5e201ed8afacc37d77035a822252d9c9c200",
+          "binaries": [
+            "bin/codium"
+          ],
+          "binaries_windows": [
+            "bin/codium.cmd"
+          ],
+          "lts": true
+        },
         "1.126.04524": {
           "url": "https://github.com/VSCodium/vscodium/releases/download/1.126.04524/VSCodium-linux-x64-1.126.04524.tar.gz",
           "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.126.04524/VSCodium-win32-x64-1.126.04524.zip",
@@ -595,6 +621,16 @@
     },
     "zed": {
       "versions": {
+        "1.19.2": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.19.2/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.19.2/Zed-x86_64.exe",
+          "sha256": "c5acff2e52ac3c64890cce85250734cf7279c1de56d5926e4f4e1d4cf676359c",
+          "sha256_windows": "dd8fd2b20392e6b9b2446b41b231ec0838671b7689c6b928587dabd39c92849c",
+          "binaries": [
+            "bin/zed"
+          ],
+          "lts": true
+        },
         "1.18.1": {
           "url": "https://github.com/zed-industries/zed/releases/download/v1.18.1/zed-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.18.1/Zed-x86_64.exe",
@@ -1417,6 +1453,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.12": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.12/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.12/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "ab9b309d4586403f024e100abaceb396616e178a553e2500c36087d180f09509",
+          "sha256_windows": "3d54912924c36e862c14f427d04f2ed70a99e8001d1c30caa101f6d5711626d5",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.12.11": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.11/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.11/uv-x86_64-pc-windows-msvc.zip",
@@ -1606,6 +1655,19 @@
     },
     "cloudflared": {
       "versions": {
+        "2026.9.0": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.0/cloudflared-linux-amd64",
+          "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.0/cloudflared-windows-amd64.exe",
+          "sha256": "53b7a7a5420d188758d24341294acb0d1bca54296548ac05e38811a694ac6134",
+          "sha256_windows": "547057326266f0e1c7d50d102dbd22ff283d740c055bd61e94f10e2c606f89af",
+          "binaries": [
+            "cloudflared"
+          ],
+          "binaries_windows": [
+            "cloudflared.exe"
+          ],
+          "lts": true
+        },
         "2026.8.3": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.3/cloudflared-linux-amd64",
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.3/cloudflared-windows-amd64.exe",
