@@ -1288,6 +1288,21 @@
     },
     "mongodb": {
       "versions": {
+        "8.3.11": {
+          "url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.3.11.tgz",
+          "url_windows": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.3.11.zip",
+          "sha256": "3d9c5ec3e7ccbdfd499f2b3dc3c6863df253a21771ad3d0070374153ec492a2b",
+          "sha256_windows": "55574b06b41848207213a5e69575dd3487abf3cf07ecfe01b3aef1bab0084241",
+          "binaries": [
+            "mongod",
+            "mongos"
+          ],
+          "binaries_windows": [
+            "mongod.exe",
+            "mongos.exe"
+          ],
+          "lts": true
+        },
         "8.3.9": {
           "url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.3.9.tgz",
           "url_windows": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.3.9.zip",
@@ -1681,6 +1696,19 @@
     },
     "cloudflared": {
       "versions": {
+        "2026.9.1": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-linux-amd64",
+          "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-windows-amd64.exe",
+          "sha256": "03f1f25d1cc93b9ad6c60569d44060bc4f17ed97075760ed8cfca4b12dcd68cc",
+          "sha256_windows": "2837888cc0f5d58f15b6dc478376de90b4d3ba5241c7947455d1e0a0df429712",
+          "binaries": [
+            "cloudflared"
+          ],
+          "binaries_windows": [
+            "cloudflared.exe"
+          ],
+          "lts": true
+        },
         "2026.9.0": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.0/cloudflared-linux-amd64",
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.0/cloudflared-windows-amd64.exe",
