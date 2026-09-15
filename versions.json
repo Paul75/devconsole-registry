@@ -1395,6 +1395,19 @@
     },
     "electerm": {
       "versions": {
+        "5.5.15": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.5.15/electerm-5.5.15-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.15/electerm-5.5.15-win-x64-portable.tar.gz",
+          "sha256": "390f7a2ad2e61e7dabebfa10f884b2f0e462f647579548aff4cf77811ce72aa9",
+          "sha256_windows": "524e987df6f249c8eef90e8071e7449d9a116897925adfbbcdae864057f567ba",
+          "binaries": [
+            "electerm"
+          ],
+          "binaries_windows": [
+            "electerm.exe"
+          ],
+          "lts": true
+        },
         "5.5.6": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.5.6/electerm-5.5.6-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.6/electerm-5.5.6-win-x64-portable.tar.gz",
@@ -1494,6 +1507,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.14": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.14/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.14/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "18ef5c3888ae59828cb13f38d57e9389b8173ecc719eff163bfafc74b38f5936",
+          "sha256_windows": "02cecb254f37f3396da625680796d3990164a590fb5611d46f719ad83e7b9a89",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.12.13": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.13/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.13/uv-x86_64-pc-windows-msvc.zip",
