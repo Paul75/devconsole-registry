@@ -951,6 +951,16 @@
     },
     "sublime_merge": {
       "versions": {
+        "2130": {
+          "url": "https://download.sublimetext.com/sublime_merge_build_2130_x64.tar.xz",
+          "url_windows": "https://download.sublimetext.com/sublime_merge_build_2130_x64.zip",
+          "sha256": "f2a4c5ba22f843a99736620b6fa4518d41b66563fd3f7d7a62ee92de5f4e26ae",
+          "sha256_windows": "0fe04cedb928b594ba4c530a58eb4e36f4f542ed112b4f63fa56912c4f1ff454",
+          "binaries": [
+            "sublime_merge"
+          ],
+          "lts": true
+        },
         "2125": {
           "url": "https://download.sublimetext.com/sublime_merge_build_2125_x64.tar.xz",
           "url_windows": "https://download.sublimetext.com/sublime_merge_build_2125_x64.zip",
