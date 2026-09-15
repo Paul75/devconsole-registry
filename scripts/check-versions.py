@@ -3,7 +3,7 @@
 
 Usage:
   scripts/check-versions.py                  # rapport seul
-  scripts/check-versions.py --write          # ecrit versions.json
+  scripts/check-versions.py --write          # ecrit versions.json (+ sync embarquée DevConsole)
   scripts/check-versions.py --tool node,bun  # sous-ensemble
   scripts/check-versions.py --write --sha    # + telecharge pour calculer sha256
   scripts/check-versions.py --write --fill-sha  # calcule les sha256 manquants des entrees existantes
@@ -1577,6 +1577,22 @@ def main() -> int:
                 f"Ecrit {VERSIONS_PATH} ({len(write_updates)} update(s))",
                 file=sys.stderr,
             )
+            # Sync automatique de l'embarquée DevConsole (src-tauri/resources/
+            # versions.json) — même comportement que update-builds.sh.
+            sync_script = ROOT / "scripts" / "sync-embedded-registry.sh"
+            if sync_script.is_file():
+                try:
+                    subprocess.run(
+                        [str(sync_script)],
+                        check=True,
+                        cwd=str(ROOT),
+                    )
+                except subprocess.CalledProcessError as e:
+                    print(
+                        f"  ⚠ Sync embarquée échouée (rc={e.returncode}) — "
+                        f"relancer manuellement : scripts/sync-embedded-registry.sh",
+                        file=sys.stderr,
+                    )
     else:
         print(
             f"{len(write_updates)} update(s) ecrivable(s). Relancer avec --write "
