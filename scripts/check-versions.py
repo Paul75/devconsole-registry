@@ -26,7 +26,10 @@ Outils detect-only (build local/CI requis): php, git — reportent la nouvelle
 version sans deriver les URLs; lancer scripts/update-builds.sh pour construire
 et publier, puis integrer la release dans versions.json.
 
-Non couverts (pas d'API publique stable): wezterm, sublime_merge.
+Non couverts (pas d'API publique stable): wezterm.
+sublime_merge: pas d'API non plus, mais le schema de nommage
+(sublime_merge_build_NNNN) permet une detection par sondage HEAD (croissance
+exponentielle + dichotomie) — les archives publiees restent disponibles.
 """
 
 from __future__ import annotations
@@ -530,6 +533,70 @@ def check_postgres(current: dict[str, Any], args: argparse.Namespace) -> list[Up
 
 def check_windterm(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
     return check_github_latest("windterm", "kingToolbox/WindTerm", current, args)
+
+
+def check_sublime_merge(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    """Detecte la derniere build publiée par sondage du schéma de nommage.
+
+    Sublime Merge n'expose pas d'API publique: les archives sont nommées
+    `sublime_merge_build_NNNN_x64.{tar.xz|zip}` avec un numero de build
+    incrémental, et les builds publiés restent tous disponibles (pas de trou).
+    On sonde donc (HEAD) les builds au-dessus de celui enregistré par
+    croissance exponentielle puis dichotomie pour trouver le plus récent
+    disponible sans énumérer tout l'espace.
+
+    sha256 non publiés (pas de shasums) : calculés par téléchargement avec
+    --sha, sinon None (le flux --fill-sha peut les compléter ensuite).
+    """
+    versions = current.get("versions") or {}
+    builds = [int(v) for v in versions if v.isdigit()]
+    if not builds:
+        return []
+    old_build = max(builds)
+    old_ver = str(old_build)
+
+    def build_available(b: int) -> bool:
+        url = f"https://download.sublimetext.com/sublime_merge_build_{b}_x64.tar.xz"
+        req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": USER_AGENT})
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return resp.getcode() == 200
+        except urllib.error.HTTPError as e:
+            return e.code != 404
+        except OSError:
+            return False
+
+    if old_build >= 1_000_000:
+        print("  ! sublime_merge: build enregistree invraisemblable, abandon", file=sys.stderr)
+        return []
+
+    # Prospection : double le palier jusqu'au premier build manquant. Les
+    # builds etant contigus, le plus recent est dans (lo, hi].
+    lo, hi, step = old_build, None, 1
+    while True:
+        probe = old_build + step
+        if probe > 1_000_000:
+            return []
+        if build_available(probe):
+            lo = probe
+            step *= 2
+        else:
+            hi = probe
+            break
+
+    while hi - lo > 1:
+        mid = (lo + hi) // 2
+        if build_available(mid):
+            lo = mid
+        else:
+            hi = mid
+
+    new_ver = str(lo)
+    if new_ver == old_ver:
+        return []
+
+    entry = make_entry(versions[old_ver], old_ver, new_ver, args, tool="sublime_merge")
+    return [Update("sublime_merge", old_ver, new_ver, entry, "add")]
 
 
 def check_bruno(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
@@ -1192,6 +1259,7 @@ CHECKERS: dict[str, Checker] = {
     "mariadb": check_mariadb,
     "mysql": check_mysql,
     "windterm": check_windterm,
+    "sublime_merge": check_sublime_merge,
     "bruno": check_bruno,
     "cloudflared": check_cloudflared,
     "gh": check_gh,
