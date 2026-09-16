@@ -54,10 +54,6 @@ jobs:
             gh release create "$tag" "$archive" \
               --repo "$GITHUB_REPOSITORY" \
               --title "Spekter ${{ inputs.spekter_version }} (Windows x86_64)" \
-              --notes "Spekter ${{ inputs.spekter_version }} — binaire Windows buildé sur runner windows-latest depuis le tag GitLab hallyhaa/spekter (MIT).
-
-## Binaries
-- \`spekter.exe\` — GUI
-- \`spekter-nw.exe\` — mode terminal"
+              --notes "Spekter ${{ inputs.spekter_version }} Windows x86_64 buildé sur runner windows-latest depuis le tag GitLab hallyhaa/spekter (MIT)."
           fi
           echo "✅ Asset publié : https://github.com/$GITHUB_REPOSITORY/releases/tag/$tag"
