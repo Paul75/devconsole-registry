@@ -1873,7 +1873,11 @@
             "spekter",
             "spekter-nw"
           ],
-          "lts": true
+          "lts": true,
+          "binaries_windows": [
+            "spekter.exe",
+            "spekter-nw.exe"
+          ]
         }
       }
     },
