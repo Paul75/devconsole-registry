@@ -22,3 +22,7 @@ spekter-*-linux_x86_64.tar.gz
 actions-runner
 
 __pycache__
+
+# Artifacts de build Spekter Windows (scripts/build-spekter-windows.sh)
+.spekter-build-windows/
+spekter-*-windows_x86_64.tar.gz
