@@ -50,10 +50,13 @@ jobs:
           sha256sum "$archive"
           if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             gh release upload "$tag" "$archive" --repo "$GITHUB_REPOSITORY" --clobber
+            # Titre neutre : les builds Linux + Windows partagent ce tag.
+            gh release edit "$tag" --repo "$GITHUB_REPOSITORY" \
+              --title "Spekter ${{ inputs.spekter_version }} (Linux + Windows)"
           else
             gh release create "$tag" "$archive" \
               --repo "$GITHUB_REPOSITORY" \
-              --title "Spekter ${{ inputs.spekter_version }} (Windows x86_64)" \
+              --title "Spekter ${{ inputs.spekter_version }} (Linux + Windows)" \
               --notes "Spekter ${{ inputs.spekter_version }} Windows x86_64 buildé sur runner windows-latest depuis le tag GitLab hallyhaa/spekter (MIT)."
           fi
           echo "✅ Asset publié : https://github.com/$GITHUB_REPOSITORY/releases/tag/$tag"
