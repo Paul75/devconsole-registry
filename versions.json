@@ -984,6 +984,16 @@
     },
     "sublime_merge": {
       "versions": {
+        "2132": {
+          "url": "https://download.sublimetext.com/sublime_merge_build_2132_x64.tar.xz",
+          "url_windows": "https://download.sublimetext.com/sublime_merge_build_2132_x64.zip",
+          "sha256": "02cecd8f7beb104e8998dfe867c7b8133858faa2e93d88daeff1495230d1b3d8",
+          "sha256_windows": "282ab601063f26b3d29da74997a88e7becdebacca5cf5e3abc3ae9fdef4fd637",
+          "binaries": [
+            "sublime_merge"
+          ],
+          "lts": true
+        },
         "2131": {
           "url": "https://download.sublimetext.com/sublime_merge_build_2131_x64.tar.xz",
           "url_windows": "https://download.sublimetext.com/sublime_merge_build_2131_x64.zip",
@@ -1587,6 +1597,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.16": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.16/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.16/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "8e5c6e5523dffc2dcf615bd995554c84c9feb4e577808a3fb8698a639d3f8d9c",
+          "sha256_windows": "f730454bf09019754e5e5abd71a8aa18683cb739cba0d9c720bac2e7c901160f",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.12.15": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.15/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.15/uv-x86_64-pc-windows-msvc.zip",
