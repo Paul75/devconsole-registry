@@ -1166,6 +1166,19 @@
     },
     "mailpit": {
       "versions": {
+        "1.31.2": {
+          "url": "https://github.com/axllent/mailpit/releases/download/v1.31.2/mailpit-linux-amd64.tar.gz",
+          "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.2/mailpit-windows-amd64.zip",
+          "sha256": "397a14cad03ae34d7c5f13215fd24971fed5ce48bf4237554829b0a10d4306ad",
+          "sha256_windows": "42c20e5c3254125ea7489847811f10d70e39de573fe41d03a61412c87913e995",
+          "binaries": [
+            "mailpit"
+          ],
+          "binaries_windows": [
+            "mailpit.exe"
+          ],
+          "lts": true
+        },
         "1.31.1": {
           "url": "https://github.com/axllent/mailpit/releases/download/v1.31.1/mailpit-linux-amd64.tar.gz",
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.1/mailpit-windows-amd64.zip",
@@ -1597,6 +1610,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.17": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.17/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.17/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "fa82fd8dde8e8eefdecada6aa0889666556cfceb690d06e0c3bca49eb3070a63",
+          "sha256_windows": "a252121d5b59398fcb137c6ea448176459a44010f33f67e0072305a637119ca7",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.12.16": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.16/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.16/uv-x86_64-pc-windows-msvc.zip",
