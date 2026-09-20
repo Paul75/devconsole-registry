@@ -1970,6 +1970,23 @@
           "sha256_windows": "f46ee2475de4cbe287e6e5f7d43c838796b14e7379cd216bdbb28d391429f9fc"
         }
       }
+    },
+    "keepassxc": {
+      "versions": {
+        "2.7.12": {
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.12/KeePassXC-2.7.12-x86_64.AppImage",
+          "url_windows": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.12/KeePassXC-2.7.12-Win64.zip",
+          "sha256": "564fe8b751b9ef7aa057e4d3d0b2878db24eaa0f6b1c855c82e699ab0913ae49",
+          "sha256_windows": "958234b0669d757b53eacf42bdd5de0fa1cc1ab7527709ddf4f7e29c06a8305f",
+          "binaries": [
+            "keepassxc"
+          ],
+          "binaries_windows": [
+            "keepassxc.exe"
+          ],
+          "lts": true
+        }
+      }
     }
   }
 }
