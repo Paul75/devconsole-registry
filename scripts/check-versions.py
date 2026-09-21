@@ -10,8 +10,8 @@ Usage:
   scripts/check-versions.py --add php@8.5.10 # ajoute une version (entry JSON stdin)
 
 Outils GitHub releases: node, bun, caddy, mailpit, composer, zed, vscodium,
-tabby, go, postgres, windterm, bruno, cloudflared, gh, jq, lazygit, mkcert,
-uv.
+tabby, go, postgres, windterm, bruno, cloudflared, gh, jq, keepassxc, lazygit,
+mkcert, uv.
 Outils APIs dediees: python (python-build-standalone + SHA256SUMS), vscode
 (update.code.visualstudio.com), jdk (Adoptium API), rust (channel-rust-stable.toml),
 mariadb (downloads.mariadb.org REST), mysql (tags GitHub mysql/mysql-server),
@@ -617,6 +617,10 @@ def check_jq(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
         return m.group(1) if m else tag.lstrip("v") or None
 
     return check_github_latest("jq", "jqlang/jq", current, args, tag_to_version=tag_to_version)
+
+
+def check_keepassxc(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    return check_github_latest("keepassxc", "keepassxreboot/keepassxc", current, args)
 
 
 def check_lazygit(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
@@ -1264,6 +1268,7 @@ CHECKERS: dict[str, Checker] = {
     "cloudflared": check_cloudflared,
     "gh": check_gh,
     "jq": check_jq,
+    "keepassxc": check_keepassxc,
     "lazygit": check_lazygit,
     "mkcert": check_mkcert,
     "maven": check_maven,
