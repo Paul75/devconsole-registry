@@ -2059,6 +2059,23 @@
           "lts": true
         }
       }
+    },
+    "drawio": {
+      "versions": {
+        "31.4.5": {
+          "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.5/drawio-x86_64-31.4.5.AppImage",
+          "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.5/draw.io-31.4.5-windows.zip",
+          "sha256": "9d39e815151296a55b1e95f68476ef999c2ca6b0673b64a03096b4117cda15c0",
+          "sha256_windows": "d2c6f1eb4ed39fac9bb70fe6a1d359b8b9b01778145d65a68d29554994414207",
+          "binaries": [
+            "drawio"
+          ],
+          "binaries_windows": [
+            "draw.io.exe"
+          ],
+          "lts": true
+        }
+      }
     }
   }
 }
