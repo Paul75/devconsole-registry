@@ -11,7 +11,7 @@ Usage:
 
 Outils GitHub releases: node, bun, caddy, mailpit, composer, zed, vscodium,
 tabby, go, postgres, windterm, bruno, cloudflared, gh, jq, keepassxc, lazygit,
-mkcert, uv.
+mkcert, uv, drawio.
 Outils APIs dediees: python (python-build-standalone + SHA256SUMS), vscode
 (update.code.visualstudio.com), jdk (Adoptium API), rust (channel-rust-stable.toml),
 mariadb (downloads.mariadb.org REST), mysql (tags GitHub mysql/mysql-server),
@@ -621,6 +621,15 @@ def check_jq(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
 
 def check_keepassxc(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
     return check_github_latest("keepassxc", "keepassxreboot/keepassxc", current, args)
+
+
+def check_drawio(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    # draw.io Desktop (jgraph/drawio-desktop). Tags vX.Y.Z ; URLs : tag + nom
+    # d'asset portent la version sans le "v" (drawio-x86_64-<v>.AppImage /
+    # draw.io-<v>-windows.zip) — la substitution générique couvre les deux
+    # occurrences (v<v> du tag repris tel quel). Sha256 à calculer via
+    # --sha (téléchargement) ou --fill-sha.
+    return check_github_latest("drawio", "jgraph/drawio-desktop", current, args)
 
 
 def check_lazygit(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
@@ -1269,6 +1278,7 @@ CHECKERS: dict[str, Checker] = {
     "gh": check_gh,
     "jq": check_jq,
     "keepassxc": check_keepassxc,
+    "drawio": check_drawio,
     "lazygit": check_lazygit,
     "mkcert": check_mkcert,
     "maven": check_maven,

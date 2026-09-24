@@ -38,7 +38,7 @@ Le script [`scripts/check-versions.py`](scripts/check-versions.py) interroge les
 
 ### Outils supportés
 
-`node`, `bun`, `caddy`, `mailpit`, `composer`, `zed`, `vscodium`, `tabby`, `electerm`, `go`, `php`, `git`, `python`, `vscode`, `jdk`, `rust`, `postgres`, `mariadb`, `windterm`, `bruno`, `cloudflared`, `gh`, `jq`, `keepassxc`, `lazygit`, `mkcert`, `maven`, `uv`, `redis`, `mongodb`, `sqlite`, `android_studio`, `android_sdk`
+`node`, `bun`, `caddy`, `mailpit`, `composer`, `zed`, `vscodium`, `tabby`, `electerm`, `go`, `php`, `git`, `python`, `vscode`, `jdk`, `rust`, `postgres`, `mariadb`, `windterm`, `bruno`, `cloudflared`, `gh`, `jq`, `keepassxc`, `lazygit`, `mkcert`, `maven`, `uv`, `redis`, `mongodb`, `sqlite`, `android_studio`, `android_sdk`, `drawio`
 
 | Outil | Source | Comportement |
 |-------|--------|--------------|
