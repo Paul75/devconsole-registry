@@ -955,6 +955,16 @@
     },
     "tabby": {
       "versions": {
+        "1.0.237": {
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.237/tabby-1.0.237-linux-x64.tar.gz",
+          "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.237/tabby-1.0.237-portable-x64.zip",
+          "sha256": "f99a85761846ca9cdcab9941d2942c73c1add2b7b464df0a57263ecdb83e87fa",
+          "sha256_windows": "ee8c2a8c58412da5f2dd08edfcc0a52ff69446e484390aa602d0414c2cc86a6f",
+          "binaries": [
+            "tabby"
+          ],
+          "lts": true
+        },
         "1.0.236": {
           "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.236/tabby-1.0.236-linux-x64.tar.gz",
           "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.236/tabby-1.0.236-portable-x64.zip",
@@ -1518,6 +1528,19 @@
     },
     "electerm": {
       "versions": {
+        "5.5.35": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.5.35/electerm-5.5.35-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.35/electerm-5.5.35-win-x64-portable.tar.gz",
+          "sha256": "2eb6d81720dce1515804152395141adae8dc4f6b44b751d5e876ace4fccc4a90",
+          "sha256_windows": "b7fd8c3f7152dea092ca692d70c05d3c7485a5b422c181022936da1ac82b04fd",
+          "binaries": [
+            "electerm"
+          ],
+          "binaries_windows": [
+            "electerm.exe"
+          ],
+          "lts": true
+        },
         "5.5.25": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.5.25/electerm-5.5.25-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.25/electerm-5.5.25-win-x64-portable.tar.gz",
@@ -1656,6 +1679,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.19": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.19/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.19/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "23bf5552d220e0842b65c862097b2ebaeba0064b74eda5e565e77fd25969d8c8",
+          "sha256_windows": "6dbb02d79e419522f1c500f0adb1cddcff0cda7d59b0d66ea7f5e3b4a1b2f5f0",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.12.18": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.18/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.18/uv-x86_64-pc-windows-msvc.zip",
@@ -1949,6 +1985,19 @@
     },
     "cloudflared": {
       "versions": {
+        "2026.9.3": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.3/cloudflared-linux-amd64",
+          "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.3/cloudflared-windows-amd64.exe",
+          "sha256": "77e26d8d900e0b8469f416239d14b5f296525fdf79fee6f511ef55609e3fbac2",
+          "sha256_windows": "f096265ec2fcbe9bb6e2d64268db167ced3fcbb83d894bdb9e2fcdb26f2ea7e2",
+          "binaries": [
+            "cloudflared"
+          ],
+          "binaries_windows": [
+            "cloudflared.exe"
+          ],
+          "lts": true
+        },
         "2026.9.1": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-linux-amd64",
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-windows-amd64.exe",
@@ -2062,6 +2111,19 @@
     },
     "drawio": {
       "versions": {
+        "31.5.2": {
+          "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.5.2/drawio-x86_64-31.5.2.AppImage",
+          "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v31.5.2/draw.io-31.5.2-windows.zip",
+          "sha256": "c0b37ee00307d7112c29b28ea33686103f47af620415d710663497459bdf927f",
+          "sha256_windows": "f31683e3c643b01655116bb28d41e43d49d75e50c9967c2d2957c70371a7c692",
+          "binaries": [
+            "drawio"
+          ],
+          "binaries_windows": [
+            "draw.io.exe"
+          ],
+          "lts": true
+        },
         "31.4.5": {
           "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.5/drawio-x86_64-31.4.5.AppImage",
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.5/draw.io-31.4.5-windows.zip",
