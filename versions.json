@@ -1252,6 +1252,19 @@
     },
     "mailpit": {
       "versions": {
+        "1.31.3": {
+          "url": "https://github.com/axllent/mailpit/releases/download/v1.31.3/mailpit-linux-amd64.tar.gz",
+          "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.3/mailpit-windows-amd64.zip",
+          "sha256": "e98b9a8d9622417a6988b736f7d3246e94bad4fed48ad3c604e60d72569f8cc7",
+          "sha256_windows": "863e9502d4e0f14a78c0f91c5091797b1c7b7b7e3fc7e5eab62e5770ce44b76e",
+          "binaries": [
+            "mailpit"
+          ],
+          "binaries_windows": [
+            "mailpit.exe"
+          ],
+          "lts": true
+        },
         "1.31.2": {
           "url": "https://github.com/axllent/mailpit/releases/download/v1.31.2/mailpit-linux-amd64.tar.gz",
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.2/mailpit-windows-amd64.zip",
