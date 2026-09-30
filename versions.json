@@ -1666,6 +1666,19 @@
     },
     "gh": {
       "versions": {
+        "2.102.0": {
+          "url": "https://github.com/cli/cli/releases/download/v2.102.0/gh_2.102.0_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/cli/cli/releases/download/v2.102.0/gh_2.102.0_windows_amd64.zip",
+          "sha256": "bb766f710eef8ede859c18578c72c327597cd4c8a85b06001b1f3843c6019386",
+          "sha256_windows": "ae64e556ecc240b200f7eba60d550e4bb60d78e860e69dd88c449405b86067f4",
+          "binaries": [
+            "bin/gh"
+          ],
+          "binaries_windows": [
+            "bin/gh.exe"
+          ],
+          "lts": true
+        },
         "2.101.0": {
           "url": "https://github.com/cli/cli/releases/download/v2.101.0/gh_2.101.0_linux_amd64.tar.gz",
           "url_windows": "https://github.com/cli/cli/releases/download/v2.101.0/gh_2.101.0_windows_amd64.zip",
@@ -1735,6 +1748,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.21": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.21/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.21/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "23f02075b652bb1df64178cfae41b5caf160822e720e2663568f3f5d63bc52c0",
+          "sha256_windows": "5d223efa0bf00208c3853246af09420419dfbd352536aa6bb8163d6170e23890",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.12.20": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.20/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.20/uv-x86_64-pc-windows-msvc.zip",
