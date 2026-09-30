@@ -500,6 +500,19 @@
     },
     "vscode": {
       "versions": {
+        "1.140.0": {
+          "url": "https://update.code.visualstudio.com/1.140.0/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.140.0/win32-x64-archive/stable",
+          "sha256": "d32031e9e213d59532af3cf32fcb8b357a1cdd10417967b4f5b5ba30436dc0dc",
+          "sha256_windows": "52f47072473375767d63ea5be9ffb96a3092124223fe5ce036834a299715014e",
+          "binaries": [
+            "bin/code"
+          ],
+          "binaries_windows": [
+            "bin/code.cmd"
+          ],
+          "lts": true
+        },
         "1.139.1": {
           "url": "https://update.code.visualstudio.com/1.139.1/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.139.1/win32-x64-archive/stable",
@@ -690,6 +703,16 @@
     },
     "zed": {
       "versions": {
+        "1.22.0": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.22.0/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.22.0/Zed-x86_64.exe",
+          "sha256": "5ce3991b34a8fad0a23625f5821cda601c7150a6cc69683c097b8d1b083abc50",
+          "sha256_windows": "8565827fd93034875cadc1e72b7242d41759f019f5b9e97efbbe6f1f84c429d1",
+          "binaries": [
+            "bin/zed"
+          ],
+          "lts": true
+        },
         "1.21.0": {
           "url": "https://github.com/zed-industries/zed/releases/download/v1.21.0/zed-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.21.0/Zed-x86_64.exe",
@@ -1986,6 +2009,19 @@
     },
     "bruno": {
       "versions": {
+        "4.2.1": {
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.2.1/bruno_4.2.1_x86_64_linux.AppImage",
+          "url_windows": "https://github.com/usebruno/bruno/releases/download/v4.2.1/bruno_4.2.1_x64_win.zip",
+          "sha256": "f6b77dc322dd57b953781589a44688723cf3c06a3513c5c34d077cd75d64a941",
+          "sha256_windows": "691d7475234e8399c6a1127e7a5e01ccdd479de4561f93e2cdf126c3b6c11b86",
+          "binaries": [
+            "bruno"
+          ],
+          "binaries_windows": [
+            "bruno.exe"
+          ],
+          "lts": true
+        },
         "4.2.0": {
           "url": "https://github.com/usebruno/bruno/releases/download/v4.2.0/bruno_4.2.0_x86_64_linux.AppImage",
           "url_windows": "https://github.com/usebruno/bruno/releases/download/v4.2.0/bruno_4.2.0_x64_win.zip",
