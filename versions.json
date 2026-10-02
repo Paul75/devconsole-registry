@@ -382,6 +382,15 @@
     },
     "caddy": {
       "versions": {
+        "2.11.6": {
+          "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_windows_amd64.zip",
+          "sha256": "22c84f8d2d4e4e0e2d422f8049fdd0fc1ed8d5665d0fe166f506c7fd863b4555",
+          "sha256_windows": "07429393375227eb669e449764c5245eaac8fc69fc68b2f867717af794cc1153",
+          "binaries": [
+            "caddy"
+          ]
+        },
         "2.11.4": {
           "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_linux_amd64.tar.gz",
           "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_windows_amd64.zip",
@@ -395,6 +404,24 @@
     },
     "python": {
       "versions": {
+        "3.14.8": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261001/cpython-3.14.8+20261001-x86_64-unknown-linux-gnu-install_only.tar.gz",
+          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20261001/cpython-3.14.8+20261001-x86_64-pc-windows-msvc-install_only.tar.gz",
+          "sha256": "813c89e2589fed92333e18bde230a43280962e6f24bb0b861dc8ce532cfd6567",
+          "sha256_windows": "466b0fce0d5ccc5058fd62053d7be226fc7102e64c42e5a5062db5e3f6fcb704",
+          "binaries": [
+            "bin/python3",
+            "bin/python",
+            "bin/pip3",
+            "bin/pip"
+          ],
+          "binaries_windows": [
+            "python",
+            "python3",
+            "pip",
+            "pip3"
+          ]
+        },
         "3.14.7": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260807/cpython-3.14.7+20260807-x86_64-unknown-linux-gnu-install_only.tar.gz",
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260807/cpython-3.14.7+20260807-x86_64-pc-windows-msvc-install_only.tar.gz",
@@ -418,6 +445,24 @@
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260718/cpython-3.14.6+20260718-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "b442fb93903c6f3392b2430961d4725354ae0da7558c785a908d714264309b28",
           "sha256_windows": "97c01acd70108234ff042699996f3f4163c791f1d6e35de898475936b86ec3b2",
+          "binaries": [
+            "bin/python3",
+            "bin/python",
+            "bin/pip3",
+            "bin/pip"
+          ],
+          "binaries_windows": [
+            "python",
+            "python3",
+            "pip",
+            "pip3"
+          ]
+        },
+        "3.12.15": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261001/cpython-3.12.15+20261001-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
+          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20261001/cpython-3.12.15+20261001-x86_64-pc-windows-msvc-install_only.tar.gz",
+          "sha256": "4a3fab63338a169fbfd9c282695680f90fc9d527c6db042c9242e5e72a868edb",
+          "sha256_windows": "62faca756c1b2e9b2454b6ad9396a6890496aebf7479a0c93e1ed615c67f2985",
           "binaries": [
             "bin/python3",
             "bin/python",
@@ -847,6 +892,19 @@
     },
     "android_studio": {
       "versions": {
+        "2026.2.1.8": {
+          "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.1.8/android-studio-rabbit1-linux.tar.gz",
+          "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.1.8/android-studio-rabbit1-windows.zip",
+          "sha256": "f8775c67cf899d9133712a2d7ee3ef7231e07fb16dbe0544c47e5f5babd5931b",
+          "sha256_windows": "6e83e7ce3e0a76c4e8e78d98eb5ef538cbc9fb386c745bda425fc0bacb9de6d4",
+          "binaries": [
+            "bin/studio.sh"
+          ],
+          "binaries_windows": [
+            "bin/studio64"
+          ],
+          "lts": true
+        },
         "2026.1.4.7": {
           "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.4.7/android-studio-quail4-linux.tar.gz",
           "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.4.7/android-studio-quail4-windows.zip",
@@ -1428,6 +1486,23 @@
     },
     "rust": {
       "versions": {
+        "1.99.0": {
+          "url": "https://static.rust-lang.org/dist/rust-1.99.0-x86_64-unknown-linux-gnu.tar.xz",
+          "url_windows": "https://static.rust-lang.org/dist/rust-1.99.0-x86_64-pc-windows-msvc.tar.xz",
+          "sha256": "891c6366d7100feda0bca4c03ce63f3c9ac827cbebbc283e7433061d42c6a376",
+          "sha256_windows": "209f916c04cd7ed1938a4592e8adc1b1017adada67dc8f8a0a92bca9c4963966",
+          "binaries": [
+            "rustc/bin/rustc",
+            "cargo/bin/cargo",
+            "rustc/bin/rustdoc",
+            "rustfmt-preview/bin/rustfmt",
+            "rustfmt-preview/bin/cargo-fmt",
+            "clippy-preview/bin/clippy-driver",
+            "clippy-preview/bin/cargo-clippy",
+            "rust-analyzer-preview/bin/rust-analyzer"
+          ],
+          "lts": true
+        },
         "1.98.1": {
           "url": "https://static.rust-lang.org/dist/rust-1.98.1-x86_64-unknown-linux-gnu.tar.xz",
           "url_windows": "https://static.rust-lang.org/dist/rust-1.98.1-x86_64-pc-windows-msvc.tar.xz",
@@ -1784,6 +1859,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.22": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.22/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.22/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "b9980552309f09c15172b8be828555e375097f16deb459795ce7bfd200380f0b",
+          "sha256_windows": "ea1397797a0ca15f63516dd0f49c2dde9776db9be5861cab152ebe8ad199894d",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.12.21": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.21/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.21/uv-x86_64-pc-windows-msvc.zip",
@@ -2095,6 +2183,19 @@
     },
     "maven": {
       "versions": {
+        "3.10.0": {
+          "url": "https://dlcdn.apache.org/maven/maven-3/3.10.0/binaries/apache-maven-3.10.0-bin.tar.gz",
+          "url_windows": "https://dlcdn.apache.org/maven/maven-3/3.10.0/binaries/apache-maven-3.10.0-bin.zip",
+          "binaries": [
+            "bin/mvn"
+          ],
+          "binaries_windows": [
+            "bin/mvn.cmd"
+          ],
+          "lts": true,
+          "sha256": "a46cc51bc74fa23fd267c7a0b9132b146dcf526da60d31aa5174e565632e9e0e",
+          "sha256_windows": "1f6d9909266510f039f59aa0e13dcd2c66da85f043e56276e41f2918f8bddaff"
+        },
         "3.9.16": {
           "url": "https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz",
           "url_windows": "https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.zip",
@@ -2255,6 +2356,19 @@
     },
     "drawio": {
       "versions": {
+        "31.7.0": {
+          "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.7.0/drawio-x86_64-31.7.0.AppImage",
+          "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v31.7.0/draw.io-31.7.0-windows.zip",
+          "sha256": "6a304fed85da0d3db0ba4b8dc5dad8779ff02318c56e45bcc2dd64f4ddf91645",
+          "sha256_windows": "72074548c40970825d8d18085d2537f4b64d8270c4aa24a527be2877e8053b54",
+          "binaries": [
+            "drawio"
+          ],
+          "binaries_windows": [
+            "draw.io.exe"
+          ],
+          "lts": true
+        },
         "31.5.3": {
           "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.5.3/drawio-x86_64-31.5.3.AppImage",
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v31.5.3/draw.io-31.5.3-windows.zip",
