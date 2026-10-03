@@ -382,6 +382,15 @@
     },
     "caddy": {
       "versions": {
+        "2.11.7": {
+          "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_windows_amd64.zip",
+          "sha256": "727b91701a392de6ebc5027509f548bf39979e5216340d0faed8fa5e69c84f8b",
+          "sha256_windows": "0a1edc0b799512051c57071ce0e798d3f2cf67dc98171366f1d2b326072e3b06",
+          "binaries": [
+            "caddy"
+          ]
+        },
         "2.11.6": {
           "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_linux_amd64.tar.gz",
           "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_windows_amd64.zip",
@@ -1333,6 +1342,19 @@
     },
     "mailpit": {
       "versions": {
+        "1.31.4": {
+          "url": "https://github.com/axllent/mailpit/releases/download/v1.31.4/mailpit-linux-amd64.tar.gz",
+          "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.4/mailpit-windows-amd64.zip",
+          "sha256": "30942c4605c2ca8b9f759b1bb4e3ab6a12bdfdf66e5c94644ec2c75ac41e88e7",
+          "sha256_windows": "0dd6ec909a6f5b2b66682b22d82abce97ab793e30766bf2f642b691e70a4a16b",
+          "binaries": [
+            "mailpit"
+          ],
+          "binaries_windows": [
+            "mailpit.exe"
+          ],
+          "lts": true
+        },
         "1.31.3": {
           "url": "https://github.com/axllent/mailpit/releases/download/v1.31.3/mailpit-linux-amd64.tar.gz",
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.3/mailpit-windows-amd64.zip",
@@ -1682,6 +1704,19 @@
     },
     "electerm": {
       "versions": {
+        "5.5.66": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.5.66/electerm-5.5.66-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.66/electerm-5.5.66-win-x64-portable.tar.gz",
+          "sha256": "a128e07cd958aff008f71a423e9dce82150df8d839c9c3451f90deb2a88d39cd",
+          "sha256_windows": "952b6f3b4ba288088e6edf53a1e1d0a27f9a36d8b5e3621903fea118461db56f",
+          "binaries": [
+            "electerm"
+          ],
+          "binaries_windows": [
+            "electerm.exe"
+          ],
+          "lts": true
+        },
         "5.5.56": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.5.56/electerm-5.5.56-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.56/electerm-5.5.56-win-x64-portable.tar.gz",
@@ -1859,6 +1894,19 @@
     },
     "uv": {
       "versions": {
+        "0.12.23": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.23/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.23/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "9167d72b3319674b6303c4cbe071854bba13ebdf3d76b1a7cbdc175471fb66d6",
+          "sha256_windows": "75d05de6762778c31ee183398de7dd15093fad0ed90b1f236d8205ea5ec00c90",
+          "binaries": [
+            "uv"
+          ],
+          "binaries_windows": [
+            "uv.exe"
+          ],
+          "lts": true
+        },
         "0.12.22": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.22/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.22/uv-x86_64-pc-windows-msvc.zip",
