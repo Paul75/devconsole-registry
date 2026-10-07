@@ -770,6 +770,16 @@
     },
     "zed": {
       "versions": {
+        "1.23.2": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.23.2/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.23.2/Zed-x86_64.exe",
+          "sha256": "cabddd5af2b26a19633ea39f5dde070e2aad204bb815bfa74cb65073ffd5ff39",
+          "sha256_windows": "e843b176b86d3df7c5816cdd7952cd21b551f88d8806aaef3189ae274d1b0d6d",
+          "binaries": [
+            "bin/zed"
+          ],
+          "lts": true
+        },
         "1.22.0": {
           "url": "https://github.com/zed-industries/zed/releases/download/v1.22.0/zed-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.22.0/Zed-x86_64.exe",
@@ -2453,6 +2463,19 @@
     },
     "drawio": {
       "versions": {
+        "32.3.0": {
+          "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.3.0/drawio-x86_64-32.3.0.AppImage",
+          "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v32.3.0/draw.io-32.3.0-windows.zip",
+          "sha256": "bf44ef4d91e7c9187743826eb4c311e99ac240cebab3e85990a4c42138302e65",
+          "sha256_windows": "a47dbcfd6db3ccab90223997e86bb521f0d149479d34cb8a493d4b5e96275422",
+          "binaries": [
+            "drawio"
+          ],
+          "binaries_windows": [
+            "draw.io.exe"
+          ],
+          "lts": true
+        },
         "31.7.0": {
           "url": "https://github.com/jgraph/drawio-desktop/releases/download/v31.7.0/drawio-x86_64-31.7.0.AppImage",
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v31.7.0/draw.io-31.7.0-windows.zip",
