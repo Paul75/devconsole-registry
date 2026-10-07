@@ -554,6 +554,19 @@
     },
     "vscode": {
       "versions": {
+        "1.141.0": {
+          "url": "https://update.code.visualstudio.com/1.141.0/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.141.0/win32-x64-archive/stable",
+          "sha256": "d77d588f0454cbaaa71e723497de4160d15b95fba4988abe177b1432e6bd570a",
+          "sha256_windows": "30ef5f55c377452af33009d0a8ac29a15cf8f770782bff42fe987c30da272223",
+          "binaries": [
+            "bin/code"
+          ],
+          "binaries_windows": [
+            "bin/code.cmd"
+          ],
+          "lts": true
+        },
         "1.140.0": {
           "url": "https://update.code.visualstudio.com/1.140.0/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.140.0/win32-x64-archive/stable",
