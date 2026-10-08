@@ -1,0 +1,35 @@
+# =========================
+# Node / JS
+# =========================
+node_modules
+**/node_modules
+tsconfig.json
+
+
+# =========================
+# Build outputs
+# =========================
+dist
+build
+coverage
+**/dist
+**/build
+**/coverage
+
+# =========================
+# Misc / cache
+# =========================
+.tmp
+.cache
+**/.cache
+**/.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+
+*.gz

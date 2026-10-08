@@ -26,3 +26,5 @@ __pycache__
 # Artifacts de build Spekter Windows (scripts/build-spekter-windows.sh)
 .spekter-build-windows/
 spekter-*-windows_x86_64.tar.gz
+
+node_modules/

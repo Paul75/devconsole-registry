@@ -7,12 +7,7 @@
           "url_windows": "https://nodejs.org/dist/v24.21.0/node-v24.21.0-win-x64.zip",
           "sha256": "fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6",
           "sha256_windows": "158f7685b44de51f6c0df1d153526cbcd3e1bc739a8dfc607721cef75de9e541",
-          "binaries": [
-            "bin/node",
-            "bin/npm",
-            "bin/npx",
-            "bin/corepack"
-          ],
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true
         },
         "22.23.3": {
@@ -20,12 +15,7 @@
           "url_windows": "https://nodejs.org/dist/v22.23.3/node-v22.23.3-win-x64.zip",
           "sha256": "df450af89261115ef9f9e3830c3eeb2cc9213b63c720b1af623cb5dcbe2e02de",
           "sha256_windows": "2b0ff57b049cda1bbcea2240eec20467018713c1efe1f7360c2681859b90ed71",
-          "binaries": [
-            "bin/node",
-            "bin/npm",
-            "bin/npx",
-            "bin/corepack"
-          ],
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true
         },
         "20.20.2": {
@@ -33,12 +23,7 @@
           "url_windows": "https://nodejs.org/dist/v20.20.2/node-v20.20.2-win-x64.zip",
           "sha256": "df770b2a6f130ed8627c9782c988fda9669fa23898329a61a871e32f965e007d",
           "sha256_windows": "dc3700fdd57a63eedb8fd7e3c7baaa32e6a740a1b904167ff4204bc68ed8bf77",
-          "binaries": [
-            "bin/node",
-            "bin/npm",
-            "bin/npx",
-            "bin/corepack"
-          ],
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true,
           "eol": true
         },
@@ -47,12 +32,7 @@
           "url_windows": "https://nodejs.org/dist/v18.20.8/node-v18.20.8-win-x64.zip",
           "sha256": "5467ee62d6af1411d46b6a10e3fb5cacc92734dbcef465fea14e7b90993001c9",
           "sha256_windows": "1a1e40260a6facba83636e4cd0ba01eb5bd1386896824b36645afba44857384a",
-          "binaries": [
-            "bin/node",
-            "bin/npm",
-            "bin/npx",
-            "bin/corepack"
-          ],
+          "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true,
           "eol": true
         }
@@ -66,14 +46,7 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.5.11-nts-Win32-vs17-x64.zip",
           "sha256": "c9e7bface643e1d8d30abcc1db662c3f14b24ee690d1312a1207978302839197",
           "sha256_windows": "0ea96e0d2b9b737a6036f05cf4e95c49313faa6d0f27bd97edb2742503f0c043",
-          "binaries": [
-            "bin/php",
-            "sbin/php-fpm",
-            "bin/php-cgi",
-            "php",
-            "php-cgi",
-            "php-fpm"
-          ],
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
         "8.5.10": {
@@ -81,14 +54,7 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.5.10-nts-Win32-vs17-x64.zip",
           "sha256": "8a501eefdb26aac488edc5cc20b3c7476434ca0740df2b0ab7fbf1fac42e0e69",
           "sha256_windows": "22ec430195984d233eb9e62c637a945bbcda06efca2f392d9d96d62c6acd34f8",
-          "binaries": [
-            "bin/php",
-            "sbin/php-fpm",
-            "bin/php-cgi",
-            "php",
-            "php-cgi",
-            "php-fpm"
-          ],
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
         "8.5.9": {
@@ -96,14 +62,7 @@
           "url_windows": "https://downloads.php.net/~windows/releases/php-8.5.9-nts-Win32-vs17-x64.zip",
           "sha256": "de07c4087018a477da73a394813ece077a8909a88d8b68d158595e9cf8d86df1",
           "sha256_windows": "516c2d72231bd035c8a910120834add0ad208098b790b4909b2cbeb93ce135fc",
-          "binaries": [
-            "bin/php",
-            "sbin/php-fpm",
-            "bin/php-cgi",
-            "php",
-            "php-cgi",
-            "php-fpm"
-          ],
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
         "8.5.8": {
@@ -111,14 +70,7 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.5.8-nts-Win32-vs17-x64.zip",
           "sha256": "14950aca55bf1fcdb0a4dc4dee3543a02f5be5c9a90d5077a51d6c80a521215c",
           "sha256_windows": "63a3f6493f37c9ff3e288ec16621222a6cda5167dd1abffec0019e7f18c8e7e9",
-          "binaries": [
-            "bin/php",
-            "sbin/php-fpm",
-            "bin/php-cgi",
-            "php",
-            "php-cgi",
-            "php-fpm"
-          ],
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
         "8.4.26": {
@@ -126,14 +78,7 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.4.26-nts-Win32-vs17-x64.zip",
           "sha256": "2bc8ea3ee1c4b69b39953ac59afd68e3ca67f21f923ef4e5cc5eb04bca47771c",
           "sha256_windows": "da68394f9193b7f6b89d0c76861a4034ae10efee7fd55a7255d8118c2acf70d7",
-          "binaries": [
-            "bin/php",
-            "sbin/php-fpm",
-            "bin/php-cgi",
-            "php",
-            "php-cgi",
-            "php-fpm"
-          ],
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
         "8.4.25": {
@@ -141,14 +86,7 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.4.25-nts-Win32-vs17-x64.zip",
           "sha256": "84f4d0f9aea0a8a1092bc4ca28bc6da3be1f1a4bae2a19ef40efe9977d7eefd3",
           "sha256_windows": "43a8f67ed2e5223fafb21293c85976361808855405278cef2cf3037c3ae2529c",
-          "binaries": [
-            "bin/php",
-            "sbin/php-fpm",
-            "bin/php-cgi",
-            "php",
-            "php-cgi",
-            "php-fpm"
-          ],
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
         "8.4.24": {
@@ -156,14 +94,7 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.4.24-nts-Win32-vs17-x64.zip",
           "sha256": "e525c7cd8b2f43f7fc6d15d98b479e14f583c4c1344afc690af4d71a9108813e",
           "sha256_windows": "86470a30cbbaeafb259e727dfa5cd336f2f3f0a462cd6f8e3eac00fdbded13cb",
-          "binaries": [
-            "bin/php",
-            "sbin/php-fpm",
-            "bin/php-cgi",
-            "php",
-            "php-cgi",
-            "php-fpm"
-          ],
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
         "8.4.23": {
@@ -171,14 +102,7 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.4.23-nts-Win32-vs17-x64.zip",
           "sha256": "33cb44a3d288b096f4bf04396920500af606017994cab1c13176b47ca3e1b54e",
           "sha256_windows": "826efa189b21f46314ad497ff31467de9f0953292f42b235542be4feea182b48",
-          "binaries": [
-            "bin/php",
-            "sbin/php-fpm",
-            "bin/php-cgi",
-            "php",
-            "php-cgi",
-            "php-fpm"
-          ],
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
         "8.3.32": {
@@ -186,14 +110,7 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.3.32-nts-Win32-vs16-x64.zip",
           "sha256": "838794bb985a8cd5cf73769734b2f8d0844eba4c2b4fe95030d3f3b4da33ce1d",
           "sha256_windows": "67c724e7b675b50d8f0476d816c3e2a3064ce3a53d572575d63c321cc0a3a6cf",
-          "binaries": [
-            "bin/php",
-            "sbin/php-fpm",
-            "bin/php-cgi",
-            "php",
-            "php-cgi",
-            "php-fpm"
-          ],
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": false
         }
       }
@@ -205,12 +122,7 @@
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-26.7/mysql-26.7.0-winx64.zip",
           "sha256": "ff8ee807234f239b3b5d0dc4767bc70b1f5d68cc7e357866e87bf529755f2e9c",
           "sha256_windows": "e8d5b08f0d430555497679fa713a9649953ea067f952708a74cdcdf34f8e4b7d",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mysqld_safe",
-            "bin/mysqladmin"
-          ],
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": true
         },
         "9.7.2": {
@@ -218,12 +130,7 @@
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.2-winx64.zip",
           "sha256": "18ebfc721b14980d2d46bd670f85b69319aa136dbb956821c037890a02017adc",
           "sha256_windows": "5592ea38e53edd67f5baa68303e7fcf2f0a40fc08978fdb4a7b0c38d12baea17",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mysqld_safe",
-            "bin/mysqladmin"
-          ],
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": true
         },
         "9.7.1": {
@@ -231,12 +138,7 @@
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.1-winx64.zip",
           "sha256": "31d543f8df82372fb3b31d50d7980e4b85c0c2adbaeb62bafd903492ffb9b65f",
           "sha256_windows": "d839045f3cc86a7c5791afc2d8e2a24c0ff6ae4f91a97b2b212c9e032d04d6ea",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mysqld_safe",
-            "bin/mysqladmin"
-          ],
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": true
         },
         "8.4.11": {
@@ -244,12 +146,7 @@
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.11-winx64.zip",
           "sha256": "94e204cc94dede3746d2773fa5818f28f555cd8368c75ca0612eac124e6f3e58",
           "sha256_windows": "a492371d687d2bab088b0062581144a0044b8964baefdf4faa579292b423d25c",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mysqld_safe",
-            "bin/mysqladmin"
-          ],
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": true
         },
         "8.4.10": {
@@ -257,12 +154,7 @@
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.10-winx64.zip",
           "sha256": "37078510456e4338659e44b79483d2d1f1a63bb3b0ed62d0193d5319d483021f",
           "sha256_windows": "3b950db31c33fb59252568c012bd9ee5fac50811e778ca7c8f1a0dc91686cd6f",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mysqld_safe",
-            "bin/mysqladmin"
-          ],
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": false
         },
         "8.0.46": {
@@ -270,12 +162,7 @@
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-8.0.46-winx64.zip",
           "sha256": "0fcdb2e88b5bb151118420745070a34621463dd85a50e1eacd7c3aa1b9d1f4a2",
           "sha256_windows": "28e9eda019d88eff4478d811ea2110b83f02a3966be157fe91cc55def3ab0d4d",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mysqld_safe",
-            "bin/mysqladmin"
-          ],
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": false
         }
       }
@@ -287,12 +174,7 @@
           "url_windows": "https://archive.mariadb.org/mariadb-12.3.3/winx64-packages/mariadb-12.3.3-winx64.zip",
           "sha256": "a12bf7bce08a896cdd01f174f04b4ce1d5da43ec250a5e7fceb9972119514329",
           "sha256_windows": "4b5706b47148b47c8f36963c8352d1ddee37a1287b4690428f631a74b09b85a0",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mariadbd",
-            "bin/mariadb"
-          ],
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
           "lts": true
         },
         "12.3.2": {
@@ -300,12 +182,7 @@
           "url_windows": "https://archive.mariadb.org/mariadb-12.3.2/winx64-packages/mariadb-12.3.2-winx64.zip",
           "sha256": "4a18365541d7280bbe947762e341bab94bc49f3ed31e6b5caf4e21f26246e458",
           "sha256_windows": "67347c129eb9c5923d002ea34fbfa27c60eb95d36dd73b85af2651cdeceecac5",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mariadbd",
-            "bin/mariadb"
-          ],
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
           "lts": true
         },
         "11.8.9": {
@@ -313,12 +190,7 @@
           "url_windows": "https://archive.mariadb.org/mariadb-11.8.9/winx64-packages/mariadb-11.8.9-winx64.zip",
           "sha256": "32f8871a2aa38b36aa418b7f4abc6fc0c6ef1ba5a45798cacb2afa52c8a6113b",
           "sha256_windows": "830c46727d9278eae212ae3eca44eeb9e71b2a68704e95f344a64fba7b1963f5",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mariadbd",
-            "bin/mariadb"
-          ],
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
           "lts": true
         },
         "11.8.8": {
@@ -326,12 +198,7 @@
           "url_windows": "https://archive.mariadb.org/mariadb-11.8.8/winx64-packages/mariadb-11.8.8-winx64.zip",
           "sha256": "fbd4e8d05946c974b0560c94f01ce4c687291b6528074c2e001fb8f35c0d2762",
           "sha256_windows": "20871a79964e1819ddaad9247b676b9d08c958c345e5e3d4748242b2b2965ff1",
-          "binaries": [
-            "bin/mysqld",
-            "bin/mysql",
-            "bin/mariadbd",
-            "bin/mariadb"
-          ],
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mariadbd", "bin/mariadb"],
           "lts": true
         }
       }
@@ -343,9 +210,7 @@
           "url_windows": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-windows-x64.zip",
           "sha256": "36368faef7527875d5ffa52e53cd48021741f2a83eb6208a8dd64068d422a913",
           "sha256_windows": "ce4c17497b2f29712a99d3d53f028de28cd42e3bacb8589599e7f000e49b6405",
-          "binaries": [
-            "bun"
-          ],
+          "binaries": ["bun"],
           "lts": true
         },
         "1.4.1": {
@@ -353,9 +218,7 @@
           "url_windows": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.1/bun-windows-x64.zip",
           "sha256": "74c1c3bee7cd998500c8f969cd8972355ac6a07207e94a39eece1999b56ffabf",
           "sha256_windows": "52b1f3028b01f43d37fefdf669d034a1ee2e0d96c56bb13c393bdaf169b1af84",
-          "binaries": [
-            "bun"
-          ],
+          "binaries": ["bun"],
           "lts": true
         },
         "1.4.0": {
@@ -363,9 +226,7 @@
           "url_windows": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.0/bun-windows-x64.zip",
           "sha256": "2d03fb5fb83ac8b567aca0a281b2ce1a1a19d488f56c2968d88c3f25e92fe452",
           "sha256_windows": "e6f093d39da486b20262ca8cdd5ed6a9e8bc9c2f275b78e6d3a0c5b28cc95901",
-          "binaries": [
-            "bun"
-          ],
+          "binaries": ["bun"],
           "lts": true
         },
         "1.3.14": {
@@ -373,9 +234,7 @@
           "url_windows": "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-windows-x64.zip",
           "sha256": "951ee2aee855f08595aeec6225226a298d3fea83a3dcd6465c09cbccdf7e848f",
           "sha256_windows": "0a0620930b6675d7ba440e81f4e0e00d3cfbe096c4b140d3fff02205e9e18922",
-          "binaries": [
-            "bun"
-          ],
+          "binaries": ["bun"],
           "lts": true
         }
       }
@@ -387,27 +246,21 @@
           "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_windows_amd64.zip",
           "sha256": "727b91701a392de6ebc5027509f548bf39979e5216340d0faed8fa5e69c84f8b",
           "sha256_windows": "0a1edc0b799512051c57071ce0e798d3f2cf67dc98171366f1d2b326072e3b06",
-          "binaries": [
-            "caddy"
-          ]
+          "binaries": ["caddy"]
         },
         "2.11.6": {
           "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_linux_amd64.tar.gz",
           "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_windows_amd64.zip",
           "sha256": "22c84f8d2d4e4e0e2d422f8049fdd0fc1ed8d5665d0fe166f506c7fd863b4555",
           "sha256_windows": "07429393375227eb669e449764c5245eaac8fc69fc68b2f867717af794cc1153",
-          "binaries": [
-            "caddy"
-          ]
+          "binaries": ["caddy"]
         },
         "2.11.4": {
           "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_linux_amd64.tar.gz",
           "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.4/caddy_2.11.4_windows_amd64.zip",
           "sha256": "527fbf917c39189a1e3b31d34fa955601680b2d5c8055d2a87b8b9588dec7bb9",
           "sha256_windows": "1708333f79e274c7697285afe6d592ab39314e0b131e9ec6bea08ad27df62ebf",
-          "binaries": [
-            "caddy"
-          ]
+          "binaries": ["caddy"]
         }
       }
     },
@@ -418,108 +271,48 @@
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20261001/cpython-3.14.8+20261001-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "813c89e2589fed92333e18bde230a43280962e6f24bb0b861dc8ce532cfd6567",
           "sha256_windows": "466b0fce0d5ccc5058fd62053d7be226fc7102e64c42e5a5062db5e3f6fcb704",
-          "binaries": [
-            "bin/python3",
-            "bin/python",
-            "bin/pip3",
-            "bin/pip"
-          ],
-          "binaries_windows": [
-            "python",
-            "python3",
-            "pip",
-            "pip3"
-          ]
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
+          "binaries_windows": ["python", "python3", "pip", "pip3"]
         },
         "3.14.7": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260807/cpython-3.14.7+20260807-x86_64-unknown-linux-gnu-install_only.tar.gz",
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260807/cpython-3.14.7+20260807-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "3d1705fee7747c491d774e26fa91fad67e25d1eb3ede4124dc88501279f2e7d4",
           "sha256_windows": "b06367695ce177e4abb2e02a8ff00fa60903c29fb381e40affaee2f51ef6115a",
-          "binaries": [
-            "bin/python3",
-            "bin/python",
-            "bin/pip3",
-            "bin/pip"
-          ],
-          "binaries_windows": [
-            "python",
-            "python3",
-            "pip",
-            "pip3"
-          ]
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
+          "binaries_windows": ["python", "python3", "pip", "pip3"]
         },
         "3.14.6": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260718/cpython-3.14.6+20260718-x86_64-unknown-linux-gnu-install_only.tar.gz",
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260718/cpython-3.14.6+20260718-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "b442fb93903c6f3392b2430961d4725354ae0da7558c785a908d714264309b28",
           "sha256_windows": "97c01acd70108234ff042699996f3f4163c791f1d6e35de898475936b86ec3b2",
-          "binaries": [
-            "bin/python3",
-            "bin/python",
-            "bin/pip3",
-            "bin/pip"
-          ],
-          "binaries_windows": [
-            "python",
-            "python3",
-            "pip",
-            "pip3"
-          ]
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
+          "binaries_windows": ["python", "python3", "pip", "pip3"]
         },
         "3.12.15": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261001/cpython-3.12.15+20261001-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20261001/cpython-3.12.15+20261001-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "4a3fab63338a169fbfd9c282695680f90fc9d527c6db042c9242e5e72a868edb",
           "sha256_windows": "62faca756c1b2e9b2454b6ad9396a6890496aebf7479a0c93e1ed615c67f2985",
-          "binaries": [
-            "bin/python3",
-            "bin/python",
-            "bin/pip3",
-            "bin/pip"
-          ],
-          "binaries_windows": [
-            "python",
-            "python3",
-            "pip",
-            "pip3"
-          ]
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
+          "binaries_windows": ["python", "python3", "pip", "pip3"]
         },
         "3.12.14": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260814/cpython-3.12.14+20260814-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260814/cpython-3.12.14+20260814-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "a3c4118a4299d7d129926bf2f00f5e9d2462282b85b341348ea99617654a080e",
           "sha256_windows": "7330282b47cd43a66b702d39078d2e5a88e580cee351d82f95045f21f5ee042a",
-          "binaries": [
-            "bin/python3",
-            "bin/python",
-            "bin/pip3",
-            "bin/pip"
-          ],
-          "binaries_windows": [
-            "python",
-            "python3",
-            "pip",
-            "pip3"
-          ]
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
+          "binaries_windows": ["python", "python3", "pip", "pip3"]
         },
         "3.12.13": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.12.13+20260610-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260623/cpython-3.12.13+20260623-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "97c5c55c3d7b17f29d9dc8aa1db4f59ebffac6ce0d07184f96fc20ecc42952d9",
           "sha256_windows": "c6af85bb83d5158c9ff71f50dfad467853d1cd236f932b144e87e26e2ea2a83e",
-          "binaries": [
-            "bin/python3",
-            "bin/python",
-            "bin/pip3",
-            "bin/pip"
-          ],
-          "binaries_windows": [
-            "python",
-            "python3",
-            "pip",
-            "pip3"
-          ]
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
+          "binaries_windows": ["python", "python3", "pip", "pip3"]
         }
       },
       "scan_bin": true
@@ -531,24 +324,16 @@
           "url_windows": "https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.2/MinGit-2.55.0.2-64-bit.zip",
           "sha256": "11de2419239528702983bad321d596ddcb2eed47718e23b96432653ad2341948",
           "sha256_windows": "e3ea2944cea4b3fabcd69c7c1669ef69b1b66c05ac7806d81224d0abad2dec31",
-          "binaries": [
-            "bin/git"
-          ],
-          "binaries_windows": [
-            "cmd/git"
-          ]
+          "binaries": ["bin/git"],
+          "binaries_windows": ["cmd/git"]
         },
         "2.54.0": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.54.0/git-2.54.0-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/MinGit-2.54.0-64-bit.zip",
           "sha256": "057099b25a8913af9dceb64bd7463262e89ea8c4d6cf2668499363bef4b79100",
           "sha256_windows": "04f937e1f0918b17b9be6f2294cb2bb66e96e1d9832d1c298e2de088a1d0e668",
-          "binaries": [
-            "bin/git"
-          ],
-          "binaries_windows": [
-            "cmd/git"
-          ]
+          "binaries": ["bin/git"],
+          "binaries_windows": ["cmd/git"]
         }
       }
     },
@@ -559,12 +344,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.141.0/win32-x64-archive/stable",
           "sha256": "d77d588f0454cbaaa71e723497de4160d15b95fba4988abe177b1432e6bd570a",
           "sha256_windows": "30ef5f55c377452af33009d0a8ac29a15cf8f770782bff42fe987c30da272223",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.140.0": {
@@ -572,12 +353,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.140.0/win32-x64-archive/stable",
           "sha256": "d32031e9e213d59532af3cf32fcb8b357a1cdd10417967b4f5b5ba30436dc0dc",
           "sha256_windows": "52f47072473375767d63ea5be9ffb96a3092124223fe5ce036834a299715014e",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.139.1": {
@@ -585,12 +362,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.139.1/win32-x64-archive/stable",
           "sha256": "0c9cbcea070e9a0fc62de5c78fee01a80f8e32f78ada664d9731f6c517503b7e",
           "sha256_windows": "2186d345470644f232f6682d4a9a18f335e96e0233eb29c9ab005dc4dee0220e",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.139.0": {
@@ -598,12 +371,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.139.0/win32-x64-archive/stable",
           "sha256": "ef18461d14d658255917ea978cdccb20576f797af8d9f6062e6ac5afa9f5ec51",
           "sha256_windows": "5704079f62ac28bb12efa19bcd5c94e30f0fecc615ee69735a8096294e40610b",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.138.0": {
@@ -611,12 +380,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.138.0/win32-x64-archive/stable",
           "sha256": "59fb0f88eab2fe2e3a053ac020e18fcb2b5c113d255e41c82d26302b675d580c",
           "sha256_windows": "c0a9f12a0d8962fa4cda1959eecd5fdd3f82de9715ad4dadd5601856bb60fd21",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.137.0": {
@@ -624,12 +389,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.137.0/win32-x64-archive/stable",
           "sha256": "8871d637292568e34c2d27daa5320a3b3c805f41f94014dfceafbe6134187fce",
           "sha256_windows": "df00aa0e771855a51b660f9d350163f0c471fa21434c56f4b7f02a021f840e7c",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.136.2": {
@@ -637,12 +398,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.136.2/win32-x64-archive/stable",
           "sha256": "2bab551c3677d33010e317a7845e61d2f0fa0c80f8518399c42e0f941f64f18f",
           "sha256_windows": "7583b9f5d300bd6ac882160417d95bbd0978ebef04fb195844243ebd9f3ebe1c",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.136.1": {
@@ -650,12 +407,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.136.1/win32-x64-archive/stable",
           "sha256": "9b4a54f0d49beaa413eda137d00c6541a639300d479efcac566ad13419409218",
           "sha256_windows": "deca16ea5c4d71ece23e50af57632bba3abd0e3577c3c8bfbcdd90b03f11e402",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.136.0": {
@@ -663,12 +416,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.136.0/win32-x64-archive/stable",
           "sha256": "4341eaa7e03d1fc24a3ac9d64fc7e348c9283adc07ab5c2cfa168d8f957074f7",
           "sha256_windows": "4128dc7773703903a6039b37d777b066d1720e903732290547ab199b60454088",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.135.0": {
@@ -676,12 +425,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.135.0/win32-x64-archive/stable",
           "sha256": "470f281e9d75f03b1b957f38e193580140de3b1d9c9ba6db13e7bf30aead4e00",
           "sha256_windows": "0ee1557bab25c2b86d1dffc012fd367abef5e77ea62c2c3d7e32ec90281b2c6c",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.134.0": {
@@ -689,12 +434,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.134.0/win32-x64-archive/stable",
           "sha256": "9336170079f527f1ca62dad39947b020db06bd3e8cae7e1e6097bea594f37733",
           "sha256_windows": "59d3e1816961abb53d3bcc264083ee7e3f2282a6ff1004c4a1a8411b92a7a45d",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.133.0": {
@@ -702,12 +443,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.133.0/win32-x64-archive/stable",
           "sha256": "2bf1a90d2f008af009eb3c4a7bd0849b9247a0588cd39a404a0b1e691be68161",
           "sha256_windows": "2073ae64f09564ab76c583c5553e2c76de96e4d78efc27e4e9aaec8430bf5229",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.132.0": {
@@ -715,12 +452,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.132.0/win32-x64-archive/stable",
           "sha256": "acdaf0fa557bda1720956ff65ca0de0965e92d68f97e2db22341984400937aed",
           "sha256_windows": "98bd4a4721a5bd8534dbad8eaf9801f001ee36703a278c5d52d6036df8c7e503",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         },
         "1.128.0": {
@@ -728,12 +461,8 @@
           "url_windows": "https://update.code.visualstudio.com/1.128.0/win32-x64-archive/stable",
           "sha256": "a9b4ce974ecc10c7456da9879763bf0a7a432710bd26c95a89a8a168f2aff57b",
           "sha256_windows": "1b3a27d323b64cdcbcb6260e6f35a84979e0333f01a85c21386a6140b9e0fdf0",
-          "binaries": [
-            "bin/code"
-          ],
-          "binaries_windows": [
-            "bin/code.cmd"
-          ],
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
           "lts": true
         }
       }
@@ -745,12 +474,8 @@
           "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.135.06055/VSCodium-win32-x64-1.135.06055.zip",
           "sha256": "c09d8ac8dd7f52b09ee159ee24b440541dfd8f937a0f6f88cc428c78e48ee1f2",
           "sha256_windows": "0bec978f201238624bc9ad43966f5e201ed8afacc37d77035a822252d9c9c200",
-          "binaries": [
-            "bin/codium"
-          ],
-          "binaries_windows": [
-            "bin/codium.cmd"
-          ],
+          "binaries": ["bin/codium"],
+          "binaries_windows": ["bin/codium.cmd"],
           "lts": true
         },
         "1.126.04524": {
@@ -758,12 +483,8 @@
           "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.126.04524/VSCodium-win32-x64-1.126.04524.zip",
           "sha256": "adf3548df055d18e476cdee887488ba7486b879ad99a31a546c6b5c5ff296c24",
           "sha256_windows": "5b5bc348861ce861aed968b086233b45050694013c0607ea66b401f31b987c57",
-          "binaries": [
-            "bin/codium"
-          ],
-          "binaries_windows": [
-            "bin/codium.cmd"
-          ],
+          "binaries": ["bin/codium"],
+          "binaries_windows": ["bin/codium.cmd"],
           "lts": true
         }
       }
@@ -775,9 +496,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.23.2/Zed-x86_64.exe",
           "sha256": "cabddd5af2b26a19633ea39f5dde070e2aad204bb815bfa74cb65073ffd5ff39",
           "sha256_windows": "e843b176b86d3df7c5816cdd7952cd21b551f88d8806aaef3189ae274d1b0d6d",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.22.0": {
@@ -785,9 +504,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.22.0/Zed-x86_64.exe",
           "sha256": "5ce3991b34a8fad0a23625f5821cda601c7150a6cc69683c097b8d1b083abc50",
           "sha256_windows": "8565827fd93034875cadc1e72b7242d41759f019f5b9e97efbbe6f1f84c429d1",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.21.0": {
@@ -795,9 +512,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.21.0/Zed-x86_64.exe",
           "sha256": "b79a992e960ed4067cb2b50d66789ed8618eeb1780ed6a0f8f1e71dd80f74200",
           "sha256_windows": "9c5b13cc9c00740b018686361a0a6f27644738504bbee42f2b97c33fbad447d7",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.20.2": {
@@ -805,9 +520,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.20.2/Zed-x86_64.exe",
           "sha256": "647dc85e09fcd99cd175365a89b7b70ccf96469c4844eb8ae6eb83dfa82f7600",
           "sha256_windows": "82c2f6e682a73e3fca7102b49582101e44137defe8d002d5fc890213eb0153de",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.20.1": {
@@ -815,9 +528,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.20.1/Zed-x86_64.exe",
           "sha256": "a273674d829d7a536bfc2566967df9eb83718f191242b26d3ebe3a46f36f4de2",
           "sha256_windows": "d1619dda3878ad21523c94dfaf59bab689329455dc386cd676d440580b4e27b3",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.19.2": {
@@ -825,9 +536,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.19.2/Zed-x86_64.exe",
           "sha256": "c5acff2e52ac3c64890cce85250734cf7279c1de56d5926e4f4e1d4cf676359c",
           "sha256_windows": "dd8fd2b20392e6b9b2446b41b231ec0838671b7689c6b928587dabd39c92849c",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.18.1": {
@@ -835,9 +544,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.18.1/Zed-x86_64.exe",
           "sha256": "eea62268d8ec5fd3587df06fa76e072c104cca5e0b0b0abecbc28ae5b87c0bad",
           "sha256_windows": "be770f8bd7bd531c9852991b3b9feef97c21e4b932643e6bc8bc4e8ca7e83235",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.18.0": {
@@ -845,9 +552,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.18.0/Zed-x86_64.exe",
           "sha256": "60ee2da27b378c5d00cbfc4e9e0c9842e37795803c4565754f41be5423898799",
           "sha256_windows": "375f5ab35d7d1ea974fac48de83967f5fad1c10be0b0bbe86dc70d52e2e81146",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.17.2": {
@@ -855,9 +560,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.17.2/Zed-x86_64.exe",
           "sha256": "3682dd058a305d2b246a14d64419fcf42e86a06e27755d23b5a28622ed9aef85",
           "sha256_windows": "4ece660b71e6b7904970027cda0c574b547555c9fb745972ed154f69c1ba3692",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.16.1": {
@@ -865,9 +568,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.16.1/Zed-x86_64.exe",
           "sha256": "9e611add0c40e86b150372458a2d7b78d101c54924dc7bca8db27ce20d97c661",
           "sha256_windows": "7dbc0b8a5ecb1588ee2ee21afe95a07e2507eabdd138483af1f539c9367273c5",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.15.0": {
@@ -875,9 +576,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.15.0/Zed-x86_64.exe",
           "sha256": "abf751395da92fcac783e1ec59e9812ac4c4ebb33a27f7f51059edde1aee99f9",
           "sha256_windows": "cfb4a1d9dd2e7959c4ebe29bb7436487a8766c4c3e086111fde5bb6fcf19766c",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.14.2": {
@@ -885,9 +584,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.14.2/Zed-x86_64.exe",
           "sha256": "6c476103b49a87dc62c46b8cc4dca84c0458ed53537de664ebdbc99b47daee2d",
           "sha256_windows": "2ce4154072131dfa466fda5d2b8f61fa14a745010c23e10273f01cb05abfd46a",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.13.1": {
@@ -895,9 +592,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.13.1/Zed-x86_64.exe",
           "sha256": "9f5638bdf28dd15dd8d82d092577e82de6cd3d0e0c96d2658e24a63df025b9f5",
           "sha256_windows": "5699c1651fff0e3bfe7dac1480e45bc8e405f40ea288b19071f0186209809f53",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.12.0": {
@@ -905,9 +600,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.12.0/Zed-x86_64.exe",
           "sha256": "fedaec1e617fc78fe56ff82e63ee51562902d9904b1120330c1802fec2b84315",
           "sha256_windows": "fe419c17ebfb9b1d87e0c671b9a16804dd25cf452b60933a2456dc533fbd14f0",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         },
         "1.10.3": {
@@ -915,9 +608,7 @@
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.10.3/Zed-x86_64.exe",
           "sha256": "55eb5ef8b211c950a9009da30b7f603d2c9d2c80b207f9de94ffab6d31d58f8c",
           "sha256_windows": "441e0703a2e9dea992f29dd37395e9f8f326b5a4ea596e4a4bb2029acdfb9be5",
-          "binaries": [
-            "bin/zed"
-          ],
+          "binaries": ["bin/zed"],
           "lts": true
         }
       }
@@ -929,12 +620,8 @@
           "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.1.8/android-studio-rabbit1-windows.zip",
           "sha256": "f8775c67cf899d9133712a2d7ee3ef7231e07fb16dbe0544c47e5f5babd5931b",
           "sha256_windows": "6e83e7ce3e0a76c4e8e78d98eb5ef538cbc9fb386c745bda425fc0bacb9de6d4",
-          "binaries": [
-            "bin/studio.sh"
-          ],
-          "binaries_windows": [
-            "bin/studio64"
-          ],
+          "binaries": ["bin/studio.sh"],
+          "binaries_windows": ["bin/studio64"],
           "lts": true
         },
         "2026.1.4.7": {
@@ -942,12 +629,8 @@
           "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.4.7/android-studio-quail4-windows.zip",
           "sha256": "4be240083df5ada290975d87d60fc212a3d38d4f258a1250989885a9dbc79980",
           "sha256_windows": "fabc885015bd67182f4f49da8e3efbb3b60038b2dfda632cf2d29363ffb1e04e",
-          "binaries": [
-            "bin/studio.sh"
-          ],
-          "binaries_windows": [
-            "bin/studio64"
-          ],
+          "binaries": ["bin/studio.sh"],
+          "binaries_windows": ["bin/studio64"],
           "lts": true
         },
         "2026.1.3.7": {
@@ -955,12 +638,8 @@
           "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.3.7/android-studio-quail3-windows.zip",
           "sha256": "36832122557ab73ca68dfd9bd989ddac40103ac003ca10e04c949a1f61578a67",
           "sha256_windows": "02e1232a3924037769bafd450660a410af423331ba74f6e9a20f2b2f5daea2de",
-          "binaries": [
-            "bin/studio.sh"
-          ],
-          "binaries_windows": [
-            "bin/studio64"
-          ],
+          "binaries": ["bin/studio.sh"],
+          "binaries_windows": ["bin/studio64"],
           "lts": true
         },
         "2026.1.2.10": {
@@ -968,12 +647,8 @@
           "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.2.10/android-studio-quail2-windows.zip",
           "sha256": "64445a54092e7056c6eb7f1a89ad116d0feec2ef5f965b8e594d62abdb58590f",
           "sha256_windows": "fb0d9573d5252bf683b2255458b88fbc358166071d587a066e27cf3449d916b0",
-          "binaries": [
-            "bin/studio.sh"
-          ],
-          "binaries_windows": [
-            "bin/studio64"
-          ],
+          "binaries": ["bin/studio.sh"],
+          "binaries_windows": ["bin/studio64"],
           "lts": true
         }
       }
@@ -1097,13 +772,7 @@
           "url_windows": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.32%2B9/OpenJDK11U-jdk_x64_windows_hotspot_11.0.32_9.zip",
           "sha256": "5906e0339e9322a688b2375eaf40666e00a16e008b0067b0a9f9e4b6c5033720",
           "sha256_windows": "c1a7c406b72fbbd30417d4b0fcf5cccd9318f15fd269f84fcece38d70b21e181",
-          "binaries": [
-            "bin/java",
-            "bin/javac",
-            "bin/jar",
-            "bin/javadoc",
-            "bin/jshell"
-          ],
+          "binaries": ["bin/java", "bin/javac", "bin/jar", "bin/javadoc", "bin/jshell"],
           "lts": true
         }
       },
@@ -1116,9 +785,7 @@
           "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.238/tabby-1.0.238-portable-x64.zip",
           "sha256": "36436de2c2f8651ebed4a222e759583d6fedf3f62904b13d7c9599a084859309",
           "sha256_windows": "56de045fbb5a74d586903367d3f7227276d538281b0068d8132de3318cdd5019",
-          "binaries": [
-            "tabby"
-          ],
+          "binaries": ["tabby"],
           "lts": true
         },
         "1.0.237": {
@@ -1126,9 +793,7 @@
           "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.237/tabby-1.0.237-portable-x64.zip",
           "sha256": "f99a85761846ca9cdcab9941d2942c73c1add2b7b464df0a57263ecdb83e87fa",
           "sha256_windows": "ee8c2a8c58412da5f2dd08edfcc0a52ff69446e484390aa602d0414c2cc86a6f",
-          "binaries": [
-            "tabby"
-          ],
+          "binaries": ["tabby"],
           "lts": true
         },
         "1.0.236": {
@@ -1136,9 +801,7 @@
           "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.236/tabby-1.0.236-portable-x64.zip",
           "sha256": "852d788b0914c18c19d067529b92eb7c2be5754b797878f1df825f7089744bb1",
           "sha256_windows": "6971c3efc316ecad575f4a9c0910074ad9915fd9e6bcceb58f8abfc9ecd440e2",
-          "binaries": [
-            "tabby"
-          ],
+          "binaries": ["tabby"],
           "lts": true
         },
         "1.0.235": {
@@ -1146,9 +809,7 @@
           "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.235/tabby-1.0.235-portable-x64.zip",
           "sha256": "af194d1c0ead7c190127aa911a56052ba088be085b1f6d8526a97f30db14962b",
           "sha256_windows": "192ee1f402e046f8be5a31118da1dfa38aa290387e7e57dceafcc0b3dfd1a835",
-          "binaries": [
-            "tabby"
-          ],
+          "binaries": ["tabby"],
           "lts": true
         },
         "1.0.234": {
@@ -1156,9 +817,7 @@
           "url_windows": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-portable-x64.zip",
           "sha256": "2b6cdbd20afc3ec0b5325e703a3adda8800e8546bda15e06afd9f57ac1264c2e",
           "sha256_windows": "a66ef871253bbe0aef909f498439eedc36018f22d46082ce2b885b6affd1b61e",
-          "binaries": [
-            "tabby"
-          ],
+          "binaries": ["tabby"],
           "lts": true
         }
       }
@@ -1170,9 +829,7 @@
           "url_windows": "https://github.com/wez/wezterm/releases/download/20240203-110809-5046fc22/WezTerm-windows-20240203-110809-5046fc22.zip",
           "sha256": "34010a07076d2272c4d4f94b5e0dae608a679599e8d729446323f88f956c60f0",
           "sha256_windows": "57e5d03b585303d81e8b8e96d1230362852eb39aca92b3b29c7a42cfb82f9ac4",
-          "binaries": [
-            "WezTerm"
-          ],
+          "binaries": ["WezTerm"],
           "lts": true
         }
       }
@@ -1184,9 +841,7 @@
           "url_windows": "https://github.com/kingToolbox/WindTerm/releases/download/2.7.0/WindTerm_2.7.0_Windows_Portable_x86_64.zip",
           "sha256": "7797697eeb60239020512e2b549695a60c39b3fd01fe7ebb047fd50a2889103c",
           "sha256_windows": "b05c3c7371340ff1302967247ffcd3a3ba27b237f72010e9157086143c453e50",
-          "binaries": [
-            "WindTerm"
-          ],
+          "binaries": ["WindTerm"],
           "lts": true
         }
       }
@@ -1198,9 +853,7 @@
           "url_windows": "https://download.sublimetext.com/sublime_merge_build_2132_x64.zip",
           "sha256": "02cecd8f7beb104e8998dfe867c7b8133858faa2e93d88daeff1495230d1b3d8",
           "sha256_windows": "282ab601063f26b3d29da74997a88e7becdebacca5cf5e3abc3ae9fdef4fd637",
-          "binaries": [
-            "sublime_merge"
-          ],
+          "binaries": ["sublime_merge"],
           "lts": true
         },
         "2131": {
@@ -1208,9 +861,7 @@
           "url_windows": "https://download.sublimetext.com/sublime_merge_build_2131_x64.zip",
           "sha256": "d0d73217dfa13c2d298fd77a182334c7600528cd1de4059d3a0c488cc8f60ee5",
           "sha256_windows": "ea1b1197252081b0b383b0672fa7147e760c95cd9eadb00a5d4e13dfd9fb659a",
-          "binaries": [
-            "sublime_merge"
-          ],
+          "binaries": ["sublime_merge"],
           "lts": true
         },
         "2130": {
@@ -1218,9 +869,7 @@
           "url_windows": "https://download.sublimetext.com/sublime_merge_build_2130_x64.zip",
           "sha256": "f2a4c5ba22f843a99736620b6fa4518d41b66563fd3f7d7a62ee92de5f4e26ae",
           "sha256_windows": "0fe04cedb928b594ba4c530a58eb4e36f4f542ed112b4f63fa56912c4f1ff454",
-          "binaries": [
-            "sublime_merge"
-          ],
+          "binaries": ["sublime_merge"],
           "lts": true
         },
         "2125": {
@@ -1228,9 +877,7 @@
           "url_windows": "https://download.sublimetext.com/sublime_merge_build_2125_x64.zip",
           "sha256": "d1996fe2764c6f6143506e4a2e41d35c98dd4734dadd3b8d2f9e3269c15547f7",
           "sha256_windows": "aa73f08c624f7df604181156d090d912748a814eaa0f2f871bf49048e7cfb27b",
-          "binaries": [
-            "sublime_merge"
-          ],
+          "binaries": ["sublime_merge"],
           "lts": true
         }
       }
@@ -1286,32 +933,20 @@
         "7.4.11": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/redis-7.4.11/redis-7.4.11-linux_x86_64-musl.tar.gz",
           "sha256": "6c16fbd58cb38588fd7ffdf9ebb399ec421e7f1773f70fd19c880649d0100905",
-          "binaries": [
-            "redis-server",
-            "redis-cli"
-          ],
+          "binaries": ["redis-server", "redis-cli"],
           "lts": true,
           "url_windows": "https://github.com/redis-windows/redis-windows/releases/download/7.4.11/Redis-7.4.11-Windows-x64-msys2.zip",
           "sha256_windows": "ec629971d76756dd040204297f1a92f43848e7a5f4862d39426beeafcca2a2a9",
-          "binaries_windows": [
-            "redis-server",
-            "redis-cli"
-          ]
+          "binaries_windows": ["redis-server", "redis-cli"]
         },
         "7.4.2": {
           "url": "https://github.com/becomeliminal/redis/releases/download/v0.0.3/redis-7.4.2-linux_x86_64-musl.tar.gz",
           "sha256": "7b5f3ca3a80647b159e02d0dc94ea10f7b86f2560e528f3d61341004b2d8d71a",
-          "binaries": [
-            "redis-server",
-            "redis-cli"
-          ],
+          "binaries": ["redis-server", "redis-cli"],
           "lts": true,
           "url_windows": "https://github.com/redis-windows/redis-windows/releases/download/7.4.2/Redis-7.4.2-Windows-x64-msys2.zip",
           "sha256_windows": "65c8d2ff57572afa3cf4634820d4cdb8921e82760b272ad1dd12f38308414a96",
-          "binaries_windows": [
-            "redis-server",
-            "redis-cli"
-          ]
+          "binaries_windows": ["redis-server", "redis-cli"]
         }
       }
     },
@@ -1380,12 +1015,8 @@
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.4/mailpit-windows-amd64.zip",
           "sha256": "30942c4605c2ca8b9f759b1bb4e3ab6a12bdfdf66e5c94644ec2c75ac41e88e7",
           "sha256_windows": "0dd6ec909a6f5b2b66682b22d82abce97ab793e30766bf2f642b691e70a4a16b",
-          "binaries": [
-            "mailpit"
-          ],
-          "binaries_windows": [
-            "mailpit.exe"
-          ],
+          "binaries": ["mailpit"],
+          "binaries_windows": ["mailpit.exe"],
           "lts": true
         },
         "1.31.3": {
@@ -1393,12 +1024,8 @@
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.3/mailpit-windows-amd64.zip",
           "sha256": "e98b9a8d9622417a6988b736f7d3246e94bad4fed48ad3c604e60d72569f8cc7",
           "sha256_windows": "863e9502d4e0f14a78c0f91c5091797b1c7b7b7e3fc7e5eab62e5770ce44b76e",
-          "binaries": [
-            "mailpit"
-          ],
-          "binaries_windows": [
-            "mailpit.exe"
-          ],
+          "binaries": ["mailpit"],
+          "binaries_windows": ["mailpit.exe"],
           "lts": true
         },
         "1.31.2": {
@@ -1406,12 +1033,8 @@
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.2/mailpit-windows-amd64.zip",
           "sha256": "397a14cad03ae34d7c5f13215fd24971fed5ce48bf4237554829b0a10d4306ad",
           "sha256_windows": "42c20e5c3254125ea7489847811f10d70e39de573fe41d03a61412c87913e995",
-          "binaries": [
-            "mailpit"
-          ],
-          "binaries_windows": [
-            "mailpit.exe"
-          ],
+          "binaries": ["mailpit"],
+          "binaries_windows": ["mailpit.exe"],
           "lts": true
         },
         "1.31.1": {
@@ -1419,12 +1042,8 @@
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.1/mailpit-windows-amd64.zip",
           "sha256": "87d2652abd7c17dc99029147ff62ac671afdf7fd76630f7faf5b14125211c709",
           "sha256_windows": "73ff05204741bd89cc96e6074573c4b22e1edfadf1b3427536233ff20c751604",
-          "binaries": [
-            "mailpit"
-          ],
-          "binaries_windows": [
-            "mailpit.exe"
-          ],
+          "binaries": ["mailpit"],
+          "binaries_windows": ["mailpit.exe"],
           "lts": true
         },
         "1.31.0": {
@@ -1432,12 +1051,8 @@
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.31.0/mailpit-windows-amd64.zip",
           "sha256": "076b5ded9a2182842b93e761b9586a1a251445bffe2666f9f22a6dc14470237d",
           "sha256_windows": "39b5f1b9a671a5f1738e3792e8495bef2fec8176b02ee1e22635626c5888c6e3",
-          "binaries": [
-            "mailpit"
-          ],
-          "binaries_windows": [
-            "mailpit.exe"
-          ],
+          "binaries": ["mailpit"],
+          "binaries_windows": ["mailpit.exe"],
           "lts": true
         },
         "1.30.7": {
@@ -1445,12 +1060,8 @@
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.30.7/mailpit-windows-amd64.zip",
           "sha256": "a35c053509441b95fb96da6479b3a26b3eb309e223232aced28255c011d29efc",
           "sha256_windows": "e4815d2c961a4ad024f4d942d0d286fd7b7da49c49fc7f01c565ff296bd3fdce",
-          "binaries": [
-            "mailpit"
-          ],
-          "binaries_windows": [
-            "mailpit.exe"
-          ],
+          "binaries": ["mailpit"],
+          "binaries_windows": ["mailpit.exe"],
           "lts": true
         },
         "1.30.6": {
@@ -1458,12 +1069,8 @@
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.30.6/mailpit-windows-amd64.zip",
           "sha256": "00f7570bf47c9683944f6189379ce4b7d4974b1c9cd911f93c55d4ad945bf3d2",
           "sha256_windows": "23a249f8f73409be67ecb48d43e3269810a9f35388db4eba0c0115c5eb1ff31a",
-          "binaries": [
-            "mailpit"
-          ],
-          "binaries_windows": [
-            "mailpit.exe"
-          ],
+          "binaries": ["mailpit"],
+          "binaries_windows": ["mailpit.exe"],
           "lts": true
         }
       }
@@ -1473,18 +1080,14 @@
         "2.10.3": {
           "url": "https://github.com/composer/composer/releases/download/2.10.3/composer.phar",
           "sha256": "7a2d379d5b8ffdaa028580ef26494c36d2feef4b178d3dd1473a4dbc5e17c8d6",
-          "binaries": [
-            "composer"
-          ],
+          "binaries": ["composer"],
           "lts": true,
           "url_windows": "https://github.com/composer/composer/releases/download/2.10.3/composer.phar"
         },
         "2.10.2": {
           "url": "https://github.com/composer/composer/releases/download/2.10.2/composer.phar",
           "sha256": "5ee7125f8a30a34d246cefdc0bc85b8a783b28f2aec968994118512350d28027",
-          "binaries": [
-            "composer"
-          ],
+          "binaries": ["composer"],
           "lts": true,
           "url_windows": "https://github.com/composer/composer/releases/download/2.10.2/composer.phar"
         }
@@ -1497,10 +1100,7 @@
           "url_windows": "https://go.dev/dl/go1.27.1.windows-amd64.zip",
           "sha256": "63d339f0da5ab53635a56f2490a7984dfe12dfcff22ad749f63edaf590168445",
           "sha256_windows": "a3911b5e0e1b1053f25ed0675f4c1c6aad1e2bfcf253df2b9be4caabd2edd95d",
-          "binaries": [
-            "bin/go",
-            "bin/gofmt"
-          ],
+          "binaries": ["bin/go", "bin/gofmt"],
           "lts": true
         },
         "1.27.0": {
@@ -1508,10 +1108,7 @@
           "url_windows": "https://go.dev/dl/go1.27.0.windows-amd64.zip",
           "sha256": "675c26c449cbb18fc24b74650de1eabbae6e16f64326fd85a283fb3b58280685",
           "sha256_windows": "f0c0a0d33ba94f4d2c5dbc887334ce678b21813504ddb3aafcb06e60a5a667c4",
-          "binaries": [
-            "bin/go",
-            "bin/gofmt"
-          ],
+          "binaries": ["bin/go", "bin/gofmt"],
           "lts": true
         },
         "1.26.6": {
@@ -1519,10 +1116,7 @@
           "url_windows": "https://go.dev/dl/go1.26.6.windows-amd64.zip",
           "sha256": "708effb774be8237570d0add163225abbdfaf4fca28b2611df167beba4feef89",
           "sha256_windows": "5b6c5b556525810463b5c897b50dc7a82d6a3dc0bfaf55d990a7e9f31d6b2318",
-          "binaries": [
-            "bin/go",
-            "bin/gofmt"
-          ],
+          "binaries": ["bin/go", "bin/gofmt"],
           "lts": true
         },
         "1.26.5": {
@@ -1530,10 +1124,7 @@
           "url_windows": "https://go.dev/dl/go1.26.5.windows-amd64.zip",
           "sha256": "5c2c3b16caefa1d968a94c1daca04a7ca301a496d9b086e17ad77bb81393f053",
           "sha256_windows": "97e6b2a833b6d89f9ff17d25419ac0a7e3b482a044e9ab18cdef834bd834fd38",
-          "binaries": [
-            "bin/go",
-            "bin/gofmt"
-          ],
+          "binaries": ["bin/go", "bin/gofmt"],
           "lts": true
         }
       },
@@ -1635,14 +1226,8 @@
           "url_windows": "",
           "sha256": "3d9c5ec3e7ccbdfd499f2b3dc3c6863df253a21771ad3d0070374153ec492a2b",
           "sha256_windows": "",
-          "binaries": [
-            "mongod",
-            "mongos"
-          ],
-          "binaries_windows": [
-            "mongod.exe",
-            "mongos.exe"
-          ],
+          "binaries": ["mongod", "mongos"],
+          "binaries_windows": ["mongod.exe", "mongos.exe"],
           "lts": true
         },
         "8.3.9": {
@@ -1650,14 +1235,8 @@
           "url_windows": "",
           "sha256": "cf3ba4c5a02b63afade753c476633382bbf598268680767325d02f44c0befcde",
           "sha256_windows": "",
-          "binaries": [
-            "mongod",
-            "mongos"
-          ],
-          "binaries_windows": [
-            "mongod.exe",
-            "mongos.exe"
-          ],
+          "binaries": ["mongod", "mongos"],
+          "binaries_windows": ["mongod.exe", "mongos.exe"],
           "lts": true
         },
         "8.3.8": {
@@ -1665,14 +1244,8 @@
           "url_windows": "",
           "sha256": "af813f78b39b42c8a9faead78fc254fee4a51fbab02481d7400c8ee2c3189414",
           "sha256_windows": "",
-          "binaries": [
-            "mongod",
-            "mongos"
-          ],
-          "binaries_windows": [
-            "mongod.exe",
-            "mongos.exe"
-          ],
+          "binaries": ["mongod", "mongos"],
+          "binaries_windows": ["mongod.exe", "mongos.exe"],
           "lts": true
         },
         "8.0.28": {
@@ -1680,14 +1253,8 @@
           "url_windows": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.28.zip",
           "sha256": "d53e853e422257e60d41c962684d1da60ac64681bf0a5604007e0351d0437fd2",
           "sha256_windows": "a6573419fc1d8767b7a86911c4a1b832fa408d4b8bd32d281f049b87a30073cf",
-          "binaries": [
-            "mongod",
-            "mongos"
-          ],
-          "binaries_windows": [
-            "mongod.exe",
-            "mongos.exe"
-          ],
+          "binaries": ["mongod", "mongos"],
+          "binaries_windows": ["mongod.exe", "mongos.exe"],
           "lts": true
         }
       }
@@ -1699,12 +1266,8 @@
           "url_windows": "https://github.com/jesseduffield/lazygit/releases/download/v0.66.0/lazygit_0.66.0_windows_x86_64.zip",
           "sha256": "5b45541155d20bd32bf2cc5ab5b7e3d91c2eebf0fb1242281350edc27d59d2b7",
           "sha256_windows": "ed8fab4af7b8bac474084e976214a96569dea841c9f9b293502b83d8c3163e4b",
-          "binaries": [
-            "lazygit"
-          ],
-          "binaries_windows": [
-            "lazygit.exe"
-          ],
+          "binaries": ["lazygit"],
+          "binaries_windows": ["lazygit.exe"],
           "lts": true
         },
         "0.65.1": {
@@ -1712,12 +1275,8 @@
           "url_windows": "https://github.com/jesseduffield/lazygit/releases/download/v0.65.1/lazygit_0.65.1_windows_x86_64.zip",
           "sha256": "02beacbcda0fa342e50ae3480ba8147307353af3fb28e1d5f790e02329c201a6",
           "sha256_windows": "bed669be29204932560836a58dc6519ba43c10ea7dc7df63af8a1d96424e191d",
-          "binaries": [
-            "lazygit"
-          ],
-          "binaries_windows": [
-            "lazygit.exe"
-          ],
+          "binaries": ["lazygit"],
+          "binaries_windows": ["lazygit.exe"],
           "lts": true
         },
         "0.65.0": {
@@ -1725,12 +1284,8 @@
           "url_windows": "https://github.com/jesseduffield/lazygit/releases/download/v0.65.0/lazygit_0.65.0_windows_x86_64.zip",
           "sha256": "44d8e7dd1484b4a66e191bd4ab25a71e8b4b3a65ab122f838e65677ef58c5506",
           "sha256_windows": "20a597e8f29d4ed295e28fb4b869b31a41d20dc69dc15829c4744263141be2ee",
-          "binaries": [
-            "lazygit"
-          ],
-          "binaries_windows": [
-            "lazygit.exe"
-          ],
+          "binaries": ["lazygit"],
+          "binaries_windows": ["lazygit.exe"],
           "lts": true
         },
         "0.64.1": {
@@ -1738,12 +1293,8 @@
           "url_windows": "https://github.com/jesseduffield/lazygit/releases/download/v0.64.1/lazygit_0.64.1_windows_x86_64.zip",
           "sha256": "f8ea237c41f194cd799b48505518bfdaae4edf5a2ad6bd3d898e939785ee4532",
           "sha256_windows": "de8eca2cf2e75857882d313bf9dfc706a7aae893951ab29df706c99b525661ae",
-          "binaries": [
-            "lazygit"
-          ],
-          "binaries_windows": [
-            "lazygit.exe"
-          ],
+          "binaries": ["lazygit"],
+          "binaries_windows": ["lazygit.exe"],
           "lts": true
         }
       }
@@ -1755,12 +1306,8 @@
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.76/electerm-5.5.76-win-x64-portable.tar.gz",
           "sha256": "7c798b2ea8c49810c46fe0fcaf2dc73ad350c474facaa0d003eac762ad781f03",
           "sha256_windows": "cd2f9fc09ed8fffb6e350076cde1e399d98913dc04925a3c7341044997c9908c",
-          "binaries": [
-            "electerm"
-          ],
-          "binaries_windows": [
-            "electerm.exe"
-          ],
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
           "lts": true
         },
         "5.5.66": {
@@ -1768,12 +1315,8 @@
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.66/electerm-5.5.66-win-x64-portable.tar.gz",
           "sha256": "a128e07cd958aff008f71a423e9dce82150df8d839c9c3451f90deb2a88d39cd",
           "sha256_windows": "952b6f3b4ba288088e6edf53a1e1d0a27f9a36d8b5e3621903fea118461db56f",
-          "binaries": [
-            "electerm"
-          ],
-          "binaries_windows": [
-            "electerm.exe"
-          ],
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
           "lts": true
         },
         "5.5.56": {
@@ -1781,12 +1324,8 @@
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.56/electerm-5.5.56-win-x64-portable.tar.gz",
           "sha256": "0005a3dfd9680b583a4ea3e4bb97e4e0f4139d483d956cfcdead8565aef44d3c",
           "sha256_windows": "3fe4b384414de38fb75b26b91bf9d4a2f75ced99b26fa421c9aceb80bf251445",
-          "binaries": [
-            "electerm"
-          ],
-          "binaries_windows": [
-            "electerm.exe"
-          ],
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
           "lts": true
         },
         "5.5.35": {
@@ -1794,12 +1333,8 @@
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.35/electerm-5.5.35-win-x64-portable.tar.gz",
           "sha256": "2eb6d81720dce1515804152395141adae8dc4f6b44b751d5e876ace4fccc4a90",
           "sha256_windows": "b7fd8c3f7152dea092ca692d70c05d3c7485a5b422c181022936da1ac82b04fd",
-          "binaries": [
-            "electerm"
-          ],
-          "binaries_windows": [
-            "electerm.exe"
-          ],
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
           "lts": true
         },
         "5.5.25": {
@@ -1807,12 +1342,8 @@
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.25/electerm-5.5.25-win-x64-portable.tar.gz",
           "sha256": "d6733eea7020766bfa41cfde6a7206796ffcf05c53304eeb2ab02faf5269b428",
           "sha256_windows": "7e5aa74ce0d4bb8c7bcda4c5ce6a4dd8d7aff0c04766bbb353dcfb36f314fb4a",
-          "binaries": [
-            "electerm"
-          ],
-          "binaries_windows": [
-            "electerm.exe"
-          ],
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
           "lts": true
         },
         "5.5.15": {
@@ -1820,12 +1351,8 @@
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.15/electerm-5.5.15-win-x64-portable.tar.gz",
           "sha256": "390f7a2ad2e61e7dabebfa10f884b2f0e462f647579548aff4cf77811ce72aa9",
           "sha256_windows": "524e987df6f249c8eef90e8071e7449d9a116897925adfbbcdae864057f567ba",
-          "binaries": [
-            "electerm"
-          ],
-          "binaries_windows": [
-            "electerm.exe"
-          ],
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
           "lts": true
         },
         "5.5.6": {
@@ -1833,12 +1360,8 @@
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.6/electerm-5.5.6-win-x64-portable.tar.gz",
           "sha256": "fc7f660da91be68bca5ff20141a7314c7a98f8878066422c1b111db5e9122ed2",
           "sha256_windows": "79318926c336299758aa973f6d377736a4eff880f5aef6ba68ca5a589fb1b235",
-          "binaries": [
-            "electerm"
-          ],
-          "binaries_windows": [
-            "electerm.exe"
-          ],
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
           "lts": true
         },
         "5.3.26": {
@@ -1846,12 +1369,8 @@
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.3.26/electerm-5.3.26-win-x64-portable.tar.gz",
           "sha256": "4b24c0a3516353b407c5001db1760a832797e9349e0aa725c0e53dfbe2a6b074",
           "sha256_windows": "413fff0e99e2e4b3ccfda6ca19cab9cd0e5b1810591a602294f2a94c55848e3a",
-          "binaries": [
-            "electerm"
-          ],
-          "binaries_windows": [
-            "electerm.exe"
-          ],
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
           "lts": true
         },
         "5.3.15": {
@@ -1859,12 +1378,8 @@
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.3.15/electerm-5.3.15-win-x64-portable.tar.gz",
           "sha256": "4a016130db3a2a14083e87a3fc38881e43fd4c5f460e99743067c2b3ea32edf8",
           "sha256_windows": "b588e722d435edb6d6d6a9115dfb7a68c928237bf0010a307ebf3942126b025d",
-          "binaries": [
-            "electerm"
-          ],
-          "binaries_windows": [
-            "electerm.exe"
-          ],
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
           "lts": true
         }
       }
@@ -1876,12 +1391,8 @@
           "url_windows": "https://github.com/cli/cli/releases/download/v2.102.0/gh_2.102.0_windows_amd64.zip",
           "sha256": "bb766f710eef8ede859c18578c72c327597cd4c8a85b06001b1f3843c6019386",
           "sha256_windows": "ae64e556ecc240b200f7eba60d550e4bb60d78e860e69dd88c449405b86067f4",
-          "binaries": [
-            "bin/gh"
-          ],
-          "binaries_windows": [
-            "bin/gh.exe"
-          ],
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
           "lts": true
         },
         "2.101.0": {
@@ -1889,12 +1400,8 @@
           "url_windows": "https://github.com/cli/cli/releases/download/v2.101.0/gh_2.101.0_windows_amd64.zip",
           "sha256": "9bca2d1c16825f109907a23307628a2f0698fbf99662b73a5cf0b020293072b8",
           "sha256_windows": "bc6c814367b193cd8e713611d61e36013c0ef843b8f516458fe3eda039192794",
-          "binaries": [
-            "bin/gh"
-          ],
-          "binaries_windows": [
-            "bin/gh.exe"
-          ],
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
           "lts": true
         },
         "2.100.0": {
@@ -1902,12 +1409,8 @@
           "url_windows": "https://github.com/cli/cli/releases/download/v2.100.0/gh_2.100.0_windows_amd64.zip",
           "sha256": "e4d4bb4498e8d007abe545b6568926793ace1b6447da598294a610018cb164be",
           "sha256_windows": "227e35230b25db3fa1b997bab7cf4d67df0470a3b75b99e4ee66bce1a7cd4e72",
-          "binaries": [
-            "bin/gh"
-          ],
-          "binaries_windows": [
-            "bin/gh.exe"
-          ],
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
           "lts": true
         },
         "2.99.0": {
@@ -1915,12 +1418,8 @@
           "url_windows": "https://github.com/cli/cli/releases/download/v2.99.0/gh_2.99.0_windows_amd64.zip",
           "sha256": "ed4960225d2833e04a61590d9fa2b5773d147f3aa375459e5466a40c102f3832",
           "sha256_windows": "ea040d0ba03176440d13481caf67f742236c3b38ce1d4442a9da37e9bb98d8f2",
-          "binaries": [
-            "bin/gh"
-          ],
-          "binaries_windows": [
-            "bin/gh.exe"
-          ],
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
           "lts": true
         },
         "2.98.0": {
@@ -1928,12 +1427,8 @@
           "url_windows": "https://github.com/cli/cli/releases/download/v2.98.0/gh_2.98.0_windows_amd64.zip",
           "sha256": "3b8ac6b30336802fc1a858d7c084e11cdf24ac1a761ca90b68022d7d729208de",
           "sha256_windows": "c28c7b3b584967a05b74d9eaf7481bff24ddc34930bf2d6e442c148236561eb1",
-          "binaries": [
-            "bin/gh"
-          ],
-          "binaries_windows": [
-            "bin/gh.exe"
-          ],
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
           "lts": true
         },
         "2.97.0": {
@@ -1941,12 +1436,8 @@
           "url_windows": "https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_windows_amd64.zip",
           "sha256": "a2c9b8497e1f85b1ad0dfcb78b5a622e098801b8e461e459e88e1ee12f018112",
           "sha256_windows": "35d7fe05c4dd1411ffda1e73dfc7c6f44b75c936ca51fa6595c657fdc0350cec",
-          "binaries": [
-            "bin/gh"
-          ],
-          "binaries_windows": [
-            "bin/gh.exe"
-          ],
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
           "lts": true
         }
       }
@@ -1958,12 +1449,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.23/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "9167d72b3319674b6303c4cbe071854bba13ebdf3d76b1a7cbdc175471fb66d6",
           "sha256_windows": "75d05de6762778c31ee183398de7dd15093fad0ed90b1f236d8205ea5ec00c90",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.22": {
@@ -1971,12 +1458,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.22/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "b9980552309f09c15172b8be828555e375097f16deb459795ce7bfd200380f0b",
           "sha256_windows": "ea1397797a0ca15f63516dd0f49c2dde9776db9be5861cab152ebe8ad199894d",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.21": {
@@ -1984,12 +1467,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.21/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "23f02075b652bb1df64178cfae41b5caf160822e720e2663568f3f5d63bc52c0",
           "sha256_windows": "5d223efa0bf00208c3853246af09420419dfbd352536aa6bb8163d6170e23890",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.20": {
@@ -1997,12 +1476,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.20/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "6590717592ace991ff83a63fef799e3ad9d33ecc8f96c5d6bdd732496e79337f",
           "sha256_windows": "95f9bc30fbb3574d276e28ac4a6de932d25153645853d13da8c21eec3bc88d06",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.19": {
@@ -2010,12 +1485,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.19/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "23bf5552d220e0842b65c862097b2ebaeba0064b74eda5e565e77fd25969d8c8",
           "sha256_windows": "6dbb02d79e419522f1c500f0adb1cddcff0cda7d59b0d66ea7f5e3b4a1b2f5f0",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.18": {
@@ -2023,12 +1494,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.18/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "89eadd7c76fc063887959510d5ba0ab1264dfd5f1143b925ddb73021a40acf16",
           "sha256_windows": "cae6a3bc25239f83dffb467a4b180508d9da23986c04639ebfa44e43e6a84bff",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.17": {
@@ -2036,12 +1503,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.17/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "fa82fd8dde8e8eefdecada6aa0889666556cfceb690d06e0c3bca49eb3070a63",
           "sha256_windows": "a252121d5b59398fcb137c6ea448176459a44010f33f67e0072305a637119ca7",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.16": {
@@ -2049,12 +1512,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.16/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "8e5c6e5523dffc2dcf615bd995554c84c9feb4e577808a3fb8698a639d3f8d9c",
           "sha256_windows": "f730454bf09019754e5e5abd71a8aa18683cb739cba0d9c720bac2e7c901160f",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.15": {
@@ -2062,12 +1521,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.15/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "f97935763c04be3e692460a7aaeaaab8fc3b78fcf8b389da820b38ae7423a638",
           "sha256_windows": "477bd99a84e34891f2bd4c9152ddeb74e971accccbc59c0f0301f11f08a32d46",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.14": {
@@ -2075,12 +1530,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.14/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "18ef5c3888ae59828cb13f38d57e9389b8173ecc719eff163bfafc74b38f5936",
           "sha256_windows": "02cecb254f37f3396da625680796d3990164a590fb5611d46f719ad83e7b9a89",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.13": {
@@ -2088,12 +1539,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.13/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "745765a3b6e360ad76743599ae5c42e9278c7edf8bbff9fc76d05bf2623a04dd",
           "sha256_windows": "a86c9dc7bad9b03f388583b7187c05fe9951c2e0d392217e8fd43d97787f6ec2",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.12": {
@@ -2101,12 +1548,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.12/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "ab9b309d4586403f024e100abaceb396616e178a553e2500c36087d180f09509",
           "sha256_windows": "3d54912924c36e862c14f427d04f2ed70a99e8001d1c30caa101f6d5711626d5",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.11": {
@@ -2114,12 +1557,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.11/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "4ae93e0f148a18434cc094072547cec88912fc4a72b984183c7d0d0e9586cb5e",
           "sha256_windows": "e94225dea91e051472847bd6d146d7d66c4f54ffcd1f106678866a99580845f9",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.10": {
@@ -2127,12 +1566,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.10/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "173d95a0c32d18c896c46ba6fafbf3cf9c14ab74b033f81b76c883ef492a976b",
           "sha256_windows": "f65744f94072152b1f86ba2aace4d01f1124d9a8ecb235805039e3718c36cac2",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.9": {
@@ -2140,12 +1575,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.9/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "ec7a99cd05e0cd7f80243f135ce1361c76835cb0ee60055d14d20eba8eba1460",
           "sha256_windows": "ddbfcee1ac615a0499f6aa97b5ec8ebdf3ee4a7714a48055ec2ba0030e3cf810",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.8": {
@@ -2153,12 +1584,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.8/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "2e2b37e9811e17675a9e70bed5e1a58fc8c0388be63d751d72cc735188c149ff",
           "sha256_windows": "e07acf3f8a29fe41f9e04b799c3325cb0e0893836bb222bf102829b45c679ad6",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.7": {
@@ -2166,12 +1593,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.7/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "788f18abea7c5f55d6216e4f5613fd89d4d59b631efeec117b2b07fe72f1da21",
           "sha256_windows": "bf1518af459a3915511a11fdc6e2f43ef9a2afa138b9d498eeb9642fe9d85218",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.6": {
@@ -2179,12 +1602,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.6/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "8681d8921e7d520fb368991dcf5f9c1905b80f5bf2a265a0ed085c8d8e342477",
           "sha256_windows": "df7cb9f243eae1621400d4fcf5b1b3d90f20e264ece91b64deb3b0078abca6ef",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.12.5": {
@@ -2192,12 +1611,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.5/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "68a509da24b06b4223a1c0175fb5eb5bc79342b76cbeff0cfe51ac3f5b17b6b2",
           "sha256_windows": "4c4d49d8738847d9b71ba319e49a5688c93eac0fe6204b1df24e98528dddf39a",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         },
         "0.11.21": {
@@ -2205,12 +1620,8 @@
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.11.21/uv-x86_64-pc-windows-msvc.zip",
           "sha256": "8c88519b0ef0af9801fcdee419bbb12116bd9e6b18e162ae093c932d8b264050",
           "sha256_windows": "ace861f360c6de2babedc1607d0f454b6b09a820dbc8182dc15af927e4df9589",
-          "binaries": [
-            "uv"
-          ],
-          "binaries_windows": [
-            "uv.exe"
-          ],
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
           "lts": true
         }
       }
@@ -2222,12 +1633,8 @@
           "url_windows": "https://github.com/usebruno/bruno/releases/download/v4.2.1/bruno_4.2.1_x64_win.zip",
           "sha256": "f6b77dc322dd57b953781589a44688723cf3c06a3513c5c34d077cd75d64a941",
           "sha256_windows": "691d7475234e8399c6a1127e7a5e01ccdd479de4561f93e2cdf126c3b6c11b86",
-          "binaries": [
-            "bruno"
-          ],
-          "binaries_windows": [
-            "bruno.exe"
-          ],
+          "binaries": ["bruno"],
+          "binaries_windows": ["bruno.exe"],
           "lts": true
         },
         "4.2.0": {
@@ -2235,12 +1642,8 @@
           "url_windows": "https://github.com/usebruno/bruno/releases/download/v4.2.0/bruno_4.2.0_x64_win.zip",
           "sha256": "2b0e36969acc093e44e73aba39cac24e395228a68531b1a41944fb7f9b8a9524",
           "sha256_windows": "75c82e04e4a04edae3696f43338a4d995a1ce0459cf2a832aeae2387d571929b",
-          "binaries": [
-            "bruno"
-          ],
-          "binaries_windows": [
-            "bruno.exe"
-          ],
+          "binaries": ["bruno"],
+          "binaries_windows": ["bruno.exe"],
           "lts": true
         },
         "4.1.0": {
@@ -2248,12 +1651,8 @@
           "url_windows": "https://github.com/usebruno/bruno/releases/download/v4.1.0/bruno_4.1.0_x64_win.zip",
           "sha256": "50deeed474542745b69ddb5bde3667dead0c93ff0d76e0d39526ae36cd234c92",
           "sha256_windows": "707e5b67c5ce14ea053396469ed7fb6771fbfc88b584073ca040165055ddecf5",
-          "binaries": [
-            "bruno"
-          ],
-          "binaries_windows": [
-            "bruno.exe"
-          ],
+          "binaries": ["bruno"],
+          "binaries_windows": ["bruno.exe"],
           "lts": true
         },
         "4.0.0": {
@@ -2261,12 +1660,8 @@
           "url_windows": "https://github.com/usebruno/bruno/releases/download/v4.0.0/bruno_4.0.0_x64_win.zip",
           "sha256": "e07e655b83450e7b9f8789972eb37d0d49e8c33d9431f1983140fc0ebeb1ee26",
           "sha256_windows": "fe5acbc0e9743553138fe33f1e4aebdf847b8d5f86cc4e01a6c4b926f11a4089",
-          "binaries": [
-            "bruno"
-          ],
-          "binaries_windows": [
-            "bruno.exe"
-          ],
+          "binaries": ["bruno"],
+          "binaries_windows": ["bruno.exe"],
           "lts": true
         }
       }
@@ -2277,12 +1672,8 @@
           "url": "https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64",
           "url_windows": "https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-windows-amd64.exe",
           "sha256": "6d31c65b03972c6dc4a14ab429f2928300518b26503f58723e532d1b0a3bbb52",
-          "binaries": [
-            "mkcert"
-          ],
-          "binaries_windows": [
-            "mkcert.exe"
-          ],
+          "binaries": ["mkcert"],
+          "binaries_windows": ["mkcert.exe"],
           "lts": true,
           "sha256_windows": "d2660b50a9ed59eada480750561c96abc2ed4c9a38c6a24d93e30e0977631398"
         }
@@ -2293,12 +1684,8 @@
         "3.10.0": {
           "url": "https://dlcdn.apache.org/maven/maven-3/3.10.0/binaries/apache-maven-3.10.0-bin.tar.gz",
           "url_windows": "https://dlcdn.apache.org/maven/maven-3/3.10.0/binaries/apache-maven-3.10.0-bin.zip",
-          "binaries": [
-            "bin/mvn"
-          ],
-          "binaries_windows": [
-            "bin/mvn.cmd"
-          ],
+          "binaries": ["bin/mvn"],
+          "binaries_windows": ["bin/mvn.cmd"],
           "lts": true,
           "sha256": "a46cc51bc74fa23fd267c7a0b9132b146dcf526da60d31aa5174e565632e9e0e",
           "sha256_windows": "1f6d9909266510f039f59aa0e13dcd2c66da85f043e56276e41f2918f8bddaff"
@@ -2306,12 +1693,8 @@
         "3.9.16": {
           "url": "https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz",
           "url_windows": "https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.zip",
-          "binaries": [
-            "bin/mvn"
-          ],
-          "binaries_windows": [
-            "bin/mvn.cmd"
-          ],
+          "binaries": ["bin/mvn"],
+          "binaries_windows": ["bin/mvn.cmd"],
           "lts": true,
           "sha256": "80ffca22aed9e8b9713a232f3394fd81d7f20322df75efdb2b047dbd3e3a23bb",
           "sha256_windows": "5af3b743dd8b876b5c45da33b676251e5f1687712644abb4ee519ca56e1d89ce"
@@ -2325,12 +1708,8 @@
           "url_windows": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-windows-amd64.exe",
           "sha256": "b1c22172dd303f3be49e935aa56aa48a8b7a46e0bc838b4997d3bb451495870f",
           "sha256_windows": "a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627",
-          "binaries": [
-            "jq"
-          ],
-          "binaries_windows": [
-            "jq.exe"
-          ],
+          "binaries": ["jq"],
+          "binaries_windows": ["jq.exe"],
           "lts": true
         }
       }
@@ -2342,12 +1721,8 @@
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.0/cloudflared-windows-amd64.exe",
           "sha256": "d33ff2d14475178d2012c2c56beba87389ac5ded27649519f198a7d3134a99db",
           "sha256_windows": "86aee4017b26625cee8484c113558f48effa4cd47f7aa05fcf425604e5d2b23c",
-          "binaries": [
-            "cloudflared"
-          ],
-          "binaries_windows": [
-            "cloudflared.exe"
-          ],
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
           "lts": true
         },
         "2026.9.3": {
@@ -2355,12 +1730,8 @@
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.3/cloudflared-windows-amd64.exe",
           "sha256": "77e26d8d900e0b8469f416239d14b5f296525fdf79fee6f511ef55609e3fbac2",
           "sha256_windows": "f096265ec2fcbe9bb6e2d64268db167ced3fcbb83d894bdb9e2fcdb26f2ea7e2",
-          "binaries": [
-            "cloudflared"
-          ],
-          "binaries_windows": [
-            "cloudflared.exe"
-          ],
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
           "lts": true
         },
         "2026.9.1": {
@@ -2368,12 +1739,8 @@
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.1/cloudflared-windows-amd64.exe",
           "sha256": "03f1f25d1cc93b9ad6c60569d44060bc4f17ed97075760ed8cfca4b12dcd68cc",
           "sha256_windows": "2837888cc0f5d58f15b6dc478376de90b4d3ba5241c7947455d1e0a0df429712",
-          "binaries": [
-            "cloudflared"
-          ],
-          "binaries_windows": [
-            "cloudflared.exe"
-          ],
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
           "lts": true
         },
         "2026.9.0": {
@@ -2381,12 +1748,8 @@
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.9.0/cloudflared-windows-amd64.exe",
           "sha256": "53b7a7a5420d188758d24341294acb0d1bca54296548ac05e38811a694ac6134",
           "sha256_windows": "547057326266f0e1c7d50d102dbd22ff283d740c055bd61e94f10e2c606f89af",
-          "binaries": [
-            "cloudflared"
-          ],
-          "binaries_windows": [
-            "cloudflared.exe"
-          ],
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
           "lts": true
         },
         "2026.8.3": {
@@ -2394,12 +1757,8 @@
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.3/cloudflared-windows-amd64.exe",
           "sha256": "f29324fe934d1e100617484c78deef803c4dc2cd351d645bbde42e96b4fccc5e",
           "sha256_windows": "83e726ed18ea78c5ad5213c4c3a3a27051393950d2bc8ed4de69bec12d14eaae",
-          "binaries": [
-            "cloudflared"
-          ],
-          "binaries_windows": [
-            "cloudflared.exe"
-          ],
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
           "lts": true
         },
         "2026.8.2": {
@@ -2407,12 +1766,8 @@
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.8.2/cloudflared-windows-amd64.exe",
           "sha256": "fcfb02b575a52ca1af2e3267af4e1517bcdeb30ac48c834c69abaed3c0576ad2",
           "sha256_windows": "c29eee2b121f5436a642eed69fd9767da7e7b8c510fa50aaa130337f931357b5",
-          "binaries": [
-            "cloudflared"
-          ],
-          "binaries_windows": [
-            "cloudflared.exe"
-          ],
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
           "lts": true
         }
       }
@@ -2424,15 +1779,9 @@
           "url_windows": "https://github.com/Paul75/devconsole-registry/releases/download/spekter-1.3.1/spekter-1.3.1-windows_x86_64.tar.gz",
           "sha256": "b525a77168584feafef50209a4c949611099a5e2325abf47e4c1820bff90091a",
           "sha256_windows": "5c11cca92b789cd362c66410cf7b998121fb34c1b6ff9b8b2a69e9be2fd13e7d",
-          "binaries": [
-            "spekter",
-            "spekter-nw"
-          ],
+          "binaries": ["spekter", "spekter-nw"],
           "lts": true,
-          "binaries_windows": [
-            "spekter.exe",
-            "spekter-nw.exe"
-          ]
+          "binaries_windows": ["spekter.exe", "spekter-nw.exe"]
         }
       }
     },
@@ -2441,16 +1790,8 @@
         "3.53.4": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/sqlite-3.53.4/sqlite-3.53.4-linux_x86_64-musl.tar.gz",
           "url_windows": "https://www.sqlite.org/2026/sqlite-tools-win-x64-3530400.zip",
-          "binaries": [
-            "sqlite3",
-            "sqldiff",
-            "sqlite3_analyzer"
-          ],
-          "binaries_windows": [
-            "sqlite3.exe",
-            "sqldiff.exe",
-            "sqlite3_analyzer.exe"
-          ],
+          "binaries": ["sqlite3", "sqldiff", "sqlite3_analyzer"],
+          "binaries_windows": ["sqlite3.exe", "sqldiff.exe", "sqlite3_analyzer.exe"],
           "lts": true,
           "sha256": "6a177161693a584fcf2e789e8c32a34e6e833eab52c30937335ebdec881c575c",
           "sha256_windows": "f46ee2475de4cbe287e6e5f7d43c838796b14e7379cd216bdbb28d391429f9fc"
@@ -2464,12 +1805,8 @@
           "url_windows": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.12/KeePassXC-2.7.12-Win64.zip",
           "sha256": "564fe8b751b9ef7aa057e4d3d0b2878db24eaa0f6b1c855c82e699ab0913ae49",
           "sha256_windows": "958234b0669d757b53eacf42bdd5de0fa1cc1ab7527709ddf4f7e29c06a8305f",
-          "binaries": [
-            "keepassxc"
-          ],
-          "binaries_windows": [
-            "keepassxc.exe"
-          ],
+          "binaries": ["keepassxc"],
+          "binaries_windows": ["keepassxc.exe"],
           "lts": true
         }
       }
@@ -2481,12 +1818,8 @@
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v32.3.0/draw.io-32.3.0-windows.zip",
           "sha256": "bf44ef4d91e7c9187743826eb4c311e99ac240cebab3e85990a4c42138302e65",
           "sha256_windows": "a47dbcfd6db3ccab90223997e86bb521f0d149479d34cb8a493d4b5e96275422",
-          "binaries": [
-            "drawio"
-          ],
-          "binaries_windows": [
-            "draw.io.exe"
-          ],
+          "binaries": ["drawio"],
+          "binaries_windows": ["draw.io.exe"],
           "lts": true
         },
         "31.7.0": {
@@ -2494,12 +1827,8 @@
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v31.7.0/draw.io-31.7.0-windows.zip",
           "sha256": "6a304fed85da0d3db0ba4b8dc5dad8779ff02318c56e45bcc2dd64f4ddf91645",
           "sha256_windows": "72074548c40970825d8d18085d2537f4b64d8270c4aa24a527be2877e8053b54",
-          "binaries": [
-            "drawio"
-          ],
-          "binaries_windows": [
-            "draw.io.exe"
-          ],
+          "binaries": ["drawio"],
+          "binaries_windows": ["draw.io.exe"],
           "lts": true
         },
         "31.5.3": {
@@ -2507,12 +1836,8 @@
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v31.5.3/draw.io-31.5.3-windows.zip",
           "sha256": "e41166efff316128f4e486f5f3d09f774fba10a20ae365f3fe0ded5d4081cffe",
           "sha256_windows": "6c203e81d7c5679a65cbdff680c057034b55bb75ca58e2eda39880a261f19930",
-          "binaries": [
-            "drawio"
-          ],
-          "binaries_windows": [
-            "draw.io.exe"
-          ],
+          "binaries": ["drawio"],
+          "binaries_windows": ["draw.io.exe"],
           "lts": true
         },
         "31.5.2": {
@@ -2520,12 +1845,8 @@
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v31.5.2/draw.io-31.5.2-windows.zip",
           "sha256": "c0b37ee00307d7112c29b28ea33686103f47af620415d710663497459bdf927f",
           "sha256_windows": "f31683e3c643b01655116bb28d41e43d49d75e50c9967c2d2957c70371a7c692",
-          "binaries": [
-            "drawio"
-          ],
-          "binaries_windows": [
-            "draw.io.exe"
-          ],
+          "binaries": ["drawio"],
+          "binaries_windows": ["draw.io.exe"],
           "lts": true
         },
         "31.4.5": {
@@ -2533,12 +1854,8 @@
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v31.4.5/draw.io-31.4.5-windows.zip",
           "sha256": "9d39e815151296a55b1e95f68476ef999c2ca6b0673b64a03096b4117cda15c0",
           "sha256_windows": "d2c6f1eb4ed39fac9bb70fe6a1d359b8b9b01778145d65a68d29554994414207",
-          "binaries": [
-            "drawio"
-          ],
-          "binaries_windows": [
-            "draw.io.exe"
-          ],
+          "binaries": ["drawio"],
+          "binaries_windows": ["draw.io.exe"],
           "lts": true
         }
       }

@@ -1,0 +1,13 @@
+{
+  "name": "devconsole-registry",
+  "version": "2.3.64",
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,ts,html,scss,css,md,json,mjs,cjs}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,html,scss,css,md,json,mjs,cjs}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.8.4"
+  },
+  "author": "Paul BOREL",
+  "license": "MIT"
+}

@@ -40,12 +40,12 @@ Le script [`scripts/check-versions.py`](scripts/check-versions.py) interroge les
 
 `node`, `bun`, `caddy`, `mailpit`, `composer`, `zed`, `vscodium`, `tabby`, `electerm`, `go`, `php`, `git`, `python`, `vscode`, `jdk`, `rust`, `postgres`, `mariadb`, `windterm`, `bruno`, `cloudflared`, `gh`, `jq`, `keepassxc`, `lazygit`, `mkcert`, `maven`, `uv`, `redis`, `mongodb`, `sqlite`, `android_studio`, `android_sdk`, `drawio`
 
-| Outil | Source | Comportement |
-|-------|--------|--------------|
-| **node** | `nodejs.org/dist/index.json` + SHASUMS | remplace la version de chaque ligne majeure déjà présente |
-| **go** | `go.dev/dl/?mode=json` | ajoute la nouvelle version (sha depuis l’API) |
+| Outil            | Source                                 | Comportement                                                                                  |
+| ---------------- | -------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **node**         | `nodejs.org/dist/index.json` + SHASUMS | remplace la version de chaque ligne majeure déjà présente                                     |
+| **go**           | `go.dev/dl/?mode=json`                 | ajoute la nouvelle version (sha depuis l’API)                                                 |
 | **php**, **git** | tags GitHub (`php/php-src`, `git/git`) | **detect-only** : signale la nouvelle version, le binaire étant produit par un build local/CI |
-| **autres** | GitHub Releases `latest` | ajoute la nouvelle version (URL dérivée du template existant) |
+| **autres**       | GitHub Releases `latest`               | ajoute la nouvelle version (URL dérivée du template existant)                                 |
 
 `php` et `git` ne dérivent pas d’URL : leur binaire Linux est buildé localement
 (ou en CI). Une fois la release publiée, [`scripts/update-builds.sh`](scripts/update-builds.sh)
@@ -130,6 +130,7 @@ Les binaires PHP sont buildés avec [static-php-cli](https://static-php.dev) via
 Aller dans **Actions → Build PHP → Run workflow**, saisir la version mineure (e.g. `8.4`).
 
 Le workflow:
+
 1. Télécharge `spc` (le CLI de static-php-cli)
 2. Compile PHP avec les extensions listées dans [`craft.yml`](craft.yml)
 3. Crée un archive `.tar.gz` contenant `bin/php`, `sbin/php-fpm`, `bin/php-cgi`
