@@ -1095,6 +1095,14 @@
     },
     "go": {
       "versions": {
+        "1.27.2": {
+          "url": "https://go.dev/dl/go1.27.2.linux-amd64.tar.gz",
+          "url_windows": "https://go.dev/dl/go1.27.2.windows-amd64.zip",
+          "sha256": "ecbadb99091a3f46e31f5f934b068b1864eafa7995211b39eaddf76996045fe5",
+          "sha256_windows": "1314008898bd40df77af4b014f777f08873dbdfbcd3d92308728ee03304fe04f",
+          "binaries": ["bin/go", "bin/gofmt"],
+          "lts": true
+        },
         "1.27.1": {
           "url": "https://go.dev/dl/go1.27.1.linux-amd64.tar.gz",
           "url_windows": "https://go.dev/dl/go1.27.1.windows-amd64.zip",
