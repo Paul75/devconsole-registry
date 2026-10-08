@@ -1490,6 +1490,46 @@ def warn_orphaned_replace(updates: list[Update], tools_dir: Path | None) -> None
         print(file=sys.stderr)
 
 
+def write_versions_json(data: dict[str, Any]) -> None:
+    """Ecrit versions.json puis le formate (npm run format / prettier).
+
+    json.dumps(indent=2) ne produit pas la sortie exacte de prettier :
+    sans ce passage, chaque ecriture laisse un JSON non conforme, et
+    comme le hook pre-commit ne couvre pas les JSON, la salete part au
+    commit. Formater ICI — apres l'ecriture, avant la copie vers
+    l'embarquee — fait que les deux fichiers sont propres en un seul
+    passage."""
+    VERSIONS_PATH.write_text(
+        json.dumps(data, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    try:
+        proc = subprocess.run(
+            ["npm", "run", "format"],
+            cwd=str(ROOT),
+            # stdout/consomme par --json : prettier listerait ses fichiers
+            # au milieu de la sortie machine.
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+    except OSError as e:
+        print(
+            f"  ⚠ Formatage prettier impossible ({e}) — lancer npm run format "
+            "dans devconsole-registry avant le commit",
+            file=sys.stderr,
+        )
+        return
+    if proc.returncode != 0:
+        print(
+            f"  ⚠ npm run format en echec (rc={proc.returncode}) — "
+            f"versions.json peut rester non forme",
+            file=sys.stderr,
+        )
+        if proc.stderr.strip():
+            print(proc.stderr.strip(), file=sys.stderr)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -1541,10 +1581,7 @@ def main() -> int:
         entry = json.load(sys.stdin)
         data = json.loads(VERSIONS_PATH.read_text(encoding="utf-8"))
         data = apply_updates(data, [Update(tool, None, version, entry, "add")])
-        VERSIONS_PATH.write_text(
-            json.dumps(data, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
+        write_versions_json(data)
         print(f"Ajoute {tool} {version} dans {VERSIONS_PATH}", file=sys.stderr)
         return 0
 
@@ -1564,10 +1601,7 @@ def main() -> int:
         if args.write:
             if filled:
                 data = sort_versions_data(data)
-                VERSIONS_PATH.write_text(
-                    json.dumps(data, indent=2, ensure_ascii=False) + "\n",
-                    encoding="utf-8",
-                )
+                write_versions_json(data)
                 print(
                     f"Ecrit {VERSIONS_PATH} ({filled} sha256 rempli(s))",
                     file=sys.stderr,
@@ -1652,10 +1686,7 @@ def main() -> int:
     if args.write:
         if write_updates:
             new_data = apply_updates(data, write_updates)
-            VERSIONS_PATH.write_text(
-                json.dumps(new_data, indent=2, ensure_ascii=False) + "\n",
-                encoding="utf-8",
-            )
+            write_versions_json(new_data)
             print(
                 f"Ecrit {VERSIONS_PATH} ({len(write_updates)} update(s))",
                 file=sys.stderr,
