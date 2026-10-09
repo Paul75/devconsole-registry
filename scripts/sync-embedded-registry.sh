@@ -12,6 +12,9 @@
 #   scripts/sync-embedded-registry.sh            # copie versions.json → embarquée
 #   scripts/sync-embedded-registry.sh --check    # compare seulement, code ≠0 si différent
 #
+# SYNC_COMMIT_HINT=0 tait le rappel de commit : check-versions.py --commit
+# committe lui-même, le rappel serait un doublon contredit une ligne plus bas.
+#
 # Résolution du repo DevConsole :
 #   1. $DEVCONSOLE_REPO (variable d'env explicite)
 #   2. parent du registry (repo DevConsole dans le même workspace, ex. devconsole-registry/)
@@ -82,6 +85,8 @@ fi
 # ─── Sync (copie seule — le commit est laissé au user) ──────────────────────
 cp "$SRC" "$DST"
 echo "✅ Embarquée synchronisée : $DST"
-echo "→ Committez dans $DC_REPO avec votre message métier :"
-echo "    git -C $DC_REPO add src-tauri/resources/versions.json"
-echo "    git -C $DC_REPO commit -m \"<message>\""
+if [ "${SYNC_COMMIT_HINT:-1}" != "0" ]; then
+    echo "→ Committez dans $DC_REPO avec votre message métier :"
+    echo "    git -C $DC_REPO add src-tauri/resources/versions.json"
+    echo "    git -C $DC_REPO commit -m \"<message>\""
+fi

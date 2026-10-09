@@ -6,6 +6,7 @@ Usage:
   scripts/check-versions.py --write          # ecrit versions.json (+ sync embarquée DevConsole)
   scripts/check-versions.py --tool node,bun  # sous-ensemble
   scripts/check-versions.py --write --sha    # + telecharge pour calculer sha256
+  scripts/check-versions.py --write --commit # + committe registry et embarquee (message genere)
   scripts/check-versions.py --write --fill-sha  # calcule les sha256 manquants des entrees existantes
   scripts/check-versions.py --add php@8.5.10 # ajoute une version (entry JSON stdin)
 
@@ -1293,14 +1294,16 @@ CHECKERS: dict[str, Checker] = {
 # ─── apply / main ────────────────────────────────────────────────────────────
 
 
-def fill_missing_shas(data: dict[str, Any], tools: list[str]) -> int:
+def fill_missing_shas(data: dict[str, Any], tools: list[str]) -> list[str]:
     """Calcule les sha256 manquants (None/"") des entrees existantes.
 
     Passe independante des checkers : telecharge chaque URL pour calculer le
     hash des entrees deja presentes dans versions.json dont le sha256 (ou
-    sha256_windows) est vide. Retourne le nombre de hashes remplis.
+    sha256_windows) est vide. Retourne la liste des hashes remplis, sous la
+    forme « <outil> <version> » (vide si rien a faire) — le libelle sert au
+    message de commit de --commit, le nombre s'en deduit.
     """
-    filled = 0
+    filled: list[str] = []
     for name, tool in (data.get("tools") or {}).items():
         if tools and name not in tools:
             continue
@@ -1316,7 +1319,7 @@ def fill_missing_shas(data: dict[str, Any], tools: list[str]) -> int:
                 print(f"  … {name} {ver}: sha256 {src} …", file=sys.stderr)
                 try:
                     entry[dst] = sha256_url(url)
-                    filled += 1
+                    filled.append(f"{name} {ver}")
                 except urllib.error.HTTPError as e:
                     print(f"  ! {name} {ver}: echec sha {src}: {e}", file=sys.stderr)
     return filled
@@ -1530,6 +1533,105 @@ def write_versions_json(data: dict[str, Any]) -> None:
             print(proc.stderr.strip(), file=sys.stderr)
 
 
+def devconsole_repo() -> Path | None:
+    """Repo DevConsole (embarquee), meme resolution que
+    scripts/sync-embedded-registry.sh : $DEVCONSOLE_REPO, sinon le parent du
+    registry. Les deux candidats doivent etre un depot git."""
+    env = os.environ.get("DEVCONSOLE_REPO", "").strip()
+    if env:
+        candidate = Path(env)
+    elif (ROOT.parent / ".git").is_dir():
+        candidate = ROOT.parent
+    else:
+        return None
+    return candidate if (candidate / ".git").is_dir() else None
+
+
+def commit_subject(prefix: str, tools: list[str]) -> str:
+    """Sujet de commit, convention du registre : « update go »,
+    « update zed et drawio », « update a, b et c ». Dedoublonne en gardant
+    l'ordre d'apparition (celui du rapport, celui que l'utilisateur vient de
+    lire)."""
+    names = list(dict.fromkeys(tools))
+    if not names:
+        return prefix
+    if len(names) == 1:
+        return f"{prefix} {names[0]}"
+    return f"{prefix} " + ", ".join(names[:-1]) + f" et {names[-1]}"
+
+
+def commit_paths(repo: Path, paths: list[str], message: str) -> bool:
+    """Commit exactement ces chemins (retourne False s'il n'y a rien a faire).
+
+    `git commit <chemins>` prend le contenu du DISQUE de ces seuls fichiers :
+    les modifications deja indexees du depot ne partent pas avec le commit,
+    contrairement a un `git add <chemin>` + `git commit` qui embarquerait
+    tout l'index (et le travail en cours de l'utilisateur avec)."""
+    if not (repo / ".git").is_dir():
+        print(f"  ⚠ {repo} n'est pas un depot git — commit laisse a la main", file=sys.stderr)
+        return False
+    try:
+        state = subprocess.run(
+            ["git", "-C", str(repo), "status", "--porcelain", "--", *paths],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        if not state.stdout.strip():
+            return False
+        subprocess.run(
+            ["git", "-C", str(repo), "commit", "--only", "-m", message, "--", *paths],
+            check=True,
+        )
+    except (OSError, subprocess.CalledProcessError) as e:
+        print(f"  ⚠ commit echoue dans {repo} ({e}) — committer a la main", file=sys.stderr)
+        return False
+    print(f"✓ Commit cree dans {repo} : {message.splitlines()[0]}", file=sys.stderr)
+    return True
+
+
+def update_details(updates: list[Update]) -> list[str]:
+    """Corps du message de commit, une ligne par mise a jour."""
+    details = []
+    for u in updates:
+        if u.mode == "add" or not u.old_version:
+            details.append(f"{u.tool} {u.new_version} (ajout)")
+        else:
+            details.append(f"{u.tool} {u.old_version} → {u.new_version}")
+    return details
+
+
+def auto_commit(
+    tools: list[str],
+    details: list[str],
+    *,
+    embedded: bool,
+    prefix: str = "update",
+) -> None:
+    """Commit registry + embarquee avec un message genere (--commit).
+
+    `embedded=False` pour les chemins qui n'ont pas synchronise l'embarquee
+    (--add, --fill-sha) : la copie n'a pas ete refaite, donc le fichier du
+    repo DevConsole n'a pas a partir avec ce message (il peut porter des
+    modifications locales sans rapport)."""
+    subject = commit_subject(prefix, tools)
+    message = subject
+    if details:
+        message += "\n\n" + "\n".join(f"- {d}" for d in details)
+    commit_paths(ROOT, ["versions.json"], message)
+    if not embedded:
+        return
+    dc_repo = devconsole_repo()
+    if dc_repo is None:
+        print(
+            "  ⚠ repo DevConsole introuvable — embarque non commitee "
+            "(DEVCONSOLE_REPO a definir)",
+            file=sys.stderr,
+        )
+        return
+    commit_paths(dc_repo, [str(Path("src-tauri") / "resources" / "versions.json")], message)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -1565,6 +1667,12 @@ def main() -> int:
         "Usage par scripts/update-builds.sh apres publication de la release.",
     )
     parser.add_argument(
+        "--commit",
+        action="store_true",
+        help="Committe registry et embarquee apres ecriture, avec un message "
+        "genere (« update zed et drawio »). Necessite --write ou --add.",
+    )
+    parser.add_argument(
         "--tools-dir",
         metavar="PATH",
         help="Chemin du tools_dir DevConsole (la ou les versions sont "
@@ -1572,6 +1680,10 @@ def main() -> int:
         "Sert a alerter quand un 'replace' retire une version encore installee.",
     )
     args = parser.parse_args()
+
+    if args.commit and not (args.write or args.add):
+        print("--commit necessite --write (ou --add).", file=sys.stderr)
+        return 2
 
     if args.add:
         tool, _, version = args.add.partition("@")
@@ -1583,6 +1695,10 @@ def main() -> int:
         data = apply_updates(data, [Update(tool, None, version, entry, "add")])
         write_versions_json(data)
         print(f"Ajoute {tool} {version} dans {VERSIONS_PATH}", file=sys.stderr)
+        if args.commit:
+            # Pas de sync ici (c'est update-builds.sh qui le fait apres tous
+            # les --add) : seule la registry est commitee.
+            auto_commit([tool], [f"{tool} {version} (ajout)"], embedded=False)
         return 0
 
     tools = [t.strip() for t in args.tool.split(",") if t.strip()] if args.tool else []
@@ -1603,14 +1719,22 @@ def main() -> int:
                 data = sort_versions_data(data)
                 write_versions_json(data)
                 print(
-                    f"Ecrit {VERSIONS_PATH} ({filled} sha256 rempli(s))",
+                    f"Ecrit {VERSIONS_PATH} ({len(filled)} sha256 rempli(s))",
                     file=sys.stderr,
                 )
+                if args.commit:
+                    # Pas de sync sur ce chemin : seule la registry est commitee.
+                    auto_commit(
+                        [label.split()[0] for label in filled],
+                        list(dict.fromkeys(filled)),
+                        embedded=False,
+                        prefix="sha256",
+                    )
             else:
                 print("Aucun sha256 manquant.", file=sys.stderr)
         else:
             print(
-                f"{filled} sha256 a remplir. Relancer avec --write pour appliquer.",
+                f"{len(filled)} sha256 a remplir. Relancer avec --write pour appliquer.",
                 file=sys.stderr,
             )
         return 0
@@ -1694,19 +1818,33 @@ def main() -> int:
             # Sync automatique de l'embarquée DevConsole (src-tauri/resources/
             # versions.json) — même comportement que update-builds.sh.
             sync_script = ROOT / "scripts" / "sync-embedded-registry.sh"
+            synced = False
             if sync_script.is_file():
+                env = dict(os.environ)
+                if args.commit:
+                    # --commit committe lui-même : le rappel « Committez… » du
+                    # sync deviendrait un doublon contredit une ligne plus bas.
+                    env["SYNC_COMMIT_HINT"] = "0"
                 try:
                     subprocess.run(
                         [str(sync_script)],
                         check=True,
                         cwd=str(ROOT),
+                        env=env,
                     )
+                    synced = True
                 except subprocess.CalledProcessError as e:
                     print(
                         f"  ⚠ Sync embarquée échouée (rc={e.returncode}) — "
                         f"relancer manuellement : scripts/sync-embedded-registry.sh",
                         file=sys.stderr,
                     )
+            if args.commit:
+                auto_commit(
+                    [u.tool for u in write_updates],
+                    update_details(write_updates),
+                    embedded=synced,
+                )
     else:
         print(
             f"{len(write_updates)} update(s) ecrivable(s). Relancer avec --write "
