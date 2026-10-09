@@ -1452,6 +1452,15 @@
     },
     "uv": {
       "versions": {
+        "0.12.24": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.12.24/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.24/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "b4dfaef47d491a7296981f8374a4595f55dbf84e8937c8ecd2983574d8bb3da6",
+          "sha256_windows": "7c38608c8a18ee137d748a1773053b07ec8f3a30fab49aebaa6f4e4efeceb019",
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
+          "lts": true
+        },
         "0.12.23": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.12.23/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.12.23/uv-x86_64-pc-windows-msvc.zip",
@@ -1821,6 +1830,15 @@
     },
     "drawio": {
       "versions": {
+        "32.4.1": {
+          "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.4.1/drawio-x86_64-32.4.1.AppImage",
+          "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v32.4.1/draw.io-32.4.1-windows.zip",
+          "sha256": "c687a9f1ddcaa146b78547452d264c03c2afcf125639cba5deeb65f3e9554c9e",
+          "sha256_windows": "b9ced12274d1f1e9a80280e2dc43d3b2dbe2ae30a1553f42dd46011a587ee19b",
+          "binaries": ["drawio"],
+          "binaries_windows": ["draw.io.exe"],
+          "lts": true
+        },
         "32.3.0": {
           "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.3.0/drawio-x86_64-32.3.0.AppImage",
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v32.3.0/draw.io-32.3.0-windows.zip",
