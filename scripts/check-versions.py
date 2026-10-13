@@ -357,30 +357,42 @@ def check_needs_build(
     tag_regex: str,
     prefix: str,
     buildable: Callable[[str], bool] | None = None,
+    rolling: bool = False,
 ) -> list[Update]:
     """Detect-only pour les outils dont le binaire est produit par un build
     local/CI (php, git Linux) : signale la nouvelle version upstream sans
     deriver les URLs. Le build est declenche par scripts/update-builds.sh.
 
     Gere le suivi par ligne majeure (ex: PHP 8.3, 8.4, 8.5) : chaque ligne
-    suivie est comparee independamment a l'upstream.
+    suivie est comparee independamment a l'upstream. `rolling=True` pour un
+    outil a ligne unique (git) : la version locale la plus recente est
+    comparee a la plus recente upstream, sans groupement.
     """
     versions = current.get("versions") or {}
     if not versions:
         return []
 
     tags = http_get_json(f"https://api.github.com/repos/{repo}/tags?per_page=100")
-    stable = [t["name"] for t in tags if re.match(tag_regex, t["name"])]
+    stable = [m.group(1) for t in tags if (m := re.match(tag_regex, t["name"]))]
     if not stable:
         return []
 
+    # Ligne unique : le groupement par (major, minor) ne vaudrait que pour des
+    # lignes paralleles (PHP). Git incremente le mineur a chaque release
+    # (2.54 → 2.55 → 2.56) : chaque nouvelle version est donc un groupe absent
+    # en local, jamais compare, et la detection reste muette pour toujours.
+    if rolling:
+        new_ver = max_version(stable)
+        old_ver = max_version(list(versions))
+        if not version_gt(new_ver, old_ver):
+            return []
+        if buildable is not None and not buildable(new_ver):
+            return []
+        return [Update(tool, old_ver, new_ver, deepcopy(versions[old_ver]), "build")]
+
     # Index upstream par groupe (major, minor) → meilleure version du groupe
     upstream_by_group: dict[tuple[int, int], str] = {}
-    for tag in stable:
-        m = re.match(tag_regex, tag)
-        if not m:
-            continue
-        ver = m.group(1)
+    for ver in stable:
         grp = version_group(ver)
         if grp not in upstream_by_group or version_gt(ver, upstream_by_group[grp]):
             upstream_by_group[grp] = ver
@@ -440,10 +452,13 @@ def php_buildable(ver: str) -> bool:
 
 def check_git(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
     # Tags git/git : v2.55.0, v2.55.0-rc2 (exclu par le regex strict).
+    # Git incremente le mineur a chaque release : une seule ligne courante,
+    # donc comparaison directe de la plus recente (voir rolling=).
     return check_needs_build(
         "git", "git/git", current, args,
         tag_regex=r"^v(\d+\.\d+\.\d+)$",
         prefix="v",
+        rolling=True,
     )
 
 
@@ -658,12 +673,16 @@ def check_redis(current: dict[str, Any], args: argparse.Namespace) -> list[Updat
 
     Le fork n'a pas d'API fiable pour la detection automatique. Cette
     fonction signale les nouvelles versions upstream (redis/redis) sans
-    deriver les URLs — le rebuild du fork est manuel.
+    deriver les URLs — le rebuild du fork est manuel. Redis ne suit qu'une
+    ligne a la fois : une seule ligne courante, donc comparaison directe de
+    la plus recente (voir rolling=), sinon un passage 7.4 -> 8.0 passerait
+    inapercu (chaque version mineure est un nouveau groupe).
     """
     return check_needs_build(
         "redis", "redis/redis", current, args,
         tag_regex=r"^(\d+\.\d+\.\d+)$",
         prefix="",
+        rolling=True,
     )
 
 
