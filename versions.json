@@ -347,6 +347,15 @@
     },
     "vscode": {
       "versions": {
+        "1.141.1": {
+          "url": "https://update.code.visualstudio.com/1.141.1/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.141.1/win32-x64-archive/stable",
+          "sha256": "ec695e5ba070eb314261341ca1433e46799702b6208ee65094aeaa922a7d827b",
+          "sha256_windows": "5b839a6c0bbecb145eab5217243e5206aabac2d6c55144daeebb842df07dfc84",
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
+          "lts": true
+        },
         "1.141.0": {
           "url": "https://update.code.visualstudio.com/1.141.0/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.141.0/win32-x64-archive/stable",
@@ -477,6 +486,15 @@
     },
     "vscodium": {
       "versions": {
+        "1.140.06880": {
+          "url": "https://github.com/VSCodium/vscodium/releases/download/1.140.06880/VSCodium-linux-x64-1.140.06880.tar.gz",
+          "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.140.06880/VSCodium-win32-x64-1.140.06880.zip",
+          "sha256": "61223b74f9e40834117311ec4177cb386d09b84c1aae4f9e674c96580569cef3",
+          "sha256_windows": "024ae1e88f431aee300e73c2ece92e42ebde80a7f3c484ff684f455ffa6a6a7f",
+          "binaries": ["bin/codium"],
+          "binaries_windows": ["bin/codium.cmd"],
+          "lts": true
+        },
         "1.135.06055": {
           "url": "https://github.com/VSCodium/vscodium/releases/download/1.135.06055/VSCodium-linux-x64-1.135.06055.tar.gz",
           "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.135.06055/VSCodium-win32-x64-1.135.06055.zip",
@@ -499,6 +517,14 @@
     },
     "zed": {
       "versions": {
+        "1.23.3": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.23.3/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.23.3/Zed-x86_64.exe",
+          "sha256": "f7191294295699bb5ac810a4c50f8290ad3d0191c3e506114fb14a7236921a61",
+          "sha256_windows": "4d4efcdb644d2d76025810f9ea0bae3e6a543ac6e71e9f96763e92421e438e29",
+          "binaries": ["bin/zed"],
+          "lts": true
+        },
         "1.23.2": {
           "url": "https://github.com/zed-industries/zed/releases/download/v1.23.2/zed-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.23.2/Zed-x86_64.exe",
@@ -1246,6 +1272,15 @@
     },
     "mongodb": {
       "versions": {
+        "8.3.13": {
+          "url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.3.13.tgz",
+          "url_windows": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.3.13.zip",
+          "sha256": "a8adfec6fa937c5e1be5580d83a4102caf029e6524250dce8950596f6c0eb468",
+          "sha256_windows": "61fcc2b2ac3a295ba2d8c80f678f01502b96647d835f0159b694c507035b5238",
+          "binaries": ["mongod", "mongos"],
+          "binaries_windows": ["mongod.exe", "mongos.exe"],
+          "lts": true
+        },
         "8.3.11": {
           "url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-8.3.11.tgz",
           "url_windows": "",
@@ -1335,6 +1370,15 @@
     },
     "electerm": {
       "versions": {
+        "5.6.0": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.6.0/electerm-5.6.0-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.6.0/electerm-5.6.0-win-x64-portable.tar.gz",
+          "sha256": "9a8d505c8c59b1fb5c95b96e7bfb4297cf4cafe05c39dd545e073c568be1b9b9",
+          "sha256_windows": "87c202f674d6347d072677dc344d287649cb0c2aafc4770f93890cc0ef528f98",
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
+          "lts": true
+        },
         "5.5.76": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.5.76/electerm-5.5.76-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.5.76/electerm-5.5.76-win-x64-portable.tar.gz",
@@ -1478,6 +1522,15 @@
     },
     "uv": {
       "versions": {
+        "0.13.1": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.13.1/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.13.1/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "eadd9d27c134ab5ac1ffd4473b97a741407f3ea238288f03121fc4deddf90220",
+          "sha256_windows": "3b2661a463a5baea7f5076ea2b25ab71d77f36a6c0d809e5350651792f80a672",
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
+          "lts": true
+        },
         "0.13.0": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.13.0/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.13.0/uv-x86_64-pc-windows-msvc.zip",
