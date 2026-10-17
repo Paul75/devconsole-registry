@@ -1979,6 +1979,15 @@
     },
     "sqlite": {
       "versions": {
+        "3.54.1": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/sqlite-3.54.1/sqlite-3.54.1-linux_x86_64-musl.tar.gz",
+          "url_windows": "https://www.sqlite.org/2026/sqlite-tools-win-x64-3540100.zip",
+          "binaries": ["sqlite3", "sqldiff", "sqlite3_analyzer"],
+          "binaries_windows": ["sqlite3.exe", "sqldiff.exe", "sqlite3_analyzer.exe"],
+          "lts": true,
+          "sha256": "4d23739e4248bd4fdf96c59afd0b4fbf4d032f909688b6bc73ff0454f3f11551",
+          "sha256_windows": "fb20997ade5583a5fbf1e36db7bc3c82c9416b3f314f16961e1572aa4e49487d"
+        },
         "3.54.0": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/sqlite-3.54.0/sqlite-3.54.0-linux_x86_64-musl.tar.gz",
           "url_windows": "https://www.sqlite.org/2026/sqlite-tools-win-x64-3540000.zip",
