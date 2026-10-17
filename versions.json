@@ -327,6 +327,14 @@
     },
     "git": {
       "versions": {
+        "2.56.0": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.56.0/git-2.56.0-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.2/MinGit-2.56.0.2-64-bit.zip",
+          "sha256": "b367d84a35b13f31a4dd4e1fb8377f54d8d930c22e741cf58e6fb45455e4f57d",
+          "sha256_windows": "da35e72aa21c005a5a0d298cfbae110bc1609a815730ea0dde84b01a1b3cd3be",
+          "binaries": ["bin/git"],
+          "binaries_windows": ["cmd/git"]
+        },
         "2.55.0": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.55.0/git-2.55.0-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.2/MinGit-2.55.0.2-64-bit.zip",
