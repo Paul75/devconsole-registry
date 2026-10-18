@@ -35,8 +35,16 @@ if [ ! -d "redis-${REDIS_VERSION}" ]; then
 fi
 
 # ─── 3. Build ────────────────────────────────────────────────────────────────
+# Cibles explicites (redis-server / redis-cli), JAMAIS `make` tout court :
+# depuis Redis 8, la cible par défaut (`all` → scripts/build.sh) inclut
+# `module_tests`, qui compile des .so de tests. Or LDFLAGS="-static" est
+# global : lier un objet partagé en statique échoue (relocation
+# R_X86_64_32 contre __TMC_END__, crtbeginT.o) et le build meurt AVANT
+# d'écrire un seul binaire. On ne lie donc que les deux exécutables
+# effectivement archivés en § 4.
 cd "redis-${REDIS_VERSION}"
-make -j"$(nproc)" \
+make -j"$(nproc)" -C src \
+    redis-server redis-cli \
     CC="${MUSL_TARGET}-gcc" \
     AR="${MUSL_TARGET}-ar" \
     RANLIB="${MUSL_TARGET}-ranlib" \

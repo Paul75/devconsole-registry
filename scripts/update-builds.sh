@@ -323,6 +323,19 @@ PY
             prg="$("$PY" -c "import sys; a=sys.argv[1].split('.'); print(f'{a[0]}{int(a[1]):02d}{int(a[2]):02d}00')" "$ver")"
             win_url="https://www.sqlite.org/2026/sqlite-tools-win-x64-${prg}.zip"
             ;;
+        redis)
+            # Windows : binaire tiers redis-windows (build msys2, même paire
+            # redis-server.exe / redis-cli.exe que le tar.gz linux) — c'est
+            # déjà la source des entrées redis antérieures (7.4.11, 7.4.2).
+            # Sans cette branche, l'entrée recopiée de la version précédente
+            # voyait ses url_windows/sha256_windows vidés (win_url restait "")
+            # et redis devenait non installable sous Windows.
+            win_url="https://github.com/redis-windows/redis-windows/releases/download/$ver/Redis-$ver-Windows-x64-msys2.zip"
+            if ! curl --http1.1 -fsIL "$win_url" >/dev/null 2>&1; then
+                echo "  ⚠ Pas de build Windows redis-windows $ver — url_windows laissée vide" >&2
+                win_url=""
+            fi
+            ;;
     esac
     if [ -n "$win_url" ]; then
         echo "→ sha256 windows…"
