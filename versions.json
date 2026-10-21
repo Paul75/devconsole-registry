@@ -117,11 +117,27 @@
     },
     "mysql": {
       "versions": {
+        "26.10.0": {
+          "url": "https://cdn.mysql.com/Downloads/MySQL-26.10/mysql-26.10.0-linux-glibc2.28-x86_64.tar.xz",
+          "url_windows": "https://cdn.mysql.com/Downloads/MySQL-26.10/mysql-26.10.0-winx64.zip",
+          "sha256": "920dc8c00dbe160627f400ba9bd52980e75cedc743407dc7cca4595725a2d834",
+          "sha256_windows": "4ef425963d11675d865528f5970e2b3766a48363694d0a588969fcce6ce54dd9",
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
+          "lts": true
+        },
         "26.7.0": {
           "url": "https://cdn.mysql.com/Downloads/MySQL-26.7/mysql-26.7.0-linux-glibc2.28-x86_64.tar.xz",
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-26.7/mysql-26.7.0-winx64.zip",
           "sha256": "ff8ee807234f239b3b5d0dc4767bc70b1f5d68cc7e357866e87bf529755f2e9c",
           "sha256_windows": "e8d5b08f0d430555497679fa713a9649953ea067f952708a74cdcdf34f8e4b7d",
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
+          "lts": true
+        },
+        "9.7.4": {
+          "url": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.4-linux-glibc2.28-x86_64.tar.xz",
+          "url_windows": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.4-winx64.zip",
+          "sha256": "4959b6f54258f26b51f8012e806cec11f4d68cf2984c978081609bd5ace56d72",
+          "sha256_windows": "641bdaf01004927194c561b956f14f915a3166c9b0f9b1b5464ae63152bf4b96",
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": true
         },
@@ -138,6 +154,14 @@
           "url_windows": "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.1-winx64.zip",
           "sha256": "31d543f8df82372fb3b31d50d7980e4b85c0c2adbaeb62bafd903492ffb9b65f",
           "sha256_windows": "d839045f3cc86a7c5791afc2d8e2a24c0ff6ae4f91a97b2b212c9e032d04d6ea",
+          "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
+          "lts": true
+        },
+        "8.4.13": {
+          "url": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.13-linux-glibc2.28-x86_64.tar.xz",
+          "url_windows": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.13-winx64.zip",
+          "sha256": "e32f82598aef1384d2bbb8e57a1c684f9b7734409ae8028b363fb913e56b8e92",
+          "sha256_windows": "e9cd98b1d23f122987b1afca26ad942efec5891481103d48ae3cde237fa3ea54",
           "binaries": ["bin/mysqld", "bin/mysql", "bin/mysqld_safe", "bin/mysqladmin"],
           "lts": true
         },
@@ -355,6 +379,15 @@
     },
     "vscode": {
       "versions": {
+        "1.143.0": {
+          "url": "https://update.code.visualstudio.com/1.143.0/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.143.0/win32-x64-archive/stable",
+          "sha256": "89302bd9631307a49f3b18a570ce588bf7c53aa4169bf4fb36051a6e76f5e205",
+          "sha256_windows": "459280b4adffd4a17174c6881289f97b005f645a9c79d50274b8ff9bc237e699",
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
+          "lts": true
+        },
         "1.142.0": {
           "url": "https://update.code.visualstudio.com/1.142.0/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.142.0/win32-x64-archive/stable",
@@ -534,6 +567,14 @@
     },
     "zed": {
       "versions": {
+        "1.24.4": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.24.4/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.24.4/Zed-x86_64.exe",
+          "sha256": "ecf2a7969fc71f74a7392b5022c3037c526108f9fe4b6da60355e259cd0dd4d2",
+          "sha256_windows": "29fead14efa19feb30e2d17903b9665236e4456f54316918f108ea9a798af170",
+          "binaries": ["bin/zed"],
+          "lts": true
+        },
         "1.24.3": {
           "url": "https://github.com/zed-industries/zed/releases/download/v1.24.3/zed-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.24.3/Zed-x86_64.exe",
@@ -1216,6 +1257,14 @@
     },
     "go": {
       "versions": {
+        "1.27.3": {
+          "url": "https://go.dev/dl/go1.27.3.linux-amd64.tar.gz",
+          "url_windows": "https://go.dev/dl/go1.27.3.windows-amd64.zip",
+          "sha256": "65efbc80fdc1fa2cd2631cad5b481777a68e8725f34e89f50fc6ac714e379b40",
+          "sha256_windows": "f26081f438319757f8a1b46d7d0b2c5ec7583d4038e485e0aa725cfde7885fff",
+          "binaries": ["bin/go", "bin/gofmt"],
+          "lts": true
+        },
         "1.27.2": {
           "url": "https://go.dev/dl/go1.27.2.linux-amd64.tar.gz",
           "url_windows": "https://go.dev/dl/go1.27.2.windows-amd64.zip",
@@ -1577,6 +1626,15 @@
     },
     "gh": {
       "versions": {
+        "2.102.1": {
+          "url": "https://github.com/cli/cli/releases/download/v2.102.1/gh_2.102.1_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/cli/cli/releases/download/v2.102.1/gh_2.102.1_windows_amd64.zip",
+          "sha256": "77b9e297e94c50336823d0f84de7ef1be60cba704601fa0d98f129f47a94987b",
+          "sha256_windows": "843c0dc119f014d9458aeaff96c44c16fc4b8e556c1c4c5df9bab5ba002356e9",
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
+          "lts": true
+        },
         "2.102.0": {
           "url": "https://github.com/cli/cli/releases/download/v2.102.0/gh_2.102.0_linux_amd64.tar.gz",
           "url_windows": "https://github.com/cli/cli/releases/download/v2.102.0/gh_2.102.0_windows_amd64.zip",
@@ -1635,6 +1693,15 @@
     },
     "uv": {
       "versions": {
+        "0.13.4": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.13.4/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.13.4/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "2b428396f12572d4429cf210ca234dd599a33b3af0958a4d5ed569d63e3f344f",
+          "sha256_windows": "ccec7508a07d9933d7cb1261880633efcf1f30d6e6eddab21823f1dae6f23225",
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
+          "lts": true
+        },
         "0.13.1": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.13.1/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.13.1/uv-x86_64-pc-windows-msvc.zip",
@@ -1934,6 +2001,15 @@
     },
     "cloudflared": {
       "versions": {
+        "2026.10.2": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.2/cloudflared-linux-amd64",
+          "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.2/cloudflared-windows-amd64.exe",
+          "sha256": "35fbdd2beb378436c7da377d7358cea8e33f9c94a6705d1d8036bf9b0d6d8005",
+          "sha256_windows": "12c7c887f8aaab779aef1dfa9b60673530a5adb88ecc55dd6df8f56e0b70f199",
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
+          "lts": true
+        },
         "2026.10.1": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.1/cloudflared-linux-amd64",
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.1/cloudflared-windows-amd64.exe",
