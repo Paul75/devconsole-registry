@@ -55,6 +55,56 @@ echo "→ Build dans $BUILD_DIR…"
 mkdir -p "$BUILD_DIR"
 cd "$BUILD_DIR"
 
+# ── Relocation : l'état de build n'est PAS relocalisable ─────────────────────
+# .build-php/ est lié à l'emplacement ABSOLU du dépôt : les .pc de pkg-config
+# (buildroot/lib/pkgconfig/*.pc) annoncent un prefix= (→ include/lib) dont PHP
+# tire ses -I/-L via pkg-config. Déplacer le dépôt (clé USB → dossier,
+# /media → /home, renommage) laisse ce prefix pointer dans le vide ; spc
+# ré-utilise alors les bibliothèques déjà construites ("lib [libxml2] already
+# built") sans rien recalculer, et le configure échoue sur :
+#     fatal error: libxml/tree.h: No such file or directory
+# Le message ne parle pas du déplacement — il faut le voir pour le croire.
+#
+# Les archives statiques (.a) sont insensibles au chemin (aucun rpath vérifié
+# dedans) : seul le MÉTADONNÉ pkg-config est périmé. On le répare donc, plutôt
+# que de tout reconstruire — un déplacement ne doit pas coûter un rebuild.
+sed_escape() {
+    printf '%s' "$1" | sed -e 's/[^a-zA-Z0-9_/:=-]/\\&/g'
+}
+
+repair_relocated_buildroot() {
+    local pc prefix stale fixed=0
+    shopt -s nullglob
+    for pc in "$BUILD_DIR"/buildroot/lib/pkgconfig/*.pc; do
+        prefix="$(sed -n 's/^prefix=//p' "$pc" | head -1)"
+        [ -n "$prefix" ] || continue
+        [ "$prefix" = "$BUILD_DIR/buildroot" ] && continue
+        stale="$prefix"
+        # Toutes les occurrences du prefix périmé (prefix, libdir, includedir,
+        # Libs.private…) → chemin courant.
+        sed -i "s|$(sed_escape "$prefix")|$(sed_escape "$BUILD_DIR/buildroot")|g" "$pc"
+        fixed=1
+    done
+    shopt -u nullglob
+    [ "$fixed" = "1" ] || return 1
+    echo "→ Buildroot déplacé (prefix périmé : $stale) → métadonnées pkg-config réparées."
+    return 0
+}
+
+if [ -d "$BUILD_DIR/buildroot/lib/pkgconfig" ]; then
+    repair_relocated_buildroot || true
+fi
+
+# Garde : le buildroot doit résoudre les en-têtes qu'il annonce. Sans ce
+# contrôle, un déplacement non détecté produirait une erreur de compilation
+# qui ne parle pas du déplacement — on le dit ici, une fois, avec la cause.
+if [ -d "$BUILD_DIR/buildroot" ] && [ ! -f "$BUILD_DIR/buildroot/include/libxml2/libxml/tree.h" ]; then
+    echo "❌ Buildroot incohérent : en-têtes libxml2 absents de $BUILD_DIR/buildroot/include" >&2
+    echo "   → purger l'état de build (downloads/ conservés) :" >&2
+    echo "       rm -rf $BUILD_DIR/buildroot $BUILD_DIR/source $BUILD_DIR/pkgroot" >&2
+    exit 1
+fi
+
 echo "→ Téléchargement de spc (static-php-cli ${SPC_VERSION})…"
 curl -fsSL -o spc.tar.gz "https://github.com/crazywhalecc/static-php-cli/releases/download/${SPC_VERSION}/spc-linux-x86_64.tar.gz"
 tar -xzf spc.tar.gz
