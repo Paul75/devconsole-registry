@@ -1589,6 +1589,15 @@
     },
     "electerm": {
       "versions": {
+        "5.7.5": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.7.5/electerm-5.7.5-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.7.5/electerm-5.7.5-win-x64-portable.tar.gz",
+          "sha256": "a2a35882ef5a6e5d007ed9b517db7c6f28255860e4a30d0a53b6b354050b0217",
+          "sha256_windows": "0e55a405da4c5e4e347302edbb836334f2de100347f89cc79a5ee6076c97eae2",
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
+          "lts": true
+        },
         "5.6.10": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.6.10/electerm-5.6.10-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.6.10/electerm-5.6.10-win-x64-portable.tar.gz",
@@ -1692,6 +1701,15 @@
     },
     "gh": {
       "versions": {
+        "2.103.2": {
+          "url": "https://github.com/cli/cli/releases/download/v2.103.2/gh_2.103.2_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/cli/cli/releases/download/v2.103.2/gh_2.103.2_windows_amd64.zip",
+          "sha256": "62ccf747115ddc61237efffdde66a3c8f70ba249433dc64f70801089b59c59c8",
+          "sha256_windows": "fef9fcdd8fdabd0501ab8b3d99eac976f504ab55d01bef9e8ef428a5d900ddda",
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
+          "lts": true
+        },
         "2.103.0": {
           "url": "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_linux_amd64.tar.gz",
           "url_windows": "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_windows_amd64.zip",
@@ -2254,6 +2272,15 @@
     },
     "drawio": {
       "versions": {
+        "32.6.1": {
+          "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.1/drawio-x86_64-32.6.1.AppImage",
+          "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.1/draw.io-32.6.1-windows.zip",
+          "sha256": "b0b9f76756be5de5b93286e61713f6832956082ff22dd3ad59c2d62eb9eec932",
+          "sha256_windows": "41291ad0c06469c183b65793e7604dcb83a6d21d8e339a333790cb1d7576a2ed",
+          "binaries": ["drawio"],
+          "binaries_windows": ["draw.io.exe"],
+          "lts": true
+        },
         "32.5.5": {
           "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.5.5/drawio-x86_64-32.5.5.AppImage",
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v32.5.5/draw.io-32.5.5-windows.zip",
