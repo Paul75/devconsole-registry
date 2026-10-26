@@ -577,6 +577,15 @@
     },
     "vscodium": {
       "versions": {
+        "1.143.17183": {
+          "url": "https://github.com/VSCodium/vscodium/releases/download/1.143.17183/VSCodium-linux-x64-1.143.17183.tar.gz",
+          "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.143.17183/VSCodium-win32-x64-1.143.17183.zip",
+          "sha256": null,
+          "sha256_windows": null,
+          "binaries": ["bin/codium"],
+          "binaries_windows": ["bin/codium.cmd"],
+          "lts": true
+        },
         "1.140.06880": {
           "url": "https://github.com/VSCodium/vscodium/releases/download/1.140.06880/VSCodium-linux-x64-1.140.06880.tar.gz",
           "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.140.06880/VSCodium-win32-x64-1.140.06880.zip",
@@ -1589,6 +1598,15 @@
     },
     "electerm": {
       "versions": {
+        "5.7.15": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.7.15/electerm-5.7.15-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.7.15/electerm-5.7.15-win-x64-portable.tar.gz",
+          "sha256": "fd484ee11e51dc7533a04dc251ec6cbe11a35b0ba2185628fd8cac838d9264a3",
+          "sha256_windows": "10ec691a1503afcec210c16ddb8ddbee48d14a4ff572dd1bef9afe458f0cca11",
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
+          "lts": true
+        },
         "5.7.5": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.7.5/electerm-5.7.5-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.7.5/electerm-5.7.5-win-x64-portable.tar.gz",
