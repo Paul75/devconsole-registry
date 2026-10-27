@@ -322,6 +322,14 @@
     },
     "python": {
       "versions": {
+        "3.14.10": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.14.10+20261026-x86_64-unknown-linux-gnu-install_only.tar.gz",
+          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.14.10+20261026-x86_64-pc-windows-msvc-install_only.tar.gz",
+          "sha256": "1b38024924eb7f4cf0cab45d7b871d1f1991354190fccd2625ac7529a43786e2",
+          "sha256_windows": "98bbe6a0d798bcbad142e96e5930a330e4dc407638e898b515c51eb73a27580d",
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
+          "binaries_windows": ["python", "python3", "pip", "pip3"]
+        },
         "3.14.9": {
           "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.14.9+20261021-x86_64-unknown-linux-gnu-install_only.tar.gz",
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.14.9+20261021-x86_64-pc-windows-msvc-install_only.tar.gz",
@@ -351,6 +359,14 @@
           "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20260718/cpython-3.14.6+20260718-x86_64-pc-windows-msvc-install_only.tar.gz",
           "sha256": "b442fb93903c6f3392b2430961d4725354ae0da7558c785a908d714264309b28",
           "sha256_windows": "97c01acd70108234ff042699996f3f4163c791f1d6e35de898475936b86ec3b2",
+          "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
+          "binaries_windows": ["python", "python3", "pip", "pip3"]
+        },
+        "3.12.16": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.12.16+20261026-x86_64_v4-unknown-linux-gnu-install_only.tar.gz",
+          "url_windows": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.12.16+20261026-x86_64-pc-windows-msvc-install_only.tar.gz",
+          "sha256": "5d220fe15f252aea38594f53d4a5f2a65dd4843b93fd8cef9cacea4fcdafc46c",
+          "sha256_windows": "590dfcbe3a34c07301e6332e13e2188b98655cd072b08afa45a7998dc4c22bc5",
           "binaries": ["bin/python3", "bin/python", "bin/pip3", "bin/pip"],
           "binaries_windows": ["python", "python3", "pip", "pip3"]
         },
@@ -1600,6 +1616,15 @@
     },
     "electerm": {
       "versions": {
+        "5.7.21": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.7.21/electerm-5.7.21-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.7.21/electerm-5.7.21-win-x64-portable.tar.gz",
+          "sha256": "9b9596eb209063c57a93d9499f70fcc961f1f1f8c97c134540375ea1f2a541c6",
+          "sha256_windows": "203da3ae0867a239848f33ff4312f73c13712e92fb51e16e5d5699d3219af1bf",
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
+          "lts": true
+        },
         "5.7.15": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.7.15/electerm-5.7.15-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.7.15/electerm-5.7.15-win-x64-portable.tar.gz",
@@ -1721,6 +1746,15 @@
     },
     "gh": {
       "versions": {
+        "2.103.3": {
+          "url": "https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_windows_amd64.zip",
+          "sha256": "4c806978ffce1cec70853302a56d70ac6da4f19bae7adca4e1a8ab00633dd91d",
+          "sha256_windows": "98d0cfa794721665d7973dd728c78aff7bd836d58f10f6d7a03568eccb0a22e0",
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
+          "lts": true
+        },
         "2.103.2": {
           "url": "https://github.com/cli/cli/releases/download/v2.103.2/gh_2.103.2_linux_amd64.tar.gz",
           "url_windows": "https://github.com/cli/cli/releases/download/v2.103.2/gh_2.103.2_windows_amd64.zip",
@@ -1806,6 +1840,15 @@
     },
     "uv": {
       "versions": {
+        "0.13.6": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.13.6/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.13.6/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "f29c3e94ffabd7e6f3ba521dba169a9b7ec12100bf3257087f0f24f6123f3645",
+          "sha256_windows": "a2a8820d5eea32f08ef467ef3b7f66883a9b076d5737a2fc2fbb5f458d1bb50f",
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
+          "lts": true
+        },
         "0.13.5": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.13.5/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.13.5/uv-x86_64-pc-windows-msvc.zip",
@@ -2132,6 +2175,15 @@
     },
     "cloudflared": {
       "versions": {
+        "2026.10.4": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.4/cloudflared-linux-amd64",
+          "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.4/cloudflared-windows-amd64.exe",
+          "sha256": "ae5e8add7884b0531d66bbca4570d1de491ff6da51e4ebe7eb160cdf241d9e42",
+          "sha256_windows": "411b16d40c8d872243efeb52c550053d00af0a8a97fbb32e730fb8aba429eaa8",
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
+          "lts": true
+        },
         "2026.10.3": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.3/cloudflared-linux-amd64",
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.3/cloudflared-windows-amd64.exe",
