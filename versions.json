@@ -2349,6 +2349,15 @@
     },
     "keepassxc": {
       "versions": {
+        "2.8.0-1": {
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.8.0/KeePassXC-2.8.0-1-x86_64.AppImage",
+          "url_windows": "https://github.com/keepassxreboot/keepassxc/releases/download/2.8.0/KeePassXC-2.8.0-x64.zip",
+          "sha256": "3ab1bfbb422272334b48057e6bfc984c839375d9a1cd9350c4ea62ca0b55ca5f",
+          "sha256_windows": "48ff4f088e9ce70e241da1270e5081528dba77c38b17dae4aa6690ffc50fc828",
+          "binaries": ["keepassxc"],
+          "binaries_windows": ["keepassxc.exe"],
+          "lts": true
+        },
         "2.8.0": {
           "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.8.0/KeePassXC-2.8.0-x86_64.AppImage",
           "url_windows": "https://github.com/keepassxreboot/keepassxc/releases/download/2.8.0/KeePassXC-2.8.0-x64.zip",
