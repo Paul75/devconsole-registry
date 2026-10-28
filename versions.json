@@ -593,6 +593,15 @@
     },
     "vscodium": {
       "versions": {
+        "1.143.17232": {
+          "url": "https://github.com/VSCodium/vscodium/releases/download/1.143.17232/VSCodium-linux-x64-1.143.17232.tar.gz",
+          "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.143.17232/VSCodium-win32-x64-1.143.17232.zip",
+          "sha256": "ca1895aa040bd91a09c709d79eac7862d8c1aa0237fdc25b503deeb8bcd87efd",
+          "sha256_windows": null,
+          "binaries": ["bin/codium"],
+          "binaries_windows": ["bin/codium.cmd"],
+          "lts": true
+        },
         "1.143.17183": {
           "url": "https://github.com/VSCodium/vscodium/releases/download/1.143.17183/VSCodium-linux-x64-1.143.17183.tar.gz",
           "url_windows": "https://github.com/VSCodium/vscodium/releases/download/1.143.17183/VSCodium-win32-x64-1.143.17183.zip",
