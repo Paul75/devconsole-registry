@@ -2,11 +2,11 @@
   "tools": {
     "node": {
       "versions": {
-        "24.22.1": {
-          "url": "https://nodejs.org/dist/v24.22.1/node-v24.22.1-linux-x64.tar.xz",
-          "url_windows": "https://nodejs.org/dist/v24.22.1/node-v24.22.1-win-x64.zip",
-          "sha256": "6c172a9ab6718f7b801fb5a7bd486af2ee5e32758086a04b84fcce2aa77095e6",
-          "sha256_windows": "d2046d28c2c3dcd211ac5145c0bf30e2047ef9dfb306693c8c6e2eccd8b95fa5",
+        "24.22.2": {
+          "url": "https://nodejs.org/dist/v24.22.2/node-v24.22.2-linux-x64.tar.xz",
+          "url_windows": "https://nodejs.org/dist/v24.22.2/node-v24.22.2-win-x64.zip",
+          "sha256": "48cc0e21e048790e54c0cf5749c2725005313d652651c40b7a21feb9697aaf75",
+          "sha256_windows": "ca1bff5d8ead13c9f2ea404a176db46bd430704d5b5113734049fa365e7799e2",
           "binaries": ["bin/node", "bin/npm", "bin/npx", "bin/corepack"],
           "lts": true
         },
@@ -427,6 +427,15 @@
     },
     "vscode": {
       "versions": {
+        "1.144.0": {
+          "url": "https://update.code.visualstudio.com/1.144.0/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.144.0/win32-x64-archive/stable",
+          "sha256": "17b72a7e6f40a5b5dce9850f10eea13ce734a63052b67fa021cc01e715ad4cf1",
+          "sha256_windows": "055722269e3c9531af0c50a8b757c14e8062a0d02fc973b038863d9732c567ea",
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
+          "lts": true
+        },
         "1.143.1": {
           "url": "https://update.code.visualstudio.com/1.143.1/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.143.1/win32-x64-archive/stable",
@@ -642,6 +651,14 @@
     },
     "zed": {
       "versions": {
+        "1.26.2": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.26.2/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.26.2/Zed-x86_64.exe",
+          "sha256": "4d7b972019f25bd0a8cc6f4c56c81ab7ad9205f3461d00ac79259b34a03856d2",
+          "sha256_windows": "22b20ef96ed7ce67cd4e869bc263b9ac345e3cffa86552330843c436da1bb17b",
+          "binaries": ["bin/zed"],
+          "lts": true
+        },
         "1.25.3": {
           "url": "https://github.com/zed-industries/zed/releases/download/v1.25.3/zed-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.25.3/Zed-x86_64.exe",
@@ -806,6 +823,15 @@
     },
     "android_studio": {
       "versions": {
+        "2026.2.2.8": {
+          "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.2.8/android-studio-rabbit2-linux.tar.gz",
+          "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.2.8/android-studio-rabbit2-windows.zip",
+          "sha256": "b47fdcc0703019618a7afd5ad1822cafc5de66bed984640be2977a0fdb538304",
+          "sha256_windows": "a05e6742d5fd92a090ee6697c3f75706db735decf5a8543f3bbaf2514c0fd123",
+          "binaries": ["bin/studio.sh"],
+          "binaries_windows": ["bin/studio64"],
+          "lts": true
+        },
         "2026.2.1.8": {
           "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.1.8/android-studio-rabbit1-linux.tar.gz",
           "url_windows": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.1.8/android-studio-rabbit1-windows.zip",
@@ -1348,6 +1374,14 @@
     },
     "composer": {
       "versions": {
+        "2.11.0": {
+          "url": "https://github.com/composer/composer/releases/download/2.11.0/composer.phar",
+          "sha256": "9674f12a2a181100d889ebfd0b4510805b3e94cea57869b14b383753d602599b",
+          "binaries": ["composer"],
+          "lts": true,
+          "url_windows": "https://github.com/composer/composer/releases/download/2.11.0/composer.phar",
+          "sha256_windows": "9674f12a2a181100d889ebfd0b4510805b3e94cea57869b14b383753d602599b"
+        },
         "2.10.3": {
           "url": "https://github.com/composer/composer/releases/download/2.10.3/composer.phar",
           "sha256": "7a2d379d5b8ffdaa028580ef26494c36d2feef4b178d3dd1473a4dbc5e17c8d6",
