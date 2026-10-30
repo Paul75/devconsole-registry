@@ -1668,6 +1668,15 @@
     },
     "electerm": {
       "versions": {
+        "5.8.0": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.8.0/electerm-5.8.0-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.8.0/electerm-5.8.0-win-x64-portable.tar.gz",
+          "sha256": "2b20e38148b14d6811c5ae224a5481975548601c0fd8573ee8e4e8a647278afd",
+          "sha256_windows": "a7eb4e621d6749efb94f2be70a4168deb61ace5f8cfc20d07d2459afa45649dc",
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
+          "lts": true
+        },
         "5.7.21": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.7.21/electerm-5.7.21-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.7.21/electerm-5.7.21-win-x64-portable.tar.gz",
@@ -2227,6 +2236,15 @@
     },
     "cloudflared": {
       "versions": {
+        "2026.10.6": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.6/cloudflared-linux-amd64",
+          "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.6/cloudflared-windows-amd64.exe",
+          "sha256": "1d356dac769d0dbf62ebe588c4034824bbff98d5790c2f844cc99e0e2f57462d",
+          "sha256_windows": "d521b3bf68982165f0d06d76732f22d9a105ef057ff3ae4c0986f3a23190950f",
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
+          "lts": true
+        },
         "2026.10.5": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.5/cloudflared-linux-amd64",
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.5/cloudflared-windows-amd64.exe",
