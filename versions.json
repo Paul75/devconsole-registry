@@ -1280,6 +1280,15 @@
     },
     "mailpit": {
       "versions": {
+        "1.33.0": {
+          "url": "https://github.com/axllent/mailpit/releases/download/v1.33.0/mailpit-linux-amd64.tar.gz",
+          "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.33.0/mailpit-windows-amd64.zip",
+          "sha256": "d0ec50080cbf3e7c1fa2cda2ee68125d7894175811084b1f8f47c6cfc6f487c8",
+          "sha256_windows": "47122dd828ff80dcaef62b2952c478b178afadadf066c990489608e537121bfd",
+          "binaries": ["mailpit"],
+          "binaries_windows": ["mailpit.exe"],
+          "lts": true
+        },
         "1.32.0": {
           "url": "https://github.com/axllent/mailpit/releases/download/v1.32.0/mailpit-linux-amd64.tar.gz",
           "url_windows": "https://github.com/axllent/mailpit/releases/download/v1.32.0/mailpit-windows-amd64.zip",
@@ -1374,6 +1383,14 @@
     },
     "composer": {
       "versions": {
+        "2.11.1": {
+          "url": "https://github.com/composer/composer/releases/download/2.11.1/composer.phar",
+          "sha256": "6f1b891e1d4927d62740276c540fb490e47689e19e102c49e8da849794882f8c",
+          "binaries": ["composer"],
+          "lts": true,
+          "url_windows": "https://github.com/composer/composer/releases/download/2.11.1/composer.phar",
+          "sha256_windows": "6f1b891e1d4927d62740276c540fb490e47689e19e102c49e8da849794882f8c"
+        },
         "2.11.0": {
           "url": "https://github.com/composer/composer/releases/download/2.11.0/composer.phar",
           "sha256": "9674f12a2a181100d889ebfd0b4510805b3e94cea57869b14b383753d602599b",
@@ -2236,6 +2253,15 @@
     },
     "cloudflared": {
       "versions": {
+        "2026.10.7": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.7/cloudflared-linux-amd64",
+          "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.7/cloudflared-windows-amd64.exe",
+          "sha256": "1f99fb518b83dec2ba8d870a7cc991d82a77e6196295a3d2754ba17ab9f91872",
+          "sha256_windows": "2493dbc168923bb3e59e5e7716f71deced92992eea9acd6e9d74f84ac7751343",
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
+          "lts": true
+        },
         "2026.10.6": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.6/cloudflared-linux-amd64",
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.6/cloudflared-windows-amd64.exe",
