@@ -297,6 +297,13 @@
     },
     "caddy": {
       "versions": {
+        "2.11.9": {
+          "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.9/caddy_2.11.9_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.9/caddy_2.11.9_windows_amd64.zip",
+          "sha256": "5b8cb7faf8726a2028ad96a66e54e6e81e8f361bc6175e5d22bbd997cc5177fb",
+          "sha256_windows": "ad93112d335ee687100c4c9f11bced16ca590377976b7fe7883882b9e797e472",
+          "binaries": ["caddy"]
+        },
         "2.11.8": {
           "url": "https://github.com/caddyserver/caddy/releases/download/v2.11.8/caddy_2.11.8_linux_amd64.tar.gz",
           "url_windows": "https://github.com/caddyserver/caddy/releases/download/v2.11.8/caddy_2.11.8_windows_amd64.zip",
@@ -434,6 +441,15 @@
     },
     "vscode": {
       "versions": {
+        "1.145.1": {
+          "url": "https://update.code.visualstudio.com/1.145.1/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.145.1/win32-x64-archive/stable",
+          "sha256": "f8407593a78a9d3a4fe47dbdae59abb21e62369438fbe6792bda4be5afaa83ec",
+          "sha256_windows": "0b5e3c69a840fd9e6c673e983baf90ab1676ab96d80620a768c676b473ad045c",
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
+          "lts": true
+        },
         "1.145.0": {
           "url": "https://update.code.visualstudio.com/1.145.0/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.145.0/win32-x64-archive/stable",
@@ -667,6 +683,14 @@
     },
     "zed": {
       "versions": {
+        "1.27.0": {
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.27.0/zed-linux-x86_64.tar.gz",
+          "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.27.0/Zed-x86_64.exe",
+          "sha256": "719f6bf649ea8d87961adbf728e178561bac3f598d72d7949558d1150cfc43dd",
+          "sha256_windows": "6a39f9a78a6aac805f5aedcf03384b4b49349e9282903f27ebafcb18dde538ca",
+          "binaries": ["bin/zed"],
+          "lts": true
+        },
         "1.26.2": {
           "url": "https://github.com/zed-industries/zed/releases/download/v1.26.2/zed-linux-x86_64.tar.gz",
           "url_windows": "https://github.com/zed-industries/zed/releases/download/v1.26.2/Zed-x86_64.exe",
@@ -1000,11 +1024,11 @@
           ],
           "lts": true
         },
-        "11.0.32": {
-          "url": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.32%2B9/OpenJDK11U-jdk_x64_linux_hotspot_11.0.32_9.tar.gz",
-          "url_windows": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.32%2B9/OpenJDK11U-jdk_x64_windows_hotspot_11.0.32_9.zip",
-          "sha256": "5906e0339e9322a688b2375eaf40666e00a16e008b0067b0a9f9e4b6c5033720",
-          "sha256_windows": "c1a7c406b72fbbd30417d4b0fcf5cccd9318f15fd269f84fcece38d70b21e181",
+        "11.0.33": {
+          "url": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.33%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.33_10.tar.gz",
+          "url_windows": "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.32.1%2B1/OpenJDK11U-jdk_x64_windows_hotspot_11.0.32.1_1.zip",
+          "sha256": "c4b8eaf56c93b95b689ffc08d155df1bcdbbffb666f8f71d21d97aedaea6f0ec",
+          "sha256_windows": "d5008f02174c1ad21c10407cbf104815cb390ec4c263d53946e8d0507d7a77f9",
           "binaries": ["bin/java", "bin/javac", "bin/jar", "bin/javadoc", "bin/jshell"],
           "lts": true
         }
@@ -1081,6 +1105,14 @@
     },
     "sublime_merge": {
       "versions": {
+        "2135": {
+          "url": "https://download.sublimetext.com/sublime_merge_build_2135_x64.tar.xz",
+          "url_windows": "https://download.sublimetext.com/sublime_merge_build_2135_x64.zip",
+          "sha256": "6cd72637f0c43ba9b802cc5de5e1445d273956f4726a3c20177f01517cb684b6",
+          "sha256_windows": "fa328a1f6d9ec77ad868030412cc47338b05dee0ad10db4bc57df847c67da6b0",
+          "binaries": ["sublime_merge"],
+          "lts": true
+        },
         "2134": {
           "url": "https://download.sublimetext.com/sublime_merge_build_2134_x64.tar.xz",
           "url_windows": "https://download.sublimetext.com/sublime_merge_build_2134_x64.zip",
@@ -2483,6 +2515,15 @@
     },
     "drawio": {
       "versions": {
+        "32.6.10": {
+          "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/drawio-x86_64-32.6.10.AppImage",
+          "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/draw.io-32.6.10-windows.zip",
+          "sha256": "94158126a43016b4e6f24bbc2c840ab8b5a51c6bf2796e1b3dadc64390b2d256",
+          "sha256_windows": "ca01af1ebcb8a9cc7383c1c5d6f11ea90ee030e563063b611978584ff70fb4d6",
+          "binaries": ["drawio"],
+          "binaries_windows": ["draw.io.exe"],
+          "lts": true
+        },
         "32.6.1": {
           "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.1/drawio-x86_64-32.6.1.AppImage",
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.1/draw.io-32.6.1-windows.zip",
