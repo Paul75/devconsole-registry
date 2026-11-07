@@ -1742,6 +1742,15 @@
     },
     "electerm": {
       "versions": {
+        "5.9.0": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.9.0/electerm-5.9.0-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.9.0/electerm-5.9.0-win-x64-portable.tar.gz",
+          "sha256": "856924646c8f1b937c813bece804084f18b488456c4361407d28c21bcceae6f8",
+          "sha256_windows": "42896839c2720d52dd951443cfbf7395a20e018f7c9f5ece536b7326b431c026",
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
+          "lts": true
+        },
         "5.8.0": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.8.0/electerm-5.8.0-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.8.0/electerm-5.8.0-win-x64-portable.tar.gz",
