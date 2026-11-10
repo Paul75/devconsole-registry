@@ -295,6 +295,7 @@ for line in "${BUILD_LINES[@]}"; do
             done
             ;;
         git)
+            gitfw_tag=""; gitfw_n=""
             read -r gitfw_tag gitfw_n < <(VERSION="$ver" "$PY" - <<'PY'
 import json, os, re, urllib.request
 ver = os.environ["VERSION"]
@@ -312,9 +313,11 @@ for t in tags:
 if best:
     print(f"{best[0]} {best[1]}")
 PY
-            )
+            ) || true
             if [ -n "${gitfw_tag:-}" ]; then
                 win_url="https://github.com/git-for-windows/git/releases/download/$gitfw_tag/MinGit-${ver}.${gitfw_n}-64-bit.zip"
+            else
+                echo "  ⚠ Pas de tag git-for-windows pour $ver — url_windows laissée vide" >&2
             fi
             ;;
         sqlite)
