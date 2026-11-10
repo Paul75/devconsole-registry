@@ -441,6 +441,15 @@
     },
     "vscode": {
       "versions": {
+        "1.145.3": {
+          "url": "https://update.code.visualstudio.com/1.145.3/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.145.3/win32-x64-archive/stable",
+          "sha256": "567e067c3ce043605af1b466e916173193100cf8c7da911b85e4c5c0869fe621",
+          "sha256_windows": "e204804e4093e2545219fd63d6e4552403f6bd69609cffc436c22db0a5abfb6f",
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
+          "lts": true
+        },
         "1.145.2": {
           "url": "https://update.code.visualstudio.com/1.145.2/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.145.2/win32-x64-archive/stable",
@@ -1457,6 +1466,14 @@
     },
     "composer": {
       "versions": {
+        "2.11.2": {
+          "url": "https://github.com/composer/composer/releases/download/2.11.2/composer.phar",
+          "sha256": "dd158c0afd41d15fac89e1b4e47b5d42911fe316c3687cd5edac98319b25d028",
+          "binaries": ["composer"],
+          "lts": true,
+          "url_windows": "https://github.com/composer/composer/releases/download/2.11.2/composer.phar",
+          "sha256_windows": "dd158c0afd41d15fac89e1b4e47b5d42911fe316c3687cd5edac98319b25d028"
+        },
         "2.11.1": {
           "url": "https://github.com/composer/composer/releases/download/2.11.1/composer.phar",
           "sha256": "6f1b891e1d4927d62740276c540fb490e47689e19e102c49e8da849794882f8c",
@@ -1493,6 +1510,14 @@
     },
     "go": {
       "versions": {
+        "1.27.4": {
+          "url": "https://go.dev/dl/go1.27.4.linux-amd64.tar.gz",
+          "url_windows": "https://go.dev/dl/go1.27.4.windows-amd64.zip",
+          "sha256": "7226736c2339719cda28fbf3a54d71aa63bcefe376e98cef00034268dab24840",
+          "sha256_windows": "178ab98950ac69ab25069307dc6ade79f3816e414cce95b4da166a115cde1e7e",
+          "binaries": ["bin/go", "bin/gofmt"],
+          "lts": true
+        },
         "1.27.3": {
           "url": "https://go.dev/dl/go1.27.3.linux-amd64.tar.gz",
           "url_windows": "https://go.dev/dl/go1.27.3.windows-amd64.zip",
