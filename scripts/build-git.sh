@@ -21,7 +21,10 @@ BUILD_DIR="$PWD/.git-build"
 WORKDIR="$PWD"
 PREFIX="$BUILD_DIR/prefix"
 STAGE="$BUILD_DIR/stage"
-export PATH="$BUILD_DIR/toolchain/bin:$PATH"
+# `$PREFIX/bin` d'abord : `curl-config` doit être celui qu'on vient de
+# construire (git l'appelle pour composer CURL_LDFLAGS). Un curl-config système
+# pointerait sur des bibliothèques absentes de la cross-compilation.
+export PATH="$PREFIX/bin:$BUILD_DIR/toolchain/bin:$PATH"
 export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
 echo "==> git ${GIT_VERSION} — build musl statique"
 mkdir -p "$BUILD_DIR"
@@ -89,16 +92,37 @@ fi
 
 cd "git-${GIT_VERSION}"
 make configure
+# 🔴 `AC_CHECK_LIB([curl], [curl_global_init])` de configure ne teste QUE
+# `-lcurl`. Avec un `libcurl.a` STATIQUE, l'édition de liens du test échoue sur
+# les symboles de ses dépendances (EVP_* d'OpenSSL, zlib), configure en conclut
+# `NO_CURL=YesPlease`, et git est construit **sans `git-remote-https`** :
+# `git push/fetch/clone` en https:// sort alors en
+# « git: 'remote-https' is not a git command ». Le build « réussissait » et
+# l'archive partait sans le support HTTPS (constaté sur 2.56.0 et 2.56.1).
+# Les dépendances transitives vont donc dans LIBS (le lien final les reçoit
+# aussi, sans effet de bord), et curl-config est désigné explicitement pour que
+# CURL_LDFLAGS les transporte.
 CC="${MUSL_TARGET}-gcc" ./configure --host="${MUSL_TARGET}" \
     --prefix="/dist/git-${GIT_VERSION}" \
     --with-curl="$PREFIX" \
     CPPFLAGS="-I$PREFIX/include" \
     LDFLAGS="-L$PREFIX/lib -static" \
+    LIBS="-lcurl -lssl -lcrypto -lz" \
+    CURL_CONFIG="$PREFIX/bin/curl-config" \
+    CURL_CONFIG_OPTS="--libs" \
     ac_cv_fread_reads_directories=yes \
     NO_GETTEXT=1 NO_TCLTK=1 NO_PERL=1 NO_PYTHON=1 NO_EXPAT=1
 make -j"$(nproc)"
 rm -rf "$STAGE"
 make install DESTDIR="$STAGE"
+
+# Garde : jamais publier un git sans transport HTTPS. Sans ce test, un build
+# silencieusement dégradé (NO_CURL) passait les étapes suivantes et partait en
+# release — le défaut n'apparaissait qu'à la première commande réseau.
+if [ ! -x "$STAGE/dist/git-${GIT_VERSION}/libexec/git-core/git-remote-https" ]; then
+    echo "❌ git-remote-https absent de l'installation : libcurl n'a pas été détecté (build sans HTTPS)" >&2
+    exit 1
+fi
 
 # ─── 6. Archive ──────────────────────────────────────────────────────────────
 cd "$WORKDIR"

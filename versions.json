@@ -416,7 +416,7 @@
         "2.56.1": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/git-2.56.1/git-2.56.1-linux-x86_64.tar.gz",
           "url_windows": "",
-          "sha256": "b75621f997096cff97b3255461a316cba557a668f38cd4b08feb941aa614a079",
+          "sha256": "680a78ff83ac6e051ebfebfa3e6783b0bbbca8cb2797b9136adfdc32db5482aa",
           "sha256_windows": "",
           "binaries": ["bin/git"],
           "binaries_windows": ["cmd/git"]
