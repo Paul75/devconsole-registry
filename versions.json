@@ -1596,6 +1596,23 @@
     },
     "rust": {
       "versions": {
+        "1.100.0": {
+          "url": "https://static.rust-lang.org/dist/rust-1.100.0-x86_64-unknown-linux-gnu.tar.xz",
+          "url_windows": "https://static.rust-lang.org/dist/rust-1.100.0-x86_64-pc-windows-msvc.tar.xz",
+          "sha256": "98ee6bec240e1cfe944f17e7092412dc5ef6e008484bb668c6936d35a7d15acd",
+          "sha256_windows": "8c9dabd0a03ebb9d9b8f64fc5298b22ce3c5de7c80e38a075fcc6d81a0e1e7ec",
+          "binaries": [
+            "rustc/bin/rustc",
+            "cargo/bin/cargo",
+            "rustc/bin/rustdoc",
+            "rustfmt-preview/bin/rustfmt",
+            "rustfmt-preview/bin/cargo-fmt",
+            "clippy-preview/bin/clippy-driver",
+            "clippy-preview/bin/cargo-clippy",
+            "rust-analyzer-preview/bin/rust-analyzer"
+          ],
+          "lts": true
+        },
         "1.99.1": {
           "url": "https://static.rust-lang.org/dist/rust-1.99.1-x86_64-unknown-linux-gnu.tar.xz",
           "url_windows": "https://static.rust-lang.org/dist/rust-1.99.1-x86_64-pc-windows-msvc.tar.xz",
@@ -1984,6 +2001,15 @@
     },
     "gh": {
       "versions": {
+        "2.104.0": {
+          "url": "https://github.com/cli/cli/releases/download/v2.104.0/gh_2.104.0_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/cli/cli/releases/download/v2.104.0/gh_2.104.0_windows_amd64.zip",
+          "sha256": "98cb101ad87dbbd3f6b2f2bfcbd43197ccd07643140121d8a9cfaa91eadbc24e",
+          "sha256_windows": "08c06d10482f12c478018cd259f64acbd5f625712cadf331aad19ba973c879e5",
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
+          "lts": true
+        },
         "2.103.3": {
           "url": "https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_linux_amd64.tar.gz",
           "url_windows": "https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_windows_amd64.zip",
@@ -2078,6 +2104,15 @@
     },
     "uv": {
       "versions": {
+        "0.13.8": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.13.8/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.13.8/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "5acfd9177cfecf0bf87578f059728215ccc884388988f55f7a65041b57387d91",
+          "sha256_windows": "529e78a9cec6cd7e3e014f7ecd8bda0c113969d4ed0f2efeedb85c30943325b8",
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
+          "lts": true
+        },
         "0.13.7": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.13.7/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip",
