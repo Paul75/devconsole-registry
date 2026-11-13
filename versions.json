@@ -1294,6 +1294,33 @@
     },
     "postgres": {
       "versions": {
+        "18.7.0": {
+          "url": "https://github.com/theseus-rs/postgresql-binaries/releases/download/18.7.0/postgresql-18.7.0-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://github.com/theseus-rs/postgresql-binaries/releases/download/18.7.0/postgresql-18.7.0-x86_64-pc-windows-msvc.zip",
+          "sha256": "53ca01952cb581145e4fb16b6b3b675da345a82879f350707b9f65863a0642f4",
+          "sha256_windows": "64948bd862b2f9c253067d3476e971b8b31291376fb004c5c7d5d016509401f7",
+          "binaries": [
+            "bin/postgres",
+            "bin/initdb",
+            "bin/pg_ctl",
+            "bin/psql",
+            "bin/createdb",
+            "bin/dropdb",
+            "bin/pg_dump",
+            "bin/pg_restore"
+          ],
+          "binaries_windows": [
+            "bin/postgres.exe",
+            "bin/initdb.exe",
+            "bin/pg_ctl.exe",
+            "bin/psql.exe",
+            "bin/createdb.exe",
+            "bin/dropdb.exe",
+            "bin/pg_dump.exe",
+            "bin/pg_restore.exe"
+          ],
+          "lts": true
+        },
         "18.6.1": {
           "url": "https://github.com/theseus-rs/postgresql-binaries/releases/download/18.6.1/postgresql-18.6.1-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://github.com/theseus-rs/postgresql-binaries/releases/download/18.6.1/postgresql-18.6.1-x86_64-pc-windows-msvc.zip",
