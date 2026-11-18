@@ -2062,6 +2062,15 @@
     },
     "gh": {
       "versions": {
+        "2.105.0": {
+          "url": "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_linux_amd64.tar.gz",
+          "url_windows": "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_windows_amd64.zip",
+          "sha256": "79e7ab5db738c48777b696e374f8b428f0647debfb424f44d2f426370407fe2f",
+          "sha256_windows": "8813a72c899900afaa10e3fec8fbc64b908c89dbfe837e95ed2fa500fc140627",
+          "binaries": ["bin/gh"],
+          "binaries_windows": ["bin/gh.exe"],
+          "lts": true
+        },
         "2.104.0": {
           "url": "https://github.com/cli/cli/releases/download/v2.104.0/gh_2.104.0_linux_amd64.tar.gz",
           "url_windows": "https://github.com/cli/cli/releases/download/v2.104.0/gh_2.104.0_windows_amd64.zip",
@@ -2536,6 +2545,15 @@
     },
     "cloudflared": {
       "versions": {
+        "2026.11.1": {
+          "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.11.1/cloudflared-linux-amd64",
+          "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.11.1/cloudflared-windows-amd64.exe",
+          "sha256": "97bb3b02d23a5980fc9c15a1a270e692da1923f103f920d5b16d4931d5ab55e7",
+          "sha256_windows": "341deda3db5ec498a0482254d6c38c0b7cf01a30c37bb5dd95d2216d08955e35",
+          "binaries": ["cloudflared"],
+          "binaries_windows": ["cloudflared.exe"],
+          "lts": true
+        },
         "2026.11.0": {
           "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.11.0/cloudflared-linux-amd64",
           "url_windows": "https://github.com/cloudflare/cloudflared/releases/download/2026.11.0/cloudflared-windows-amd64.exe",
@@ -2750,6 +2768,15 @@
     },
     "drawio": {
       "versions": {
+        "32.7.4": {
+          "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.7.4/drawio-x86_64-32.7.4.AppImage",
+          "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v32.7.4/draw.io-32.7.4-windows.zip",
+          "sha256": "7d78c781d4ec33d86dc48251c3cadc9c18dcea6bc5d581322c0335ccb33b222c",
+          "sha256_windows": "0d29e3481bfcf933ed6d297e561b32b427bf6c91aaf3ab3fdfc2929e50f0a318",
+          "binaries": ["drawio"],
+          "binaries_windows": ["draw.io.exe"],
+          "lts": true
+        },
         "32.6.10": {
           "url": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/drawio-x86_64-32.6.10.AppImage",
           "url_windows": "https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/draw.io-32.6.10-windows.zip",
