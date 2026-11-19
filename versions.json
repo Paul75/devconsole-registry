@@ -41,6 +41,14 @@
     },
     "php": {
       "versions": {
+        "8.5.13": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.13/php-8.5.13-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://windows.php.net/downloads/releases/php-8.5.13-nts-Win32-vs17-x64.zip",
+          "sha256": "64a6ba7e40fc15057445a0add7812d68931fd6b7a1e3a1523c9feb4d20f85b7d",
+          "sha256_windows": "4ae6c72bc0ca4f6b8f3e9b107874bae0135699f3aabe6c26a1f6103d040eea97",
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
+          "lts": true
+        },
         "8.5.12": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.5.12/php-8.5.12-fpm-linux-x86_64.tar.gz",
           "url_windows": "https://windows.php.net/downloads/releases/php-8.5.12-nts-Win32-vs17-x64.zip",
@@ -78,6 +86,14 @@
           "url_windows": "https://windows.php.net/downloads/releases/php-8.5.8-nts-Win32-vs17-x64.zip",
           "sha256": "14950aca55bf1fcdb0a4dc4dee3543a02f5be5c9a90d5077a51d6c80a521215c",
           "sha256_windows": "63a3f6493f37c9ff3e288ec16621222a6cda5167dd1abffec0019e7f18c8e7e9",
+          "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
+          "lts": true
+        },
+        "8.4.28": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/php-8.4.28/php-8.4.28-fpm-linux-x86_64.tar.gz",
+          "url_windows": "https://windows.php.net/downloads/releases/php-8.4.28-nts-Win32-vs17-x64.zip",
+          "sha256": "478c725781df0f80b9952c4d03e8ad217e865896ba667f49248e7cc84c1e480f",
+          "sha256_windows": "c1f9280588b7b6ad7b518969022f0b0175f106fab9d0639ad0e4ce7cd47ac1ed",
           "binaries": ["bin/php", "sbin/php-fpm", "bin/php-cgi", "php", "php-cgi", "php-fpm"],
           "lts": true
         },
