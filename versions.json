@@ -1367,6 +1367,33 @@
     },
     "postgres": {
       "versions": {
+        "19.0.0": {
+          "url": "https://github.com/theseus-rs/postgresql-binaries/releases/download/19.0.0/postgresql-19.0.0-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://github.com/theseus-rs/postgresql-binaries/releases/download/19.0.0/postgresql-19.0.0-x86_64-pc-windows-msvc.zip",
+          "sha256": "ec7044fb9e2f1126383a869e463c8028d403d161c6a4a88501f43ca64112b623",
+          "sha256_windows": "5b0ceae52de3dbb356a2003fd95c5a323e220bab1e1b6e3ba3bb0da61f8b9ef9",
+          "binaries": [
+            "bin/postgres",
+            "bin/initdb",
+            "bin/pg_ctl",
+            "bin/psql",
+            "bin/createdb",
+            "bin/dropdb",
+            "bin/pg_dump",
+            "bin/pg_restore"
+          ],
+          "binaries_windows": [
+            "bin/postgres.exe",
+            "bin/initdb.exe",
+            "bin/pg_ctl.exe",
+            "bin/psql.exe",
+            "bin/createdb.exe",
+            "bin/dropdb.exe",
+            "bin/pg_dump.exe",
+            "bin/pg_restore.exe"
+          ],
+          "lts": true
+        },
         "18.7.0": {
           "url": "https://github.com/theseus-rs/postgresql-binaries/releases/download/18.7.0/postgresql-18.7.0-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://github.com/theseus-rs/postgresql-binaries/releases/download/18.7.0/postgresql-18.7.0-x86_64-pc-windows-msvc.zip",
@@ -1953,6 +1980,15 @@
     },
     "electerm": {
       "versions": {
+        "5.12.6": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.12.6/electerm-5.12.6-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.12.6/electerm-5.12.6-win-x64-portable.tar.gz",
+          "sha256": "42e0abb3fe3d3900d9f509157847332d29adef7254e8a6a5fe97a7ae75b8c258",
+          "sha256_windows": "352aa63e90ea78847416f01f7c0b7a4bf57da97336810f45fab4df54f5e78cf8",
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
+          "lts": true
+        },
         "5.11.8": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.11.8/electerm-5.11.8-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.11.8/electerm-5.11.8-win-x64-portable.tar.gz",
