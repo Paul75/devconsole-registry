@@ -12,7 +12,7 @@ Usage:
 
 Outils GitHub releases: node, bun, caddy, mailpit, composer, zed, vscodium,
 tabby, go, postgres, windterm, bruno, cloudflared, gh, jq, keepassxc, lazygit,
-mkcert, uv, drawio.
+mkcert, uv, drawio, gimp.
 Outils APIs dediees: python (python-build-standalone + SHA256SUMS), vscode
 (update.code.visualstudio.com), jdk (Adoptium API), rust (channel-rust-stable.toml),
 mariadb (downloads.mariadb.org REST), mysql (tags GitHub mysql/mysql-server),
@@ -646,6 +646,60 @@ def check_drawio(current: dict[str, Any], args: argparse.Namespace) -> list[Upda
     # occurrences (v<v> du tag repris tel quel). Sha256 à calculer via
     # --sha (téléchargement) ou --fill-sha.
     return check_github_latest("drawio", "jgraph/drawio-desktop", current, args)
+
+
+def check_gimp(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    # GIMP : tags GitLab GNOME/gimp sous la forme GIMP_3_2_8. Pas de release
+    # GitHub ; les binaires officiels sont sur download.gimp.org (AppImage
+    # Linux x86_64 + installeur Inno Windows). La substitution générique
+    # réécrit les deux URLs/sha : on force le recalcul des sha256.
+    versions = current.get("versions") or {}
+    if not versions:
+        return []
+
+    tags = http_get_json(
+        "https://gitlab.gnome.org/api/v4/projects/GNOME%2Fgimp/repository/tags?per_page=30"
+    )
+    if not isinstance(tags, list):
+        return []
+    candidates: list[str] = []
+    for t in tags:
+        name = str(t.get("name", ""))
+        m = re.match(r"^GIMP_(\d+)_(\d+)_(\d+)$", name)
+        if m:
+            candidates.append(f"{m.group(1)}.{m.group(2)}.{m.group(3)}")
+    if not candidates:
+        return []
+
+    new_ver = max(candidates, key=parse_version)
+    old_ver = max_version(list(versions))
+    if not version_gt(new_ver, old_ver):
+        return []
+
+    template = versions[old_ver]
+    entry = deepcopy(template)
+    # Les URLs officielles portent la série mineure dans le chemin (v3.2/...).
+    major_minor = ".".join(new_ver.split(".")[:2])
+    old_major_minor = ".".join(old_ver.split(".")[:2])
+    entry["url"] = template["url"].replace(
+        f"/v{old_major_minor}/", f"/v{major_minor}/"
+    ).replace(old_ver, new_ver)
+    if isinstance(template.get("url_windows"), str):
+        entry["url_windows"] = template["url_windows"].replace(
+            f"/v{old_major_minor}/", f"/v{major_minor}/"
+        ).replace(old_ver, new_ver)
+    for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
+        if entry.get(src):
+            if args.sha:
+                print(f"  … gimp: sha256 {src} …", file=sys.stderr)
+                try:
+                    entry[dst] = sha256_url(entry[src])
+                except (urllib.error.HTTPError, urllib.error.URLError, OSError) as e:
+                    print(f"  ! gimp: echec sha {src}: {e}", file=sys.stderr)
+                    entry[dst] = None
+            else:
+                entry[dst] = None
+    return [Update("gimp", old_ver, new_ver, entry, "add")]
 
 
 def check_lazygit(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
@@ -1299,6 +1353,7 @@ CHECKERS: dict[str, Checker] = {
     "jq": check_jq,
     "keepassxc": check_keepassxc,
     "drawio": check_drawio,
+    "gimp": check_gimp,
     "lazygit": check_lazygit,
     "mkcert": check_mkcert,
     "maven": check_maven,
