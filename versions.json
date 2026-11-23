@@ -1327,6 +1327,15 @@
     },
     "redis": {
       "versions": {
+        "8.12.0": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/redis-8.12.0/redis-8.12.0-linux_x86_64-musl.tar.gz",
+          "sha256": "6dd73ee8db79fbad12b260ce35fd42ed7f937bfff6b3a918793695b75950e5da",
+          "binaries": ["redis-server", "redis-cli"],
+          "lts": true,
+          "url_windows": "",
+          "sha256_windows": "",
+          "binaries_windows": ["redis-server", "redis-cli"]
+        },
         "8.10.3": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/redis-8.10.3/redis-8.10.3-linux_x86_64-musl.tar.gz",
           "sha256": "2d43f9962a1c285b73bfc3d666342c0be62206aeb44d011c2eb377b9a765bc1b",
