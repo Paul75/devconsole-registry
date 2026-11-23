@@ -166,4 +166,5 @@ See [\`craft.yml\`](https://github.com/$REPO/blob/main/craft.yml)"
 rm -rf "$BUILD_DIR"
 
 echo "✅ Release php-$FULL_VERSION publiée sur $REPO"
-echo "   Artefact : $ROOT/$ARCHIVE"
+rm -f "$ROOT/$ARCHIVE"
+echo "🧹 Archive locale supprimée : $ROOT/$ARCHIVE"

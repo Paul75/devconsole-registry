@@ -60,3 +60,5 @@ Cross-compilation musl (musl.cc), sans Docker.
 - \`sqlite3\`"
 
 echo "✅ Release sqlite-$VERSION publiée sur $REPO"
+rm -f "$ARCHIVE"
+echo "🧹 Archive locale supprimée : $ARCHIVE"

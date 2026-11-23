@@ -54,3 +54,5 @@ Full build with submodule support — unlike \`darkvertex/static-git\`.
 - Includes \`libexec/git-core/\` with \`git-submodule\`"
 
 echo "✅ Release git-$VERSION publiée sur $REPO"
+rm -f "$ARCHIVE"
+echo "🧹 Archive locale supprimée : $ARCHIVE"

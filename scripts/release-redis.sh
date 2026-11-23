@@ -54,3 +54,5 @@ Jemalloc inclus, systemd désactivé.
 - \`redis-cli\`"
 
 echo "✅ Release redis-$VERSION publiée sur $REPO"
+rm -f "$ARCHIVE"
+echo "🧹 Archive locale supprimée : $ARCHIVE"

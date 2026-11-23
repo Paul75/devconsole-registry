@@ -62,3 +62,5 @@ gh release create "spekter-$VERSION" "$ARCHIVE" \
 - \`spekter-nw\` — mode terminal"
 
 echo "✅ Release spekter-$VERSION publiée sur $REPO"
+rm -f "$ARCHIVE"
+echo "🧹 Archive locale supprimée : $ARCHIVE"
