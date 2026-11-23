@@ -2594,6 +2594,15 @@
     },
     "maven": {
       "versions": {
+        "3.10.2": {
+          "url": "https://dlcdn.apache.org/maven/maven-3/3.10.2/binaries/apache-maven-3.10.2-bin.tar.gz",
+          "url_windows": "https://dlcdn.apache.org/maven/maven-3/3.10.2/binaries/apache-maven-3.10.2-bin.zip",
+          "binaries": ["bin/mvn"],
+          "binaries_windows": ["bin/mvn.cmd"],
+          "lts": true,
+          "sha256": "8ba13121794243e604dbca50439f6ae649ce602675a167129556fd502947b249",
+          "sha256_windows": "7d69999d218e025cf1c14691ba748a09706e47999bd505009403cef9d757c2df"
+        },
         "3.10.1": {
           "url": "https://dlcdn.apache.org/maven/maven-3/3.10.1/binaries/apache-maven-3.10.1-bin.tar.gz",
           "url_windows": "https://dlcdn.apache.org/maven/maven-3/3.10.1/binaries/apache-maven-3.10.1-bin.zip",
