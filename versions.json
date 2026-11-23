@@ -2992,6 +2992,19 @@
           "lts": true
         }
       }
+    },
+    "onlyoffice": {
+      "versions": {
+        "10.0.0": {
+          "url": "https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v10.0.0/DesktopEditors-x86_64.AppImage",
+          "url_windows": "https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v10.0.0/DesktopEditors_x64.exe",
+          "sha256": "3e4668d44f6881d1d8873b38ea9c9fd81b9c77132facdb735bfebfe960edb745",
+          "sha256_windows": "e9f6df29bb09770cfc14c9ebb9bce881ff7ad9705d76b3faf038831fe248e46b",
+          "binaries": ["onlyoffice"],
+          "binaries_windows": ["DesktopEditors.exe"],
+          "lts": true
+        }
+      }
     }
   }
 }

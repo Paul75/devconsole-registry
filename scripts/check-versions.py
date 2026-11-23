@@ -648,6 +648,13 @@ def check_drawio(current: dict[str, Any], args: argparse.Namespace) -> list[Upda
     return check_github_latest("drawio", "jgraph/drawio-desktop", current, args)
 
 
+def check_onlyoffice(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
+    # ONLYOFFICE Desktop Editors (ONLYOFFICE/DesktopEditors). Tags vX.Y.Z ;
+    # assets DesktopEditors-x86_64.AppImage / DesktopEditors_x64.exe.
+    # La substitution générique couvre les URLs/versionnées.
+    return check_github_latest("onlyoffice", "ONLYOFFICE/DesktopEditors", current, args)
+
+
 def check_gimp(current: dict[str, Any], args: argparse.Namespace) -> list[Update]:
     # GIMP : tags GitLab GNOME/gimp sous la forme GIMP_3_2_8. Pas de release
     # GitHub ; les binaires officiels sont sur download.gimp.org (AppImage
@@ -1353,6 +1360,7 @@ CHECKERS: dict[str, Checker] = {
     "jq": check_jq,
     "keepassxc": check_keepassxc,
     "drawio": check_drawio,
+    "onlyoffice": check_onlyoffice,
     "gimp": check_gimp,
     "lazygit": check_lazygit,
     "mkcert": check_mkcert,
