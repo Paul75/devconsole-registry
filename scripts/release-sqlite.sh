@@ -38,13 +38,13 @@ fi
 echo "→ Contenu de l'archive :"
 tar tzf "$ARCHIVE" | sed 's/^/    /'
 
-echo "→ Vérification du binaire (statique, exécutable) :"
-BUILD_DIR=".sqlite-build"
-if [ -x "$BUILD_DIR/sqlite3" ]; then
-    file "$BUILD_DIR/sqlite3"
-    ldd "$BUILD_DIR/sqlite3" 2>&1 | sed 's/^/    /' || true
-    "$BUILD_DIR/sqlite3" --version
-fi
+echo "→ Vérification du binaire (depuis l'archive) :"
+tmp="$(mktemp -d)"
+tar xzf "$ARCHIVE" -C "$tmp" sqlite3
+file "$tmp/sqlite3"
+ldd "$tmp/sqlite3" 2>&1 | sed 's/^/    /' || true
+"$tmp/sqlite3" --version
+rm -rf "$tmp"
 
 # Rebuild de la même version → recréation du tag (suppression préalable).
 gh release delete "sqlite-$VERSION" --repo "$REPO" --yes --cleanup-tag 2>/dev/null || true

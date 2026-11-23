@@ -107,5 +107,11 @@ tar -C "$BUILD_DIR/pkg" \
     -czf "$ARCHIVE" \
     "spekter-${SPEKTER_VERSION}-windows_x86_64"
 
+mv "$ARCHIVE" "$ROOT/"
+cd "$ROOT"
+
+# Nettoyage : évite de laisser les artefacts de compilation extraits.
+rm -rf "$BUILD_DIR"
+
 echo "==> OK : ${ARCHIVE}"
 sha256sum "$ARCHIVE"

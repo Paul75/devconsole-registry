@@ -81,5 +81,9 @@ tar czf "$ARCHIVE" \
     -C "$BUILD_DIR" \
     sqlite3
 
+# Nettoyage : évite de laisser des artefacts temporaires de compilation
+# susceptibles de déclencher des faux positifs antivirus.
+rm -rf "$BUILD_DIR"
+
 echo "==> OK : ${ARCHIVE}"
 echo "Version complète : ${SQLITE_VERSION}"

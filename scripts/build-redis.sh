@@ -63,5 +63,9 @@ tar czf "$ARCHIVE" \
     -C "$BUILD_DIR/redis-${REDIS_VERSION}/src" \
     redis-server redis-cli
 
+# Nettoyage : évite de laisser des binaires temporaires (conftest, objets)
+# qui peuvent déclencher des faux positifs antivirus.
+rm -rf "$BUILD_DIR"
+
 echo "==> OK : ${ARCHIVE}"
 echo "Version complète : ${REDIS_VERSION}"

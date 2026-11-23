@@ -130,4 +130,8 @@ tar czf "git-${GIT_VERSION}-linux-x86_64.tar.gz" \
     -C "$STAGE/dist/git-${GIT_VERSION}" \
     bin/git libexec/git-core/ share/git-core/templates/
 
+# Nettoyage : les builds Autoconf génèrent des binaires temporaires `conftest*`
+# souvent signalés en faux positifs par les antivirus.
+rm -rf "$BUILD_DIR"
+
 echo "==> OK : git-${GIT_VERSION}-linux-x86_64.tar.gz"

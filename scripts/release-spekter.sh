@@ -39,13 +39,15 @@ echo "→ Contenu de l'archive :"
 tar tzf "$ARCHIVE" | sed 's/^/    /'
 sha256sum "$ARCHIVE" | sed 's/^/    /'
 
-echo "→ Vérification du binaire GUI :"
-BUILD_DIR=".spekter-build"
-GUI="$BUILD_DIR/spekter-${VERSION}/target/release/spekter"
+echo "→ Vérification du binaire GUI (depuis l'archive) :"
+tmp="$(mktemp -d)"
+tar xzf "$ARCHIVE" -C "$tmp"
+GUI="$tmp/spekter-${VERSION}-linux_x86_64/spekter"
 if [ -x "$GUI" ]; then
     "$GUI" --version
     ldd "$GUI" 2>&1 | sed 's/^/    /' || true
 fi
+rm -rf "$tmp"
 
 # Rebuild de la même version → recréation du tag (suppression préalable).
 gh release delete "spekter-$VERSION" --repo "$REPO" --yes --cleanup-tag 2>/dev/null || true

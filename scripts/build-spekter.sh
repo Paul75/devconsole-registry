@@ -145,5 +145,8 @@ tar -C "$BUILD_DIR/pkg" \
 gzip -9n "$BUILD_DIR/pkg.tar"
 mv "$BUILD_DIR/pkg.tar.gz" "$ARCHIVE"
 
+# Nettoyage : évite de laisser les artefacts de compilation extraits.
+rm -rf "$BUILD_DIR"
+
 echo "==> OK : ${ARCHIVE}"
 sha256sum "$ARCHIVE"

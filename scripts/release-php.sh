@@ -136,6 +136,8 @@ mkdir -p buildroot/sbin
 cp buildroot/bin/php-fpm buildroot/sbin/php-fpm
 ARCHIVE="php-${FULL_VERSION}-fpm-linux-x86_64.tar.gz"
 tar czf "$ARCHIVE" -C buildroot bin/php bin/php-cgi sbin/php-fpm
+mv "$ARCHIVE" "$ROOT/"
+cd "$ROOT"
 
 # Rebuild de la même version → recréation du tag (suppression préalable).
 gh release delete "php-$FULL_VERSION" --repo "$REPO" --yes --cleanup-tag 2>/dev/null || true
@@ -159,5 +161,9 @@ sqlite3, tokenizer, xml, xmlwriter, xmlreader, xsl, zip, zlib
 ## Build config
 See [\`craft.yml\`](https://github.com/$REPO/blob/main/craft.yml)"
 
+# Nettoyage : les sources/build PHP (dont conftest Autoconf) peuvent déclencher
+# des faux positifs antivirus ; on garde uniquement l'archive publiée.
+rm -rf "$BUILD_DIR"
+
 echo "✅ Release php-$FULL_VERSION publiée sur $REPO"
-echo "   Artefact : $BUILD_DIR/$ARCHIVE"
+echo "   Artefact : $ROOT/$ARCHIVE"
