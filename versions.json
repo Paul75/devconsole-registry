@@ -2848,6 +2848,15 @@
     },
     "spekter": {
       "versions": {
+        "1.5.0": {
+          "url": "https://github.com/Paul75/devconsole-registry/releases/download/spekter-1.5.0/spekter-1.5.0-linux_x86_64.tar.gz",
+          "url_windows": "",
+          "sha256": "48e2efd8b03f647a0ed65686168abe33cd799f3902f687ac43e48b85fb156663",
+          "sha256_windows": "",
+          "binaries": ["spekter", "spekter-nw"],
+          "lts": true,
+          "binaries_windows": ["spekter.exe", "spekter-nw.exe"]
+        },
         "1.4.0": {
           "url": "https://github.com/Paul75/devconsole-registry/releases/download/spekter-1.4.0/spekter-1.4.0-linux_x86_64.tar.gz",
           "url_windows": "",
