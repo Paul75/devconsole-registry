@@ -489,6 +489,15 @@
     },
     "vscode": {
       "versions": {
+        "1.148.0": {
+          "url": "https://update.code.visualstudio.com/1.148.0/linux-x64/stable",
+          "url_windows": "https://update.code.visualstudio.com/1.148.0/win32-x64-archive/stable",
+          "sha256": "7acdaf01a1d7a27c55828156ec3fdbe75b8e0809070fecd10de022c4982a0f16",
+          "sha256_windows": "56ee0e1f9bd36c55c84bfc435971c9a95802a80197f7cc13c009bf686187abc7",
+          "binaries": ["bin/code"],
+          "binaries_windows": ["bin/code.cmd"],
+          "lts": true
+        },
         "1.147.0": {
           "url": "https://update.code.visualstudio.com/1.147.0/linux-x64/stable",
           "url_windows": "https://update.code.visualstudio.com/1.147.0/win32-x64-archive/stable",
@@ -1997,6 +2006,15 @@
     },
     "electerm": {
       "versions": {
+        "5.15.0": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.15.0/electerm-5.15.0-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.15.0/electerm-5.15.0-win-x64-portable.tar.gz",
+          "sha256": "1653860754922523ecc5a95a4de0fa19b1268510632c64aaa7755485129e60a9",
+          "sha256_windows": "daef2a141cf653ce9d97179b877782354bd73a7b58bbac3b81dd5ac00d3b0c57",
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
+          "lts": true
+        },
         "5.12.6": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.12.6/electerm-5.12.6-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.12.6/electerm-5.12.6-win-x64-portable.tar.gz",
@@ -2284,6 +2302,15 @@
     },
     "uv": {
       "versions": {
+        "0.13.10": {
+          "url": "https://releases.astral.sh/github/uv/releases/download/0.13.10/uv-x86_64-unknown-linux-gnu.tar.gz",
+          "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.13.10/uv-x86_64-pc-windows-msvc.zip",
+          "sha256": "bf65ac1a0af10f92c522d91ac096c7c0a39657647b155577e7836c2cbbb4526c",
+          "sha256_windows": "297b3881fe1adfb922becc2c1613202abb41dc83ea5ff43d472aa087ca1f8683",
+          "binaries": ["uv"],
+          "binaries_windows": ["uv.exe"],
+          "lts": true
+        },
         "0.13.9": {
           "url": "https://releases.astral.sh/github/uv/releases/download/0.13.9/uv-x86_64-unknown-linux-gnu.tar.gz",
           "url_windows": "https://releases.astral.sh/github/uv/releases/download/0.13.9/uv-x86_64-pc-windows-msvc.zip",
