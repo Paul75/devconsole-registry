@@ -182,8 +182,15 @@ def make_entry(
     sha256 (calcul si --sha, sinon None)."""
     entry = deepcopy(template)
     for key in ("url", "url_windows"):
-        if key in entry and isinstance(entry[key], str):
-            entry[key] = substitute_version(entry[key], old_ver, new_ver)
+        url = entry.get(key)
+        # Une URL vide signifie « pas d'artefact pour cette plateforme »
+        # (ex. spekter 1.4.0, sans build Windows) : ce n'est PAS un template
+        # dans lequel substituer la version. La laisser passer faisait lever
+        # substitute_version() et avorter le checker entier — la mise à jour
+        # était perdue sans que rien ne soit écrit. Le garde strict reste
+        # actif pour toute URL non vide.
+        if isinstance(url, str) and url:
+            entry[key] = substitute_version(url, old_ver, new_ver)
     if args.sha:
         for src, dst in (("url", "sha256"), ("url_windows", "sha256_windows")):
             if entry.get(src):
