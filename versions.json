@@ -2014,6 +2014,15 @@
     },
     "electerm": {
       "versions": {
+        "5.20.0": {
+          "url": "https://github.com/electerm/electerm/releases/download/v5.20.0/electerm-5.20.0-linux-x64.tar.gz",
+          "url_windows": "https://github.com/electerm/electerm/releases/download/v5.20.0/electerm-5.20.0-win-x64-portable.tar.gz",
+          "sha256": "31d21bbd9c914e50f469a7575efeb688e100bb152607ec2161939988e8a68ec4",
+          "sha256_windows": "2e0b05a0f46d441e0267b23b04ff3cd57073ae0bb4f4a5ede306d4d98ed2a649",
+          "binaries": ["electerm"],
+          "binaries_windows": ["electerm.exe"],
+          "lts": true
+        },
         "5.15.0": {
           "url": "https://github.com/electerm/electerm/releases/download/v5.15.0/electerm-5.15.0-linux-x64.tar.gz",
           "url_windows": "https://github.com/electerm/electerm/releases/download/v5.15.0/electerm-5.15.0-win-x64-portable.tar.gz",
