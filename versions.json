@@ -1766,6 +1766,23 @@
     },
     "rust": {
       "versions": {
+        "1.100.1": {
+          "url": "https://static.rust-lang.org/dist/rust-1.100.1-x86_64-unknown-linux-gnu.tar.xz",
+          "url_windows": "https://static.rust-lang.org/dist/rust-1.100.1-x86_64-pc-windows-msvc.tar.xz",
+          "sha256": "cf0d1dc00dbccc0bc63ec0bdb3da8bafe3e969cb3fbfa36dc5e6205467a50fea",
+          "sha256_windows": "655946d9919c6795f555c9e80086d77128ba27348794875bda22d5afe46f75a9",
+          "binaries": [
+            "rustc/bin/rustc",
+            "cargo/bin/cargo",
+            "rustc/bin/rustdoc",
+            "rustfmt-preview/bin/rustfmt",
+            "rustfmt-preview/bin/cargo-fmt",
+            "clippy-preview/bin/clippy-driver",
+            "clippy-preview/bin/cargo-clippy",
+            "rust-analyzer-preview/bin/rust-analyzer"
+          ],
+          "lts": true
+        },
         "1.100.0": {
           "url": "https://static.rust-lang.org/dist/rust-1.100.0-x86_64-unknown-linux-gnu.tar.xz",
           "url_windows": "https://static.rust-lang.org/dist/rust-1.100.0-x86_64-pc-windows-msvc.tar.xz",
